@@ -33038,11 +33038,18 @@
 	    this.image = [{
 	        title: 'Cute Mango Calico Bunny',
 	        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-	        description: 'Here is a picure of a really cute bunny.'
+	        description: 'Here is a picure of a really cute bunny.',
+	        value: 0
 	    }, {
-	        title: 'Cute Mango Calico Bunny',
-	        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-	        description: 'Here is a picure of a really cute bunny.'
+	        title: 'Albino Bunnies',
+	        url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/two-beautiful-rabbits-hd-free-wallappers-for-desktop.jpg',
+	        description: 'Bunnies with white fur and red eyes.',
+	        value: 1
+	    }, {
+	        title: 'Floppy Ears Bunny',
+	        url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/so-sweet-rabbit-wallpapers-images-free-hd.jpg',
+	        description: 'This is a bunny with very floppy ears.',
+	        value: 2
 	    }];
 	}
 
@@ -33050,7 +33057,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-model=\"bunny\">\n            <option value=\"0\">Bunny 1</option>\n            <option value=\"1\">Bunny 2</option>\n        </select>\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n    </div>\n    <image-detail ng-if=\"view==='detail'\" image=\"app.image[{{app.bunny}}]\"></image-detail>\n    <image-thumbnail ng-if=\"view==='thumbnail'\" image=\"app.image[{{app.bunny}}]\"></image-thumbnail>\n    <image-gallery ng-if=\"view==='gallery'\" image=\"app.image[{{app.bunny}}]\"></image-gallery>\n</section>\n";
+	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-init=\"bunny = options[0]\" ng-model=\"app.bunny\">\n            <option value=\"0\">Calico Bunny</option>\n            <option value=\"1\">Albino Bunnies</option>\n            <option value=\"2\">Floppy Ears Bunny</option>\n        </select>\n        <!--<select ng-model=\"app.bunny\" ng-options=\"i.title for i in app.image\"></select>-->\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"app.view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n    </div>\n    <image-detail ng-if=\"app.view==='detail'\" image=\"app.image[app.bunny]\"></image-detail>\n    <image-thumbnail ng-if=\"app.view==='thumbnail'\" image=\"app.image[app.bunny]\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view==='gallery'\" image=\"app.image[app.bunny]\"></image-gallery>\n</section>\n";
 
 /***/ },
 /* 14 */
