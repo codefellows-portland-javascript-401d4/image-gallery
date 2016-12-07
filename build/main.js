@@ -58,7 +58,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]);
+	var app = _angular2.default.module('myApp', [_components2.default]);
 
 /***/ },
 /* 1 */
@@ -33024,7 +33024,7 @@
 	  this.image = {
 	    url: 'http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg',
 	    image_title: 'Little bunny',
-	    image_description: 'Little bunny image.'
+	    image_description: 'Young little bunny in the grass'
 	  };
 	}
 
@@ -33061,7 +33061,7 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Image detail</h1>\r\n<a href=\"{{$ctrl.image.url}}\">Link to image</a>";
+	module.exports = "<h3>Image detail</h3>\r\n<p>{{$ctrl.image.image_title}}</p>\r\n<a href=\"{{$ctrl.image.url}}\">Link to image</a>\r\n<p>{{$ctrl.image.image_description}}</p>";
 
 /***/ },
 /* 16 */
@@ -33090,7 +33090,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<h4>Large image view</h4>\r\n<img ng-src=\"{{$ctrl.imgage.url}}\"/>\r\n<p>{{$ctrl.image.image_description}}</p>";
+	module.exports = "<h2>Large image view</h2>\r\n<img ng-src=\"{{$ctrl.image.url}}\"/>\r\n<p>{{$ctrl.image.image_description}}</p>";
 
 /***/ },
 /* 18 */
@@ -33119,7 +33119,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<h3>Thumbnail view</h3>\r\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.image.url}}\"/>";
+	module.exports = "<h4>Thumbnail image view</h4>\r\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.image.url}}\"/>\r\n<p>{{$ctrl.image.image_description}}</p>\r\n";
 
 /***/ }
 /******/ ]);

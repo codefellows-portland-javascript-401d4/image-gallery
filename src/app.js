@@ -3,4 +3,5 @@ import './css/main.css';
 
 import components from './components';
 
-angular.module('myApp', [components]);
+var app = angular.module('myApp', [components]);
+
