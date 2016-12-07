@@ -3,7 +3,7 @@
   {{$ctrl.image.name}} <br>
   {{$ctrl.image.url}}<br>
   {{$ctrl.image.description}}<br>
-  <button name="thumb" ng-click="$ctrl.toggleView(name)">thumb</button>
-  <button name="full" ng-click="$ctrl.toggleView(name)">view</button>
+  <button name="thumb" ng-click="app.toggleView('thumb')">thumb</button>
+  <button name="full" ng-click="app.toggleView('full')">view</button>
   <button ng-click="$ctrl.delete()">remove</button>
 </span>

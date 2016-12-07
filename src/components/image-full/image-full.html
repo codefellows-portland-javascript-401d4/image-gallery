@@ -3,7 +3,7 @@
   <img src="{{$ctrl.image.url}}"><br>
   {{$ctrl.image.name}}<br>
   {{$ctrl.image.description}}<br>
-  <button name="list" ng-click="$ctrl.view(name)">list</button>
-  <button name="thumb" ng-click="$ctrl.view(name)">thumb</button>
+  <button name="list" ng-click="app.view('list')">list</button>
+  <button name="thumb" ng-click="app.view('thumb')">thumb</button>
   <button ng-click="$ctrl.delete()">remove</button>
 </span>
