@@ -1,0 +1,17 @@
+body {
+    background-color: gray;
+}
+
+.title {
+    font-size: 70px;
+}
+
+.full img {
+    height: 700px;
+    width: 1000px;
+}
+
+.thumb img {
+    height: 100px;
+    width: 100px;
+}

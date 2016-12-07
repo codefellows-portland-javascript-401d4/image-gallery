@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Image Text...</h1>
+    <ul>
+        <li ng-repeat="text in app.text track by text.title">
+            <p>{{text.title}}</p>
+            <p>{{text.description}}</p>
+            <p>Url: {{text.url}}</p>
+        </li>
+    </ul>
+</body>
+</html>
