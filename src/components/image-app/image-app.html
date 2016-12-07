@@ -1,10 +1,15 @@
 <header class="image">GALLERY</header>
+<button name="list" ng-click="app.toggleView({name: this.name})">list</button>
+<button name="thumb" ng-click="app.toggleView(name)">thumb</button>
+<button name="full" ng-click="app.toggleView(name)">view</button>
+name = {{name}} = name
 
 <ul>
-  <li ng-if="toggleView === 'list'" ng-repeat="image in app.images">
+  <li  ng-if="true" ng-repeat="image in app.images">
     <image-list
       image="image"
-      remove="app.remove">
+      remove="app.remove"
+      toggleView="app.toggleView">
     </image-list>    
   </li>
 </ul>
@@ -12,10 +17,11 @@
 <br><br>
 
 <ul>
-  <li ng-if="toggleView === thumb" ng-repeat="image in app.images">
+  <li ng-if="app.toggleView === 'thumb'" ng-repeat="image in app.images">
     <image-thumb
       image="image"
-      remove="app.remove">
+      remove="app.remove"
+      toggleView="app.toggleView">
     </image-thumb>    
   </li>
 </ul>
@@ -23,10 +29,11 @@
 <br><br>
 
 <ul>
-  <li ng-if="toggleView === full" g-repeat="image in app.images">
+  <li ng-if="$ctrl.toggleView(name) === 'full'" ng-repeat="image in app.images">
      <image-full
       image="image"
-      remove="app.remove">
+      remove="app.remove"
+      toggleView="app.toggleView">
     </image-full>   
   </li>
 </ul>
