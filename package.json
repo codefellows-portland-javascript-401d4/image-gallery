@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && exit 0",
+    "test": "exit 0",
     "lint": "eslint .",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
