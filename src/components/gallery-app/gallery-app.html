@@ -1,7 +1,7 @@
 <select ng-model="view">
-    <option>Info</option>
-    <option>Thumbnail</option>
-    <option>Full</option>
+    <option value="Info">Info</option>
+    <option value="Thumbnail">Thumbnail</option>
+    <option value="Full">Full</option>
 </select>
 <section>
     <image-info ng-if="view === 'Info'" img="$ctrl.img"></image-info>
