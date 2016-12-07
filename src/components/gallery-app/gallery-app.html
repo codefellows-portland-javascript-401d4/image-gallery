@@ -1,27 +1,10 @@
-<div>
-  <h2>Bunny</h2>
-  <a href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"></a>
-  <p>Some sort of bunny.</p>
-</div>
-
-<div>
-  <img class="thumb" src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"></a>
-</div>
-
-<div>
-  <h2>Bunny</h2>
-  <img src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg">
-  <p>Some sort of bunny.</p>
-</div>
-
-
-
-<!--<image-thumbnail>
-  <img class="thumb" ng-src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"></a>
-</image-thumbnail>
-
-<image-gallery>
-  <h2>Bunny</h2>
-  <img ng-src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg">
-  <p>Some sort of bunny.</p>
-</image-gallery>-->
+<select ng-model="view">
+    <option>Info</option>
+    <option>Thumbnail</option>
+    <option>Full</option>
+</select>
+<section>
+    <image-info ng-if="view === 'Info'" img="$ctrl.img"></image-info>
+    <image-thumb ng-if="view === 'Thumbnail'" img="$ctrl.img"></image-thumb>
+    <image-full ng-if="view === 'Full'" img="$ctrl.img"></image-full>
+</section>
