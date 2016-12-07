@@ -32988,7 +32988,9 @@
 
 	var map = {
 		"./image-app/image-app.js": 12,
-		"./image-detail/image-detail.js": 14
+		"./image-detail/image-detail.js": 16,
+		"./image-gallery/image-gallery.js": 20,
+		"./image-thumbnail/image-thumbnail.js": 24
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33018,6 +33020,10 @@
 	
 	var _imageApp2 = _interopRequireDefault(_imageApp);
 	
+	var _imageApp3 = __webpack_require__(14);
+	
+	var _imageApp4 = _interopRequireDefault(_imageApp3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
@@ -33028,21 +33034,34 @@
 	
 	
 	function controller() {
-	    this.image = {
+	    this.styles = _imageApp4.default;
+	    this.image = [{
 	        title: 'Cute Mango Calico Bunny',
 	        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
 	        description: 'Here is a picure of a really cute bunny.'
-	    };
+	    }, {
+	        title: 'Cute Mango Calico Bunny',
+	        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
+	        description: 'Here is a picure of a really cute bunny.'
+	    }];
 	}
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <image-detail image=\"app.image\"></image-detail>\n</section>\n";
+	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-model=\"bunny\">\n            <option value=\"0\">Bunny 1</option>\n            <option value=\"1\">Bunny 2</option>\n        </select>\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n    </div>\n    <image-detail ng-if=\"view==='detail'\" image=\"app.image[{{app.bunny}}]\"></image-detail>\n    <image-thumbnail ng-if=\"view==='thumbnail'\" image=\"app.image[{{app.bunny}}]\"></image-thumbnail>\n    <image-gallery ng-if=\"view==='gallery'\" image=\"app.image[{{app.bunny}}]\"></image-gallery>\n</section>\n";
 
 /***/ },
 /* 14 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"image":"_3S27sEoQlDcgENzXMPGJNI"};
+
+/***/ },
+/* 15 */,
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33051,11 +33070,11 @@
 	    value: true
 	});
 	
-	var _imageDetail = __webpack_require__(15);
+	var _imageDetail = __webpack_require__(17);
 	
 	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
-	var _imageDetail3 = __webpack_require__(16);
+	var _imageDetail3 = __webpack_require__(18);
 	
 	var _imageDetail4 = _interopRequireDefault(_imageDetail3);
 	
@@ -33075,17 +33094,111 @@
 	}
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.image-detail\">\n    <p>Title: {{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.detail\">\n    <p>Title: {{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n\n";
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"image-detail":"_3vECJz4EewZCOVWiO21lKb"};
+	module.exports = {"detail":"_3yCTas6A8zUCisoe9Boch6"};
+
+/***/ },
+/* 19 */,
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageGallery = __webpack_require__(21);
+	
+	var _imageGallery2 = _interopRequireDefault(_imageGallery);
+	
+	var _imageGallery3 = __webpack_require__(22);
+	
+	var _imageGallery4 = _interopRequireDefault(_imageGallery3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    bindings: {
+	        image: '<'
+	    },
+	    template: _imageGallery2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _imageGallery4.default;
+	}
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "<section ng-class=\"$ctrl.styles.gallery\">\n    <p>Title: {{$ctrl.image.title}}</p>\n    <p><img ng-src=\"{{$ctrl.image.url}}\"></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n";
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"gallery":"_14OweBXFrqVUuBQ8dCXLk4"};
+
+/***/ },
+/* 23 */,
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageThumbnail = __webpack_require__(25);
+	
+	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
+	
+	var _imageThumbnail3 = __webpack_require__(26);
+	
+	var _imageThumbnail4 = _interopRequireDefault(_imageThumbnail3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    bindings: {
+	        image: '<'
+	    },
+	    template: _imageThumbnail2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _imageThumbnail4.default;
+	}
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	module.exports = "<section ng-class=\"$ctrl.styles.thumbnail\">\n    <img ng-src=\"{{$ctrl.image.url}}\">\n</section>\n";
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"thumbnail":"_11T7qyV23K_HJKWVsGU9lU"};
 
 /***/ }
 /******/ ]);
