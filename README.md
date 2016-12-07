@@ -6,11 +6,14 @@
 
 
 ### Project Functionality
-  - This is a Code Fellows Project to create an image galler that uses Angular.
-  - 
+  - This is a Code Fellows Project to create an image gallery that uses Angular.
+  - List component - renders title, url, description
+  - Thumb component - renders thumbnail image
+  - Image component - renders image, title, description
 
-### Functionality
-  - 
+  - in each component the remove button deletes image from the gallery
+  - list, view, thumbs buttons not-working - will eventually toggle between three component views
+
 
 ### Technologies used
   - For app
@@ -38,6 +41,8 @@
 
 
 ### Testing
+  - is irrelevant at this moment as no tests are necessary to complete lab
+
   - Set Up
     - To run the test suite at cli at root of the project directory type:
       ```
