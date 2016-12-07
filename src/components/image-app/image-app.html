@@ -1,10 +1,33 @@
-<h1 class="image">IMAGES</h1>
+<header class="image">GALLERY</header>
 
 <ul>
   <li ng-repeat="image in app.images">
-    <image-detail
+    <image-list
       image="image"
       remove="app.remove">
-    </image-detail>
+    </image-list>    
   </li>
 </ul>
+
+<br><br>
+
+<ul>
+  <li ng-repeat="image in app.images">
+    <image-thumb
+      image="image"
+      remove="app.remove">
+    </image-thumb>    
+  </li>
+</ul>
+
+<br><br>
+
+<ul>
+  <li ng-repeat="image in app.images">
+     <image-full
+      image="image"
+      remove="app.remove">
+    </image-full>   
+  </li>
+</ul>
+

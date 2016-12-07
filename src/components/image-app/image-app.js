@@ -8,7 +8,7 @@ export default {
 
 function controller() {
   this.images = [
-    {name: 'anarchobunny', url: 'http://photos1.blogger.com/blogger/7318/426/1600/anarchobunny.jpg'}
+    {name: 'anarchobunny', description: 'this is anarchobunny, he likes tools, syndicalists and bandanas', url: 'http://photos1.blogger.com/blogger/7318/426/1600/anarchobunny.jpg'}
   ];
 
   this.remove = image => {
