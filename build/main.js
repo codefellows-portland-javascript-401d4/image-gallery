@@ -50,14 +50,15 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _components = __webpack_require__(3);
+	__webpack_require__(3);
+	
+	var _components = __webpack_require__(7);
 	
 	var _components2 = _interopRequireDefault(_components);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_angular2.default.module('myApp', [_components2.default]);
-	// import './css/main.css';
 
 /***/ },
 /* 1 */
@@ -32458,6 +32459,15 @@
 
 /***/ },
 /* 3 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32470,17 +32480,17 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _camelcase = __webpack_require__(4);
+	var _camelcase = __webpack_require__(8);
 	
 	var _camelcase2 = _interopRequireDefault(_camelcase);
 	
-	var _path = __webpack_require__(5);
+	var _path = __webpack_require__(9);
 	
 	var _path2 = _interopRequireDefault(_path);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(7);
+	var context = __webpack_require__(11);
 	
 	var _module = _angular2.default.module('components', []);
 	
@@ -32492,7 +32502,7 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 4 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32547,7 +32557,7 @@
 
 
 /***/ },
-/* 5 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -32775,10 +32785,10 @@
 	    }
 	;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-/* 6 */
+/* 10 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -32964,11 +32974,14 @@
 
 
 /***/ },
-/* 7 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./bunny-app/bunny-app.js": 8
+		"./bunny-app/bunny-app.js": 12,
+		"./bunny-detail/bunny-detail.js": 14,
+		"./bunny-full-size/bunny-full-size.js": 16,
+		"./bunny-thumbnail/bunny-thumbnail.js": 18
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -32981,11 +32994,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 7;
+	webpackContext.id = 11;
 
 
 /***/ },
-/* 8 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32994,7 +33007,7 @@
 	  value: true
 	});
 	
-	var _bunnyApp = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./bunny-app.html\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _bunnyApp = __webpack_require__(13);
 	
 	var _bunnyApp2 = _interopRequireDefault(_bunnyApp);
 	
@@ -33008,11 +33021,105 @@
 	
 	
 	function controller() {
-	
 	  this.bunny = {
-	    url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
+	    url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Bunny_in_zoo_cropped.jpg',
+	    image_title: 'Fluffy the bunny',
+	    image_description: 'This is a close up photo of a little bunny.'
 	  };
 	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<bunny-detail\n    bunny=\"app.bunny\">\n</bunny-detail>\n\n<bunny-thumbnail\n    bunny=\"app.bunny\">\n</bunny-thumbnail>\n\n<bunny-full-size\n    bunny=\"app.bunny\">\n</bunny-full-size>\n";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _bunnyDetail = __webpack_require__(15);
+	
+	var _bunnyDetail2 = _interopRequireDefault(_bunnyDetail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _bunnyDetail2.default,
+	  bindings: {
+	    bunny: '<'
+	  }
+	};
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	module.exports = "<h2>Bunny detail</h2>\n<p>Image title: {{$ctrl.bunny.image_title}}</p>\n<a href=\"{{$ctrl.bunny.url}}\"/>Link to bunny image</a>\n<p>Description: {{$ctrl.bunny.image_description}}</p>\n";
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _bunnyFullSize = __webpack_require__(17);
+	
+	var _bunnyFullSize2 = _interopRequireDefault(_bunnyFullSize);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _bunnyFullSize2.default,
+	  bindings: {
+	    bunny: '<'
+	  }
+	};
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	module.exports = "<h2>Full size image of bunny</h2>\n<p>{{$ctrl.bunny.image_title}}</p>\n<img ng-src=\"{{$ctrl.bunny.url}}\"/>\n<p>{{$ctrl.bunny.image_description}}</p>\n";
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _bunnyThumbnail = __webpack_require__(19);
+	
+	var _bunnyThumbnail2 = _interopRequireDefault(_bunnyThumbnail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _bunnyThumbnail2.default,
+	  bindings: {
+	    bunny: '<'
+	  }
+	};
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "<h2>Thumbnail image of bunny</h2>\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.bunny.url}}\"/>\n";
 
 /***/ }
 /******/ ]);

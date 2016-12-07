@@ -1,0 +1,13 @@
+.container {
+  font-family: 'Comfortaa', cursive;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.thumbnail {
+  width: 100px
+}
+
+/*# sourceMappingURL=style.css.map*/

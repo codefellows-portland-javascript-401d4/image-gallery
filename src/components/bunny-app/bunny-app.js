@@ -7,7 +7,6 @@ export default {
 };
 
 function controller() {
-
   this.bunny = {
     url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Bunny_in_zoo_cropped.jpg',
     image_title: 'Fluffy the bunny',

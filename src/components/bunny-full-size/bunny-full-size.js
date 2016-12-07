@@ -4,9 +4,5 @@ export default {
   template,
   bindings: {
     bunny: '<'
-  },
-  controller
+  }
 };
-
-function controller(){
-}
