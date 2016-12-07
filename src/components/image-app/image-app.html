@@ -1,0 +1,39 @@
+<header class="image">GALLERY</header>
+<button name="list" ng-click="app.toggleView('list')">list</button>
+<button name="thumb" ng-click="app.toggleView('thumb')">thumb</button>
+<button name="full" ng-click="app.toggleView('full')">view</button>
+
+<ul ng-if="app.view === 'list'">
+  <li ng-repeat="image in app.images">
+    <image-list
+      image="image"
+      remove="app.remove"
+      toggleView="app.toggleView">
+    </image-list>    
+  </li>
+</ul>
+
+<br><br>
+
+<ul ng-if="app.view === 'thumb'">
+  <li ng-repeat="image in app.images">
+    <image-thumb
+      image="image"
+      remove="app.remove"
+      toggleView="app.toggleView">
+    </image-thumb>    
+  </li>
+</ul>
+
+<br><br>
+
+<ul ng-if="app.view === 'full'">
+  <li ng-repeat="image in app.images">
+     <image-full
+      image="image"
+      remove="app.remove"
+      toggleView="app.toggleView">
+    </image-full>   
+  </li>
+</ul>
+

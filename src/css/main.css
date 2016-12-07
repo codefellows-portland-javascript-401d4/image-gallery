@@ -1,0 +1,15 @@
+body {
+  background-color: lightsteelblue;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+header {
+  font-size: 4rem;
+}
