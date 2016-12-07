@@ -17,8 +17,7 @@ function controller() {
   };
 
   this.toggleView = (name) => {
-    this.name = name;
-    return this.name;
+    return name;
   };
 
 }
