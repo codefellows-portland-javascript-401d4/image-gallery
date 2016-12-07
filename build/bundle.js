@@ -54,7 +54,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	__webpack_require__(16);
+	__webpack_require__(22);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32949,8 +32949,8 @@
 	var map = {
 		"./imageChoice/imageChoice.js": 8,
 		"./imageGallery/imageGallery.js": 10,
-		"./imageThumbnail/imageThumbnail.js": 12,
-		"./imageView/imageView.js": 14
+		"./imageThumbnail/imageThumbnail.js": 16,
+		"./imageView/imageView.js": 20
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33019,12 +33019,19 @@
 	
 	var _imageGallery2 = _interopRequireDefault(_imageGallery);
 	
+	var _imageGallery3 = __webpack_require__(12);
+	
+	var _imageGallery4 = _interopRequireDefault(_imageGallery3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	    template: _imageGallery2.default,
 	    bindings: {
 	        image: '='
+	    },
+	    controller: function controller() {
+	        this.styles = _imageGallery4.default;
 	    }
 	};
 
@@ -33032,84 +33039,26 @@
 /* 11 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"full\">\n    <img ng-src=\"{{$ctrl.image.url}}\" alt=\"{{$ctrl.image.description}}\">\n</main>\n";
+	module.exports = "\n<div class=\"{{$ctrl.styles.full}}\">\n    <img ng-src=\"{{$ctrl.image.url}}\" alt=\"{{$ctrl.image.description}}\">\n</main>\n";
 
 /***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _imageThumbnail = __webpack_require__(13);
-	
-	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	    template: _imageThumbnail2.default,
-	    bindings: {
-	        image: '='
-	    }
-	};
-
-/***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div class=\"thumb\">\n    <img ng-src=\"{{$ctrl.image.url}}\">\n</div>";
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _imageView = __webpack_require__(15);
-	
-	var _imageView2 = _interopRequireDefault(_imageView);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	    template: _imageView2.default,
-	    bindings: {
-	        image: '='
-	    }
-	};
-
-/***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div>\n    <p>{{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\" target=\"_blank\">Link To: {{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n</div>";
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(17);
+	var content = __webpack_require__(13);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(15)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./main.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./main.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./imageGallery.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./imageGallery.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -33119,21 +33068,23 @@
 	}
 
 /***/ },
-/* 17 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(18)();
+	exports = module.exports = __webpack_require__(14)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "\nheader, h1, select {\n    color: darkgreen;\n}\n\n.thumb img {\n    width: 100px;\n    height: 100px;\n}\n\n.full img {\n    max-width: 100%;\n    max-height: 100%;\n}\n", ""]);
+	exports.push([module.id, ".j8D9hzv5OzJceebzwThPy img {\n    max-width: 100%;\n    max-height: 100%;\n    border: 2px solid darkgreen;\n}", ""]);
 	
 	// exports
-
+	exports.locals = {
+		"full": "j8D9hzv5OzJceebzwThPy"
+	};
 
 /***/ },
-/* 18 */
+/* 14 */
 /***/ function(module, exports) {
 
 	/*
@@ -33189,7 +33140,7 @@
 
 
 /***/ },
-/* 19 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -33438,6 +33389,153 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageThumbnail = __webpack_require__(17);
+	
+	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
+	
+	var _imageThumbnail3 = __webpack_require__(18);
+	
+	var _imageThumbnail4 = _interopRequireDefault(_imageThumbnail3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _imageThumbnail2.default,
+	    bindings: {
+	        image: '='
+	    },
+	    controller: function controller() {
+	        this.styles = _imageThumbnail4.default;
+	    }
+	};
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"{{$ctrl.styles.thumb}}\" >\n    <a href=\"{{$ctrl.image.url}}\" target=\"_blank\"><img ng-src=\"{{$ctrl.image.url}}\"></a>\n</div>";
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(19);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(15)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./imageThumbnail.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./imageThumbnail.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(14)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n._1L7Z2n4VQ-G1keK-CudeSf img {\n    max-width: 100px;\n    max-height: 100px;\n}\n", ""]);
+	
+	// exports
+	exports.locals = {
+		"thumb": "_1L7Z2n4VQ-G1keK-CudeSf"
+	};
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageView = __webpack_require__(21);
+	
+	var _imageView2 = _interopRequireDefault(_imageView);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _imageView2.default,
+	    bindings: {
+	        image: '='
+	    }
+	};
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div>\n    <p>{{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\" target=\"_blank\">Link To: {{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n</div>";
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(23);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(15)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./main.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./main.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(14)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\nheader, h1, label {\n    color: darkgreen;\n}\n\n", ""]);
+	
+	// exports
 
 
 /***/ }
