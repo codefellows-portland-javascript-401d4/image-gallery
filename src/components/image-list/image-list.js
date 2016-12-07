@@ -5,7 +5,7 @@ export default {
   bindings: {
     image: '=',
     remove: '<',
-    toggleView: '<'
+    toggleView: '&'
   },
   controller
 };

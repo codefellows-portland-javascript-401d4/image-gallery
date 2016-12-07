@@ -16,7 +16,6 @@ function controller() {
   };
 
   this.view = (name) => {
-    console.log('in imagefull name=', name);
     this.toggleView(name);
   };
 }

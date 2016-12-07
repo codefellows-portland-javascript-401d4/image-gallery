@@ -6,7 +6,7 @@ export default {
   bindings: {
     image: '=',
     remove: '<',
-    toggleView: '<'
+    toggleView: '&'
   },
   controller
 };
@@ -19,7 +19,6 @@ function controller() {
   };
 
   this.view = (name) => {
-    console.log(name);
     this.toggleView(name);
   };
 }
