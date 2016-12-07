@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run test:run",
     "test:run": "MONGODB_URI=mongodb://localhost/images-test mocha",
-    "pretest": "npm run lint"
+    "pretest": "npm run lint",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "eslint": "^3.11.1",
     "mocha": "^3.2.0"
   }
 }
