@@ -34052,14 +34052,7 @@
 	
 	exports.default = {
 	  template: _imageApp2.default,
-	  controller: controller,
-	  controllerAs: 'app'
-	};
-	
-	
-	function controller() {
-	  var test = this.true;
-	  console.log(test);
+	  controller: function controller() {}
 	};
 
 /***/ },
