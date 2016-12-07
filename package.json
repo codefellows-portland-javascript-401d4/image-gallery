@@ -45,4 +45,5 @@
 "dependencies": {
   "angular": "^1.5.9",
   "camelcase": "^4.0.0"
+  }
 }
