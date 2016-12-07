@@ -1,0 +1,12 @@
+<h1 class="spider">Jumping Spiders!</h1>
+
+<ul>
+    <li ng-repeat="spider in app.spiders">
+        <spider-detail
+            spider="spider"
+            remove="app.remove">
+        </spider-detail>
+    </li>
+</ul>
+
+<new-spider add="app.add"></new-spider>
