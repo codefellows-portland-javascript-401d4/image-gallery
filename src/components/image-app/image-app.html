@@ -1,7 +1,7 @@
 <header class="image">GALLERY</header>
 
 <ul>
-  <li ng-repeat="image in app.images">
+  <li ng-if="toggleView === 'list'" ng-repeat="image in app.images">
     <image-list
       image="image"
       remove="app.remove">
@@ -12,7 +12,7 @@
 <br><br>
 
 <ul>
-  <li ng-repeat="image in app.images">
+  <li ng-if="toggleView === thumb" ng-repeat="image in app.images">
     <image-thumb
       image="image"
       remove="app.remove">
@@ -23,7 +23,7 @@
 <br><br>
 
 <ul>
-  <li ng-repeat="image in app.images">
+  <li ng-if="toggleView === full" g-repeat="image in app.images">
      <image-full
       image="image"
       remove="app.remove">

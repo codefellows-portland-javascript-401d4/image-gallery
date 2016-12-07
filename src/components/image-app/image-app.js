@@ -16,4 +16,9 @@ function controller() {
     if (index > -1) this.images.splice(index, 1);
   };
 
+  this.toggleView = (name) => {
+    this.name = name;
+    return this.name;
+  };
+
 }
