@@ -1,0 +1,10 @@
+.container {
+  font-family: sans-serif;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.thumbnail {
+  width: 100px
+}
