@@ -1,8 +1,10 @@
 <section>
-    <image-detail image="$ctrl.image"></image-detail>
-    <hr>
-    <image-thumbnail image="$ctrl.image"></image-thumbnail>
-    <hr>
-    <image-gallery image="$ctrl.image"></image-gallery>
-    <hr>
+    Display Mode: <select ng-model="$ctrl.selected">
+        <option value="detail">Detail</option>
+        <option value="thumbnail">Thumbnail</option>
+        <option value="gallery">Gallery</option>
+    </select>
+    <image-detail ng-if="$ctrl.selected === 'detail'" image="$ctrl.image"></image-detail>
+    <image-thumbnail ng-if="$ctrl.selected === 'thumbnail'" image="$ctrl.image"></image-thumbnail>
+    <image-gallery ng-if="$ctrl.selected === 'gallery'" image="$ctrl.image"></image-gallery>
 </section>
