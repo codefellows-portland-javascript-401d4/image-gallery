@@ -1,4 +1,6 @@
+<h2>Select how you'd like to view the bunny!</h2>
 <select ng-options="option as option for option in app.viewOptions" ng-model="app.view"></select>
+<hr>
 <section>
     <image-detail ng-if="app.view === 'detail'" bunny="app.bunny"></image-detail>
     <image-thumbnail ng-if="app.view === 'thumbnail'" bunny="app.bunny"></image-thumbnail>
