@@ -1,0 +1,31 @@
+/*COLORS
+aqua #adfcf9
+grey-green #89a894
+army green #4b644a
+grey maroon #49393b
+maroon brown #341c1c*/
+
+body {
+    background-color: #adfcf9;
+    color: #341c1c;
+}
+
+h1 {
+    background-color: #89a894;
+    border-radius: 15px;
+    text-align: center;
+    width: 25%;
+    margin: 5% auto;
+    padding: 5%;
+}
+
+
+._3vECJz4EewZCOVWiO21lKb {
+    background-color: #89a894;
+    border-radius: 15px;
+    width: 80%;
+    margin: 5% auto;
+    padding: 5%;
+}
+
+/*# sourceMappingURL=main.css.map*/

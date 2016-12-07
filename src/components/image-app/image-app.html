@@ -1,0 +1,13 @@
+<section ng-class="app.styles.image">
+    <div>
+        <span>Choose an Image View Format</span>
+        <select ng-model="view">
+            <option value="detail">Detail View</option>
+            <option value="thumbnail">Thumbnail View</option>
+            <option value="gallery">Gallery View</option>
+        </select>
+    </div>
+    <image-detail ng-if="view==='detail'" image="app.image"></image-detail>
+    <image-thumbnail ng-if="view==='thumbnail'" image="app.image"></image-thumbnail>
+    <image-gallery ng-if="view==='gallery'" image="app.image"></image-gallery>
+</section>
