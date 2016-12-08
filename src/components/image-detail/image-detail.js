@@ -7,7 +7,7 @@ export default {
   },
   controller,
   template
-}
+};
 
 function controller() {
   this.style = style;

@@ -1,5 +1,5 @@
-import template from './image-thumb.html';
-import style from './image-thumb.css';
+import template from './image-gallery.html';
+import style from './image-gallery.css';
 
 export default {
   bindings: {
@@ -7,7 +7,7 @@ export default {
   },
   controller,
   template
-}
+};
 
 function controller() {
   this.style = style;
