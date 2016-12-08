@@ -5,9 +5,10 @@
             <option value="0">Calico Bunny</option>
             <option value="1">Albino Bunnies</option>
             <option value="2">Floppy Ears Bunny</option>
+            <option value="all">All Bunnies</option>
         </select>    
         <!--<select ng-model="app.bunny" ng-options="i.title for i in app.image"></select>-->
-        <div ng-if="app.bunny==='0'">
+        <div ng-if="app.bunny==='0' || app.bunny==='1' || app.bunny==='2'">
         <span>Choose an Image View Format</span>
         <select ng-model="app.view">
             <option value="detail">Detail View</option>
@@ -19,4 +20,5 @@
     <image-detail ng-if="app.view==='detail'" image="app.images[app.bunny]"></image-detail>
     <image-thumbnail ng-if="app.view==='thumbnail'" image="app.images[app.bunny]"></image-thumbnail>
     <image-gallery ng-if="app.view==='gallery'" image="app.images[app.bunny]"></image-gallery>
+    <image-all ng-if="app.bunny==='all'" images="app.images"></image-all>
 </section>
