@@ -1,0 +1,10 @@
+li{
+    border: 3px solid darkslategrey;
+    text-decoration: none;
+}
+
+
+ul li {
+    list-style-type: none;
+}
+/*# sourceMappingURL=main.css.map*/
