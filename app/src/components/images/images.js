@@ -14,7 +14,6 @@ function controller(images) {
     });
 
   this.add = image => {
-    console.log('add', image);
     images.add(image)
         .then(saved => {
           this.images.push(saved);

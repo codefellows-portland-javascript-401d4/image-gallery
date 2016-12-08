@@ -4,7 +4,7 @@ import styles from './new-image.css';
 export default {
   template,
   bindings: {
-    add: '&'
+    add: '<'
   },
   controller
 };
@@ -15,17 +15,15 @@ function controller() {
   this.resetFields = () => {
     this.title = '';
     this.url = '';
-    this.desc = '';
+    this.description = '';
   };
 
   this.addNew = () => {
     this.add({
       title: this.title,
       url: this.url,
-      desc: this.desc
+      description: this.description
     });
     this.resetFields();
   };
-  console.log('this', this.add);
-  this.add();
 }

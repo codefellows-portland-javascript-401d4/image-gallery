@@ -1,14 +1,15 @@
-imageService.$inject = ['$http'];
+imageService.$inject = ['$http', 'apiUrl'];
 
-export default function imageService($http) {
+export default function imageService($http, apiUrl) {
   return {
     get() {
-      console.log('image service');
-      return $http.get('http://localhost:3000/api/images')
+      console.log('image service get');
+      return $http.get(`${apiUrl}/images`)
       .then(res => res.data);
     },
     add(image) {
-      return $http.post('http://localhost:3000/api/images', image)
+      console.log('image service add');
+      return $http.post(`${apiUrl}/images`, image)
       .then(res => res.data);
     }
   };

@@ -5,7 +5,7 @@ module.exports = function errorHandler(err, req, res, next) { //eslint-disable-l
       if(err.name === 'ValidationError' || err.name === 'CastError') {
         console.log(err.errors);
         code = 400;
-        error = err.errors.name.message;
+        error = err.name.message;
       }
       else if(err.code) {
         code = err.code;
