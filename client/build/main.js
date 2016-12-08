@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(28);
+	var _services = __webpack_require__(32);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33000,10 +33000,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-app/image-app.js": 12,
-		"./image-detail/image-detail.js": 16,
-		"./image-gallery/image-gallery.js": 20,
-		"./image-thumbnail/image-thumbnail.js": 24
+		"./image-all/image-all.js": 12,
+		"./image-app/image-app.js": 16,
+		"./image-detail/image-detail.js": 20,
+		"./image-gallery/image-gallery.js": 24,
+		"./image-thumbnail/image-thumbnail.js": 28
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33029,11 +33030,58 @@
 	    value: true
 	});
 	
-	var _imageApp = __webpack_require__(13);
+	var _imageAll = __webpack_require__(13);
+	
+	var _imageAll2 = _interopRequireDefault(_imageAll);
+	
+	var _imageAll3 = __webpack_require__(14);
+	
+	var _imageAll4 = _interopRequireDefault(_imageAll3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    bindings: {
+	        images: '<'
+	    },
+	    template: _imageAll2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _imageAll4.default;
+	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<section ng-class=\"$ctrl.styles.all\">\n    <div ng-repeat=\"image in $ctrl.images\">\n        <p>Image Title:{{image.title}}</p>\n    </div>\n</section>\n";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"all":"_2708hYWNCiQfIxzn0dglW9"};
+
+/***/ },
+/* 15 */,
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageApp = __webpack_require__(17);
 	
 	var _imageApp2 = _interopRequireDefault(_imageApp);
 	
-	var _imageApp3 = __webpack_require__(14);
+	var _imageApp3 = __webpack_require__(18);
 	
 	var _imageApp4 = _interopRequireDefault(_imageApp3);
 	
@@ -33076,21 +33124,21 @@
 	}
 
 /***/ },
-/* 13 */
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-model=\"app.bunny\">\n            <option value=\"0\">Calico Bunny</option>\n            <option value=\"1\">Albino Bunnies</option>\n            <option value=\"2\">Floppy Ears Bunny</option>\n        </select>\n        <!--<select ng-model=\"app.bunny\" ng-options=\"i.title for i in app.image\"></select>-->\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"app.view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n    </div>\n    <image-detail ng-if=\"app.view==='detail'\" image=\"app.images[app.bunny]\"></image-detail>\n    <image-thumbnail ng-if=\"app.view==='thumbnail'\" image=\"app.images[app.bunny]\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view==='gallery'\" image=\"app.images[app.bunny]\"></image-gallery>\n</section>\n";
+	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-model=\"app.bunny\">\n            <option value=\"0\">Calico Bunny</option>\n            <option value=\"1\">Albino Bunnies</option>\n            <option value=\"2\">Floppy Ears Bunny</option>\n            <option value=\"all\">All Bunnies</option>\n        </select>    \n        <!--<select ng-model=\"app.bunny\" ng-options=\"i.title for i in app.image\"></select>-->\n        <div ng-if=\"app.bunny==='0' || app.bunny==='1' || app.bunny==='2'\">\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"app.view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n        </div>\n    </div>\n    <image-detail ng-if=\"app.view==='detail'\" image=\"app.images[app.bunny]\"></image-detail>\n    <image-thumbnail ng-if=\"app.view==='thumbnail'\" image=\"app.images[app.bunny]\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view==='gallery'\" image=\"app.images[app.bunny]\"></image-gallery>\n    <image-all ng-if=\"app.bunny==='all'\" images=\"app.images\"></image-all>\n</section>\n";
 
 /***/ },
-/* 14 */
+/* 18 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"image":"_3S27sEoQlDcgENzXMPGJNI"};
 
 /***/ },
-/* 15 */,
-/* 16 */
+/* 19 */,
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33099,11 +33147,11 @@
 	    value: true
 	});
 	
-	var _imageDetail = __webpack_require__(17);
+	var _imageDetail = __webpack_require__(21);
 	
 	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
-	var _imageDetail3 = __webpack_require__(18);
+	var _imageDetail3 = __webpack_require__(22);
 	
 	var _imageDetail4 = _interopRequireDefault(_imageDetail3);
 	
@@ -33123,21 +33171,21 @@
 	}
 
 /***/ },
-/* 17 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = "<section ng-class=\"$ctrl.styles.detail\">\n    <p>Title: {{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n\n";
 
 /***/ },
-/* 18 */
+/* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"detail":"_3yCTas6A8zUCisoe9Boch6"};
 
 /***/ },
-/* 19 */,
-/* 20 */
+/* 23 */,
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33146,11 +33194,11 @@
 	    value: true
 	});
 	
-	var _imageGallery = __webpack_require__(21);
+	var _imageGallery = __webpack_require__(25);
 	
 	var _imageGallery2 = _interopRequireDefault(_imageGallery);
 	
-	var _imageGallery3 = __webpack_require__(22);
+	var _imageGallery3 = __webpack_require__(26);
 	
 	var _imageGallery4 = _interopRequireDefault(_imageGallery3);
 	
@@ -33170,21 +33218,21 @@
 	}
 
 /***/ },
-/* 21 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = "<section ng-class=\"$ctrl.styles.gallery\">\n    <p>Title: {{$ctrl.image.title}}</p>\n    <p><img ng-src=\"{{$ctrl.image.url}}\"></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n";
 
 /***/ },
-/* 22 */
+/* 26 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"gallery":"_14OweBXFrqVUuBQ8dCXLk4"};
 
 /***/ },
-/* 23 */,
-/* 24 */
+/* 27 */,
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33193,11 +33241,11 @@
 	    value: true
 	});
 	
-	var _imageThumbnail = __webpack_require__(25);
+	var _imageThumbnail = __webpack_require__(29);
 	
 	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
 	
-	var _imageThumbnail3 = __webpack_require__(26);
+	var _imageThumbnail3 = __webpack_require__(30);
 	
 	var _imageThumbnail4 = _interopRequireDefault(_imageThumbnail3);
 	
@@ -33217,21 +33265,21 @@
 	}
 
 /***/ },
-/* 25 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<section ng-class=\"$ctrl.styles.thumbnail\">\n    <img ng-src=\"{{$ctrl.image.url}}\">\n</section>\n";
 
 /***/ },
-/* 26 */
+/* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"thumbnail":"_11T7qyV23K_HJKWVsGU9lU"};
 
 /***/ },
-/* 27 */,
-/* 28 */
+/* 31 */,
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33255,7 +33303,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(29);
+	var context = __webpack_require__(33);
 	
 	// create the module to put the resources in,
 	// in this case directives
@@ -33274,11 +33322,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 29 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 30
+		"./image-service.js": 34
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33291,11 +33339,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 29;
+	webpackContext.id = 33;
 
 
 /***/ },
-/* 30 */
+/* 34 */
 /***/ function(module, exports) {
 
 	'use strict';

@@ -7,3 +7,16 @@
     margin: 5% auto;
     padding: 5%;
 }
+
+:local(.all) img {
+    width: 100px;
+    height: 100px;
+}
+
+:local(.all) div {
+    color: #341c1c;
+    background-color: #adb8ac;;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5%;
+}
