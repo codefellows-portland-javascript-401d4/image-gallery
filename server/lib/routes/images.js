@@ -28,6 +28,15 @@ router
                 res.send(image);
             })
             .catch(next);
+    })
+    .delete('/:id', bodyParser, (req, res, next) => {
+        const _id = req.params.id;
+        Image
+            .findByIdAndRemove({_id})
+            .then(image => {
+                res.send(image);
+            })
+            .catch(next);
     });
 
 module.exports = router;
