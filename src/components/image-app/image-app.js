@@ -21,5 +21,5 @@ function controller() {
 		title: 'A Regular Old Goat',
 		description: 'A brown goat looking at the camera.'
 	}];
-	this.displays = ['thumbnail', 'text', 'full'];
+	this.displays = ['thumbnail', 'text', 'full', 'all'];
 }

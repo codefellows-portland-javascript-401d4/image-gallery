@@ -5,8 +5,8 @@
         </select>
     </form>
     <div>
-        <image-detail ng-if="displayChoice==='text'" images="app.images"></image-detail>
-        <image-gallery ng-if="displayChoice==='full'" images="app.images"></image-gallery>
-        <image-thumb ng-if="displayChoice==='thumbnail'" images="app.images"></image-thumbnail>
+        <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="app.images"></image-detail>
+        <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="app.images"></image-gallery>
+        <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="app.images"></image-thumbnail>
     </div>
 </section>
