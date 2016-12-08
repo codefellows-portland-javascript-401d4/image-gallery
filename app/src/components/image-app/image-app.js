@@ -1,5 +1,7 @@
 import template from './image-app.html';
 
+// TODO: inject service into this controller
+
 export default {
     template,
     controller

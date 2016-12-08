@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser').json;
+const bodyParser = require('body-parser').json();
 const Image = require('../models/image');
 
 router  
@@ -22,6 +22,12 @@ router
                 console.log('error getting image by id: ', err);
                 next(err);
             });
+    })
+    
+    .post('/', bodyParser, (req, res, next) => {
+        new Image(req.body).save()
+            .then(saved => res.send(saved))
+            .catch(next);
     });
 
     module.exports = router;
