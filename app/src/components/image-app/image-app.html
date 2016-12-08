@@ -5,4 +5,9 @@
     <image-detail ng-if="app.view === 'detail'" image="image"></image-detail>
     <image-thumbnail ng-if="app.view === 'thumbnail'" image="image"></image-thumbnail>
     <image-gallery ng-if="app.view === 'gallery'" image="image"></image-gallery>
+    <div ng-if="app.view !== ''">
+        <button ng-click="app.remove(image)">Delete</button>
+        <hr>
+    </div>
 </section>
+

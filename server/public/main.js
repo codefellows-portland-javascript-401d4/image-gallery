@@ -33042,13 +33042,30 @@
 	
 	    this.viewOptions = ['detail', 'thumbnail', 'gallery'];
 	    this.view = '';
+	
+	    this.remove = function (image) {
+	        _this.loading = true;
+	        imageService.remove(image._id).then(function () {
+	            _this.loading = false;
+	            var index = _this.images.indexOf(image);
+	            if (index > -1) _this.images.split(index, 1);
+	        });
+	    };
+	
+	    this.add = function (image) {
+	        _this.loading = true;
+	        imageService.add(image).then(function (saved) {
+	            _this.loading = false;
+	            _this.images.push(saved);
+	        });
+	    };
 	};
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>Select how you'd like to view the animals!</h2>\n<select ng-options=\"option as option for option in app.viewOptions\" ng-model=\"app.view\"></select>\n<hr>\n<section ng-repeat=\"image in app.images track by $index\">\n    <image-detail ng-if=\"app.view === 'detail'\" image=\"image\"></image-detail>\n    <image-thumbnail ng-if=\"app.view === 'thumbnail'\" image=\"image\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view === 'gallery'\" image=\"image\"></image-gallery>\n</section>";
+	module.exports = "<h2>Select how you'd like to view the animals!</h2>\n<select ng-options=\"option as option for option in app.viewOptions\" ng-model=\"app.view\"></select>\n<hr>\n<section ng-repeat=\"image in app.images track by $index\">\n    <image-detail ng-if=\"app.view === 'detail'\" image=\"image\"></image-detail>\n    <image-thumbnail ng-if=\"app.view === 'thumbnail'\" image=\"image\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view === 'gallery'\" image=\"image\"></image-gallery>\n    <button ng-click=\"app.remove(image)\">Delete</button>\n</section>\n\n";
 
 /***/ },
 /* 14 */
@@ -33264,6 +33281,14 @@
 	        get: function get() {
 	            return $http.get(apiUrl + '/images').then(function (images) {
 	                return images.data;
+	            });
+	        },
+	        remove: function remove(id) {
+	            return $http.delete(apiUrl + '/images/' + id).then(res = res.data);
+	        },
+	        add: function add(image) {
+	            return $http.post(apiUrl + '/images', image).then(function (res) {
+	                return res.data;
 	            });
 	        }
 	    };
