@@ -4,21 +4,13 @@ const bodyParser = require('body-parser').json();
 const Image = require('../models/image');
 
 router
-//     .get('/', (req, res, next) => {
-// 	const query = {};
-// 	if(req.query.rank) query.rank = req.query.rank;
-
-// 	Image.find(query)
-//             .select('name rank')
-//             .lean()
-//             .populate({
-// 	path: 'crewId',
-// 	select: 'name'
-// })
-//             .lean()
-//             .then(images => res.send(images ))
-//             .catch(next);
-// })
+    .get('/', (req, res, next) => {
+	const query = {};
+	Image.find(query)
+            .lean()
+            .then(images => res.send(images ))
+            .catch(next);
+})
 
     .get('/:id', (req, res, next) => {
 	Image.findById(req.params.id)
