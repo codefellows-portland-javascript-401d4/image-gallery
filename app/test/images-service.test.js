@@ -34,4 +34,50 @@ describe('image service testing', () => {
         
         $httpBackend.flush();
     });
+
+    it('post images', done => {
+        const newImage = {
+            title: 'whatever',
+            description: 'whatever',
+            url: 'whatever'
+        };
+
+        $httpBackend
+            .expectPOST('/api/images')
+            .respond(newImage);
+
+        imageService
+            .add(newImage)
+            .then(savedImage => {
+                assert.deepEqual(savedImage, newImage);
+                done();
+            })
+            .catch(done);
+
+        $httpBackend.flush();
+    });
+
+    it('removes images', done => {
+        const newImage = {
+            title: 'whatever',
+            description: 'whatever',
+            url: 'whatever',
+            id: '12345'
+        };
+        const id = '12345';
+
+        $httpBackend
+            .expectDELETE(`/api/images/${id}`)
+            .respond(newImage);
+
+        imageService
+            .remove(id)
+            .then(delImage => {
+                assert.deepEqual(delImage, newImage);
+                done();
+            })
+            .catch(done)
+
+        $httpBackend.flush();
+    });
 });

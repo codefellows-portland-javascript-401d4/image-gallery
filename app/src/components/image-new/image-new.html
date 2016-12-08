@@ -1,0 +1,9 @@
+<section ng-class="$ctrl.styles.new">
+    Add a new image to the gallery!
+    <br>
+    <hr>
+    Title: <input type="text" ng-model="$ctrl.title" required>
+    Description: <input type="text" ng-model="$ctrl.description" required>
+    Url: <input type="text" ng-model="$ctrl.url" required>
+    <button ng-click="$ctrl.addNew()">Add</button>
+</section>
