@@ -5,7 +5,7 @@
     margin: 5%;
 }
 
-:local(.thumbnail) img {
+:local(.thumb) img {
     width: 100px;
     height: 100px;
 }
