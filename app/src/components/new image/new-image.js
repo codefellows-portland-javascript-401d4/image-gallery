@@ -1,5 +1,4 @@
 import template from './new-image.html';
-// import styles from './new-image.css';
 
 export default {
   template,
@@ -10,7 +9,6 @@ export default {
 };
 
 function controller() {
-  // this.styles = styles;
 
   this.reset = () => {
     this.title = '';
@@ -26,8 +24,6 @@ function controller() {
       url: this.url,
       desc: this.desc
     });
-        // clear out controls so
-        // next pirate can be added
     this.reset();
   };
 }

@@ -1,4 +1,4 @@
-import template from './text.html';
+import template from './text-only.html';
 
 export default {
   template,
