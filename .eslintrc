@@ -21,7 +21,8 @@
     "after": false
   },
   "parserOptions": {
-    "emcaVersion": 6
+    "emcaVersion": 6,
+    "sourceType": "module"
   },
   "extends": "eslint:recommended",
   "rules": {
