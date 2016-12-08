@@ -32988,9 +32988,9 @@
 
 	var map = {
 		"./full-image/full-image.js": 12,
-		"./image-app/image-app.js": 13,
-		"./text/text.js": 15,
-		"./thumbnail/thumbnail.js": 16
+		"./image-app/image-app.js": 14,
+		"./text/text.js": 16,
+		"./thumbnail/thumbnail.js": 18
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33008,12 +33008,6 @@
 
 /***/ },
 /* 12 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33022,7 +33016,36 @@
 	  value: true
 	});
 	
-	var _imageApp = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./image-app.html\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _fullImage = __webpack_require__(13);
+	
+	var _fullImage2 = _interopRequireDefault(_fullImage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _fullImage2.default,
+	  bindings: {
+	    image: '='
+	  }
+	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\r\n\t<h3>Full Image View</h3>\r\n\t<p>{{$ctrl.image.title}}</p>\r\n\t<img src={{$ctrl.image.url}}>\r\n\t<p>{{$ctrl.image.desc}}</p>\t\r\n</div>";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _imageApp = __webpack_require__(15);
 	
 	var _imageApp2 = _interopRequireDefault(_imageApp);
 	
@@ -33040,20 +33063,72 @@
 	    url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/BRACHYLAGUS_IDAHOENSIS.jpg',
 	    desc: 'The pygmy rabbit (Brachylagus idahoensis) is a North American rabbit, and is one of only two rabbit species in America to dig its own burrow. The pygmy rabbit is the world\'s smallest leporid, with mean adult weights from 375 to about 500 grams, and a body length from 23.5 to 29.5 centimeters; females are slightly larger than males.'
 	  }];
+	  this.views = ['text-only', 'thumbnail', 'full-image'];
 	}
 
 /***/ },
-/* 14 */,
 /* 15 */
 /***/ function(module, exports) {
 
-	"use strict";
+	module.exports = "<form>\r\n\tSelect a view: <select ng-model=\"view\" ng-options=\"v for v in app.views\"></select>\r\n</form>\r\n<hr>\r\n<p ng-repeat=\"image in app.images\">\r\n\t<text ng-if=\"view==='text-only'\"\r\n\t\timage=\"image\">\r\n\t</text>\r\n\t<thumbnail ng-if=\"view==='thumbnail'\"\r\n\t\timage=\"image\">\r\n\t</thumbnail>\r\n\t<full-image ng-if=\"view==='full-image'\"\r\n\t\timage=\"image\">\r\n\t</full-image>\r\n</p>\r\n";
 
 /***/ },
 /* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _text = __webpack_require__(17);
+	
+	var _text2 = _interopRequireDefault(_text);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _text2.default,
+	  bindings: {
+	    image: '='
+	  }
+	};
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
-	"use strict";
+	module.exports = "<span>\r\n\t<h3>Text View</h3>\r\n\t<p>{{$ctrl.image.title}}</p>\r\n\t<p><a href=\"{{$ctrl.image.url}}\">image</a></p>\r\n\t<p>{{$ctrl.image.desc}}</p>\r\n</span>";
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _thumbnail = __webpack_require__(19);
+	
+	var _thumbnail2 = _interopRequireDefault(_thumbnail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _thumbnail2.default,
+	  bindings: {
+	    image: '='
+	  }
+	};
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\r\n\t<h3>Thumbnail View</h3>\r\n\t<img src={{$ctrl.image.url}} height=\"100\">\r\n</div>";
 
 /***/ }
 /******/ ]);
