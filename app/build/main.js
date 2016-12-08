@@ -56,9 +56,17 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(26);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]);
+	var app = _angular2.default.module('myApp', [_components2.default, _services2.default]);
+	
+	var dev = 'http://localhost:3000/api';
+	
+	app.value('apiUrl', dev);
 
 /***/ },
 /* 1 */
@@ -32978,7 +32986,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-app/image-app.js": 12
+		"./image-app/image-app.js": 12,
+		"./image-detail/image-detail.js": 14,
+		"./image-gallery/image-gallery.js": 18,
+		"./image-thumbnail/image-thumbnail.js": 22
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33004,26 +33015,259 @@
 	    value: true
 	});
 	
-	var _imageDetail = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./image-detail.html\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _imageApp = __webpack_require__(13);
 	
-	var _imageDetail2 = _interopRequireDefault(_imageDetail);
+	var _imageApp2 = _interopRequireDefault(_imageApp);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	    template: _imageDetail2.default,
+	    template: _imageApp2.default,
 	    controller: controller,
 	    controllerAs: 'app'
 	};
 	
 	
-	function controller() {
-	    this.bunny = {
-	        title: 'Bunnies!',
-	        link: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-	        description: 'Bunnies to calm you down'
-	    };
+	controller.$inject = ['imageService'];
+	
+	function controller(imageService) {
+	    var _this = this;
+	
+	    this.loading = true;
+	
+	    imageService.get().then(function (images) {
+	        _this.images = images;
+	        _this.loading = false;
+	    });
+	
+	    this.viewOptions = ['detail', 'thumbnail', 'gallery'];
+	    this.view = '';
 	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<h2>Select how you'd like to view the animals!</h2>\n<select ng-options=\"option as option for option in app.viewOptions\" ng-model=\"app.view\"></select>\n<hr>\n<section ng-repeat=\"image in app.images track by $index\">\n    <image-detail ng-if=\"app.view === 'detail'\" image=\"image\"></image-detail>\n    <image-thumbnail ng-if=\"app.view === 'thumbnail'\" image=\"image\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view === 'gallery'\" image=\"image\"></image-gallery>\n</section>";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageDetail = __webpack_require__(15);
+	
+	var _imageDetail2 = _interopRequireDefault(_imageDetail);
+	
+	var _imageDetail3 = __webpack_require__(16);
+	
+	var _imageDetail4 = _interopRequireDefault(_imageDetail3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _imageDetail2.default,
+	    bindings: {
+	        image: '='
+	    },
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _imageDetail4.default;
+	}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-class=\"$ctrl.styles.detail\">\n    <h3>Title: {{$ctrl.image.title}}</h3>\n    <p>Link: {{$ctrl.image.url}}</p>\n    <p>Desc.: {{$ctrl.image.description}}</p>\n</div>";
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"detail":"_3yCTas6A8zUCisoe9Boch6"};
+
+/***/ },
+/* 17 */,
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageGallery = __webpack_require__(19);
+	
+	var _imageGallery2 = _interopRequireDefault(_imageGallery);
+	
+	var _imageGallery3 = __webpack_require__(20);
+	
+	var _imageGallery4 = _interopRequireDefault(_imageGallery3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _imageGallery2.default,
+	    bindings: {
+	        image: '='
+	    },
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _imageGallery4.default;
+	};
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-class=\"$ctrl.styles.gallery\">\n    <h3>{{$ctrl.image.title}}</h3>\n    <img src=\"{{$ctrl.image.url}}\">\n    <p>{{$ctrl.image.description}}</p>\n</div>";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"gallery":"_14OweBXFrqVUuBQ8dCXLk4"};
+
+/***/ },
+/* 21 */,
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageThumbnail = __webpack_require__(23);
+	
+	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
+	
+	var _imageThumbnail3 = __webpack_require__(24);
+	
+	var _imageThumbnail4 = _interopRequireDefault(_imageThumbnail3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _imageThumbnail2.default,
+	    bindings: {
+	        image: '='
+	    },
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _imageThumbnail4.default;
+	}
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-class=\"$ctrl.styles.thumbnail\">\n    <img src=\"{{$ctrl.image.url}}\" style=\"height: 100px; width: 100px\">\n</div>";
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"thumbnail":"_11T7qyV23K_HJKWVsGU9lU"};
+
+/***/ },
+/* 25 */,
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _camelcase = __webpack_require__(8);
+	
+	var _camelcase2 = _interopRequireDefault(_camelcase);
+	
+	var _path = __webpack_require__(9);
+	
+	var _path2 = _interopRequireDefault(_path);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var context = __webpack_require__(27);
+	
+	var _module = _angular2.default.module('services', []);
+	
+	context.keys().forEach(function (key) {
+	    var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
+	    _module.factory(name, context(key).default);
+	});
+	
+	exports.default = _module.name;
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./image-service.js": 28
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 27;
+
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = imageService;
+	imageService.$inject = ['$http', 'apiUrl'];
+	
+	function imageService($http, apiUrl) {
+	    return {
+	        get: function get() {
+	            return $http.get(apiUrl + '/images').then(function (images) {
+	                return images.data;
+	            });
+	        }
+	    };
+	}
 
 /***/ }
 /******/ ]);

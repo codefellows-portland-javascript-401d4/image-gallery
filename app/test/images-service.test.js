@@ -28,6 +28,7 @@ describe('image service testing', () => {
             .get()
             .then(allImages => {
                 assert.deepEqual(allImages, images);
+                done();
             })
             .catch(done);
         

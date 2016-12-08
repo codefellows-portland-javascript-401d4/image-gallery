@@ -21,7 +21,7 @@ router
             });
         };
 
-        let importImage = new Image(req.body)
+        let importImage = new Image(req.body);
         importImage
             .save()
             .then(image => {

@@ -8,9 +8,9 @@ app.use(morgan('dev'));
 
 if(process.env.NODE_ENV === 'production') {
     app.use((req, res, next) => {
-        if(req.headers['x-forwarded-proto'] === "https") next();
+        if(req.headers['x-forwarded-proto'] === 'https') next();
         else res.redirect(`https://${req.hostname}${req.url}`);
-    })
+    });
 };
 
 app.use((req, res, next) => {
