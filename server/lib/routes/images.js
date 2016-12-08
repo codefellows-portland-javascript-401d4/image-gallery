@@ -7,6 +7,7 @@ router
     .get('/', (req, res, next) => {
         Image.find()
         .lean()
+        .select('title description url')
         .then(images => res.send(images))
         .catch(err => {
             console.log('error getting images: ', err);
@@ -17,6 +18,7 @@ router
     .get('/:id', (req, res, next) => {
         Image.findById(req.params.id)
             .lean()
+            .select('title description url')
             .then(image => res.send(image))
             .catch(err => {
                 console.log('error getting image by id: ', err);

@@ -46,6 +46,10 @@
 
 	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
 	var _angular = __webpack_require__(1);
 	
 	var _angular2 = _interopRequireDefault(_angular);
@@ -56,9 +60,19 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(22);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]);
+	var app = _angular2.default.module('myApp', [_components2.default, _services2.default]);
+	
+	var dev = 'http://localhost:3000/api';
+	
+	app.value('apiUrl', dev);
+	
+	exports.default = app;
 
 /***/ },
 /* 1 */
@@ -33019,12 +33033,33 @@
 	};
 	
 	
-	function controller() {
-	    this.image = {
-	        title: 'Elephant',
-	        description: 'An adorable baby elephant.',
-	        url: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg'
+	controller.$inject = ['imageService'];
+	
+	function controller(images) {
+	    var _this = this;
+	
+	    images.get().then(function (images) {
+	        _this.images = images;
+	    });
+	
+	    this.add = function (image) {
+	        images.add(image).then(function (saved) {
+	            _this.images.push(saved);
+	        });
 	    };
+	
+	    this.remove = function (image) {
+	        images.remove(image._id).then(function () {
+	            var index = _this.images.indexOf(image);
+	            if (index > -1) _this.images.splice(index, 1);
+	        });
+	    };
+	    // this.image = {
+	    //     title: 'Elephant',
+	    //     description: 'An adorable baby elephant.',
+	    //     url: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg'
+	    // };
+	
 	    this.selected = 'detail';
 	}
 
@@ -33032,7 +33067,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"$ctrl.image\"></image-detail>\n    <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"$ctrl.image\"></image-thumbnail>\n    <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"$ctrl.image\"></image-gallery>\n</section>";
+	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"$ctrl.image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"$ctrl.image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"$ctrl.image\"></image-gallery>\n        </li>\n    </ul>\n    <new-image add=\"$ctrl.add\"></new-image>\n</section>";
 
 /***/ },
 /* 14 */
@@ -33130,6 +33165,95 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 21 */,
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _camelcase = __webpack_require__(8);
+	
+	var _camelcase2 = _interopRequireDefault(_camelcase);
+	
+	var _path = __webpack_require__(9);
+	
+	var _path2 = _interopRequireDefault(_path);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var context = __webpack_require__(23);
+	
+	var _module = _angular2.default.module('services', []);
+	
+	context.keys().forEach(function (key) {
+	    var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
+	    _module.factory(name, context(key).default);
+	});
+	
+	exports.default = _module.name;
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./imageService.js": 24
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 23;
+
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = imageService;
+	imageService.$inject = ['$http', 'apiUrl'];
+	
+	function imageService($http, apiUrl) {
+	    return {
+	        get: function get() {
+	            return $http.get(apiUrl + '/images').then(function (res) {
+	                return res.data;
+	            });
+	        },
+	        remove: function remove(id) {
+	            return $http.delete(apiUrl + '/images/' + id).then(function (res) {
+	                return res.data;
+	            });
+	        },
+	        add: function add(image) {
+	            return $http.post(apiUrl + '/images', image).then(function (res) {
+	                return res.data;
+	            });
+	        }
+	    };
+	}
 
 /***/ }
 /******/ ]);
