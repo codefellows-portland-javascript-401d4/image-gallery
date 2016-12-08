@@ -2,9 +2,9 @@
 	<form>
 		Select a view: <select ng-model="view" ng-options="v for v in app.views"></select>
 	</form>
-		<!--<new-image add="app.add"></new-image>
+		<new-image add="app.add"></new-image>
 	<hr>
-	<div class="loader" ng-if="app.loading">Loading...</div></br>-->
+	<div class="loader" ng-if="app.loading">Loading...</div></br>
 	<p ng-repeat="image in app.images">
 		<text-only ng-if="view==='text-only'"
 			image="image">
