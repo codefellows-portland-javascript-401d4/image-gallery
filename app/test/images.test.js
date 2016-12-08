@@ -23,6 +23,12 @@ describe('image component test', () => {
         const imageService = {
             get() {
                 return Promise.resolve(images);
+            },
+            add(image) {
+                return Promise.resolve(image);
+            },
+            remove(id) {
+                return Promise.resolve();
             }
         };
 
@@ -37,5 +43,26 @@ describe('image component test', () => {
             });
         });
 
+        it('add new image', done => {
+            const component = $component('imageApp', {imageService});
+            component.add(image);
+
+            setTimeout(() => {
+                assert.equal(component.images.length, 3);
+                assert.deepEqual(component.images[2], image);
+                done();
+            });
+        });
+
+        it('deletes an image', done => {
+            const component = $component('imageApp', {imageService});
+            assert.isOk(component.loading);
+            component.remove(image);
+
+            setTimeout(() => {
+                assert.equal(component.images.length, 2);
+                done();
+            });
+        });
     });
 });
