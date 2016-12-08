@@ -1,0 +1,11 @@
+:local(.thumb) {
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    margin: 5%;
+}
+
+:local(.thumbnail) img {
+    width: 100px;
+    height: 100px;
+}
