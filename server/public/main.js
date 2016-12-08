@@ -33032,7 +33032,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<bunny-detail\n    bunny=\"app.bunny\">\n</bunny-detail>\n\n<bunny-thumbnail\n    bunny=\"app.bunny\">\n</bunny-thumbnail>\n\n<bunny-full-size\n    bunny=\"app.bunny\">\n</bunny-full-size>\n";
+	module.exports = "<div class =\"component\">\n  <bunny-detail\n      bunny=\"app.bunny\">\n  </bunny-detail>\n</div>\n\n<div class =\"component\">\n  <bunny-thumbnail class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-thumbnail>\n</div>\n\n<div class =\"component\">\n  <bunny-full-size class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-full-size>\n</div>\n";
 
 /***/ },
 /* 14 */
