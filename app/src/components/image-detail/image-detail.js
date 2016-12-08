@@ -4,7 +4,13 @@ export default {
   template,
   bindings: {
     image: '=',
+    remove: '<'
   },
-  controller(){}
+  controller
 };
 
+function controller() {
+  this.delete = () => {
+    this.remove(this.image);
+  };
+}

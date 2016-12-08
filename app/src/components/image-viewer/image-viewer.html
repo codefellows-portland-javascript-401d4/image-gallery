@@ -1,5 +1,13 @@
-<h2>Cute Bunny</h2>
+<h2>{{$ctrl.image.title}}</h2>
+<p>{{$ctrl.image.description}}</p>
+<img ng-src="{{$ctrl.image.url}}"/>
 
-<p>This is a photo of a really cute bunny...obviously.</p>
-
-<img ng-src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"/>
+<select ng-model="view">
+  <option value="" disabled>Select your view</option>
+  <option value="detail">Details</option>
+  <option value="thumb">Thumbnail</option>
+  <option value="full">Full Size</option>
+</select>
+<image-detail ng-if="view === 'detail' || view === undefined"></image-detail>
+<image-thumb ng-if="view === 'thumb'"></image-thumb>
+<image-viewer ng-if="view === 'full'"></image-viewer>

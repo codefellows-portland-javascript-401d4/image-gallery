@@ -1,5 +1,6 @@
-<h2>{{$ctrl.image.title}}</h2>
-
-<a ng-href="{{$ctrl.image.url}}">{{$ctrl.image.url}}</a>
-
-<p>{{$ctrl.image.description}}</p>
+<section>
+  <h2>{{$ctrl.image.title}}</h2>
+  <a ng-href="{{$ctrl.image.url}}">{{$ctrl.image.url}}</a>
+  <p>{{$ctrl.image.description}}</p>
+  <button ng-click="$ctrl.delete()">remove</button>
+</section>
