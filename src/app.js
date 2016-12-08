@@ -1,8 +1,6 @@
-const angular = require('angular');
-require('./main.css');
+import angular from 'angular';
+import './css/main.css';
+import components from './components';
 
-var app = angular.module('goat', []);
+angular.module('goat', [components]);
 
-app.controller('moods', function($scope) {
-	$scope.moods = ['furious', 'upset', 'peeved', 'neutral', 'pleased', 'happy', 'ecstatic'];
-});

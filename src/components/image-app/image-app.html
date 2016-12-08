@@ -1,0 +1,12 @@
+<section>
+    <form id="diplay-form">
+        Select an image display.
+        <select ng-model="displayChoice" ng-options="x for x in app.displays">
+        </select>
+    </form>
+    <div>
+        <image-detail ng-if="displayChoice==='text'" images="app.images"></image-detail>
+        <image-gallery ng-if="displayChoice==='full'" images="app.images"></image-gallery>
+        <image-thumb ng-if="displayChoice==='thumbnail'" images="app.images"></image-thumbnail>
+    </div>
+</section>

@@ -5,14 +5,14 @@ module.exports = {
 	entry: './src/app.js',
 	output: {
 		path: './build',
-		filename: './main.js'
+		filename: 'main.js'
 	},
 	devtool: 'source-map',
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
-		new ExtractTextPlugin('styles.css')
+		new ExtractTextPlugin('main.css')
 	],
 	module: {
 		preLoaders: [{
@@ -30,6 +30,9 @@ module.exports = {
 		}, {
 			test: /\.css$/,
 			loader: ExtractTextPlugin.extract('style-loader', 'css-loader')	
+		}, {
+			test: /\.html$/,
+			loader: 'html-loader'	
 		}]
 	}
 };
