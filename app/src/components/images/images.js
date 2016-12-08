@@ -34,4 +34,10 @@ function controller(imageService) {
         this.imageArr.push(saved);
       });
   };
+
+  this.imageChoice = this.imageArr;
+
+  this.choices = ['full', 'thumbnail', 'text'];
+
+  this.imageType = this.choices[2];
 }

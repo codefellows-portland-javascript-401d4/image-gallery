@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/pirates';
+const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/api';
 
 mongoose.Promise = Promise;
 mongoose.connect(dbURI);

@@ -32,3 +32,5 @@ router
       .then(saved => res.send(saved))
       .catch(next);
   });
+
+module.exports = router;
