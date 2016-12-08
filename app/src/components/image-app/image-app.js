@@ -6,12 +6,19 @@ export default {
     controllerAs: 'app'
 };
 
-function controller() {
-    this.bunny = {
-        title: 'Bunnies!',
-        link: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-        description: 'Bunnies to calm you down'
-    };
+controller.$inject = ['imageService'];
+
+function controller(imageService) {
+    
+    this.loading = true;
+
+    imageService
+        .get()
+        .then(images => {
+            this.images = images;
+            this.loading = false;
+        });
+
     this.viewOptions = ['detail','thumbnail','gallery'];
     this.view = '';
 };

@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static('./public'));
-app.use('/images', images);
+app.use('/api/images', images);
 app.use(errorHandler);
 
 module.exports = app;

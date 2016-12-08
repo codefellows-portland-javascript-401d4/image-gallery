@@ -1,8 +1,8 @@
-<h2>Select how you'd like to view the bunny!</h2>
+<h2>Select how you'd like to view the animals!</h2>
 <select ng-options="option as option for option in app.viewOptions" ng-model="app.view"></select>
 <hr>
-<section>
-    <image-detail ng-if="app.view === 'detail'" bunny="app.bunny"></image-detail>
-    <image-thumbnail ng-if="app.view === 'thumbnail'" bunny="app.bunny"></image-thumbnail>
-    <image-gallery ng-if="app.view === 'gallery'" bunny="app.bunny"></image-gallery>
+<section ng-repeat="image in app.images track by $index">
+    <image-detail ng-if="app.view === 'detail'" image="image"></image-detail>
+    <image-thumbnail ng-if="app.view === 'thumbnail'" image="image"></image-thumbnail>
+    <image-gallery ng-if="app.view === 'gallery'" image="image"></image-gallery>
 </section>

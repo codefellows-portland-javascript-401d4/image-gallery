@@ -4,7 +4,7 @@ import styles from './image-detail.css';
 export default {
     template,
     bindings: {
-        bunny: '='
+        image: '='
     },
     controller
 };

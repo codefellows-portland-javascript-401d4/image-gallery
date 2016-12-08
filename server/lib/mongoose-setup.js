@@ -1,7 +1,7 @@
 const mongoose = require( 'mongoose' );
 
 // we need a URI that points to our database
-const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/cachemoneydev'; 
+const dbURI = process.env.MONGODB_URI || 'mongodb://chrisfaux:223codefellows@ds127938.mlab.com:27938/funimages' || 'mongodb://localhost/funimages'; 
 
 mongoose.Promise = Promise;
 mongoose.connect( dbURI );
