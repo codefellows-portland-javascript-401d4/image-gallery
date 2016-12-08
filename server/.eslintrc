@@ -1,0 +1,43 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "ecmaFeatures": {
+        "modules": true,
+        "experimentalObjectRestSpread": true,
+        "impliedStrict": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": 0,
+        "space-infix-ops": [
+            "error",
+            {"int32Hint": false}
+        ],
+        "no-trailing-spaces": [
+            "error",
+            { "skipBlankLines": true }
+        ]
+    }
+}
