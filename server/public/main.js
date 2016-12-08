@@ -56,9 +56,13 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(29);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('imageGallery', [_components2.default]);
+	_angular2.default.module('imageGallery', [_components2.default, _services2.default]);
 
 /***/ },
 /* 1 */
@@ -34018,7 +34022,9 @@
 		"./image-app/image-app.js": 15,
 		"./image-detail/image-detail.js": 17,
 		"./image-thumb/image-thumb.js": 19,
-		"./image-viewer/image-viewer.js": 21
+		"./image-viewer/image-viewer.js": 21,
+		"./images/images.js": 23,
+		"./new-image/new-image.js": 25
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -34141,6 +34147,209 @@
 /***/ function(module, exports) {
 
 	module.exports = "<h2>Cute Bunny</h2>\n\n<p>This is a photo of a really cute bunny...obviously.</p>\n\n<img ng-src=\"http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg\"/>";
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _images = __webpack_require__(24);
+	
+	var _images2 = _interopRequireDefault(_images);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _images2.default,
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['imageService'];
+	
+	function controller(images) {
+	  var _this = this;
+	
+	  // images.get()
+	  //   .then(images => {
+	  //     this.images = images;
+	  //   });
+	
+	  this.add = function (image) {
+	    console.log('add');
+	    images.add(image).then(function (saved) {
+	      _this.images.push(saved);
+	    });
+	  };
+	
+	  this.remove = function (image) {
+	    images.remove(image._id).then(function () {
+	      var index = _this.images.indexOf(image);
+	      if (index > -1) _this.images.splice(index, 1);
+	    });
+	  };
+	}
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n  <ul>\n    <li ng-repeat=\"image in $ctrl.images\">\n      <image-detail\n        image=\"image\"\n        remove=\"$ctrl.remove\">\n        </image-detail>\n    </li>\n  </ul>\n\n  <new-image add=\"$ctrl.add(image)\"></new-image>\n</section>";
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _newImage = __webpack_require__(26);
+	
+	var _newImage2 = _interopRequireDefault(_newImage);
+	
+	var _newImage3 = __webpack_require__(27);
+	
+	var _newImage4 = _interopRequireDefault(_newImage3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _newImage2.default,
+	  bindings: {
+	    add: '&'
+	  },
+	  controller: controller
+	};
+	
+	
+	function controller() {
+	  var _this = this;
+	
+	  this.styles = _newImage4.default;
+	
+	  this.resetFields = function () {
+	    _this.title = '';
+	    _this.url = '';
+	    _this.desc = '';
+	  };
+	
+	  this.addNew = function () {
+	    _this.add({
+	      title: _this.title,
+	      url: _this.url,
+	      desc: _this.desc
+	    });
+	    _this.resetFields();
+	  };
+	  console.log('this', this.add);
+	  this.add();
+	}
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	module.exports = "<section ng-class=\"$ctrl.styles['upload-class']\">\n  <div>\n    <input ng-model=\"$ctrl.title\" placeholder=\"image title\" required>\n    <input ng-model=\"$ctrl.url\" placeholder=\"image url\" required>\n    <input ng-model=\"$ctrl.desc\" placeholder=\"image description\" required>\n    <button ng-click=\"$ctrl.addNew()\">Upload Image</button>\n  </div>\n</section>";
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"upload-class":"iGWgbXsncuDblxwrdGVOQ"};
+
+/***/ },
+/* 28 */,
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _camelcase = __webpack_require__(8);
+	
+	var _camelcase2 = _interopRequireDefault(_camelcase);
+	
+	var _path = __webpack_require__(9);
+	
+	var _path2 = _interopRequireDefault(_path);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var context = __webpack_require__(30);
+	
+	var _module = _angular2.default.module('services', []);
+	
+	context.keys().forEach(function (key) {
+	  var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
+	  _module.factory(name, context(key).default);
+	});
+	
+	exports.default = _module.name;
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./image-service.js": 31
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 30;
+
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = imageService;
+	imageService.$inject = ['$http'];
+	
+	function imageService($http) {
+	  return {
+	    get: function get() {
+	      console.log('image service');
+	      return $http.get('http://localhost:3000/api/images').then(function (res) {
+	        return res.data;
+	      });
+	    },
+	    add: function add(image) {
+	      return $http.post('http://localhost:3000/api/images', image).then(function (res) {
+	        return res.data;
+	      });
+	    }
+	  };
+	}
 
 /***/ }
 /******/ ]);

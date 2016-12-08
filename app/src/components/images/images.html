@@ -1,0 +1,12 @@
+<section>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <image-detail
+        image="image"
+        remove="$ctrl.remove">
+        </image-detail>
+    </li>
+  </ul>
+
+  <new-image add="$ctrl.add(image)"></new-image>
+</section>
