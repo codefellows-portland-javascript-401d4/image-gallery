@@ -3,15 +3,41 @@ import template from './app.html';
 export default {
   template,
   controller,
-  controllerAs: 'app'    
+  controllerAs: 'app'   
 };
 
-function controller() {
-  this.images = [
-    { title: 'Pygmy Rabbit',
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/BRACHYLAGUS_IDAHOENSIS.jpg',
-      desc: 'The pygmy rabbit (Brachylagus idahoensis) is a North American rabbit, and is one of only two rabbit species in America to dig its own burrow. The pygmy rabbit is the world\'s smallest leporid, with mean adult weights from 375 to about 500 grams, and a body length from 23.5 to 29.5 centimeters; females are slightly larger than males.'
-	 }
-  ];
+controller.$inject = ['imageService'];
+
+function controller(images) {
+
   this.views = ['text-only', 'thumbnail', 'full-image'];
+
+  this.loading = true;
+
+  images.get().then(images => {
+    this.loading = false;
+    this.images = images;
+  });
+
+  // this.remove = image => {
+  //   this.loading = true;
+  //   images.remove(image._id)
+  //           .then(() => {
+  //             this.loading = false;
+  //               // after server has updated data, modify in-memory array
+  //             const index = this.images.indexOf(image);
+  //             if (index > -1) this.images.splice(index, 1);
+  //           });
+  // };
+
+  this.add = image => {
+    this.loading = true;
+    images.add(image)
+            .then(saved => {
+              this.loading = false;
+                // push to in-memory array
+              console.log('this.images ' + this.images);
+              this.images.push(saved);
+            });
+  };
 }

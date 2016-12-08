@@ -32987,10 +32987,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./full-image/full-image.js": 12,
-		"./image-app/image-app.js": 14,
-		"./text/text.js": 16,
-		"./thumbnail/thumbnail.js": 18
+		"./app/app.js": 12,
+		"./full-image/full-image.js": 14,
+		"./new image/new-image.js": 16,
+		"./text-only/text-pnly.js": 18,
+		"./thumbnail/thumbnail.js": 20
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33016,7 +33017,71 @@
 	  value: true
 	});
 	
-	var _fullImage = __webpack_require__(13);
+	var _app = __webpack_require__(13);
+	
+	var _app2 = _interopRequireDefault(_app);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _app2.default,
+	  controller: controller,
+	  controllerAs: 'app'
+	};
+	
+	
+	controller.$inject = ['imageService'];
+	
+	function controller(images) {
+	  var _this = this;
+	
+	  this.views = ['text-only', 'thumbnail', 'full-image'];
+	
+	  // this.loading = true;
+	
+	  // images.get().then(images => {
+	  //   this.loading = false;
+	  //   this.images = images;
+	  // });
+	
+	  // this.remove = image => {
+	  //   this.loading = true;
+	  //   images.remove(image._id)
+	  //           .then(() => {
+	  //             this.loading = false;
+	  //               // after server has updated data, modify in-memory array
+	  //             const index = this.images.indexOf(image);
+	  //             if (index > -1) this.images.splice(index, 1);
+	  //           });
+	  // };
+	
+	  this.add = function (image) {
+	    _this.loading = true;
+	    images.add(image).then(function (saved) {
+	      _this.loading = false;
+	      // push to in-memory array
+	      _this.images.push(saved);
+	    });
+	  };
+	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\r\n\t<form>\r\n\t\tSelect a view: <select ng-model=\"view\" ng-options=\"v for v in app.views\"></select>\r\n\t</form>\r\n\t<hr>\r\n\t<div class=\"loader\" ng-if=\"app.loading\">Loading...</div></br>\r\n\t<p ng-repeat=\"image in app.images\">\r\n\t\t<text ng-if=\"view==='text-only'\"\r\n\t\t\timage=\"image\">\r\n\t\t</text>\r\n\t\t<thumbnail ng-if=\"view==='thumbnail'\"\r\n\t\t\timage=\"image\">\r\n\t\t</thumbnail>\r\n\t\t<full-image ng-if=\"view==='full-image'\"\r\n\t\t\timage=\"image\">\r\n\t\t</full-image>\r\n\t</p>\r\n\t<new-image add=\"$app.add\"></new-image>\r\n</section>\r\n";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _fullImage = __webpack_require__(15);
 	
 	var _fullImage2 = _interopRequireDefault(_fullImage);
 	
@@ -33030,47 +33095,10 @@
 	};
 
 /***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	module.exports = "<div>\r\n\t<h3>Full Image View</h3>\r\n\t<p>{{$ctrl.image.title}}</p>\r\n\t<img src={{$ctrl.image.url}}>\r\n\t<p>{{$ctrl.image.desc}}</p>\t\r\n</div>";
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _imageApp = __webpack_require__(15);
-	
-	var _imageApp2 = _interopRequireDefault(_imageApp);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _imageApp2.default,
-	  controller: controller,
-	  controllerAs: 'app'
-	};
-	
-	
-	function controller() {
-	  this.images = [{ title: 'Pygmy Rabbit',
-	    url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/BRACHYLAGUS_IDAHOENSIS.jpg',
-	    desc: 'The pygmy rabbit (Brachylagus idahoensis) is a North American rabbit, and is one of only two rabbit species in America to dig its own burrow. The pygmy rabbit is the world\'s smallest leporid, with mean adult weights from 375 to about 500 grams, and a body length from 23.5 to 29.5 centimeters; females are slightly larger than males.'
-	  }];
-	  this.views = ['text-only', 'thumbnail', 'full-image'];
-	}
-
-/***/ },
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<form>\r\n\tSelect a view: <select ng-model=\"view\" ng-options=\"v for v in app.views\"></select>\r\n</form>\r\n<hr>\r\n<p ng-repeat=\"image in app.images\">\r\n\t<text ng-if=\"view==='text-only'\"\r\n\t\timage=\"image\">\r\n\t</text>\r\n\t<thumbnail ng-if=\"view==='thumbnail'\"\r\n\t\timage=\"image\">\r\n\t</thumbnail>\r\n\t<full-image ng-if=\"view==='full-image'\"\r\n\t\timage=\"image\">\r\n\t</full-image>\r\n</p>\r\n";
+	module.exports = "<div>\r\n\t<h3>Full Image View</h3>\r\n\t<p>{{$ctrl.image.title}}</p>\r\n\t<img src={{$ctrl.image.url}}>\r\n\t<p>{{$ctrl.image.desc}}</p>\t\r\n</div>";
 
 /***/ },
 /* 16 */
@@ -33082,24 +33110,47 @@
 	  value: true
 	});
 	
-	var _text = __webpack_require__(17);
+	var _newImage = __webpack_require__(17);
 	
-	var _text2 = _interopRequireDefault(_text);
+	var _newImage2 = _interopRequireDefault(_newImage);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _text2.default,
+	  template: _newImage2.default,
 	  bindings: {
-	    image: '='
-	  }
+	    add: '<'
+	  },
+	  controller: controller
 	};
+	
+	
+	function controller() {
+	  var _this = this;
+	
+	  this.reset = function () {
+	    _this.title = '';
+	    _this.url = '';
+	    _this.desc = '';
+	  };
+	
+	  this.reset();
+	
+	  this.addNew = function () {
+	    _this.add({
+	      title: _this.title,
+	      url: _this.url,
+	      desc: _this.desc
+	    });
+	    _this.reset();
+	  };
+	}
 
 /***/ },
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\r\n\t<h3>Text View</h3>\r\n\t<p>{{$ctrl.image.title}}</p>\r\n\t<p><a href=\"{{$ctrl.image.url}}\">image</a></p>\r\n\t<p>{{$ctrl.image.desc}}</p>\r\n</span>";
+	module.exports = "<section>\r\n    <div>\r\n        <label>title:</label>\r\n        <input ng-model=\"$ctrl.title\">\r\n    </div>\r\n    <div>\r\n        <label>url:</label>\r\n        <input ng-model=\"$ctrl.url\">\r\n    </div>\r\n\t\t<div>\r\n        <label>description:</label>\r\n        <input ng-model=\"$ctrl.desc\">\r\n    </div>\r\n    <button ng-click=\"$ctrl.addNew()\">Add Image</button>\r\n</section>";
 
 /***/ },
 /* 18 */
@@ -33111,7 +33162,36 @@
 	  value: true
 	});
 	
-	var _thumbnail = __webpack_require__(19);
+	var _textOnly = __webpack_require__(19);
+	
+	var _textOnly2 = _interopRequireDefault(_textOnly);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _textOnly2.default,
+	  bindings: {
+	    image: '='
+	  }
+	};
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "<span>\r\n\t<h3>Text View</h3>\r\n\t<p>{{$ctrl.image.title}}</p>\r\n\t<p><a href=\"{{$ctrl.image.url}}\">image</a></p>\r\n\t<p>{{$ctrl.image.desc}}</p>\r\n</span>";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _thumbnail = __webpack_require__(21);
 	
 	var _thumbnail2 = _interopRequireDefault(_thumbnail);
 	
@@ -33125,7 +33205,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\r\n\t<h3>Thumbnail View</h3>\r\n\t<img src={{$ctrl.image.url}} height=\"100\">\r\n</div>";
