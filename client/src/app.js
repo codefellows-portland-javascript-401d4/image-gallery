@@ -2,6 +2,20 @@ import angular from 'angular';
 import './css/main.css';
 //gets index.js from components directory
 import components from './components';
+import services from './services';
 
 
-angular.module('myApp', [components]);
+const app = angular.module('myApp', [
+    components,
+    services
+]);
+
+const dev = 'http://localhost:3000/api';
+
+// gives the service "object" directly
+//same as:
+// app.factory('apiUrl', function() {
+//     return dev;
+// });
+app.value('apiUrl', dev);
+

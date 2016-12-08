@@ -56,10 +56,23 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(28);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]);
 	//gets index.js from components directory
+	var app = _angular2.default.module('myApp', [_components2.default, _services2.default]);
+	
+	var dev = 'http://localhost:3000/api';
+	
+	// gives the service "object" directly
+	//same as:
+	// app.factory('apiUrl', function() {
+	//     return dev;
+	// });
+	app.value('apiUrl', dev);
 
 /***/ },
 /* 1 */
@@ -33033,31 +33046,40 @@
 	};
 	
 	
-	function controller() {
+	controller.$inject = ['imageService'];
+	
+	function controller(images) {
+	    var _this = this;
+	
 	    this.styles = _imageApp4.default;
-	    this.image = [{
-	        title: 'Cute Mango Calico Bunny',
-	        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-	        description: 'Here is a picure of a really cute bunny.',
-	        value: 0
-	    }, {
-	        title: 'Albino Bunnies',
-	        url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/two-beautiful-rabbits-hd-free-wallappers-for-desktop.jpg',
-	        description: 'Bunnies with white fur and red eyes.',
-	        value: 1
-	    }, {
-	        title: 'Floppy Ears Bunny',
-	        url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/so-sweet-rabbit-wallpapers-images-free-hd.jpg',
-	        description: 'This is a bunny with very floppy ears.',
-	        value: 2
-	    }];
+	
+	    images.get().then(function (images) {
+	        _this.images = images;
+	    });
+	
+	    // this.images = [{
+	    //     title: 'Cute Mango Calico Bunny',
+	    //     url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
+	    //     description: 'Here is a picure of a really cute bunny.',
+	    //     value: 0
+	    // }, {
+	    //     title: 'Albino Bunnies',
+	    //     url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/two-beautiful-rabbits-hd-free-wallappers-for-desktop.jpg',
+	    //     description: 'Bunnies with white fur and red eyes.',
+	    //     value: 1
+	    // }, {
+	    //     title: 'Floppy Ears Bunny',
+	    //     url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/so-sweet-rabbit-wallpapers-images-free-hd.jpg',
+	    //     description: 'This is a bunny with very floppy ears.',
+	    //     value: 2
+	    // }];
 	}
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-model=\"app.bunny\">\n            <option value=\"0\">Calico Bunny</option>\n            <option value=\"1\">Albino Bunnies</option>\n            <option value=\"2\">Floppy Ears Bunny</option>\n        </select>\n        <!--<select ng-model=\"app.bunny\" ng-options=\"i.title for i in app.image\"></select>-->\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"app.view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n    </div>\n    <image-detail ng-if=\"app.view==='detail'\" image=\"app.image[app.bunny]\"></image-detail>\n    <image-thumbnail ng-if=\"app.view==='thumbnail'\" image=\"app.image[app.bunny]\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view==='gallery'\" image=\"app.image[app.bunny]\"></image-gallery>\n</section>\n";
+	module.exports = "<section ng-class=\"app.styles.image\">\n    <div>\n        <span>Choose an Image to View</span>\n        <select ng-model=\"app.bunny\">\n            <option value=\"0\">Calico Bunny</option>\n            <option value=\"1\">Albino Bunnies</option>\n            <option value=\"2\">Floppy Ears Bunny</option>\n        </select>\n        <!--<select ng-model=\"app.bunny\" ng-options=\"i.title for i in app.image\"></select>-->\n        <span>Choose an Image View Format</span>\n        <select ng-model=\"app.view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n    </div>\n    <image-detail ng-if=\"app.view==='detail'\" image=\"app.images[app.bunny]\"></image-detail>\n    <image-thumbnail ng-if=\"app.view==='thumbnail'\" image=\"app.images[app.bunny]\"></image-thumbnail>\n    <image-gallery ng-if=\"app.view==='gallery'\" image=\"app.images[app.bunny]\"></image-gallery>\n</section>\n";
 
 /***/ },
 /* 14 */
@@ -33206,6 +33228,107 @@
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"thumbnail":"_11T7qyV23K_HJKWVsGU9lU"};
+
+/***/ },
+/* 27 */,
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _camelcase = __webpack_require__(8);
+	
+	var _camelcase2 = _interopRequireDefault(_camelcase);
+	
+	var _path = __webpack_require__(9);
+	
+	var _path2 = _interopRequireDefault(_path);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// .context is a method webpack adds to require 
+	var context = __webpack_require__(29);
+	
+	// create the module to put the resources in,
+	// in this case directives
+	var _module = _angular2.default.module('services', []);
+	
+	// iterate each of the found required contexts (files)
+	context.keys().forEach(function (key) {
+	    // convert kabob to camel, eg list-item -> listItem
+	    var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
+	    // add the component to the components module
+	    _module.factory(name, context(key).default);
+	});
+	
+	// export the name of the module for 
+	// adding as a dependecy at the app level
+	exports.default = _module.name;
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./image-service.js": 30
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 29;
+
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = imageService;
+	// $http is Angular's built-in AJAX library
+	imageService.$inject = ['$http', 'apiUrl'];
+	
+	// $http gets injected
+	function imageService($http, apiUrl) {
+	    return {
+	        get: function get() {
+	            return $http.get(apiUrl + '/images')
+	            // our "data" is on the data prop of res
+	            .then(function (res) {
+	                return res.data;
+	            });
+	        },
+	        remove: function remove(id) {
+	            return $http.delete(apiUrl + '/images/' + id).then(function (res) {
+	                return res.data;
+	            });
+	        },
+	        add: function add(image) {
+	            return $http.post(apiUrl + '/images', image).then(function (res) {
+	                return res.data;
+	            });
+	        }
+	    };
+	}
 
 /***/ }
 /******/ ]);
