@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: './build',
-    filename: 'main.js'
+    filename: 'build.js'
   },
   devtool: 'source-map',
   plugins: [

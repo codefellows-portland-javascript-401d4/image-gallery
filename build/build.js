@@ -33098,7 +33098,7 @@
 	function controller() {
 	  var _this = this;
 	
-	  this.spiders = [{ name: 'Igor', type: 'zebra' }];
+	  this.spiders = [{ name: 'Igor', type: 'zebra' }, { name: 'Spike', type: 'punk' }];
 	
 	  this.remove = function (spider) {
 	    var index = _this.spiders.indexOf(spider);
@@ -33114,7 +33114,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1 class=\"spider\">Jumping Spiders!</h1>\n\n<ul>\n    <li ng-repeat=\"spider in app.spiders\">\n        <spider-detail\n            spider=\"spider\"\n            remove=\"app.remove\">\n        </spider-detail>\n    </li>\n</ul>\n\n<new-spider add=\"app.add\"></new-spider>\n";
+	module.exports = "<!-- <h1 class=\"spider\">Jumping Spiders!</h1> -->\n<!-- <h1 ng-class=\"$ctrl.styles.spider\">Jumping Spiders!</h1> -->\n\n<ul>\n  <li ng-repeat=\"spider in app.spiders\">\n    <spider-detail\n      spider=\"spider\"\n      remove=\"app.remove\">\n    </spider-detail>\n  </li>\n</ul>\n\n<ul>\n  <img ng-src=\"../.././images/spiderthumbnail.png\"></img>\n</ul>\n\n<new-spider add=\"app.add\"></new-spider>\n";
 
 /***/ },
 /* 18 */
@@ -33154,8 +33154,8 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n    {{$ctrl.spider.name}} the {{$ctrl.spider.type}}\n    <button ng-click=\"$ctrl.delete()\">remove</button>\n</span>\n";
+	module.exports = "<span>\n    {{$ctrl.spider.name}} the {{$ctrl.spider.type}} spider\n    <!-- <button ng-click=\"$ctrl.delete()\">remove</button> -->\n</span>\n";
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=build.js.map

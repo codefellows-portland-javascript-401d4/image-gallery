@@ -22,7 +22,7 @@ function controller() {
   this.addNew = () => {
     this.add({
       name: this.name,
-      rank: this.type
+      type: this.type
     });
         // clear out controls so
         // next spider can be added
