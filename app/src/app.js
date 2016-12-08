@@ -2,5 +2,13 @@ import angular from 'angular';
 // import './css/main.css';
 
 import components from './components';
+import services from './services';
 
-angular.module('myApp', [components]);
+const app = angular.module('myApp', [
+  components,
+  services
+]);
+
+const dev = 'http://localhost:3000/images';
+
+app.value('apiUrl', dev);
