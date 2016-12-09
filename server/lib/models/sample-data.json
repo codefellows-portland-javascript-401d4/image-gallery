@@ -1,9 +1,11 @@
-{ "title": "Pygmy Rabbit",
+[
+	{ "title": "Pygmy Rabbit",
 "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/BRACHYLAGUS_IDAHOENSIS.jpg",
  "desc": "The pygmy rabbit (Brachylagus idahoensis) is a North American rabbit, and is one of only two rabbit species in America to dig its own burrow. The pygmy rabbit is the world's smallest leporid, with mean adult weights from 375 to about 500 grams, and a body length from 23.5 to 29.5 centimeters; females are slightly larger than males."},
  { "title": "Eastern Cottontail",
-"url": "https://en.wikipedia.org/wiki/File:54_rabbit_fence.JPG",
+"url": "https://upload.wikimedia.org/wikipedia/commons/a/af/54_rabbit_fence.JPG",
  "desc": "The eastern cottontail (Sylvilagus floridanus) is a New World cottontail rabbit, a member of the family Leporidae. It is one of the most common rabbit species in North America."},
   { "title": "Desert Cottontail",
 "url": "https://en.wikipedia.org/wiki/File:Sylvilagus_audubonii_2.jpg",
  "desc": "The desert cottontail (Sylvilagus audubonii), also known as Audubon's cottontail, is a New World cottontail rabbit, and a member of the family Leporidae."}
+]
