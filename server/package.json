@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "MONGODB_URI=mongodb://localhost/pirates-test mocha",
+    "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
     "start": "DEBUG=myapp.* nodemon server.js"
   },
   "author": "mjfreem1",

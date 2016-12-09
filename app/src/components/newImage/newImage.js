@@ -3,7 +3,7 @@ import template from './newImage.html';
 export default {
   template,
   bindings: {
-    add: '<'
+    addImage: '<'
   },
   controller,
   controllerAs: 'newImgCtrl'
