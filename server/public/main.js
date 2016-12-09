@@ -56,9 +56,21 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(22);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]);
+	var app = _angular2.default.module('myApp', [_components2.default, _services2.default]);
+	
+	var dev = 'http://localhost:5000/api';
+	
+	app.value('apiUrl', dev);
+	
+	// app.factory('apiUrl', function() {
+	//   return dev;
+	// });
 
 /***/ },
 /* 1 */
@@ -32981,7 +32993,8 @@
 		"./bunny-app/bunny-app.js": 12,
 		"./bunny-detail/bunny-detail.js": 14,
 		"./bunny-full-size/bunny-full-size.js": 16,
-		"./bunny-thumbnail/bunny-thumbnail.js": 18
+		"./bunny-thumbnail/bunny-thumbnail.js": 18,
+		"./images/images.js": 20
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33015,24 +33028,23 @@
 	
 	exports.default = {
 	  template: _bunnyApp2.default,
-	  controller: controller,
-	  controllerAs: 'app'
+	  controller: controller
 	};
 	
 	
 	function controller() {
-	  this.bunny = {
-	    url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Bunny_in_zoo_cropped.jpg',
-	    image_title: 'Fluffy the bunny',
-	    image_description: 'This is a close up photo of a little bunny.'
-	  };
+	  // this.bunny = {
+	  //   url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Bunny_in_zoo_cropped.jpg',
+	  //   image_title: 'Fluffy the bunny',
+	  //   image_description: 'This is a close up photo of a little bunny.'
+	  // };
 	}
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class =\"component\">\n  <bunny-detail\n      bunny=\"app.bunny\">\n  </bunny-detail>\n</div>\n\n<div class =\"component\">\n  <bunny-thumbnail class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-thumbnail>\n</div>\n\n<div class =\"component\">\n  <bunny-full-size class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-full-size>\n</div>\n";
+	module.exports = "<!-- <div class =\"component\">\n  <bunny-detail\n      bunny=\"app.bunny\">\n  </bunny-detail>\n</div>\n\n<div class =\"component\">\n  <bunny-thumbnail class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-thumbnail>\n</div>\n\n<div class =\"component\">\n  <bunny-full-size class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-full-size>\n</div> -->\n<images></images>\n";
 
 /***/ },
 /* 14 */
@@ -33053,7 +33065,7 @@
 	exports.default = {
 	  template: _bunnyDetail2.default,
 	  bindings: {
-	    bunny: '<'
+	    image: '<'
 	  }
 	};
 
@@ -33061,7 +33073,7 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>Bunny detail</h2>\n<p>Image title: {{$ctrl.bunny.image_title}}</p>\n<a href=\"{{$ctrl.bunny.url}}\"/>Link to bunny image</a>\n<p>Description: {{$ctrl.bunny.image_description}}</p>\n";
+	module.exports = "<h2>Bunny detail</h2>\n<p>Image title: {{$ctrl.image.imageTitle}}</p>\n<a href=\"{{$ctrl.image.url}}\"/>Link to bunny image</a>\n<p>Description: {{$ctrl.image.imageDescription}}</p>\n";
 
 /***/ },
 /* 16 */
@@ -33120,6 +33132,122 @@
 /***/ function(module, exports) {
 
 	module.exports = "<h2>Thumbnail image of bunny</h2>\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.bunny.url}}\"/>\n";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _images = __webpack_require__(21);
+	
+	var _images2 = _interopRequireDefault(_images);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _images2.default,
+	  controller: controller
+	};
+	
+	
+	controller.inject = ['imageService'];
+	
+	function controller(images) {
+	  var _this = this;
+	
+	  images.get().then(function (images) {
+	    _this.images = images;
+	  });
+	}
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class =\"component\">\n  <bunny-detail\n      image=\"image\">\n  </bunny-detail>\n</div>\n\n<div class =\"component\">\n  <bunny-thumbnail class =\"component\"\n      image=\"image\">\n  </bunny-thumbnail>\n</div>\n\n<div class =\"component\">\n  <bunny-full-size class =\"component\"\n      image=\"image\">\n  </bunny-full-size>\n</div>\n";
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _camelcase = __webpack_require__(8);
+	
+	var _camelcase2 = _interopRequireDefault(_camelcase);
+	
+	var _path = __webpack_require__(9);
+	
+	var _path2 = _interopRequireDefault(_path);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var context = __webpack_require__(23);
+	
+	var _module = _angular2.default.module('services', []);
+	
+	context.keys().forEach(function (key) {
+	  var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
+	  _module.factory(name, context(key).default);
+	});
+	
+	exports.default = _module.name;
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./image-service.js": 24
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 23;
+
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = imageService;
+	imageService.$inject = ['$http', 'apiUrl'];
+	
+	function imageService($http, apiUrl) {
+	  return {
+	    get: function get() {
+	      return $http.get(apiUrl + '/images').then(function (res) {
+	        return res.data;
+	      });
+	    }
+	  };
+	}
 
 /***/ }
 /******/ ]);
