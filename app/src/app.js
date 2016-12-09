@@ -1,5 +1,20 @@
 import angular from 'angular';
 import './css/main.css';
-import components from './components'; //grabs index.js from components dir
 
-angular.module('myApp', [components]);
+//grabs index.js from components dir
+import components from './components';
+import services from './services'; 
+
+angular.module('myApp', [
+  components,
+  services
+]);
+
+const dev = 'http://localhost:3500/api';
+
+//.value serves service obj to angular - could use:
+//app.factory('apiUrl', function() {
+//  return dev;
+//})
+app.value('apiUrl', dev); //eslint-disable-line
+
