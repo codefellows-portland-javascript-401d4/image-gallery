@@ -60,7 +60,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(22);
+	var _services = __webpack_require__(24);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -32995,7 +32995,8 @@
 		"./image-app/image-app.js": 12,
 		"./image-detail/image-detail.js": 14,
 		"./image-gallery/image-gallery.js": 16,
-		"./image-thumbnail/image-thumbnail.js": 18
+		"./image-new/image-new.js": 18,
+		"./image-thumbnail/image-thumbnail.js": 20
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33057,18 +33058,12 @@
 	
 	    this.selected = 'detail';
 	}
-	
-	// this.image = {
-	//     title: 'Elephant',
-	//     description: 'An adorable baby elephant.',
-	//     url: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg'
-	// };
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n    <new-image add=\"$ctrl.add\"></new-image>\n</section>";
+	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
 
 /***/ },
 /* 14 */
@@ -33089,9 +33084,24 @@
 	exports.default = {
 	    template: _imageDetail2.default,
 	    bindings: {
-	        image: '='
-	    }
+	        image: '=',
+	        add: '<'
+	    },
+	    controller: controller
 	};
+	
+	
+	function controller() {
+	    var _this = this;
+	
+	    this.addNew = function () {
+	        _this.add({
+	            title: _this.title,
+	            description: _this.description,
+	            url: _this.url
+	        });
+	    };
+	}
 
 /***/ },
 /* 15 */
@@ -33138,11 +33148,68 @@
 	    value: true
 	});
 	
-	var _imageThumbnail = __webpack_require__(19);
+	var _imageNew = __webpack_require__(19);
+	
+	var _imageNew2 = _interopRequireDefault(_imageNew);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _imageNew2.default,
+	    bindings: {
+	        // image: '=',
+	        add: '<'
+	    },
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    var _this = this;
+	
+	    this.reset = function () {
+	        _this.title = '';
+	        _this.description = '';
+	        _this.url = '';
+	    };
+	
+	    this.reset();
+	
+	    // this.title = 'elephant';
+	    // this.description = 'another elephant';
+	    // this.url = 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg';
+	
+	    this.addNew = function () {
+	        _this.add({
+	            title: _this.title,
+	            description: _this.description,
+	            url: _this.url
+	        });
+	        _this.reset();
+	    };
+	}
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n    <div>\n        <label>Title:</label>\n        <input ng-model=\"$ctrl.title\">\n    </div>\n    <div>\n        <label>Description:</label>\n        <input ng-model=\"$ctrl.description\">\n    </div>\n    <div>\n        <label>Image URL:</label>\n        <input ng-model=\"$ctrl.url\">\n    </div>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</section>";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _imageThumbnail = __webpack_require__(21);
 	
 	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
 	
-	var _imageThumbnail3 = __webpack_require__(20);
+	var _imageThumbnail3 = __webpack_require__(22);
 	
 	var _imageThumbnail4 = _interopRequireDefault(_imageThumbnail3);
 	
@@ -33156,20 +33223,20 @@
 	};
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = "<span>\n    <h3>Image Thumbnail -</h3>\n    <ul>\n        <li>\n            <img class=\"thumb\" ng-src=\"{{$ctrl.image.url}}\" />\n        </li>\n    </ul>\n</span>";
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 21 */,
-/* 22 */
+/* 23 */,
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33192,7 +33259,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(23);
+	var context = __webpack_require__(25);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33204,11 +33271,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./imageService.js": 24
+		"./imageService.js": 26
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33221,11 +33288,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 23;
+	webpackContext.id = 25;
 
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';

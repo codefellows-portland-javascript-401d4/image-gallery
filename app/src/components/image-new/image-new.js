@@ -1,20 +1,29 @@
-import template from './image-detail.html';
+import template from './image-new.html';
 
 export default {
     template,
     bindings: {
-        image: '=',
         add: '<'
     },
     controller
 };
 
 function controller() {
+
+    this.reset = () => {
+        this.title = '';
+        this.description = '';
+        this.url = '';
+    };
+
+    this.reset();
+
     this.addNew = () => {
         this.add({
             title: this.title,
             description: this.description,
             url: this.url
         });
+        this.reset();
     };
 }
