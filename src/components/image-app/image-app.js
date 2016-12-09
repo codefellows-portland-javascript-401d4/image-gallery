@@ -22,5 +22,4 @@ function controller() {
     this.view = name;
   };
 
-
 }

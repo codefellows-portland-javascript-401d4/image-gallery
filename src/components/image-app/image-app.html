@@ -1,4 +1,11 @@
 <header class="image">GALLERY</header>
+<!--<button ng-init="views = ['list', 'thumb', 'full']" 
+  ng-repeat="view in views"
+  name="{{view}}" 
+  ng-click="app.toggleView(view)">
+    {{view}}
+</button>-->
+  
 <button name="list" ng-click="app.toggleView('list')">list</button>
 <button name="thumb" ng-click="app.toggleView('thumb')">thumb</button>
 <button name="full" ng-click="app.toggleView('full')">view</button>
@@ -8,7 +15,7 @@
     <image-list
       image="image"
       remove="app.remove"
-      toggleView="app.toggleView">
+      toggle-view="app.toggleView">
     </image-list>    
   </li>
 </ul>
@@ -20,7 +27,7 @@
     <image-thumb
       image="image"
       remove="app.remove"
-      toggleView="app.toggleView">
+      toggle-view="app.toggleView">
     </image-thumb>    
   </li>
 </ul>
@@ -32,7 +39,7 @@
      <image-full
       image="image"
       remove="app.remove"
-      toggleView="app.toggleView">
+      toggle-view="app.toggleView">
     </image-full>   
   </li>
 </ul>

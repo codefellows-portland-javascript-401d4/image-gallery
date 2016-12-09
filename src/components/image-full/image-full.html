@@ -1,9 +1,9 @@
 <h1>Image</h1>
 <span>
-  <img src="{{$ctrl.image.url}}"><br>
-  {{$ctrl.image.name}}<br>
-  {{$ctrl.image.description}}<br>
-  <button name="list" ng-click="$ctrl.view(name)">list</button>
-  <button name="thumb" ng-click="$ctrl.view(name)">thumb</button>
-  <button ng-click="$ctrl.delete()">remove</button>
+  <img src="{{$full.image.url}}"><br>
+  {{$full.image.name}}<br>
+  {{$full.image.description}}<br>
+  <button name="list" ng-click="$full.toggleView('list')">list</button>
+  <button name="thumb" ng-click="$full.toggleView('thumb')">thumb</button>
+  <button ng-click="$full.delete()">remove</button>
 </span>

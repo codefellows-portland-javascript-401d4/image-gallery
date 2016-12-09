@@ -6,9 +6,10 @@ export default {
   bindings: {
     image: '=',
     remove: '<',
-    toggleView: '&'
+    toggleView: '<'
   },
-  controller
+  controller,
+  controllerAs: '$thumb'
 };
 
 function controller() {
@@ -16,9 +17,5 @@ function controller() {
   
   this.delete = () => {
     this.remove(this.image);
-  };
-
-  this.view = (name) => {
-    this.toggleView(name);
   };
 }
