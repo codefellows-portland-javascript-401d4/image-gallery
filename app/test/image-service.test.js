@@ -1,11 +1,13 @@
 describe('pirate service', () => {
   const {assert} = chai;
 
-  beforeEach(angular.mock.module('services', {apiUrl: '/api'}));
+  angular.mock.module.sharedInjector();
+
+  before(angular.mock.module('services', {apiUrl: '/api'}));
 
   let $httpBackend = null, imageService = null;
 
-  beforeEach(angular.mock.inject((_imageService_, _$httpBackend_) => {
+  before(angular.mock.inject((_imageService_, _$httpBackend_) => {
     $httpBackend = _$httpBackend_;
     imageService = _imageService_;
   }));
@@ -32,6 +34,5 @@ describe('pirate service', () => {
       .catch(done);
     $httpBackend.flush();
   });
-
 
 });

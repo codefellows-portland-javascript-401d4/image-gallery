@@ -1,11 +1,13 @@
 describe('images component', () => {
   const {assert} = chai;
 
-  beforeEach(angular.mock.module('components'));
+  angular.mock.module.sharedInjector();
+
+  before(angular.mock.module('components'));
 
   let $component = null;
 
-  beforeEach(angular.mock.inject($componentController => {
+  before(angular.mock.inject($componentController => {
     $component = $componentController;
   }));
 
@@ -21,7 +23,11 @@ describe('images component', () => {
       }
     };
 
-    const component = $component('images', {imageService});
+    let component = null;
+
+    before(() => {
+      component = $component('images', {imageService});
+    });
 
     it('loads images', done => {
 
