@@ -1,4 +1,4 @@
-import template from './spider-detail.html';
+import template from './spider-image.html';
 
 export default {
   template,

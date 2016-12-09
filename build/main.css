@@ -2,12 +2,16 @@ h1 {
   color: blue;
 }
 
+a {
+  color: blue;
+}
+
 button {
   margin: 0;
   margin-right: -5px;
   background: lightgreen;
   color: black;
-  border: 3px solid blue;
+  border: 1px solid blue;
 }
 ._1dlk2Mqppqj442-2mroP72 {
     color: black;

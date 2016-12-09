@@ -2,6 +2,10 @@ h1 {
   color: blue;
 }
 
+a {
+  color: blue;
+}
+
 button {
   margin: 0;
   margin-right: -5px;

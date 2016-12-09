@@ -1,19 +1,20 @@
-<!-- <h1 class="spider">Jumping Spiders!</h1> -->
-<!-- <h1 ng-class="$ctrl.styles.spider">Jumping Spiders!</h1> -->
-<ul>
-  <ul ng-repeat="spider in app.spiders">
-    <spider-detail
-      spider="spider"
-      remove="app.remove">
-    </spider-detail>
-  </ul>
-</ul>
+<!-- all spider views -->
 
-<!-- <ul>
-  <img ng-src="src/images/spiderthumbnail.png"></img>
-</ul> -->
-
-
-
-
-<!-- <new-spider add="app.add"></new-spider> -->
+<div>
+  <spider-detail
+    spider="app.spider">
+  </spider-detail>
+</div>
+<br/><br/><br/>
+<div>
+  <spider-thumbnail
+    spider="app.spider">
+  </spider-thumbnail>
+</div>
+<br/>
+<br/>
+<div>
+  <spider-image
+    spider="app.spider">
+  </spider-image>
+</div>

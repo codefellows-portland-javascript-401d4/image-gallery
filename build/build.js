@@ -32990,7 +32990,9 @@
 	var map = {
 		"./new-spider/new-spider.js": 12,
 		"./spider-app/spider-app.js": 16,
-		"./spider-detail/spider-detail.js": 18
+		"./spider-detail/spider-detail.js": 18,
+		"./spider-image/spider-image.js": 20,
+		"./spider-thumbnail/spider-thumbnail.js": 22
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33050,7 +33052,7 @@
 	  this.addNew = function () {
 	    _this.add({
 	      name: _this.name,
-	      rank: _this.type
+	      type: _this.type
 	    });
 	    // clear out controls so
 	    // next spider can be added
@@ -33096,17 +33098,13 @@
 	
 	
 	function controller() {
-	  var _this = this;
 	
-	  this.spiders = [{ name: 'Igor', type: 'zebra' }, { name: 'Spike', type: 'punk' }];
-	
-	  this.remove = function (spider) {
-	    var index = _this.spiders.indexOf(spider);
-	    if (index > -1) _this.spiders.splice(index, 1);
-	  };
-	
-	  this.add = function (spider) {
-	    return _this.spiders.push(spider);
+	  this.spiders = {
+	    title: 'Igor the Dapper Spider',
+	    url: 'http://1.bp.blogspot.com/_LbccUVbSRd8/SWZpdbbXG2I/AAAAAAAAD7Y/X1-TwL_E8f0/s400/jumping+spider+eyes+10.jpg',
+	    description: 'Jumping Spider',
+	    thumbnail: 'src/images/spiderthumbnail.png',
+	    image: 'src/images/jumping spider eyes 10.jpg'
 	  };
 	}
 
@@ -33114,7 +33112,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- <h1 class=\"spider\">Jumping Spiders!</h1> -->\n<!-- <h1 ng-class=\"$ctrl.styles.spider\">Jumping Spiders!</h1> -->\n\n<ul>\n  <li ng-repeat=\"spider in app.spiders\">\n    <spider-detail\n      spider=\"spider\"\n      remove=\"app.remove\">\n    </spider-detail>\n  </li>\n</ul>\n\n<ul>\n  <img ng-src=\"../.././images/spiderthumbnail.png\"></img>\n</ul>\n\n<new-spider add=\"app.add\"></new-spider>\n";
+	module.exports = "<!-- all spider views -->\n\n<div>\n  <spider-detail\n    spider=\"app.spider\"\n  </spider-detail>\n</div>\n\n<div>\n  <spider-thumbnail\n    spider=\"app.spider\">\n  </spider-thumbnail>\n</div>\n\n<div>\n  <spider-image\n    spider=\"app.spider\">\n  </spider-image>\n</div>\n";
 
 /***/ },
 /* 18 */
@@ -33135,26 +33133,73 @@
 	exports.default = {
 	  template: _spiderDetail2.default,
 	  bindings: {
-	    spider: '=',
-	    remove: '<'
-	  },
-	  controller: controller
+	    spider: '='
+	  }
 	};
-	
-	
-	function controller() {
-	  var _this = this;
-	
-	  this.delete = function () {
-	    _this.remove(_this.spider);
-	  };
-	}
 
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n    {{$ctrl.spider.name}} the {{$ctrl.spider.type}} spider\n    <!-- <button ng-click=\"$ctrl.delete()\">remove</button> -->\n</span>\n";
+	module.exports = "<!-- detail view for spider -->\n\n<div>\n  <p>Title:  {{$ctrl.spider.title}}</p>\n  <p>Description:  {{$ctrl.spider.description}}</p>\n  <a href=\"{{$ctrl.spider.url}}\">spider image link</a>\n</div>\n";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _spiderImage = __webpack_require__(21);
+	
+	var _spiderImage2 = _interopRequireDefault(_spiderImage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _spiderImage2.default,
+	  bindings: {
+	    spider: '='
+	  }
+	};
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "<!-- image view for spider -->\n\n<div>\n  <p>Title:  {{$ctrl.spider.title}}</p>\n  <p>Description:  {{$ctrl.spider.description}}</p>\n  <img ng-src=\"{{$ctrl.spider.image}}\"/>\n</div>\n";
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _spiderThumbnail = __webpack_require__(23);
+	
+	var _spiderThumbnail2 = _interopRequireDefault(_spiderThumbnail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _spiderThumbnail2.default,
+	  bindings: {
+	    spider: '='
+	  }
+	};
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	module.exports = "<!-- thumbnail view for spider -->\n\n<div>\n  <img ng-src=\"{{$ctrl.spider.thumbnail}}\"/>\n</div>\n";
 
 /***/ }
 /******/ ]);
