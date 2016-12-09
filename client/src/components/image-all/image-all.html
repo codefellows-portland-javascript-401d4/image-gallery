@@ -1,7 +1,9 @@
 <section ng-class="$ctrl.styles.all">
     <div ng-repeat="image in $ctrl.images">
-        <p>{{image.title}}</p>
-        <p><a href={{image.url}}><img ng-src={{image.url}}></a></p>
-        <p>{{image.description}}</p>
+        <image-all-detail
+            image="image"
+            remove="$ctrl.remove">
+        </image-all-detail>
     </div>
+    <new-image add="$ctrl.add"></new-image>
 </section>

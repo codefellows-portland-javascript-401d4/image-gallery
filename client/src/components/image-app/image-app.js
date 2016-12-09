@@ -17,28 +17,21 @@ function controller(images) {
         this.images = images;
     });
 
+    this.remove = image => {
+        images.remove(image._id)
+        .then(() => {
+            const index = this.images.indexOf(image);
+            if (index > -1) this.images.splice(index, 1);
+        });
+    };
 
-
-
-
-
-
-    // this.images = [{
-    //     title: 'Cute Mango Calico Bunny',
-    //     url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-    //     description: 'Here is a picure of a really cute bunny.',
-    //     value: 0
-    // }, {
-    //     title: 'Albino Bunnies',
-    //     url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/two-beautiful-rabbits-hd-free-wallappers-for-desktop.jpg',
-    //     description: 'Bunnies with white fur and red eyes.',
-    //     value: 1
-    // }, {
-    //     title: 'Floppy Ears Bunny',
-    //     url: 'http://hdfreewallpaper.net/wp-content/uploads/2016/02/so-sweet-rabbit-wallpapers-images-free-hd.jpg',
-    //     description: 'This is a bunny with very floppy ears.',
-    //     value: 2
-    // }];
+    this.add = image => {
+        images.add(image)
+            .then(saved => {
+                // push to in-memory array
+                this.images.push(saved);
+            });
+    };
     
 }
 

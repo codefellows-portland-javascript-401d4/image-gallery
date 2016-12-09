@@ -3,7 +3,9 @@ import styles from './image-all.css';
 
 export default {
     bindings: {
-        images: '<'
+        images: '=',
+        remove: '<',
+        add: '<'
     },
     template,
     controller,    
