@@ -76,7 +76,7 @@ describe('image service testing', () => {
                 assert.deepEqual(delImage, newImage);
                 done();
             })
-            .catch(done)
+            .catch(done);
 
         $httpBackend.flush();
     });
