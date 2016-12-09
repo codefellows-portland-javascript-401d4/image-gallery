@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "pretest": "eslint .",
     "test": "mocha",
     "test:watch": "npm test -w",
     "start": "nodemon server.js"
