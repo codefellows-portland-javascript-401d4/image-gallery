@@ -3,3 +3,10 @@
     width: 80%;
     margin: 0 auto;
 }
+
+:local(.image) select {
+    display: block;
+    margin: 2% auto;
+    width: 175px;
+    border-radius: 15px;
+}
