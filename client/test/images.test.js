@@ -40,6 +40,9 @@ describe( 'images component', () => {
             },
             add(image) {
                 return Promise.resolve(image);
+            },
+            remove(image) {
+                return Promise.resolve(image);
             }
         };
 
@@ -55,18 +58,30 @@ describe( 'images component', () => {
         });
 
 
-        // it( 'adds an image', done => {
+        it( 'adds an image', done => {
 
-        //     const component = $component('images', { imageService });
+            const component = $component('imageApp', { imageService });
 
-        //     component.add(image);
+            component.add(image);
 
-        //     setTimeout(() => {
-        //         assert.equal(images.length, 3);
-        //         assert.equal(images[2], image);
-        //         done();
-        //     });
-        // });
+            setTimeout(() => {
+                assert.equal(images.length, 3);
+                assert.equal(images[2], image);
+                done();
+            });
+        });
+
+        it( 'removes an image', done => {
+
+            const component = $component('imageApp', { imageService });
+
+            component.remove(image);
+
+            setTimeout(() => {
+                assert.equal(images.length, 2);
+                done();
+            });
+        });
 
     });
 

@@ -30,6 +30,19 @@ h1 {
     margin: 5% auto;
     padding: 5%;
 }
+
+._2708hYWNCiQfIxzn0dglW9 img {
+    width: 100px;
+    height: 100px;
+}
+
+._2708hYWNCiQfIxzn0dglW9 div {
+    color: #341c1c;
+    background-color: #adb8ac;;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5%;
+}
 ._3S27sEoQlDcgENzXMPGJNI {
     text-align: center;
     width: 80%;
@@ -70,6 +83,13 @@ h1 {
 ._11T7qyV23K_HJKWVsGU9lU img {
     width: 100px;
     height: 100px;
+}
+._2Txlm7psXtglAmGUmUahno {
+    color: #341c1c;
+    background-color: #adb8ac;;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5%;
 }
 
 /*# sourceMappingURL=main.css.map*/
