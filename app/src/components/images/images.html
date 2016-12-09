@@ -1,7 +1,9 @@
-<!-- <div ng-controller="mainCtrl"> -->
-<!-- <select ng-model="view" ng-options="view for view in views"></select> -->
+<button ng-click="$ctrl.detail()">View Detail</button>
+<button ng-click="$ctrl.thumbnail()">View Thumbnail</button>
+<button ng-click="$ctrl.full()">View Full Size</button>
 
-<div class ="component">
+<div class="component" ng-show="$ctrl.viewDetail === true">
+  <h2>Bunny details</h2>
   <section ng-repeat="image in $ctrl.images">
     <bunny-detail
       image="image">
@@ -9,7 +11,8 @@
   </section>
 </div>
 
-<div class ="component">
+<div class ="component" ng-show="$ctrl.viewThumbnail === true">
+  <h2>Bunny thumbnails</h2>
   <section ng-repeat="image in $ctrl.images">
     <bunny-thumbnail
       image="image">
@@ -17,11 +20,11 @@
   </section>
 </div>
 
-<div class ="component">
+<div class ="component" ng-show="$ctrl.viewFull === true">
+  <h2>Full size images of bunnies</h2>
   <section ng-repeat="image in $ctrl.images">
     <bunny-full-size class ="component"
         image="image">
     </bunny-full-size>
   </section>
 </div>
-<!-- </div> -->

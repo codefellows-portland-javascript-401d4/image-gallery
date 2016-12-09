@@ -2,9 +2,5 @@ import template from './bunny-app.html';
 
 
 export default {
-  template,
-  controller
+  template
 };
-
-function controller() {
-}
