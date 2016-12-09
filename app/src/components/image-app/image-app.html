@@ -1,8 +1,11 @@
-<h2>Select how you'd like to view the animals!</h2>
+<h2>This is the master view select if you'd like to see all images in the same view.</h2>
 <select ng-options="option as option for option in app.viewOptions" ng-model="app.view"></select>
 <hr>
-<section ng-repeat="image in app.images track by $index">
-    <image-detail ng-if="app.view === 'detail'" image="image"></image-detail>
-    <image-thumbnail ng-if="app.view === 'thumbnail'" image="image"></image-thumbnail>
-    <image-gallery ng-if="app.view === 'gallery'" image="image"></image-gallery>
+<section ng-repeat="image in app.images track by $index" ng-class="app.styles.app">
+    <h3>{{image.title}}</h3>
+    <image-options image="image" viewoptions="app.viewOptions" view="app.view"></image-options>
+    <button ng-click="app.remove(image)">Delete</button>
+    <hr>
 </section>
+
+<image-new add="app.add"></image-new>

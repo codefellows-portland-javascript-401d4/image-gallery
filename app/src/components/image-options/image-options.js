@@ -1,16 +1,16 @@
-import template from './image-detail.html';
-import styles from './image-detail.css';
+import template from './image-options.html';
+import styles from './image-options.css';
 
 export default {
     template,
     bindings: {
         image: '=',
-        view: '@',
+        viewoptions: '<',
+        view: '<'
     },
     controller
 };
 
 function controller() {
     this.styles = styles;
-    this.view = '';
-}
+};
