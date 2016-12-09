@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "karma start",
+    "pretest": "eslint .",
+    "test": "karma start --single-run",
+    "test:watch": "karma start",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
   },
