@@ -1,7 +1,7 @@
-import express from 'express';
-import morgan from 'morgan';
-import gallery from './routes/gallery-routes';
-import errorHandler from './error-handler';
+const express = require('express');
+const morgan = require('morgan');
+const gallery = require('./routes/gallery-routes');
+const errorHandler = require('./error-handler');
 
 const app = express();
 
@@ -26,4 +26,4 @@ app.use((req, res, next) => {
 app.use('/api/gallery', gallery);
 app.use(errorHandler);
 
-export default app;
+module.exports = app;

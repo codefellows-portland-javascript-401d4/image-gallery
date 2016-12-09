@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // Set the URI to point to our database
 const dbURI = 'mongodb://localhost/gallery' || process.env.MONGODB_URI;
@@ -26,4 +26,4 @@ process.on('SIGINT', function() {
   });
 });
 
-export default mongoose.connection;
+module.exports = mongoose.connection;
