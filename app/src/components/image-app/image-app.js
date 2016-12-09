@@ -1,4 +1,5 @@
 import template from './image-app.html';
+import styles from './image-app.css';
 
 export default {
     template,
@@ -9,7 +10,7 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(imageService) {
-    
+    this.styles = styles;
     this.loading = true;
 
     imageService
@@ -19,7 +20,7 @@ function controller(imageService) {
             this.loading = false;
         });
 
-    this.viewOptions = ['detail','thumbnail','gallery'];
+    this.viewOptions = ['', 'detail','thumbnail','gallery'];
     this.view = '';
 
     this.remove = image => {

@@ -1,0 +1,7 @@
+<div>
+    <h3 ng-if="!$ctrl.view">Change individual views here!</h3>
+    <image-detail ng-if="$ctrl.view === 'detail'" image="$ctrl.image"></image-detail>
+    <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="$ctrl.image"></image-thumbnail>
+    <image-gallery ng-if="$ctrl.view === 'gallery'" image="$ctrl.image"></image-gallery>
+</div>
+<select ng-options="option as option for option in $ctrl.viewoptions" ng-model="$ctrl.view"></select>
