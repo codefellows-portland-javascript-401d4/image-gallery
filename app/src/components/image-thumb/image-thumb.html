@@ -3,6 +3,7 @@
         <li ng-repeat ='image in $ctrl.images'> 
             <h3>Image Title: {{image.title}}<h3>
             <img ng-src="{{image.url}}" alt={{image.title}} height="100px" width="100px"> 
+            <button ng-click="images.remove()">remove</button>
         </li>
     </ul>
 </section>

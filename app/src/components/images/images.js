@@ -9,11 +9,13 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(images) {
-
+	console.log('in images.js');
 	this.loading = true;
 
+	this.displays = ['thumbnail', 'text', 'full', 'all'];
+    
     // call the get to load all images
-	Image.get().then(images => {
+	images.get().then(images => {
 		this.loading = false;
 		this.images = images;
 	});

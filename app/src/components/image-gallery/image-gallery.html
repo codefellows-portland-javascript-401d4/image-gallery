@@ -5,6 +5,7 @@
             <img ng-src="{{image.url}}" alt={{image.title}}> 
             <p>Description: {{image.description}}</h3>
             <p>URL: </p><a href={{image.url}}>{{image.url}}</a>
+            <button ng-click="images.remove()">remove</button>
         </li>
     </ul>
 </section>

@@ -1,14 +1,16 @@
 <section>
-    <div class="loader" ng-if="$ctrl.loading">Loading...</div>
-    <h1>images.html</h1>
-    <ul>
-        <li ng-repeat="image in $ctrl.images">
-            <!--<pirate-detail
-                image="image"
-                remove="$ctrl.remove">
-            </pirate-detail>-->
-        </li>
-    </ul>
+    <div class="loader" ng-if="images.loading">Loading...</div>
+    <form id="diplay-form">
+        Select an image display.
+        <select ng-model="displayChoice" ng-options="x for x in images.displays">
+        </select>
+    </form>
+    <div>
+        <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="images.images"></image-detail>
+        <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images"></image-gallery>
+        <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images"></image-thumbnail>
+    </div>
 
-    <!--<new-pirate add="$ctrl.add"></new-pirate>-->
+    <new-image add="image.add"></new-image>
+
 </section>
