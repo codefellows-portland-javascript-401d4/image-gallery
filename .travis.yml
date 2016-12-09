@@ -26,4 +26,4 @@ addons:
       - mongodb-org-server
 
 services:
-    mongodb
+  - mongodb
