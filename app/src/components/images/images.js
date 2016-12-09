@@ -1,45 +1,43 @@
-import template from './pirates.html';
-import styles from './pirates.css';
+import template from './images.html';
 
 export default {
 	template,
-	controller   
+	controller,
+	controllerAs: 'images'   
 };
 
-controller.$inject = ['pirateService'];
+controller.$inject = ['imageService'];
 
-function controller(pirates) {
-
-	this.styles = styles;
+function controller(images) {
 
 	this.loading = true;
 
-    // call the get to load all pirates
-	pirates.get().then(pirates => {
+    // call the get to load all images
+	Image.get().then(images => {
 		this.loading = false;
-		this.pirates = pirates;
+		this.images = images;
 	});
 
-    // remove this pirate
-	this.remove = pirate => {
+    // remove this image
+	this.remove = image => {
 		this.loading = true;
-		pirates.remove(pirate._id)
+		images.remove(image._id)
             .then(() => {
 	this.loading = false;
                 // after server has updated data, modify in-memory array
-	const index = this.pirates.indexOf(pirate);
-	if (index > -1) this.pirates.splice(index, 1);
+	const index = this.images.indexOf(image);
+	if (index > -1) this.images.splice(index, 1);
 });
 	};
 
-    // add a pirate
-	this.add = pirate => {
+    // add an image
+	this.add = image => {
 		this.loading = true;
-		pirates.add(pirate)
+		images.add(image)
             .then(saved => {
 	this.loading = false;
                 // push to in-memory array
-	this.pirates.push(saved);
+	this.images.push(saved);
 });
 	};
 }
