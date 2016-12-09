@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "eslint .",  
     "start": "DEBUG=myapp.* nodemon server.js",
     "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
     "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
