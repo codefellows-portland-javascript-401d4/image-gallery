@@ -1,7 +1,7 @@
 <h1>Thumb</h1>
 <span>
-  <img ng-class="$ctrl.styles.image" src="{{$ctrl.image.url}}"><br>
-  <button name="list" ng-click="app.toggleView('list')">list</button>
-  <button name="full" ng-click="app.toggleView('full')">view</button>
-  <button ng-click="$ctrl.delete()">remove</button>
+  <img ng-class="$thumb.styles.image" src="{{$thumb.image.url}}"><br>
+  <button name="list" ng-click="$thumb.toggleView('list')">list</button>
+  <button name="full" ng-click="$thumb.toggleView('full')">view</button>
+  <button ng-click="$thumb.delete()">remove</button>
 </span>

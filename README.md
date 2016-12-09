@@ -11,8 +11,10 @@
   - Thumb component - renders thumbnail image
   - Image component - renders image, title, description
 
+  - under the gallery header: list, thumb and view buttons toggle between component
+
   - in each component the remove button deletes image from the gallery
-  - list, view, thumbs buttons not-working - will eventually toggle between three component views
+  - list, view, thumbs buttons not-working inside the list items - will eventually toggle between three component views
 
 
 ### Technologies used
