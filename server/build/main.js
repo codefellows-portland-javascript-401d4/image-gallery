@@ -33054,20 +33054,21 @@
 	            if (index > -1) _this.images.splice(index, 1);
 	        });
 	    };
-	    // this.image = {
-	    //     title: 'Elephant',
-	    //     description: 'An adorable baby elephant.',
-	    //     url: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg'
-	    // };
 	
 	    this.selected = 'detail';
 	}
+	
+	// this.image = {
+	//     title: 'Elephant',
+	//     description: 'An adorable baby elephant.',
+	//     url: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg'
+	// };
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"$ctrl.image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"$ctrl.image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"$ctrl.image\"></image-gallery>\n        </li>\n    </ul>\n    <new-image add=\"$ctrl.add\"></new-image>\n</section>";
+	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n    <new-image add=\"$ctrl.add\"></new-image>\n</section>";
 
 /***/ },
 /* 14 */
