@@ -10,7 +10,7 @@ controller.$inject = ['imageService'];
 
 function controller(images) {
 
-  this.views = ['add new image', 'image view','text-only view', 'thumbnail view', ];
+  this.views = ['add new image', 'image view','text-only view', 'thumbnail view' ];
 
   this.loading = true;
 
