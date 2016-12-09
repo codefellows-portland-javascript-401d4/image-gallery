@@ -1,0 +1,19 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martypdx/image-gallery.git"
+  },
+  "author": "Marty Nelson <marty@martypdx.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martypdx/image-gallery/issues"
+  },
+  "homepage": "https://github.com/martypdx/image-gallery#readme"
+}
