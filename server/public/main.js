@@ -68,8 +68,9 @@
 	
 	app.value('apiUrl', dev);
 	
-	// app.factory('apiUrl', function() {
-	//   return dev;
+	// app.controller('mainCtrl', function($scope) {
+	//   $scope.views = ['detail','thumbnail', 'full-size'];
+	//   $scope.view = 'detail';
 	// });
 
 /***/ },
@@ -33032,19 +33033,13 @@
 	};
 	
 	
-	function controller() {
-	  // this.bunny = {
-	  //   url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Bunny_in_zoo_cropped.jpg',
-	  //   image_title: 'Fluffy the bunny',
-	  //   image_description: 'This is a close up photo of a little bunny.'
-	  // };
-	}
+	function controller() {}
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- <div class =\"component\">\n  <bunny-detail\n      bunny=\"app.bunny\">\n  </bunny-detail>\n</div>\n\n<div class =\"component\">\n  <bunny-thumbnail class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-thumbnail>\n</div>\n\n<div class =\"component\">\n  <bunny-full-size class =\"component\"\n      bunny=\"app.bunny\">\n  </bunny-full-size>\n</div> -->\n<images></images>\n";
+	module.exports = "<images></images>\n";
 
 /***/ },
 /* 14 */
@@ -33094,7 +33089,7 @@
 	exports.default = {
 	  template: _bunnyFullSize2.default,
 	  bindings: {
-	    bunny: '<'
+	    image: '<'
 	  }
 	};
 
@@ -33102,7 +33097,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>Full size image of bunny</h2>\n<p>{{$ctrl.bunny.image_title}}</p>\n<img ng-src=\"{{$ctrl.bunny.url}}\"/>\n<p>{{$ctrl.bunny.image_description}}</p>\n";
+	module.exports = "<h2>Full size image of bunny</h2>\n<p>{{$ctrl.image.imageTitle}}</p>\n<img ng-src=\"{{$ctrl.image.url}}\"/>\n<p>{{$ctrl.image.imageDescription}}</p>\n";
 
 /***/ },
 /* 18 */
@@ -33123,7 +33118,7 @@
 	exports.default = {
 	  template: _bunnyThumbnail2.default,
 	  bindings: {
-	    bunny: '<'
+	    image: '<'
 	  }
 	};
 
@@ -33131,7 +33126,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>Thumbnail image of bunny</h2>\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.bunny.url}}\"/>\n";
+	module.exports = "<h2>Thumbnail image of bunny</h2>\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.image.url}}\"/>\n";
 
 /***/ },
 /* 20 */
@@ -33155,7 +33150,7 @@
 	};
 	
 	
-	controller.inject = ['imageService'];
+	controller.$inject = ['imageService'];
 	
 	function controller(images) {
 	  var _this = this;
@@ -33169,7 +33164,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class =\"component\">\n  <bunny-detail\n      image=\"image\">\n  </bunny-detail>\n</div>\n\n<div class =\"component\">\n  <bunny-thumbnail class =\"component\"\n      image=\"image\">\n  </bunny-thumbnail>\n</div>\n\n<div class =\"component\">\n  <bunny-full-size class =\"component\"\n      image=\"image\">\n  </bunny-full-size>\n</div>\n";
+	module.exports = "<!-- <div ng-controller=\"mainCtrl\"> -->\n<select ng-model=\"view\" ng-options=\"view for view in views\"></select>\n\n<div class =\"component\">\n  <section ng-repeat=\"image in $ctrl.images\">\n    <bunny-detail\n      image=\"image\">\n    </bunny-detail>\n  </section>\n</div>\n\n<div class =\"component\">\n  <section ng-repeat=\"image in $ctrl.images\">\n    <bunny-thumbnail\n      image=\"image\">\n    </bunny-thumbnail>\n  </section>\n</div>\n\n<div class =\"component\">\n  <section ng-repeat=\"image in $ctrl.images\">\n    <bunny-full-size class =\"component\"\n        image=\"image\">\n    </bunny-full-size>\n  </section>\n</div>\n<!-- </div> -->\n";
 
 /***/ },
 /* 22 */

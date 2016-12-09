@@ -1,17 +1,27 @@
+<!-- <div ng-controller="mainCtrl"> -->
+<!-- <select ng-model="view" ng-options="view for view in views"></select> -->
+
 <div class ="component">
-  <bunny-detail
+  <section ng-repeat="image in $ctrl.images">
+    <bunny-detail
       image="image">
-  </bunny-detail>
+    </bunny-detail>
+  </section>
 </div>
 
 <div class ="component">
-  <bunny-thumbnail class ="component"
+  <section ng-repeat="image in $ctrl.images">
+    <bunny-thumbnail
       image="image">
-  </bunny-thumbnail>
+    </bunny-thumbnail>
+  </section>
 </div>
 
 <div class ="component">
-  <bunny-full-size class ="component"
-      image="image">
-  </bunny-full-size>
+  <section ng-repeat="image in $ctrl.images">
+    <bunny-full-size class ="component"
+        image="image">
+    </bunny-full-size>
+  </section>
 </div>
+<!-- </div> -->

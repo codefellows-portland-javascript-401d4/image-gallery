@@ -10,6 +10,7 @@ const dev = 'http://localhost:5000/api';
 
 app.value('apiUrl', dev);
 
-// app.factory('apiUrl', function() {
-//   return dev;
+// app.controller('mainCtrl', function($scope) {
+//   $scope.views = ['detail','thumbnail', 'full-size'];
+//   $scope.view = 'detail';
 // });
