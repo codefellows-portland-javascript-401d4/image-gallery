@@ -4,7 +4,7 @@
   "description": "Angular Image Gallery assignment for Code Fellows 401",
   "main": "karma.conf.js",
   "scripts": {
-    "test": "karma start",
+    "test": "karma start --single-run",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
   },

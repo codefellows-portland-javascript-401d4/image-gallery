@@ -1,19 +1,19 @@
 <section>
 	<form>
-		Select a view: <select ng-model="view" ng-options="v for v in app.views"></select>
+		Select an action: <select ng-model="view" ng-options="v for v in app.views"></select>
 	</form>
 	<hr>
 	<div class="loader" ng-if="app.loading">Loading...</div></br>
-	<new-image ng-if="view==='add image'" add="app.add"></new-image>
+	<new-image ng-if="view==='add new image'" add="app.add"></new-image>
 	</p>
 	<p ng-repeat="image in app.images">
-		<text-only ng-if="view==='text only'"
+		<text-only ng-if="view==='text-only view'"
 			image="image">
 		</text-only>
-		<thumbnail ng-if="view==='thumbnail'"
+		<thumbnail ng-if="view==='thumbnail view'"
 			image="image">
 		</thumbnail>
-		<full-image ng-if="view==='full image'"
+		<full-image ng-if="view==='image view'"
 			image="image">
 		</full-image>
 		</section>
