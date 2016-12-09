@@ -5,7 +5,7 @@ export default {
   controller
 };
 
-controller.inject = ['imageService'];
+controller.$inject = ['imageService'];
 
 function controller(images) {
 
