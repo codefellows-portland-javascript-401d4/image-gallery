@@ -1,0 +1,36 @@
+{
+  "name": "anholt-ng-imageserver",
+  "version": "0.1.0",
+  "description": "A web server that servers image description, thumbnail, and full image.",
+  "main": "main.js",
+  "scripts": {
+    "test": "karma start",
+    "start": "webpack-dev-server --inline",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GloriaAnholt/image-gallery.git"
+  },
+  "keywords": [
+    "Express",
+    "Node"
+  ],
+  "author": "Gloria Anholt <gloriaanholt@gmail.com> (http://www.GloriaAnholt.com)",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/GloriaAnholt/image-gallery/issues"
+  },
+  "homepage": "https://github.com/GloriaAnholt/image-gallery#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.7.2",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.11.1",
+    "mocha": "^3.0.2",
+  }
+}
