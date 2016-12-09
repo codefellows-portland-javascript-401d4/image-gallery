@@ -1,18 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// var ExtractTextPlugIn = require('extract-text-webpack-plugin');
+var ExtractTextPlugIn = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './app.js',
     output: {
-        path: './build',
-        filename: 'bundle.js'
+        path: '../server/public',
+        filename: 'app.bundle.js'
     },
     devtool: 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }) //,
-        // new ExtractTextPlugIn('styles.css')
+            template: './index.html'
+        }),
+        new ExtractTextPlugIn('styles.css')
     ],
     module: {
         preLoaders: [{
@@ -29,7 +29,7 @@ module.exports = {
             }
         }, {
             test: /\.css$/,
-            loader: 'style-loader!css-loader'
+            loader: ExtractTextPlugIn.extract('style-loader', 'css-loader')
         }, {
             test: /\.html$/,
             loader: 'html-loader'
