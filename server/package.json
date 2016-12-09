@@ -1,5 +1,5 @@
 {
-  "name": "image gallery server",
+  "name": "image-gallery-server",
   "version": "1.0.0",
   "description": "express server for angular-fuelled image gallery",
   "main": "index.js",
