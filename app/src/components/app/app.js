@@ -36,7 +36,6 @@ function controller(images) {
             .then(saved => {
               this.loading = false;
                 // push to in-memory array
-              console.log('this.images ' + this.images);
               this.images.push(saved);
             });
   };
