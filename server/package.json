@@ -2,11 +2,11 @@
   "name": "anholt-ng-imageserver",
   "version": "0.1.0",
   "description": "A web server that servers image description, thumbnail, and full image.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
     "pretest": "eslint .",
-    "test": "MONGODB_URI=mongodb://localhost/pirates-test mocha"
+    "test": "MONGODB_URI=mongodb://localhost/gallery-test mocha"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/GloriaAnholt/image-gallery#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
@@ -33,6 +34,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "eslint": "^3.11.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "nodemon": "^1.9.2"
   }
 }

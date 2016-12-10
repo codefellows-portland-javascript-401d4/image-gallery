@@ -2,11 +2,12 @@
   "name": "anholt-ng-imagegallery",
   "version": "0.1.0",
   "description": "A web gallery that displays image description, thumbnail, and full image.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "test": "karma start",
+    "pretest": "eslint .",
+    "test": "karma start --single-run",
     "start": "webpack-dev-server --inline",
-    "build": "webpack"
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
