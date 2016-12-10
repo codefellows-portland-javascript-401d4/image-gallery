@@ -6,10 +6,6 @@ export default function imageService($http, apiUrl) {
       return $http.get(`${apiUrl}/images`)
         .then(res => res.data);
     },
-    getOne(id) {
-      return $http.get(`${apiUrl}/images/${id}`)
-        .then(res => res.data);
-    },
     remove(id) {
       return $http.delete(`${apiUrl}/images/${id}`)
         .then(res => res.data);

@@ -1,3 +1,5 @@
+/*globals angular, chai*/
+
 describe('image service', () => {
   const {assert} = chai;
 
@@ -12,7 +14,7 @@ describe('image service', () => {
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
-    $httpBackend.verifyNoOutstandingrequest();
+    $httpBackend.verifyNoOutstandingRequest();
   });
 
   it('get images', done => {
@@ -48,16 +50,27 @@ describe('image service', () => {
         done();
       })
       .catch(done);
-
     $httpBackend.flush();
   });
 
-  // it('deletes an image', done => {
-  //   const images = [1, 2, 3];
+  it('removes an image', done => {
+    const image = {
+      _id: '123abc',
+      title: 'mouse',
+      description: 'a mouse',
+      url: 'http://www.mouse.com'
+    };
 
-  //   $httpBackend
-  //     .expectDELETE('/api/images/:id')
-  //     .respond(image);
-  // })
+    $httpBackend
+      .expectDELETE(`/api/images/${image._id}`)
+      .respond(image);
 
+    imageService.remove(image._id)
+        .then(deletedImage => {
+          assert.deepEqual(deletedImage, image);
+          done();
+        })
+        .catch(done);
+    $httpBackend.flush();
+  });
 });

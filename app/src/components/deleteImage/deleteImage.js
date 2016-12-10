@@ -4,7 +4,7 @@ export default {
   template,
   bindings: {
     image: '=',
-    remove: '<'
+    removeImage: '<'
   },
   controller,
   controllerAs: 'deleteCtrl'
@@ -12,6 +12,6 @@ export default {
 
 function controller() {
   this.delete = () => {
-    this.remove(this.image);
+    this.removeImage(this.image);
   };
 }
