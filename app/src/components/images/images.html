@@ -7,8 +7,8 @@
     </form>
     <div>
         <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="images.images" remove="images.remove"></image-detail>
-        <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images"></image-gallery>
-        <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images"></image-thumbnail>
+        <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images" remove="images.remove"></image-gallery>
+        <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images" remove="images.remove"></image-thumbnail>
     </div>
 
     <new-image add="images.add"></new-image>
