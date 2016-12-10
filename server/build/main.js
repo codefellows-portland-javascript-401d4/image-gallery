@@ -33050,7 +33050,9 @@
 	    };
 	
 	    this.remove = function (image) {
+	        console.log(image);
 	        images.remove(image._id).then(function () {
+	            // console.log('removed ', image._id);
 	            var index = _this.images.indexOf(image);
 	            if (index > -1) _this.images.splice(index, 1);
 	        });
@@ -33063,7 +33065,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
+	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" remove=\"$ctrl.remove\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
 
 /***/ },
 /* 14 */
@@ -33085,7 +33087,8 @@
 	    template: _imageDetail2.default,
 	    bindings: {
 	        image: '=',
-	        add: '<'
+	        add: '<',
+	        remove: '<'
 	    },
 	    controller: controller
 	};
@@ -33101,13 +33104,17 @@
 	            url: _this.url
 	        });
 	    };
+	
+	    this.delete = function () {
+	        _this.remove(_this.image);
+	    };
 	}
 
 /***/ },
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n    <h3>Image Detail -</h3>\n    <ul>\n        <li>Title: {{$ctrl.image.title}}</li>\n        <li>Url: <a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.url}}</a></li>\n        <li>Description: {{$ctrl.image.description}}</li>\n    </ul> \n</span>";
+	module.exports = "<span>\n    <h3>Image Detail -</h3>\n    <ul>\n        <li>Title: {{$ctrl.image.title}}</li>\n        <li>Url: <a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.url}}</a></li>\n        <li>Description: {{$ctrl.image.description}}</li>\n    </ul> \n    <button ng-click=\"$ctrl.delete()\">Remove</button>\n</span>";
 
 /***/ },
 /* 16 */
