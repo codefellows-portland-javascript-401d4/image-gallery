@@ -25,8 +25,8 @@ describe('Gallery API and routes', () => {
   };
 
   var id;
-
   const baddino = { title: 'Bad Dino' };
+  const newTitle = {title:'Different T-Rex'};
 
   it('Gets an empty array before images have been added', done => {
     request
@@ -79,12 +79,23 @@ describe('Gallery API and routes', () => {
   });
 
   it('Updates image fields, using the id', done => {
-
-    let newTitle = {title:'Different T-Rex'};
-
     request
       .put('/api/gallery/' + id)
       .send(newTitle)
+      .then(res => {
+        let img = JSON.parse(res.text);
+        assert.equal(img.title, newTitle.title);
+        assert.equal(img.url, trex.url);
+        assert.equal(img.description, trex.description);
+        assert.equal(img._id, id);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Deletes an image using the id', done => {
+    request
+      .delete('/api/gallery/' + id)
       .then(res => {
         let img = JSON.parse(res.text);
         assert.equal(img.title, newTitle.title);

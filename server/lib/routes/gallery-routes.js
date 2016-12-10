@@ -44,6 +44,12 @@ router
       .then(() => { return Gallery.findById(req.params.id); }) // re-fetch obj
       .then(saved => res.send(saved))
       .catch(next);
+  })
+
+  .delete('/:id', (req, res, next) => {
+    Gallery.findByIdAndRemove(req.params.id)
+      .then(deleted => res.send(deleted))
+      .catch(next);
   });
 
 module.exports = router;
