@@ -1,17 +1,17 @@
 
-describe( 'image service', () => {
+describe('image service', () => {
     const { assert } = chai;
+
+    angular.mock.module.sharedInjector();
 
 
     // we need to mock the services module, that's were
     // image service lives
-    beforeEach( 
-        angular.mock.module('services', { apiUrl: '/api' })
-    );
+    before(angular.mock.module('services', { apiUrl: '/api' }));
     
     let $httpBackend = null, imageService = null;
     
-    beforeEach(angular.mock.inject((_imageService_, _$httpBackend_ ) => {
+    before(angular.mock.inject((_imageService_, _$httpBackend_ ) => {
         $httpBackend = _$httpBackend_;
         imageService = _imageService_;
     }));
@@ -23,7 +23,7 @@ describe( 'image service', () => {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it( 'get images', done => {
+    it('get images', done => {
         // mock return data from image get
         const images = [1, 2, 3];
         
@@ -51,7 +51,6 @@ describe( 'image service', () => {
         $httpBackend.flush();
     });
 
-
     it('add image', done => {
 
         const image = {
@@ -59,7 +58,7 @@ describe( 'image service', () => {
             url: 'http://www.fakepictureurl.com',
             description: 'Here is a picure of a really big bunny.'
         };
-        
+  
         $httpBackend
             .expectPOST('/api/images', image)
             .respond(image);
@@ -73,4 +72,28 @@ describe( 'image service', () => {
 
         $httpBackend.flush();
     });
+
+    it('deletes an image', done => {
+
+        const image = {
+            title: 'Big Bunny',
+            url: 'http://www.fakepictureurl.com',
+            description: 'Here is a picure of a really big bunny.',
+            id: 12345
+        };
+        
+        $httpBackend
+            .expectDELETE('/api/images/12345')
+            .respond(image);
+
+        imageService.remove(image.id)
+            .then(deletedImage => {
+                assert.deepEqual(deletedImage, image);
+                done();
+            })
+            .catch(done);
+
+        $httpBackend.flush();
+    });
+
 });

@@ -2,14 +2,18 @@
 describe( 'images component', () => {
     const { assert } = chai;
 
-    // we need to mock the components module, that's where
-    // images component lives
-    beforeEach( 
-        angular.mock.module('components')
-    );
+    // to use before, instead of beforeEach, this is required:
+    angular.mock.module.sharedInjector();
+
+    // tell angular mock we want to use components module
+    // notice we are using before, not beforeEach
+    before(angular.mock.module('components'));
     
+    // get a reference to the $componentController, which we
+    // can then use to create component instances.
+    // In this case, we only are creating in once, via before
     let $component = null;
-    beforeEach(angular.mock.inject($componentController => {
+    before(angular.mock.inject($componentController => {
         $component = $componentController;
     }));
 
@@ -33,23 +37,30 @@ describe( 'images component', () => {
             url: 'http://www.fakepictureurl3.com',
             description: 'Here is a picure of a medium sized bunny.'
         };
+
+        const _id = 12345;
         
         const imageService = {
             get() {
                 return Promise.resolve(images);
             },
             add(image) {
+                image._id = _id;
                 return Promise.resolve(image);
             },
-            remove(image) {
-                return Promise.resolve(image);
+            remove(imageId) {
+                assert.equal(imageId, _id);
+                return Promise.resolve(true);
             }
         };
 
+        let component = null;
+        before(() => {
+            component = $component('imageApp', { imageService });
+        });
 
-        it( 'loads images', done => {
 
-            const component = $component('imageApp', { imageService });
+        it('loads images', done => {
 
             setTimeout(() => {
                 assert.equal(component.images, images);
@@ -58,9 +69,7 @@ describe( 'images component', () => {
         });
 
 
-        it( 'adds an image', done => {
-
-            const component = $component('imageApp', { imageService });
+        it('adds an image', done => {
 
             component.add(image);
 
@@ -71,14 +80,13 @@ describe( 'images component', () => {
             });
         });
 
-        it( 'removes an image', done => {
-
-            const component = $component('imageApp', { imageService });
+        it('removes an image', done => {
 
             component.remove(image);
 
             setTimeout(() => {
                 assert.equal(images.length, 2);
+                assert.notInclude(images, image);
                 done();
             });
         });
