@@ -54,11 +54,11 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(26);
+	var _services = __webpack_require__(28);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	__webpack_require__(29);
+	__webpack_require__(31);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33033,7 +33033,7 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.new\">\n    <div>\n        <p>\n            <label>Image Title:</label>\n            <input ng-model=\"$ctrl.title\">\n        </p>\n        <p>\n            <label>Image URL:</label>\n            <input ng-model=\"$ctrl.url\">\n        </p>\n        <p>\n            <label>Image Description:</label>\n            <input ng-model=\"$ctrl.description\">\n        </p>\n    </div>\n    <button ng-click=\"$ctrl.addImage()\">Add Image</button>\n</section>";
+	module.exports = "<section ng-class=\"$ctrl.styles.new\">\n    <div>\n        <p>ADD A NEW IMAGE:</p>\n        <p>\n            <label>Image Title:</label>\n            <input ng-model=\"$ctrl.title\">\n        </p>\n        <p>\n            <label>Image URL:</label>\n            <input ng-model=\"$ctrl.url\">\n        </p>\n        <p>\n            <label>Image Description:</label>\n            <input ng-model=\"$ctrl.description\">\n        </p>\n    </div>\n    <button ng-click=\"$ctrl.addImage()\">Add Image</button>\n</section>";
 
 /***/ },
 /* 10 */
@@ -33067,15 +33067,21 @@
 	};
 	
 	
+	controller.$inject([services]);
+	
 	function controller() {
 	    this.choices = [{ name: 'Gallery', value: 'gallery' }, { name: 'Thumbnail', value: 'thumbnail' }, { name: 'Text View', value: 'view' }];
 	
 	    this.myChoice = this.choices[2];
 	
-	    this.image = { title: 'Cutest Bunny EVER!',
+	    this.images = [{ title: 'Cutest Bunny EVER!',
 	        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
 	        description: 'A very small, cute bunny rabbit.'
-	    };
+	    }, {
+	        title: 'Taj Mahal',
+	        url: 'http://whc.unesco.org/uploads/thumbs/site_0252_0008-750-0-20151104113424.jpg',
+	        description: 'Classic View of the Taj Mahal'
+	    }];
 	};
 
 /***/ },
@@ -33118,7 +33124,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.full}}\">\n    <img ng-src=\"{{$ctrl.image.url}}\" alt=\"{{$ctrl.image.description}}\">\n</main>\n";
+	module.exports = "\n<div class=\"{{$ctrl.styles.full}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <img ng-src=\"{{$ctrl.image.url}}\" alt=\"{{$ctrl.image.description}}\">\n        </li>\n    </ul>\n</main>\n";
 
 /***/ },
 /* 18 */
@@ -33162,7 +33168,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.thumb}}\" >\n    <a href=\"{{$ctrl.image.url}}\" target=\"_blank\"><img ng-src=\"{{$ctrl.image.url}}\"></a>\n</div>";
+	module.exports = "\n<div class=\"{{$ctrl.styles.thumb}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <a href=\"{{$ctrl.image.url}}\" target=\"_blank\"><img ng-src=\"{{$ctrl.image.url}}\"></a>\n        </li>\n    </ul>\n</div>";
 
 /***/ },
 /* 22 */
@@ -33186,12 +33192,19 @@
 	
 	var _imageView2 = _interopRequireDefault(_imageView);
 	
+	var _imageView3 = __webpack_require__(26);
+	
+	var _imageView4 = _interopRequireDefault(_imageView3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	    template: _imageView2.default,
 	    bindings: {
 	        image: '='
+	    },
+	    controller: function controller() {
+	        this.styles = _imageView4.default;
 	    }
 	};
 
@@ -33199,10 +33212,18 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <p>{{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\" target=\"_blank\">Link To: {{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n</div>";
+	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <p>Image Title: {{$ctrl.image.title}}</p>\n            <p><a href=\"{{$ctrl.image.url}}\" target=\"_blank\">Link To: {{$ctrl.image.title}}</a></p>\n            <p>Image Description: {{$ctrl.image.description}}</p>\n        </li>\n    </ul>\n</div>";
 
 /***/ },
 /* 26 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"view":"eXDYY1Bd5BRBPn1esoQgd"};
+
+/***/ },
+/* 27 */,
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33225,7 +33246,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(27);
+	var context = __webpack_require__(29);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33237,11 +33258,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 28
+		"./image-service.js": 30
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33254,11 +33275,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 27;
+	webpackContext.id = 29;
 
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33291,7 +33312,7 @@
 	};
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

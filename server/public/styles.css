@@ -4,6 +4,11 @@
 
 ._1YPI68rRVc_YD77FPrlEse button {
     color: black;
+    background-color: white;
+}
+
+._1YPI68rRVc_YD77FPrlEse button:hover {
+    background-color: lightblue;
 }
 .j8D9hzv5OzJceebzwThPy img {
     max-width: 100%;
@@ -14,10 +19,15 @@
     max-width: 100px;
     max-height: 100px;
 }
-
+.eXDYY1Bd5BRBPn1esoQgd p {
+    margin: 0 auto;
+}
 header, h1, label {
     color: darkgreen;
 }
 
+li {
+    list-style-type: none;
+}
 
 /*# sourceMappingURL=styles.css.map*/
