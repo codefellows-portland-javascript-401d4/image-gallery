@@ -22,7 +22,7 @@ router
     image.save()
       .then(response => {
         if (response.name !== 'ValidationError') {
-          res.send(`${image.title} successfully saved.`);
+          res.send(response);
         }
       })
       .catch(err => {

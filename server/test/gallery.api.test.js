@@ -24,6 +24,8 @@ describe('Gallery API and routes', () => {
     description: 'A very classy gent, this T-Rex prefers Assams.'
   };
 
+  var id;
+
   const baddino = { title: 'Bad Dino' };
 
   it('Gets an empty array before images have been added', done => {
@@ -41,7 +43,11 @@ describe('Gallery API and routes', () => {
       .post('/api/gallery/')
       .send(trex)
       .then(res => {
-        assert.equal(res.text, 'Tea-Rex successfully saved.');
+        let img = JSON.parse(res.text);
+        id = img._id;
+        assert.equal(img.title, trex.title);
+        assert.equal(img.url, trex.url);
+        assert.equal(img.description, trex.description);
         done();
       })
       .catch(done);
@@ -58,5 +64,18 @@ describe('Gallery API and routes', () => {
       });
   });
 
+  it('Gets an image by id', done => {
+    request
+      .get('/api/gallery/' + id)
+      .then(res => {
+        let img = JSON.parse(res.text);
+        assert.equal(img.title, trex.title);
+        assert.equal(img.url, trex.url);
+        assert.equal(img.description, trex.description);
+        assert.equal(img._id, id);
+        done();
+      })
+      .catch(done);
+  });
 
 });
