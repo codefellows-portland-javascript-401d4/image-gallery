@@ -1,6 +1,6 @@
-<h2>{{$ctrl.image.title}}</h2>
+<!--<h2>{{$ctrl.image.title}}</h2>
 <p>{{$ctrl.image.description}}</p>
-<img ng-src="{{$ctrl.image.url}}"/>
+<img ng-src="{{$ctrl.image.url}}"/>-->
 
 <select ng-model="view">
   <option value="" disabled>Select your view</option>
@@ -8,6 +8,6 @@
   <option value="thumb">Thumbnail</option>
   <option value="full">Full Size</option>
 </select>
-<image-detail ng-if="view === 'detail' || view === undefined"></image-detail>
+<!--<image-detail ng-if="view === 'detail' || view === undefined"></image-detail>
 <image-thumb ng-if="view === 'thumb'"></image-thumb>
-<image-viewer ng-if="view === 'full'"></image-viewer>
+<image-full ng-if="view === 'full'"></image-full>-->
