@@ -33157,7 +33157,6 @@
 	exports.default = {
 	    template: _imageNew2.default,
 	    bindings: {
-	        // image: '=',
 	        add: '<'
 	    },
 	    controller: controller
@@ -33174,10 +33173,6 @@
 	    };
 	
 	    this.reset();
-	
-	    // this.title = 'elephant';
-	    // this.description = 'another elephant';
-	    // this.url = 'http://images.nationalgeographic.com/wpf/media-live/photos/000/002/cache/baby-asian-elephant_227_600x450.jpg';
 	
 	    this.addNew = function () {
 	        _this.add({
