@@ -1,9 +1,15 @@
 <section>
+  <select ng-model="view">
+  <option value="" disabled>Select your view</option>
+  <option value="detail">Details</option>
+  <option value="thumb">Thumbnail</option>
+  <option value="full">Full Size</option>
+</select>
   <ul>
     <li ng-repeat="image in $ctrl.images">
-      <image-detail image="image" remove="$ctrl.remove"></image-detail>
-      <image-thumb image="image"></image-thumb>
-      
+      <image-detail ng-if="view === 'detail' || view === undefined" image="image" remove="$ctrl.remove"></image-detail>
+      <image-thumb ng-if="view === 'thumb'" image="image"></image-thumb>
+      <image-full ng-if="view === 'full'" image="image"></image-full>
     </li>
   </ul>
 
