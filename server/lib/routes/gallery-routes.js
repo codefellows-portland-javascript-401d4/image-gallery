@@ -20,8 +20,21 @@ router
   .post('/', bodyParser, (req, res, next) => {
     const image = new Gallery(req.body);
     image.save()
-      .then(res.send(`${image.title} successfully saved.`))
-      .catch(next);
+      .then(response => {
+        if (response.name !== 'ValidationError') {
+          res.send(`${image.title} successfully saved.`);
+        }
+      })
+      .catch(err => {
+        if (err.name === 'ValidationError') {
+          return next({
+            code: 400,
+            error: 'Title, URL, and a description are all required'
+          });
+        } else {
+          next(err);
+        }
+      });
   });
 
 module.exports = router;

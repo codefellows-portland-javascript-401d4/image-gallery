@@ -24,6 +24,8 @@ describe('Gallery API and routes', () => {
     description: 'A very classy gent, this T-Rex prefers Assams.'
   };
 
+  const baddino = { title: 'Bad Dino' };
+
   it('Gets an empty array before images have been added', done => {
     request
       .get('/api/gallery/')
@@ -43,6 +45,17 @@ describe('Gallery API and routes', () => {
         done();
       })
       .catch(done);
+  });
+
+  it('Fails to add an object missing information', done => {
+    request
+      .post('/api/gallery/')
+      .send(baddino)
+      .end(err => {
+        assert.equal(err.status, 400);
+        assert.equal(err.response.text, '{"error":"Title, URL, and a description are all required"}');
+        done();
+      });
   });
 
 
