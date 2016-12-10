@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser').json();
 const Gallery = require('../models/gallery');
 
 const router = express.Router();
