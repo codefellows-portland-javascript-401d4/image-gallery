@@ -1,9 +1,19 @@
-<section ng-class="$ctrl.styles.new">
-    Add a new image to the gallery!
-    <br>
+<footer ng-class="$ctrl.styles.new">
+    <h4>Add a new image to the gallery by filling out the below form and pressing the add button!</h4>
     <hr>
-    Title: <input type="text" ng-model="$ctrl.title" required>
-    Description: <input type="text" ng-model="$ctrl.description" required>
-    Url: <input type="text" ng-model="$ctrl.url" required>
+    <form>
+        <div>
+            <h4>Title:</h4> 
+            <input type="text" ng-model="$ctrl.title" required>
+        </div>
+        <div>
+            <h4>Description:</h4> 
+            <input type="text" ng-model="$ctrl.description" required>
+        </div>
+        <div>
+            <h4>Url:</h4> 
+            <input type="text" ng-model="$ctrl.url" required>
+        </div>
+    </form>
     <button ng-click="$ctrl.addNew()">Add</button>
-</section>
+</footer>

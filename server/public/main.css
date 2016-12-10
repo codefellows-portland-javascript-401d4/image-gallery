@@ -1,20 +1,128 @@
-.EVkMhNwGhSymlzE6nptwl {
+h1, h2 {
+    text-align: center;
+}
+
+h4 {
+    margin: 2px;
+}
+
+p {
+    margin: 1em auto;
+    width: 60%;
+    text-align: justify;
+    text-indent: 3em;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em auto;
+    width: 60%;
+}
+
+nav select {
+    order: 1;
+    min-width: 160px;
+    margin: 2px;
+}
+
+section {
+    width: 60%;
+    margin: 1em auto;
+}
+
+footer {
+    width: 60%;
+    margin: 1em auto;
+}.EVkMhNwGhSymlzE6nptwl {
     border: black 1px solid;
     padding: 5px;
 }._3yCTas6A8zUCisoe9Boch6 {
     border: black 1px solid;
     padding: 1em;
+    max-width: 90%;
+    margin: 1em auto;
 }
 
-._14OweBXFrqVUuBQ8dCXLk4 {
+._3yCTas6A8zUCisoe9Boch6 p {
+    text-indent: 0px;
+    width: 100%;
+    margin: 0px;
+    overflow-wrap: break-word;
+}
+
+._3yCTas6A8zUCisoe9Boch6 h4 {
+    margin: 0px;
+}._14OweBXFrqVUuBQ8dCXLk4 {
     border: black 1px solid;
     padding: 1em;
     overflow: scroll;
+}
+
+._14OweBXFrqVUuBQ8dCXLk4 h4 {
+    margin: 0px;
+}
+
+._14OweBXFrqVUuBQ8dCXLk4 p {
+    text-indent: 0px;
+    width: 100%;
+    margin: 0px;
+    overflow-wrap: break-word;
 }.kxQMeLqzl41_NzE9LRfZ3 {
     border: black 1px solid;
     padding: 5px;
+}
+
+.kxQMeLqzl41_NzE9LRfZ3 form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.kxQMeLqzl41_NzE9LRfZ3 input {
+    max-width: 140px;
+    margin: 2px;
+}
+
+.kxQMeLqzl41_NzE9LRfZ3 h4 {
+    margin: 0px;
+}
+
+.kxQMeLqzl41_NzE9LRfZ3 button {
+    min-width: 100px;
+    margin-left: calc(50% - 50px);
+}._2ge53jfvcYEx9sdJYDNowZ {
+    margin: 1em auto;
+}
+
+.Ilp9cDrnK9reIB7Js3tTF {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
+.Ilp9cDrnK9reIB7Js3tTF select {
+    min-width: 120px;
+    margin: 2px;
+}
+
+.Ilp9cDrnK9reIB7Js3tTF button {
+    min-width: 120px;
+    margin: 2px;
 }._11T7qyV23K_HJKWVsGU9lU {
     border: 1px black solid;
     padding: 1em;
+    max-width: 90%;
+    max-height: 100px;
+    margin: 1em auto;
+    width: auto;
+    display: flex;
+}
+
+._11T7qyV23K_HJKWVsGU9lU img {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
 }
 /*# sourceMappingURL=main.css.map*/

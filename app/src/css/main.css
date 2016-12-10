@@ -1,5 +1,16 @@
-h1 {
+h1, h2 {
     text-align: center;
+}
+
+h4 {
+    margin: 2px;
+}
+
+p {
+    margin: 1em auto;
+    width: 60%;
+    text-align: justify;
+    text-indent: 3em;
 }
 
 nav {
@@ -13,5 +24,15 @@ nav {
 nav select {
     order: 1;
     min-width: 160px;
-    margin: 5px;
+    margin: 2px;
+}
+
+section {
+    width: 60%;
+    margin: 1em auto;
+}
+
+footer {
+    width: 60%;
+    margin: 1em auto;
 }

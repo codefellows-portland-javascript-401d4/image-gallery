@@ -2,3 +2,23 @@
     border: black 1px solid;
     padding: 5px;
 }
+
+:local(.new) form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+:local(.new) input {
+    max-width: 140px;
+    margin: 2px;
+}
+
+:local(.new) h4 {
+    margin: 0px;
+}
+
+:local(.new) button {
+    min-width: 100px;
+    margin-left: calc(50% - 50px);
+}

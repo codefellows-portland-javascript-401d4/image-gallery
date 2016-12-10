@@ -1,5 +1,17 @@
 :local(.detail) {
     border: black 1px solid;
     padding: 1em;
+    max-width: 90%;
+    margin: 1em auto;
 }
 
+:local(.detail) p {
+    text-indent: 0px;
+    width: 100%;
+    margin: 0px;
+    overflow-wrap: break-word;
+}
+
+:local(.detail) h4 {
+    margin: 0px;
+}
