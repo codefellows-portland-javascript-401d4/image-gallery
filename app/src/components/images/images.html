@@ -6,7 +6,7 @@
   <option value="full">Full Size</option>
 </select>
   <ul>
-    <li ng-repeat="image in $ctrl.images">
+    <li ng-class="$ctrl.styles['detail-class']" ng-repeat="image in $ctrl.images">
       <image-detail ng-if="view === 'detail' || view === undefined" image="image" remove="$ctrl.remove"></image-detail>
       <image-thumb ng-if="view === 'thumb'" image="image"></image-thumb>
       <image-full ng-if="view === 'full'" image="image"></image-full>

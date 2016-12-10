@@ -1,1 +1,3 @@
-<img ng-src="{{$ctrl.image.url}}" alt="{{$ctrl.image.title}}">
+<h2>{{$ctrl.image.title}}</h2>
+<p>{{$ctrl.image.description}}</p>
+<img ng-class="$ctrl.styles['full-class']" ng-src="{{$ctrl.image.url}}" alt="{{$ctrl.image.title}}">

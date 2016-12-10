@@ -1,0 +1,4 @@
+:local(.detail-class) {
+  list-style: none;
+  display: inline-block;
+}

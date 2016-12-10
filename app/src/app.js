@@ -7,6 +7,3 @@ const app = angular.module('imageGallery', [components, services]);
 const dev = 'http://localhost:3000/api';
 
 app.value('apiUrl', dev);
-// app.factory('apiUrl', function() {
-//   return dev;
-// });
