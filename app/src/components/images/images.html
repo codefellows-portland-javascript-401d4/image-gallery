@@ -6,11 +6,10 @@
         </select>
     </form>
     <div>
-        <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="images.images"></image-detail>
+        <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="images.images" remove="images.remove"></image-detail>
         <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images"></image-gallery>
         <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images"></image-thumbnail>
     </div>
 
-    <new-image add="image.add"></new-image>
-
+    <new-image add="images.add"></new-image>
 </section>

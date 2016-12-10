@@ -13,7 +13,7 @@ function controller(images) {
 	this.loading = true;
 
 	this.displays = ['thumbnail', 'text', 'full', 'all'];
-    
+
     // call the get to load all images
 	images.get().then(images => {
 		this.loading = false;
@@ -22,6 +22,7 @@ function controller(images) {
 
     // remove this image
 	this.remove = image => {
+		console.log('remove image clicked.  This is the image', image);
 		this.loading = true;
 		images.remove(image._id)
             .then(() => {

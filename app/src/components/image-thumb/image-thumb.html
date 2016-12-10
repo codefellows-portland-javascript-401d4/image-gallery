@@ -1,9 +1,9 @@
 <section>
     <ul>
-        <li ng-repeat ='image in $ctrl.images'> 
+        <li ng-repeat ='image in imageGallery.images'> 
             <h3>Image Title: {{image.title}}<h3>
             <img ng-src="{{image.url}}" alt={{image.title}} height="100px" width="100px"> 
-            <button ng-click="images.remove()">remove</button>
+            <button ng-click="imageGallery.removeImage(image)">remove</button>
         </li>
     </ul>
 </section>
