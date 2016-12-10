@@ -6,11 +6,15 @@ export default {
     bindings: {
         image: '=',
         viewoptions: '<',
-        view: '<'
+        view: '<',
+        del: '<'
     },
     controller
 };
 
 function controller() {
     this.styles = styles;
+    this.remove = () => {
+        this.del(this.image);
+    };
 };

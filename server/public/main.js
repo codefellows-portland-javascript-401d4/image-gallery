@@ -33041,6 +33041,7 @@
 	
 	    this.styles = _imageApp4.default;
 	    this.loading = true;
+	    this.image = '';
 	
 	    imageService.get().then(function (images) {
 	        _this.images = images;
@@ -33072,7 +33073,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>This is the master view select if you'd like to see all images in the same view.</h2>\n<select ng-options=\"option as option for option in app.viewOptions\" ng-model=\"app.view\"></select>\n<hr>\n<section ng-repeat=\"image in app.images track by $index\" ng-class=\"app.styles.app\">\n    <h3>{{image.title}}</h3>\n    <image-options image=\"image\" viewoptions=\"app.viewOptions\" view=\"app.view\"></image-options>\n    <button ng-click=\"app.remove(image)\">Delete</button>\n    <hr>\n</section>\n\n<image-new add=\"app.add\"></image-new>\n";
+	module.exports = "<p>Below is my image gallery which is brought to you via Angular.js and served using an Express server with a Mongo DB backend. You can view/add/delete images to this gallery and the changes will persist through your selections. To switch between views and specific images, use the two select dropdown menus below. Enjoy and have fun!</p>\n<nav>\n    <div>\n        <h4>View Option:</h4>\n        <select ng-options=\"option for option in app.viewOptions\" ng-model=\"app.view\">\n        </select>\n    </div>\n    <div>\n        <h4>Image Select:</h4>\n        <select ng-options=\"image.title for image in app.images\" ng-model=\"app.image\">\n            <option value=\"\">View All</option>\n        </select>\n    </div>\n</nav>\n<hr>\n\n<section ng-if=\"!app.image\" ng-repeat=\"image in app.images track by $index\" ng-class=\"app.styles.app\">\n    <image-options image=\"image\" viewoptions=\"app.viewOptions\" view=\"app.view\" del=\"app.remove\"></image-options>\n</section>\n<section ng-if=\"app.image\" ng-class=\"app.styles.app\">\n    <image-options image=\"app.image\" viewoptions=\"app.viewOptions\" view=\"app.view\" del=\"app.remove\"></image-options>\n</section>\n<image-new add=\"app.add\"></image-new>\n";
 
 /***/ },
 /* 14 */
@@ -33121,7 +33122,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.detail\">\n    <h3>Title: {{$ctrl.image.title}}</h3>\n    <p>Link: {{$ctrl.image.url}}</p>\n    <p>Desc.: {{$ctrl.image.description}}</p>\n</section>";
+	module.exports = "<div ng-class=\"$ctrl.styles.detail\">\n    <h4>Title: {{$ctrl.image.title}}</h4>\n    <p>Link: {{$ctrl.image.url}}</p>\n    <p>Desc.: {{$ctrl.image.description}}</p>\n</div>";
 
 /***/ },
 /* 18 */
@@ -33168,7 +33169,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"$ctrl.styles.gallery\">\n    <h3>{{$ctrl.image.title}}</h3>\n    <img src=\"{{$ctrl.image.url}}\">\n    <p>{{$ctrl.image.description}}</p>\n</div>";
+	module.exports = "<div ng-class=\"$ctrl.styles.gallery\">\n    <h4>{{$ctrl.image.title}}</h4>\n    <p>{{$ctrl.image.description}}</p>\n    <img src=\"{{$ctrl.image.url}}\">\n</div>";
 
 /***/ },
 /* 22 */
@@ -33234,7 +33235,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.new\">\n    Add a new image to the gallery!\n    <br>\n    <hr>\n    Title: <input type=\"text\" ng-model=\"$ctrl.title\" required>\n    Description: <input type=\"text\" ng-model=\"$ctrl.description\" required>\n    Url: <input type=\"text\" ng-model=\"$ctrl.url\" required>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</section>";
+	module.exports = "<footer ng-class=\"$ctrl.styles.new\">\n    <h4>Add a new image to the gallery by filling out the below form and pressing the add button!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Title:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.title\" required>\n        </div>\n        <div>\n            <h4>Description:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.description\" required>\n        </div>\n        <div>\n            <h4>Url:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.url\" required>\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</footer>";
 
 /***/ },
 /* 26 */
@@ -33269,27 +33270,34 @@
 	    bindings: {
 	        image: '=',
 	        viewoptions: '<',
-	        view: '<'
+	        view: '<',
+	        del: '<'
 	    },
 	    controller: controller
 	};
 	
 	
 	function controller() {
+	    var _this = this;
+	
 	    this.styles = _imageOptions4.default;
+	    this.remove = function () {
+	        _this.del(_this.image);
+	    };
 	};
 
 /***/ },
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n    <h3 ng-if=\"!$ctrl.view\">Change individual views here!</h3>\n    <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"$ctrl.image\"></image-detail>\n    <image-thumbnail ng-if=\"$ctrl.view === 'thumbnail'\" image=\"$ctrl.image\"></image-thumbnail>\n    <image-gallery ng-if=\"$ctrl.view === 'gallery'\" image=\"$ctrl.image\"></image-gallery>\n</div>\n<select ng-options=\"option as option for option in $ctrl.viewoptions\" ng-model=\"$ctrl.view\"></select>";
+	module.exports = "<div ng-class=\"$ctrl.styles.boxing\">\n    <select ng-options=\"option as option for option in $ctrl.viewoptions\" ng-model=\"$ctrl.view\"></select>\n    <button ng-click=\"$ctrl.remove()\">Delete</button>\n</div>\n<div ng-class=\"$ctrl.styles.option\">\n    <h4 ng-if=\"!$ctrl.view\">Title: {{$ctrl.image.title}}</h4>\n    <h4 ng-if=\"!$ctrl.view\">Use the above dropdown to change the image view!</h4>\n    <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"$ctrl.image\"></image-detail>\n    <image-thumbnail ng-if=\"$ctrl.view === 'thumbnail'\" image=\"$ctrl.image\"></image-thumbnail>\n    <image-gallery ng-if=\"$ctrl.view === 'gallery'\" image=\"$ctrl.image\"></image-gallery>\n</div>";
 
 /***/ },
 /* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"option":"_2ge53jfvcYEx9sdJYDNowZ","boxing":"Ilp9cDrnK9reIB7Js3tTF"};
 
 /***/ },
 /* 31 */,
@@ -33329,7 +33337,7 @@
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"$ctrl.styles.thumbnail\">\n    <img src=\"{{$ctrl.image.url}}\" style=\"height: 100px; width: 100px\">\n</div>";
+	module.exports = "<div ng-class=\"$ctrl.styles.thumbnail\">\n    <img src=\"{{$ctrl.image.url}}\">\n</div>";
 
 /***/ },
 /* 34 */

@@ -1,7 +1,11 @@
-<div>
-    <h3 ng-if="!$ctrl.view">Change individual views here!</h3>
+<div ng-class="$ctrl.styles.boxing">
+    <select ng-options="option as option for option in $ctrl.viewoptions" ng-model="$ctrl.view"></select>
+    <button ng-click="$ctrl.remove()">Delete</button>
+</div>
+<div ng-class="$ctrl.styles.option">
+    <h4 ng-if="!$ctrl.view">Title: {{$ctrl.image.title}}</h4>
+    <h4 ng-if="!$ctrl.view">Use the above dropdown to change the image view!</h4>
     <image-detail ng-if="$ctrl.view === 'detail'" image="$ctrl.image"></image-detail>
     <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="$ctrl.image"></image-thumbnail>
     <image-gallery ng-if="$ctrl.view === 'gallery'" image="$ctrl.image"></image-gallery>
 </div>
-<select ng-options="option as option for option in $ctrl.viewoptions" ng-model="$ctrl.view"></select>
