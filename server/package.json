@@ -4,9 +4,9 @@
   "description": "A web server that servers image description, thumbnail, and full image.",
   "main": "main.js",
   "scripts": {
-    "test": "karma start",
-    "start": "webpack-dev-server --inline",
-    "build": "webpack"
+    "start": "nodemon server.js",
+    "pretest": "eslint .",
+    "test": "MONGODB_URI=mongodb://localhost/pirates-test mocha"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/GloriaAnholt/image-gallery#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
@@ -31,6 +32,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.11.1",
-    "mocha": "^3.0.2",
+    "mocha": "^3.0.2"
   }
 }
