@@ -3,5 +3,11 @@
 import angular from 'angular';
 import './css/main.css';
 import components from './components';
+import services from './services';
 
-angular.module('imageGallery', [components]);
+const app = angular.module('imageGallery', [components, services]);
+
+const devServer = 'http://localhost:3000/api';
+
+// make the value of the server available to angular at app creation
+app.value('apiUrl', devServer);
