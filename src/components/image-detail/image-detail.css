@@ -1,0 +1,7 @@
+:local(.detail) {
+    text-align: center;
+    color: dimgrey;
+    border-radius: 10px;
+    margin: 5%;
+    padding: 10%;
+}

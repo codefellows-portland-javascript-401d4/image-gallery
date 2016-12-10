@@ -1,0 +1,10 @@
+:local(.gallery) {
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    margin: 5%;
+}
+
+:local(.gallery) img {
+    max-width: 100%;
+}
