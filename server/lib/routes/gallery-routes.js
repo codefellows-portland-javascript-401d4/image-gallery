@@ -18,9 +18,11 @@ router
       .catch(next);
   })
   .post('/', bodyParser, (req, res, next) => {
-    new Gallery(req.body).save();
+    new Gallery(req.body).save()
       .then(saved => req.send({
-      message: `${req.body.name} successfully saved.`
+        message: `${saved.name} successfully saved.`
       }))
       .catch(next);
-});
+  });
+
+module.exports = router;
