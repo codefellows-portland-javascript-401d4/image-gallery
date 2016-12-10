@@ -18,11 +18,11 @@ describe('Gallery API and routes', () => {
 
   const request = chai.request(app);
 
-  // const trex = {
-  //   title: 'Tea-Rex',
-  //   url: 'http://img05.deviantart.net/610d/i/2013/018/f/b/tea_rex_by_demonicneko-d5rxzq9.png',
-  //   description: 'A very classy gent, this T-Rex prefers Assams.'
-  // };
+  const trex = {
+    title: 'Tea-Rex',
+    url: 'http://img05.deviantart.net/610d/i/2013/018/f/b/tea_rex_by_demonicneko-d5rxzq9.png',
+    description: 'A very classy gent, this T-Rex prefers Assams.'
+  };
 
   it('Gets an empty array before images have been added', done => {
     request
@@ -33,5 +33,17 @@ describe('Gallery API and routes', () => {
       })
       .catch(done);
   });
+
+  it('Adds an object to the db', done => {
+    request
+      .post('/api/gallery/')
+      .send(trex)
+      .then(res => {
+        assert.equal(res.text, 'Tea-Rex successfully saved.');
+        done();
+      })
+      .catch(done);
+  });
+
 
 });
