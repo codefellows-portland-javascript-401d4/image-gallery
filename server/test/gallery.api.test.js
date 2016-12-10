@@ -78,4 +78,22 @@ describe('Gallery API and routes', () => {
       .catch(done);
   });
 
+  it('Updates image fields, using the id', done => {
+
+    let newTitle = {title:'Different T-Rex'};
+
+    request
+      .put('/api/gallery/' + id)
+      .send(newTitle)
+      .then(res => {
+        let img = JSON.parse(res.text);
+        assert.equal(img.title, newTitle.title);
+        assert.equal(img.url, trex.url);
+        assert.equal(img.description, trex.description);
+        assert.equal(img._id, id);
+        done();
+      })
+      .catch(done);
+  });
+
 });

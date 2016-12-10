@@ -11,12 +11,14 @@ router
       .then(images => res.send(images))
       .catch(next);
   })
+
   .get('/:id', (req, res, next) => {
     Gallery.findById(req.params.id)
       .lean()
       .then(image => res.send(image))
       .catch(next);
   })
+
   .post('/', bodyParser, (req, res, next) => {
     const image = new Gallery(req.body);
     image.save()
@@ -35,6 +37,13 @@ router
           next(err);
         }
       });
+  })
+
+  .put('/:id', bodyParser, (req, res, next) => {
+    Gallery.findByIdAndUpdate(req.params.id, req.body) // doesn't return the obj
+      .then(() => { return Gallery.findById(req.params.id); }) // re-fetch obj
+      .then(saved => res.send(saved))
+      .catch(next);
   });
 
 module.exports = router;
