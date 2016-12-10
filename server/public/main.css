@@ -1,0 +1,12 @@
+li{
+    border: 3px solid darkslategrey;
+    text-decoration: none;
+}
+
+
+ul li {
+    list-style-type: none;
+}h1 {
+    color: blue;
+}
+/*# sourceMappingURL=main.css.map*/
