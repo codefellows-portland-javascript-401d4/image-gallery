@@ -1,4 +1,5 @@
 <div>
+    <h3 ng-if="!$ctrl.view">{{$ctrl.image.title}}</h3>
     <h3 ng-if="!$ctrl.view">Change individual views here!</h3>
     <image-detail ng-if="$ctrl.view === 'detail'" image="$ctrl.image"></image-detail>
     <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="$ctrl.image"></image-thumbnail>
