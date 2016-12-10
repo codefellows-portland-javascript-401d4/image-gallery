@@ -18,10 +18,9 @@ router
       .catch(next);
   })
   .post('/', bodyParser, (req, res, next) => {
-    new Gallery(req.body).save()
-      .then(saved => req.send({
-        message: `${saved.name} successfully saved.`
-      }))
+    const image = new Gallery(req.body);
+    image.save()
+      .then(res.send(`${image.title} successfully saved.`))
       .catch(next);
   });
 
