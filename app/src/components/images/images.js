@@ -11,6 +11,9 @@ controller.$inject = ['imageService'];
 function controller(images) {
   this.styles = styles;
 
+  this.views = ['Details', 'Thumbnail', 'Full Size'];
+  this.view = this.views[0];
+
   images.get()
     .then(images => {
       this.images = images;
