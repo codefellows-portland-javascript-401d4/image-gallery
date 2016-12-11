@@ -1,8 +1,10 @@
 :local(.detail) {
     border: black 1px solid;
+    background-color: #FFFFFF;
     padding: 1em;
     max-width: 90%;
     margin: 1em auto;
+    border-radius: 4px;
 }
 
 :local(.detail) p {

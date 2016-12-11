@@ -27,12 +27,19 @@ nav select {
     margin: 2px;
 }
 
+body {
+    background-color: #00BCD4;
+}
+
 section {
     width: 60%;
     margin: 1em auto;
+    background-color: #B2EBF2;
+    border-radius: 4px;
 }
 
 footer {
     width: 60%;
     margin: 1em auto;
+    background-color: #B2EBF2;
 }
