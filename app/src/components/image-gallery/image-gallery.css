@@ -2,6 +2,8 @@
     border: black 1px solid;
     padding: 1em;
     overflow: scroll;
+    background-color: #FFFFFF;
+    border-radius: 4px;
 }
 
 :local(.gallery) h4 {
