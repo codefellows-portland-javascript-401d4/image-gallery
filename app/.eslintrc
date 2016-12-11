@@ -30,13 +30,15 @@
         ],
 },
 	"globals": {
-	"describe": false,
-	"it": false,
-	"beforeEach": false,
-	"afterEach": false,
-	"before": false,
-	"after": false,
-    "$": true,
-    "checkAuth": true
+    "angular": false,
+    "chai": false,
+  	"describe": false,
+  	"it": false,
+  	"beforeEach": false,
+  	"afterEach": false,
+  	"before": false,
+  	"after": false,
+      "$": true,
+      "checkAuth": true
  },
 }

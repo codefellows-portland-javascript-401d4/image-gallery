@@ -1,3 +1,4 @@
+
 describe('images component', () => {
   const {assert} = chai;
 

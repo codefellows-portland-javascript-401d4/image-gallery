@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "DEBUG=myapp.* nodemon server.js",
+    "start": "nodemon server.js",
     "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
     "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
   },
