@@ -11,7 +11,7 @@ const module = angular.module('services', []);
 //iterate over context obj
 context.keys().forEach(key => {
   const name = camelcase(path.basename(key, '.js'));
-  module.component(name, context(key).default);
+  module.factory(name, context(key).default);
 });
 
 export default module.name; //.name to add module as dependency

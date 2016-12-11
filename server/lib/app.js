@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const errHandler = require('err-handler');
+const errHandler = require('./err-handler');
 const morgan = require('morgan');
 
-const images = require('.routes/images');
+const images = require('./routes/images');
 
 //using morgan in production mode
 app.use(morgan('dev'));

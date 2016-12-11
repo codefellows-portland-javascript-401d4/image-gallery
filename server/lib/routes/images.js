@@ -19,7 +19,7 @@ router
     Image.findById(req.params.id)
       .select('name description url')
       .lean()
-      .then(image => res.send.(image))
+      .then(image => res.send(image))
       .catch(next);
   })
 

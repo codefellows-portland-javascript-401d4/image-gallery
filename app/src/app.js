@@ -5,7 +5,7 @@ import './css/main.css';
 import components from './components';
 import services from './services'; 
 
-angular.module('myApp', [
+const app = angular.module('myApp', [
   components,
   services
 ]);
