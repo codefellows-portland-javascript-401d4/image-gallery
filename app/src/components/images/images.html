@@ -1,15 +1,11 @@
 <header class="image">GALLERY</header>
-<!--<button ng-init="views = ['list', 'thumb', 'full']" 
-  ng-repeat="view in views"
-  name="{{view}}" 
-  ng-click="app.toggleView(view)">
+<div ng-init="views = ['list', 'thumb', 'view']">
+  <button ng-repeat="view in views" name="view" ng-click="app.toggleView(view)">
     {{view}}
-</button>-->
-  
-<button name="list" ng-click="app.toggleView('list')">list</button>
-<button name="thumb" ng-click="app.toggleView('thumb')">thumb</button>
-<button name="full" ng-click="app.toggleView('full')">view</button>
+  </button>
+</div>
 
+<h1>{{app.view}}</h1>
 <ul ng-if="app.view === 'list'">
   <li ng-repeat="image in app.images">
     <image-list
@@ -19,8 +15,6 @@
     </image-list>    
   </li>
 </ul>
-
-<br><br>
 
 <ul ng-if="app.view === 'thumb'">
   <li ng-repeat="image in app.images">
@@ -32,9 +26,7 @@
   </li>
 </ul>
 
-<br><br>
-
-<ul ng-if="app.view === 'full'">
+<ul ng-if="app.view === 'view'">
   <li ng-repeat="image in app.images">
      <image-full
       image="image"

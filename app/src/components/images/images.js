@@ -11,16 +11,14 @@ controller.$inject = ['imageService'];
 function controller(images) {
   this.view = 'list';
 
+  this.views = ['list', 'thumb', 'view'];
+
   this.loading = true;
 
   images.get().then(images => {
     this.loading = false;
     this.images = images;
   });
-
-  // this.images = [
-  //   {name: 'anarchobunny', description: 'this is anarchobunny, he likes tools, syndicalists and bandanas', url: 'http://photos1.blogger.com/blogger/7318/426/1600/anarchobunny.jpg'}
-  // ];
 
   this.remove = image => {
     this.loading = true;
