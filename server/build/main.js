@@ -33050,9 +33050,7 @@
 	    };
 	
 	    this.remove = function (image) {
-	        console.log(image);
 	        images.remove(image._id).then(function () {
-	            // console.log('removed ', image._id);
 	            var index = _this.images.indexOf(image);
 	            if (index > -1) _this.images.splice(index, 1);
 	        });
