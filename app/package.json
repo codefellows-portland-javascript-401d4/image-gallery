@@ -2,7 +2,7 @@
   "name": "image-gallery",
   "version": "1.0.0",
   "description": "Image Gallery assignment #3 for Code Fellows 401",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
