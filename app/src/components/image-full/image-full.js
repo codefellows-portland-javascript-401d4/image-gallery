@@ -6,7 +6,6 @@ export default {
     img: '='
   },
   controller
-  // controllerAs: 'app'
 };
 
 function controller() {
