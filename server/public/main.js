@@ -56,9 +56,17 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
+	var _services = __webpack_require__(20);
+	
+	var _services2 = _interopRequireDefault(_services);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]);
+	var app = _angular2.default.module('myApp', [_components2.default, _services2.default]);
+	
+	var dev = 'http://localhost:3000/api';
+	
+	app.value('apiUrl', dev);
 
 /***/ },
 /* 1 */
@@ -33646,6 +33654,89 @@
 /***/ function(module, exports) {
 
 	module.exports = "<img class=\"thumb\" ng-src={{$ctrl.img.url}}>";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _camelcase = __webpack_require__(8);
+	
+	var _camelcase2 = _interopRequireDefault(_camelcase);
+	
+	var _path = __webpack_require__(9);
+	
+	var _path2 = _interopRequireDefault(_path);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var context = __webpack_require__(21);
+	
+	var _module = _angular2.default.module('services', []);
+	
+	context.keys().forEach(function (key) {
+	  var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
+	  _module.service(name, context(key).default);
+	});
+	
+	exports.default = _module.name;
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./image-service.js": 22
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 21;
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = imageService;
+	imageService.$inject = ['$http', 'apiUrl'];
+	
+	function imageService($http, apiUrl) {
+	  return {
+	    get: function get() {
+	      return $http.get(apiUrl + '/images').then(function (res) {
+	        return res.data;
+	      });
+	    },
+	    add: function add(pirate) {
+	      return $http.post(apiUrl + '/pirates', pirate).then(function (res) {
+	        return res.data;
+	      });
+	    }
+	  };
+	}
 
 /***/ }
 /******/ ]);
