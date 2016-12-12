@@ -1,9 +1,9 @@
-Angular Image Gallery assignment for Code Fellows 401
+Image Gallery assignment #3 for Code Fellows 401
 
 by Greg Katchmar
 
-1.0.0  2016-12-06
+1.0.0  2016-12-12
 
-An exercise involving Anjular component structure.
+An exercise adding SCSS.
 
 This project is licensed under the ISC License - see the LICENSE.md file for details
