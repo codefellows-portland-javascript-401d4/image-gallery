@@ -34,7 +34,6 @@ describe('in the images component', () => {
       description: 'the third image',
       url: 'http://www.third-image.mock'
     };
-
     const _id = 123;
 
     const imageService = {
@@ -43,7 +42,7 @@ describe('in the images component', () => {
       },
       add(image) {
         image._id = _id;
-        return Promise.resolve(images);
+        return Promise.resolve(image);
       },
       remove(imageId) {
         assert.equal(imageId, _id);
@@ -53,7 +52,7 @@ describe('in the images component', () => {
 
     let component = null;
     before(() => {
-      component = $component('images', {imageService});
+      component = $component('images', { imageService });
     });
 
     it('loads images', done => {
