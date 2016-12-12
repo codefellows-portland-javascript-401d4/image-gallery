@@ -56,20 +56,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('myApp', [_components2.default]).config(function ($routeProvider) {
-	    $routeProvider.when('/thumbnail', {
-	        controller: 'thumbnail-app',
-	        templateUrl: 'thumbnail-app.html'
-	    }).when('/link-desc', {
-	        controller: 'title-link-desc',
-	        templateUrl: 'title-link-desc.html'
-	    }).when('/img-desc', {
-	        controller: 'title-img-desc',
-	        templateUrl: 'title-img-desc'
-	    }).otherwise({
-	        redirectTo: '/'
-	    });
-	});
+	_angular2.default.module('myApp', [_components2.default]);
 	// import './css/main.css';
 
 /***/ },
@@ -32981,10 +32968,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./app/app.js": 8,
-		"./thumbnail/thumbnail-app.js": 10,
-		"./title_img_desc/title-img-desc.js": 16,
-		"./title_link_desc/title-link-desc.js": 18
+		"./thumbnail/thumbnail-app.js": 8,
+		"./title_img_desc/title-img-desc.js": 14,
+		"./title_link_desc/title-link-desc.js": 16
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33010,42 +32996,11 @@
 	    value: true
 	});
 	
-	var _app = __webpack_require__(9);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	    template: _app2.default,
-	    controller: controller,
-	    controllerAs: 'app'
-	};
-	
-	
-	function controller() {}
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	module.exports = "";
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _thumbnailApp = __webpack_require__(11);
+	var _thumbnailApp = __webpack_require__(9);
 	
 	var _thumbnailApp2 = _interopRequireDefault(_thumbnailApp);
 	
-	var _thumbnailApp3 = __webpack_require__(12);
+	var _thumbnailApp3 = __webpack_require__(10);
 	
 	var _thumbnailApp4 = _interopRequireDefault(_thumbnailApp3);
 	
@@ -33068,23 +33023,23 @@
 	}
 
 /***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n  <div>\n    <img ng-src=\"{{$ctrl.thumbnail.src}}\" ng-class=\"$ctrl.styles.img\">\n  </div>\n</section>";
 
 /***/ },
-/* 12 */
+/* 10 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"img":"_1jct2TfaeWdrqjJnkXQG2P"};
 
 /***/ },
+/* 11 */,
+/* 12 */,
 /* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33093,7 +33048,7 @@
 	    value: true
 	});
 	
-	var _titleImgDesc = __webpack_require__(17);
+	var _titleImgDesc = __webpack_require__(15);
 	
 	var _titleImgDesc2 = _interopRequireDefault(_titleImgDesc);
 	
@@ -33117,13 +33072,13 @@
 	}
 
 /***/ },
-/* 17 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n  <div>\n    <h1>{{$ctrl.title}}</h1>\n    <img ng-src=\"{{$ctrl.img.src}}\" style=\"width:50%; height:50%\">\n    <p>{{$ctrl.desc}}</p>\n  </div>\n</section>";
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33132,7 +33087,7 @@
 	    value: true
 	});
 	
-	var _titleLinkDesc = __webpack_require__(19);
+	var _titleLinkDesc = __webpack_require__(17);
 	
 	var _titleLinkDesc2 = _interopRequireDefault(_titleLinkDesc);
 	
@@ -33156,7 +33111,7 @@
 	}
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n  <div>\n    <h1>{{$ctrl.title}}</h1>\n    <p>{{$ctrl.link.src}}</p>\n    <p>{{$ctrl.desc}}</p>\n  </div>\n</section>";
