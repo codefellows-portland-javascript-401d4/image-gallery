@@ -1,0 +1,13 @@
+:local(.gallery) {
+    text-align: center;
+    color: white;
+    background-color: #584545;
+    border-radius: 15px;
+    width: 80%;
+    margin: 5% auto;
+    padding: 5%;
+}
+
+:local(.gallery) img {
+    max-width: 100%;
+}
