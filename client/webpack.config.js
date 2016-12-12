@@ -12,7 +12,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
-        new ExtractTextPlugin('main.css')
+        new ExtractTextPlugin('main.scss')
     ],
     module: {
         preLoaders: [{
@@ -29,12 +29,15 @@ module.exports = {
                 // plugins: ['transform-runtime']    
             } 
         }, {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            test: /\.scss$/,
+            loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
         }, {
             test: /\.html$/,
             loader: 'html-loader'
         }]
+    },
+    sassLoader: {
+        includePaths: ['./src/scss/partials']
     }
 };
 
