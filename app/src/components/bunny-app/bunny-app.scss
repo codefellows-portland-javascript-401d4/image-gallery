@@ -1,12 +1,15 @@
+@import 'font';
+
 h1 {
   background-color: aquamarine;
+  font-weight: $primaryFontWeight;
   padding: 25px;
   margin: 20px;
   border-radius: 10px;
 }
 
 .container {
-  font-family: 'Comfortaa', cursive;
+  font-family: $primaryFont;
   width: 80%;
   margin: auto;
   text-align: center;

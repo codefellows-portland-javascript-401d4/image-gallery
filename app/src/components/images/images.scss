@@ -1,3 +1,5 @@
+@import 'font';
+
 .viewButton {
   width: 200px;
   height: 50px;
@@ -6,8 +8,13 @@
   border-radius: 10px;
   margin: 20px;
   background-color: gainsboro;
-  font-family: 'Comfortaa', cursive;
+  font-family: $primaryFont;
+  font-weight: $primaryFontWeight;
   font-size: 20px;
+}
+
+.viewButton:hover {
+  background-color: white;
 }
 
 .component {
@@ -19,4 +26,5 @@
 
 .component ul {
   list-style-type: none;
+  padding: 0;
 }
