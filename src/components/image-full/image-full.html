@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Full Size Image</h1>
+    <ul>
+        <li ng-repeat="full in app.full track by full.title">
+            <p>{{full.title}}</p>
+            <p>{{full.description}}</p>
+            <img ng-src="{{full.fullImage}}">
+        </li>
+    </ul>
+</body>
+</html>
