@@ -3,7 +3,7 @@ sudo: true
 dist: trusty
 node_js:
   - "6"
-
+  
 services:
   - mongodb
 
@@ -15,10 +15,10 @@ before_install:
   - sudo apt-get install -y libappindicator1 fonts-liberation
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome-stable_current_amd64.deb
-
-  env:
-    - CXX=g++-4.8
-
+    
+env:
+  - CXX=g++-4.8
+  
 addons:
   apt:
     sources:
@@ -27,4 +27,4 @@ addons:
 
     packages:
       - g++-4.8
-      - mongodb-org-server  
+      - mongodb-org-server
