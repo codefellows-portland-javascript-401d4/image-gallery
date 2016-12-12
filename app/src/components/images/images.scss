@@ -1,4 +1,7 @@
-:local(.detail-class) {
-  list-style: none;
-  display: inline-block;
+:local(.details) {
+
+  li {
+    list-style: none;
+    display: inline-block;
+  }
 }

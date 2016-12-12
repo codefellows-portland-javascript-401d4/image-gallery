@@ -1,1 +1,3 @@
-<a href="{{$ctrl.image.url}}"><img ng-class="$ctrl.styles['thumb-class']" ng-src={{$ctrl.image.url}} alt={{$ctrl.image.title}}/></a>
+<div ng-class="$ctrl.styles.thumb">
+  <a href="{{$ctrl.image.url}}"><img ng-src={{$ctrl.image.url}} alt={{$ctrl.image.title}}/></a>
+</div>
