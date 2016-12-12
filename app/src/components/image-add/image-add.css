@@ -1,0 +1,11 @@
+:local(.add) h3 {
+  color: darkred;
+}
+
+:local(.add) button{
+  color: darkgreen;
+}
+
+:local(.add) button:hover {
+  background-color: lightgreen;
+}
