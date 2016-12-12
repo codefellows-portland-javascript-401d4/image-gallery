@@ -57,4 +57,26 @@ describe( 'image service', () => {
 
     $httpBackend.flush();
   });
+
+  it('removes image', done => {
+
+    const image = {
+      id: '123'
+    };
+        
+    $httpBackend
+            .expectDELETE('/api/images/123')
+            .respond(image);
+
+    imageService.remove(image.id)
+            .then(removedImage => {
+              assert.deepEqual(removedImage, image);
+              done();
+            })
+            .catch(done);
+
+    $httpBackend.flush();
+  });
+
 });
+
