@@ -25,7 +25,8 @@ module.exports = {
             exclude: /node_modules/,
             loader:'babel-loader',
             query: {
-                cacheDirectory: true,   
+                cacheDirectory: true,
+                // plugins: ['transform-runtime']    
             } 
         }, {
             test: /\.css$/,
