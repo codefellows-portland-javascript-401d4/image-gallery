@@ -1,3 +1,24 @@
-h1 {
-    color: blue;
+@import 'colors';
+
+.header {
+    background-color: black;
+    height: 30vh;
+}
+h1{
+   color: $blue;
+   font-size: 10vh;
+}
+
+h4{
+   color: $blue;
+   font-size: 4vh;
+}
+em{
+    color: $grey;
+    float: right;
+}
+
+footer {
+      background-color: black;
+      height: 20vh; 
 }

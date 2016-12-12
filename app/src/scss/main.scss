@@ -1,20 +1,14 @@
+@import 'colors';
+@import 'buttons';
 //Here is where I will set UNIVERSAL style rules
 //specific rules can be handled in the contorllers
-@import 'buttons';
-@import 'colors';
+
+
 
 * {
-    color: red;
-}
-//this red color thing is a test
-
-
-li {
-    border: 3px solid darkslategrey;
-    text-decoration: none;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
 
 
-ul li {
-    list-style-type: none;
-}
+

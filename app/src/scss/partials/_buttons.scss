@@ -1,8 +1,11 @@
 @import 'colors';
 
 button {
-    color: $blue;
+    background-color: $blue;
+        color: black;
     &:hover{
-        color:$grey;
+        background-color: $gold;
+        color: black;
+        cursor: pointer;
         }
     }
