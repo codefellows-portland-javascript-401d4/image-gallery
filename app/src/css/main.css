@@ -6,10 +6,23 @@ a {
   color: blue;
 }
 
-button {
+button.action {
   margin: 0;
   margin-right: -5px;
   background: lightgreen;
   color: black;
   border: 1px solid blue;
+}
+
+button.action:focus {
+  outline: 0;
+}
+
+ul.inventory {
+  padding: 0;
+  padding-left: 20px;
+}
+
+ul.moves {
+  list-styles: none;
 }

@@ -9,7 +9,7 @@
    * rm -rf node_modules at project root
    * npm i in app folder
    * (or just copy node_modules folder into app :)
-  
+
 * Create API services for getting images.
 
 * Write angular services that encapsulate API calls and use those in your components.
