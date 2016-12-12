@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "DEBUG=myapp.* nodemon server.js",
+    "start": "DEBUG=myapp.* nodemon server.js"
 	},
   "author": "Greg Katchmar <gunk55@msn.com> (www.gkatchmar.com)",
   "license": "ISC",
