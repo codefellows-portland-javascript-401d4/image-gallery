@@ -1,14 +1,18 @@
 <section ng-class="app.style.image">
     <div>
-       <select ng-model="app.view">
-            <option value="detail">Detail View</option>
-            <option value="thumb">Thumbnail View</option>
-            <option value="gallery">Gallery View</option>
+        <button ng-click="app.view='gallery'">Gallery View</button>
+        <button ng-click="app.view='thumb'">Thumbnail View</button>
+        <button ng-click="app.view='detail'">Detail View</button>
+    </div>
+
+    <div>
+        <select ng-options="image.title for image in app.images" ng-model="app.image">
+            <option value="">view all</option>
         </select>
     </div>
 
-    <image-detail ng-if="app.view==='detail'" image="app.image"></image-detail>
-    <image-thumb ng-if="app.view==='thumb'" image="app.image"></image-thumb>
-    <image-gallery ng-if="app.view==='gallery'" image="app.image"></image-gallery>
+    <image-detail ng-if="app.view==='detail'" ng-repeat="image in app.images"></image-detail>
+    <image-thumb ng-if="app.view==='thumb'" ng-repeat="image in app.images"></image-thumb>
+    <image-gallery ng-if="app.view==='gallery'" ng-repeat="image in app.images"></image-gallery>
 
 </section>
