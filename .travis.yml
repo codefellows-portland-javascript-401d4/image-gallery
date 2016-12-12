@@ -6,7 +6,6 @@ node_js:
   
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
-  - export SAFARI_BIN=/usr/bin/safari
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sudo apt-get update
