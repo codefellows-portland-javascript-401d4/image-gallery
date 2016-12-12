@@ -15,6 +15,13 @@ export default function galleryService($http, apiUrl) {
         .then(res => {
           return res.data;
         });
+    },
+
+    remove: function(id) {
+      return $http.delete(`${apiUrl}/${id}`)
+        .then(res => {
+          return res.data;
+        });
     }
   };
 }
