@@ -1,20 +1,21 @@
-import angular from 'angular';
+galleryService.$inject = ['$http', 'apiUrl'];
 
-var galleryService = angular.module('galleryService', []);
 
-// .factory in angular returns an object - including functions, because js
-galleryService.factory('galleryService',
-  ['$http', 'apiUrl', function($http, apiUrl) {
+export default function galleryService($http, apiUrl) {
+  return {
+    get: function() {
+      return $http.get(`${apiUrl}/`)
+        .then(res => {
+          return res.data;
+        });
+    },
 
-    return {
-      get: function() {
-        return $http.get(`${apiUrl}/`)
-          .then(res => {
-            return res.data;
-          });
-      }
-    };
-  }]);
-
-export default galleryService.name;
+    add: function(image) {
+      return $http.post(`${apiUrl}/`, image)
+        .then(res => {
+          return res.data;
+        });
+    }
+  };
+}
 
