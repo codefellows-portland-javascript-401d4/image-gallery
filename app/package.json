@@ -53,5 +53,8 @@
   "bugs": {
     "url": "https://github.com/timcombs/image-gallery"
   },
-  "homepage": "https://github.com/timcombs/image-gallery#readme"
+  "homepage": "https://github.com/timcombs/image-gallery#readme",
+  "babel": {
+    "presets": ["es2015"]
+  }
 }

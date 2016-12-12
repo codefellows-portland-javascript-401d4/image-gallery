@@ -19,8 +19,8 @@ module.exports = function(config) {
 
     //preprocess files before serving them to the browser
     preprocessors: {
-      './src/app.js': [ 'webpack' ],
-      './test/**/*.js': [ 'webpack' ]
+      './src/app.js': ['webpack'],
+      './test/**/*.js': ['babel']
     },
 
     //mock thru these browsers
