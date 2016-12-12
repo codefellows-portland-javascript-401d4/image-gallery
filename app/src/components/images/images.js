@@ -11,14 +11,21 @@ controller.$inject = ['imageService'];
 function controller(images) {
   this.view = 'list';
 
-  this.views = ['list', 'thumb', 'view'];
-
   this.loading = true;
 
   images.get().then(images => {
     this.loading = false;
     this.images = images;
   });
+
+  this.add = image => {
+    this.loading = true;
+    images.add(image)
+      .then(saved => {
+        this.loading = false;
+        this.images.push(saved);
+      });
+  };
 
   this.remove = image => {
     this.loading = true;
