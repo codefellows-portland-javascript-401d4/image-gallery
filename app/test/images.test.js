@@ -30,13 +30,13 @@ describe( 'images component', () => {
     };
 
     let component = null;
-    before(() => {
-      component = $component('images', {imageService});
-    });
+    // before(() => {
+    // });
 
 
     it('loads images', done => {
 
+      component = $component('parentComp', {imageService});
       assert.isOk(component.loading);
 
       setTimeout(() => {
@@ -47,6 +47,7 @@ describe( 'images component', () => {
     });
 
     it('add an images', done => {
+      component = $component('parentComp', {imageService});
       component.add(image);
 
       setTimeout(() => {
