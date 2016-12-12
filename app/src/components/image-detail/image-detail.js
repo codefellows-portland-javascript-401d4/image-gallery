@@ -3,7 +3,8 @@ import style from './image-detail.css';
 
 export default {
   bindings: {
-    image: '<'
+    image: '=',
+    view: '@'
   },
   controller,
   template
