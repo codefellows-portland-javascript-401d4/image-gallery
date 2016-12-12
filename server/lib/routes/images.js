@@ -1,5 +1,5 @@
 const express =  require ('express');
-const router = express.Router();
+const router = express.Router();//eslint-disable-line
 const bodyParser = require ('body-parser').json();
 const Image = require('../models/image');
 
