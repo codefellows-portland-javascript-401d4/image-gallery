@@ -1,0 +1,8 @@
+@import 'colors';
+
+button {
+    color: $blue;
+    &:hover{
+        color:$grey;
+        }
+    }
