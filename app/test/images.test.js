@@ -85,5 +85,16 @@ describe('in the images component', () => {
       });
     });
 
+    it('toggles the view based on name passed', done => {
+      let name = 'test-name';
+      
+      component.toggleView(name);
+
+      setTimeout(() => {
+        assert.equal(name, component.view);
+        done();
+      });
+    });
+
   });
 });
