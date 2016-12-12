@@ -33535,23 +33535,25 @@
 	exports.default = {
 	  template: _galleryApp2.default,
 	  controller: controller
-	  // controllerAs: 'app'
 	};
 	
 	
-	function controller() {
-	  this.img = {
-	    title: 'Bunny',
-	    url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-	    description: 'Some sort of bunny.'
-	  };
+	controller.$inject = ['imageService'];
+	
+	function controller(imgSvc) {
+	  var _this = this;
+	
+	  this.view = 'Info';
+	  imgSvc.get().then(function (images) {
+	    _this.img = images[0];
+	  });
 	}
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<select ng-model=\"view\">\n    <option value=\"Info\">Info</option>\n    <option value=\"Thumbnail\">Thumbnail</option>\n    <option value=\"Full\">Full</option>\n</select>\n<section>\n    <image-info ng-if=\"view === 'Info'\" img=\"$ctrl.img\"></image-info>\n    <image-thumb ng-if=\"view === 'Thumbnail'\" img=\"$ctrl.img\"></image-thumb>\n    <image-full ng-if=\"view === 'Full'\" img=\"$ctrl.img\"></image-full>\n</section>";
+	module.exports = "<select ng-model=\"$ctrl.view\">\n    <option value=\"Info\">Info</option>\n    <option value=\"Thumbnail\">Thumbnail</option>\n    <option value=\"Full\">Full</option>\n</select>\n<section>\n    <image-info ng-if=\"$ctrl.view === 'Info'\" img=\"$ctrl.img\"></image-info>\n    <image-thumb ng-if=\"$ctrl.view === 'Thumbnail'\" img=\"$ctrl.img\"></image-thumb>\n    <image-full ng-if=\"$ctrl.view === 'Full'\" img=\"$ctrl.img\"></image-full>\n</section>";
 
 /***/ },
 /* 14 */
@@ -33575,7 +33577,6 @@
 	    img: '='
 	  },
 	  controller: controller
-	  // controllerAs: 'app'
 	};
 	
 	
@@ -33643,7 +33644,6 @@
 	    img: '='
 	  },
 	  controller: controller
-	  // controllerAs: 'app'
 	};
 	
 	
@@ -33685,7 +33685,7 @@
 	
 	context.keys().forEach(function (key) {
 	  var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
-	  _module.service(name, context(key).default);
+	  _module.factory(name, context(key).default);
 	});
 	
 	exports.default = _module.name;
@@ -33730,8 +33730,8 @@
 	        return res.data;
 	      });
 	    },
-	    add: function add(pirate) {
-	      return $http.post(apiUrl + '/pirates', pirate).then(function (res) {
+	    add: function add(image) {
+	      return $http.post(apiUrl + '/images', image).then(function (res) {
 	        return res.data;
 	      });
 	    }
