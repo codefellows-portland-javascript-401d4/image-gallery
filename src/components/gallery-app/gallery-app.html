@@ -1,0 +1,10 @@
+<select ng-model="view">
+    <option value="Info">Info</option>
+    <option value="Thumbnail">Thumbnail</option>
+    <option value="Full">Full</option>
+</select>
+<section>
+    <image-info ng-if="view === 'Info'" img="$ctrl.img"></image-info>
+    <image-thumb ng-if="view === 'Thumbnail'" img="$ctrl.img"></image-thumb>
+    <image-full ng-if="view === 'Full'" img="$ctrl.img"></image-full>
+</section>
