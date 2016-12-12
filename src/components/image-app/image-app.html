@@ -1,0 +1,27 @@
+<ul class="descriptions">
+    <h2>Descriptions</h2>
+    <li ng-repeat="image in app.images">
+        <image-description
+            image="image">
+        </image-description>
+    </li>
+</ul>
+
+<ul class="thumbnails">
+    <h2>Thumbnails</h2>
+    <li ng-repeat="image in app.images">
+        <image-thumbnail
+            image="image">
+        </image-thumbnail>
+    </li>
+</ul>
+
+<ul class="full-image">
+    <h2>Full Images</h2>
+    <li ng-repeat="image in app.images">
+        <image-full
+            image="image">
+        </image-full>
+    </li>
+</ul>
+
