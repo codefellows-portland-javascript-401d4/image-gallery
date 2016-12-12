@@ -26,6 +26,8 @@ describe ( 'images component', () => {
 		];
 
 		const image = {title: 'c', url: 'c.com', description: 'cc'};
+		// const badImage = {title: 'd', description: 'dd'};
+
 		const _id = 123;
         
 		const imageService = {
@@ -68,7 +70,7 @@ describe ( 'images component', () => {
 			});
 		});
 
-		it('removes pirate', done => {
+		it('removes image', done => {
 			component.remove(image);
 
 			setTimeout(() => {
@@ -77,7 +79,15 @@ describe ( 'images component', () => {
 				done();
 			});
 		});
+		// it('requires image url', done => {
+		// 	component.add(badImage);
 
+		// 	setTimeout(() => {
+		// 		assert.equal(images.length, 2);
+		// 		assert.notInclude(images, image);
+		// 		done();
+		// 	});
+		// });
 	});
 
 });
