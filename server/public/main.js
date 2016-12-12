@@ -33560,7 +33560,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<header>\n    <h1> In app.js</h1>\n</header>\n\n<main>\n    <images></images>\n</main>";
+	module.exports = "\n    <!-------------------------Header---------------------------------->\n    <header>\n        <h1>Goat Images</h1>\n        <h2><em>Images of goats.  That's it.</em></h2>\n    </header>\n    <!-------------------------Image Gallery------------------------------>\n<main>\n    <images></images>\n</main>";
 
 /***/ },
 /* 14 */
