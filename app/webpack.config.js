@@ -25,14 +25,20 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015']
+        cacheDirectory: true
       }
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      loader: ExtractTextPlugin.extract('style-loader!css-loader')
+    }, {
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract('style-loader!css-loader?sourceMap!sass-loader?sourceMap')
     }, {
       test: /\.html$/,
       loader: 'html-loader'
     }]
+  },
+  sassLoader: {
+    includePath: [ './src/scss/includes' ]
   }
 };
