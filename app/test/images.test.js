@@ -1,4 +1,4 @@
-//testing images component
+//testing images components
 
 describe('in the images component', () => {
   const {assert} = chai;
