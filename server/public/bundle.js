@@ -33690,7 +33690,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n  {{$list.image.name}} <br>\n  {{$list.image.url}}<br>\n  {{$list.image.description}}<br>\n  <button name=\"thumb\" ng-click=\"$list.toggleView('thumb')\">thumb</button>\n  <button name=\"full\" ng-click=\"$list.toggleView('full')\">view</button>\n  <button ng-click=\"$list.delete()\">remove</button>\n</span>";
+	module.exports = "<span>\n  {{$list.image.name}} <br>\n  {{$list.image.url}}<br>\n  {{$list.image.description}}<br>\n  <button name=\"thumb\" ng-click=\"$list.toggleView('thumb')\">thumb</button>\n  <button name=\"full\" ng-click=\"$list.toggleView('full')\">full</button>\n  <button ng-click=\"$list.delete()\">remove</button>\n</span>";
 
 /***/ },
 /* 20 */
@@ -33738,7 +33738,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n  <img ng-class=\"$thumb.styles.image\" src=\"{{$thumb.image.url}}\"><br>\n  <button name=\"list\" ng-click=\"$thumb.toggleView('list')\">list</button>\n  <button name=\"full\" ng-click=\"$thumb.toggleView('full')\">view</button>\n  <button ng-click=\"$thumb.delete()\">remove</button>\n</span>";
+	module.exports = "<span>\n  <img ng-class=\"$thumb.styles.image\" src=\"{{$thumb.image.url}}\"><br>\n  <button name=\"list\" ng-click=\"$thumb.toggleView('list')\">list</button>\n  <button name=\"full\" ng-click=\"$thumb.toggleView('full')\">full</button>\n  <button ng-click=\"$thumb.delete()\">remove</button>\n</span>";
 
 /***/ },
 /* 22 */
@@ -33811,7 +33811,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<header class=\"image\">GALLERY</header>\n<div ng-init=\"views = ['list', 'thumb', 'view']\">\n  <button ng-repeat=\"view in views\" name=\"view\" ng-click=\"app.toggleView(view)\">\n    {{view}}\n  </button>\n</div>\n\n<image-add add=\"app.add\"></image-add>\n\n<h1>{{app.view}}</h1>\n<ul ng-if=\"app.view === 'list'\">\n  <li ng-repeat=\"image in app.images\">\n    <image-list\n      image=\"image\"\n      remove=\"app.remove\"\n      toggle-view=\"app.toggleView\">\n    </image-list>    \n  </li>\n</ul>\n\n<ul ng-if=\"app.view === 'thumb'\">\n  <li ng-repeat=\"image in app.images\">\n    <image-thumb\n      image=\"image\"\n      remove=\"app.remove\"\n      toggle-view=\"app.toggleView\">\n    </image-thumb>    \n  </li>\n</ul>\n\n<ul ng-if=\"app.view === 'view'\">\n  <li ng-repeat=\"image in app.images\">\n     <image-full\n      image=\"image\"\n      remove=\"app.remove\"\n      toggle-view=\"app.toggleView\">\n    </image-full>   \n  </li>\n</ul>\n\n";
+	module.exports = "<header class=\"image\">GALLERY</header>\n<div ng-init=\"views = ['list', 'thumb', 'full']\">\n  <button ng-repeat=\"view in views\" name=\"view\" ng-click=\"app.toggleView(view)\">\n    {{view}}\n  </button>\n</div>\n\n<image-add add=\"app.add\"></image-add>\n\n<h1>{{app.view}}</h1>\n<ul ng-if=\"app.view === 'list'\">\n  <li ng-repeat=\"image in app.images\">\n    <image-list\n      image=\"image\"\n      remove=\"app.remove\"\n      toggle-view=\"app.toggleView\">\n    </image-list>    \n  </li>\n</ul>\n\n<ul ng-if=\"app.view === 'thumb'\">\n  <li ng-repeat=\"image in app.images\">\n    <image-thumb\n      image=\"image\"\n      remove=\"app.remove\"\n      toggle-view=\"app.toggleView\">\n    </image-thumb>    \n  </li>\n</ul>\n\n<ul ng-if=\"app.view === 'full'\">\n  <li ng-repeat=\"image in app.images\">\n     <image-full\n      image=\"image\"\n      remove=\"app.remove\"\n      toggle-view=\"app.toggleView\">\n    </image-full>   \n  </li>\n</ul>\n\n";
 
 /***/ },
 /* 26 */
