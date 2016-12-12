@@ -27,12 +27,11 @@ describe( 'images component', () => {
       add(image) {
         image._id = _id;
         return Promise.resolve(image);
+      },
+      remove(imageId) {
+        assert.equal(imageId, _id);
+        return Promise.resolve(true);
       }
-      // },
-      // remove(imageId) {
-      //   assert.equal(imageId, _id);
-      //   return Promise.resolve(true);
-      // }
     };
 
     console.log($component);
@@ -53,7 +52,7 @@ describe( 'images component', () => {
     });
 
 
-    it( 'add a images', done => {
+    it( 'add an image', done => {
 
       component.add(image);
 
@@ -64,15 +63,15 @@ describe( 'images component', () => {
       });
     });
 
-    // it('removes image', done => {
-    //   component.remove(image);
+    it('removes image', done => {
+      component.remove(image);
 
-    //   setTimeout(() => {
-    //     assert.equal(images.length, 2);
-    //     assert.notInclude(images, image);
-    //     done();
-    //   });
-    // });
+      setTimeout(() => {
+        assert.equal(images.length, 2);
+        assert.notInclude(images, image);
+        done();
+      });
+    });
 
   });
 
