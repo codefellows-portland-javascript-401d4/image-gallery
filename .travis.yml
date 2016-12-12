@@ -13,8 +13,9 @@ before_install:
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-	env:
+env:
   - CXX=g++-4.8
+	
 addons:
   apt:
     sources:
