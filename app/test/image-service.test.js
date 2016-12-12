@@ -1,5 +1,5 @@
 
-describe('pirate service', () => {
+describe('image service', () => {
   const {assert} = chai;
 
   angular.mock.module.sharedInjector();
