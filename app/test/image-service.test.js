@@ -55,4 +55,29 @@ describe('image service test', () => {
 
     $httpBackend.flush();
   });
+
+  it('deletes image', done => {
+    const newImage = {
+      title: 'Image Deletion',
+      url: 'www.image.com/delete,jpg',
+      description: 'Test image for deletion',
+      id: '123'
+    };
+    const id = 123;
+
+    $httpBackend.expectDELETE(`/api/images/${ id }`)
+    .respond(newImage);
+
+    imageService
+      .remove(id)
+      .then(deleted => {
+        assert.deepEqual(deleted, newImage);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+
+
+  });
 });
