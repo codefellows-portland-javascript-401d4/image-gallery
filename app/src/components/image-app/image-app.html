@@ -1,6 +1,5 @@
-<section>
-  <select ng-model="view">
-    <option value="">Choose a view</option>
+<section ng-class=$ctrl.styles.imgViewer>
+  <select ng-model="$ctrl.view">
     <option value="detail">detail</option>
     <option value="thumbnail">thumbnail</option>
     <option value="gallery">gallery</option>
@@ -8,7 +7,7 @@
 
   <!--<select ng-model="$view" ng-options="option.name for option in $ctrl.view">
     </select>-->
-  <image-detail ng-if="view==='detail'" img="$ctrl.img"></image-detail>
-  <image-thumbnail ng-if="view==='thumbnail'" img="$ctrl.img"></image-thumbnail>
-  <image-gallery ng-if="view==='gallery'" img="$ctrl.img"></image-gallery>
+  <image-detail ng-if="$ctrl.view==='detail'" img="$ctrl.img"></image-detail>
+  <image-thumbnail ng-if="$ctrl.view==='thumbnail'" img="$ctrl.img"></image-thumbnail>
+  <image-gallery ng-if="$ctrl.view==='gallery'" img="$ctrl.img"></image-gallery>
 </section>
