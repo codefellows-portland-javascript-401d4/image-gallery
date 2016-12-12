@@ -1,0 +1,6 @@
+@import 'borders';
+
+:local(.app) {
+    border: $simpleborder;
+    padding: 5px;
+}
