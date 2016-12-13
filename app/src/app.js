@@ -1,5 +1,5 @@
 import angular from 'angular';
-import './css/main.css';
+import './scss/main.scss';
 import components from './components';
 
-angular.module('bunnyApp', [components]);
+angular.module('myApp', [components]);
