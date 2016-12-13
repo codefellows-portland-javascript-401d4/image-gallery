@@ -6,8 +6,8 @@
 </head>
 <body>
     <h1>Thumbnails...</h1>
-    <ul ng-class="thumbnails">
-        <li ng-repeat="thumbnails in app.thumbnails"><img ng-src="{{thumbnails.thumbnail}}"></li>
+    <ul>
+        <li ng-class="app.styles.thumbnails" ng-repeat="thumbnails in app.thumbnails"><img ng-src="{{thumbnails.thumbnail}}"></li>
     </ul>
 </body>
 </html>
