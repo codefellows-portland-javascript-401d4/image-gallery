@@ -34,4 +34,25 @@ describe('Image-service', () => {
     $httpBackend.flush();
   });
 
+  it('POST image', done => {
+    const image = {
+      title: 'junk city',
+      description: 'Junk cityyyyyy.',
+      url: 'www.image.com'
+    };
+
+    $httpBackend
+      .expectPOST('/api/images', image)
+      .respond(image);
+
+    imageService.add(image)
+      .then(newImg => {
+        assert.deepEqual(newImg, image);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+  });
+
 });
