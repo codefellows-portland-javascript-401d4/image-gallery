@@ -1,7 +1,19 @@
 :local(.details) {
 
+  ul {
+    width: 78%;
+    margin: auto;
+    padding: 0;
+  }
+
   li {
     list-style: none;
     display: inline-block;
+  }
+
+  select {
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
   }
 }

@@ -33010,7 +33010,7 @@
 	
 	
 	// module
-	exports.push([module.id, "h2, h3, p {\n  text-align: center; }\n", "", {"version":3,"sources":["/./src/scss/src/scss/main.scss"],"names":[],"mappings":"AAAA;EACE,mBAAkB,EACnB","file":"main.scss","sourcesContent":["h2, h3, p {\n  text-align: center;\n}\n\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "body, a {\n  background-color: #000078;\n  color: white; }\n\nh1, h2, h3, p {\n  text-align: center; }\n", "", {"version":3,"sources":["/./src/scss/src/scss/main.scss","/./src/scss/src/scss/partials/_colors.scss"],"names":[],"mappings":"AAEA;EACE,0BCHmB;EDInB,aAAY,EACb;;AAED;EACE,mBAAkB,EACnB","file":"main.scss","sourcesContent":["@import 'colors';\n\nbody, a {\n  background-color: $blue;\n  color: white;\n}\n\nh1, h2, h3, p {\n  text-align: center;\n}\n","$blue: rgb(0, 0, 120);"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -34964,7 +34964,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.description\">\n  <h2>{{$ctrl.image.title}}</h2>\n  <h3><a ng-href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}} Link</a></h3>\n  <p>{{$ctrl.image.description}}</p>\n</section>\n<button ng-click=\"$ctrl.delete()\">remove</button>";
+	module.exports = "<section ng-class=\"$ctrl.styles.details\">\n  <h2>{{$ctrl.image.title}}</h2>\n  <h3><a ng-href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}} Link</a></h3>\n  <p>{{$ctrl.image.description}}</p>\n</section>\n<button ng-click=\"$ctrl.delete()\">remove</button>";
 
 /***/ },
 /* 19 */
@@ -35001,11 +35001,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._1MV3p6mipD48S1ZfJqrL4G {\n  height: 145px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n  border: 2px solid black; }\n\nbutton {\n  margin-bottom: 10px; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;EACb,kBAAiB;EACjB,aAAY;EACZ,oBAAmB;EACnB,wBAAuB,EAExB;;AACC;EACE,oBAAmB,EACpB","file":"image-detail.scss","sourcesContent":[":local(.description) {\n  height: 145px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n  border: 2px solid black;\n\n}\n  button {\n    margin-bottom: 10px;\n  }"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, ".rWL3SWfu-HhBE1-XlzjEM {\n  height: 145px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n  border: 2px solid black; }\n  .rWL3SWfu-HhBE1-XlzjEM p {\n    margin-bottom: 10px; }\n\nbutton {\n  display: block;\n  margin: auto;\n  margin-bottom: 10px; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;EACb,kBAAiB;EACjB,aAAY;EACZ,oBAAmB;EACnB,wBAAuB,EAKxB;EAVD;IAQI,oBAAmB,EACpB;;AAED;EACE,eAAc;EACd,aAAY;EACZ,oBAAmB,EACpB","file":"image-detail.scss","sourcesContent":[":local(.details) {\n  height: 145px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n  border: 2px solid black;\n\n  p {\n    margin-bottom: 10px;\n  }\n}\n  button {\n    display: block;\n    margin: auto;\n    margin-bottom: 10px;\n  }"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"description": "_1MV3p6mipD48S1ZfJqrL4G"
+		"details": "rWL3SWfu-HhBE1-XlzjEM"
 	};
 
 /***/ },
@@ -35228,7 +35228,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n\n<div ng-class=\"$ctrl.styles.details\">\n  <ul>\n    <li ng-repeat=\"image in $ctrl.images\">\n      <image-detail ng-if=\"$ctrl.view === 'Details' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-detail>\n      <image-thumb ng-if=\"$ctrl.view === 'Thumbnail'\" image=\"image\"></image-thumb>\n      <image-full ng-if=\"$ctrl.view === 'Full Size'\" image=\"image\"></image-full>\n    </li>\n  </ul>\n</div>\n\n  <new-image add=\"$ctrl.add\"></new-image>\n</section>";
+	module.exports = "\n\n<div ng-class=\"$ctrl.styles.details\">\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n  <ul>\n    <li ng-repeat=\"image in $ctrl.images\">\n      <image-detail ng-if=\"$ctrl.view === 'Details' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-detail>\n      <image-thumb ng-if=\"$ctrl.view === 'Thumbnail'\" image=\"image\"></image-thumb>\n      <image-full ng-if=\"$ctrl.view === 'Full Size'\" image=\"image\"></image-full>\n    </li>\n  </ul>\n</div>\n\n  <new-image add=\"$ctrl.add\"></new-image>\n</section>";
 
 /***/ },
 /* 31 */
@@ -35265,7 +35265,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._6zvkqV-G5seXOKFGQWyOj li {\n  list-style: none;\n  display: inline-block; }\n", "", {"version":3,"sources":["/./src/components/images/src/components/images/images.scss"],"names":[],"mappings":"AAAA;EAGI,iBAAgB;EAChB,sBAAqB,EACtB","file":"images.scss","sourcesContent":[":local(.details) {\n\n  li {\n    list-style: none;\n    display: inline-block;\n  }\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._6zvkqV-G5seXOKFGQWyOj ul {\n  width: 78%;\n  margin: auto;\n  padding: 0; }\n\n._6zvkqV-G5seXOKFGQWyOj li {\n  list-style: none;\n  display: inline-block; }\n\n._6zvkqV-G5seXOKFGQWyOj select {\n  display: block;\n  margin: auto;\n  margin-bottom: 5px; }\n", "", {"version":3,"sources":["/./src/components/images/src/components/images/images.scss"],"names":[],"mappings":"AAAA;EAGI,WAAU;EACV,aAAY;EACZ,WAAU,EACX;;AANH;EASI,iBAAgB;EAChB,sBAAqB,EACtB;;AAXH;EAcI,eAAc;EACd,aAAY;EACZ,mBAAkB,EACnB","file":"images.scss","sourcesContent":[":local(.details) {\n\n  ul {\n    width: 78%;\n    margin: auto;\n    padding: 0;\n  }\n\n  li {\n    list-style: none;\n    display: inline-block;\n  }\n\n  select {\n    display: block;\n    margin: auto;\n    margin-bottom: 5px;\n  }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -35363,7 +35363,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._1eY5svYshjqwlgQq7vjkzZ {\n  margin-top: 5px; }\n", "", {"version":3,"sources":["/./src/components/new-image/src/components/new-image/new-image.scss"],"names":[],"mappings":"AAAA;EACE,gBAAe,EAChB","file":"new-image.scss","sourcesContent":[":local(.upload) {\n  margin-top: 5px;\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._1eY5svYshjqwlgQq7vjkzZ {\n  margin-top: 5px; }\n  ._1eY5svYshjqwlgQq7vjkzZ form {\n    text-align: center; }\n", "", {"version":3,"sources":["/./src/components/new-image/src/components/new-image/new-image.scss"],"names":[],"mappings":"AAAA;EACE,gBAAe,EAKhB;EAND;IAII,mBAAkB,EACnB","file":"new-image.scss","sourcesContent":[":local(.upload) {\n  margin-top: 5px;\n\n  form {\n    text-align: center;\n  }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {

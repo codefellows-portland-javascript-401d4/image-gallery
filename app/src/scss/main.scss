@@ -1,10 +1,10 @@
 @import 'colors';
 
-body {
+body, a {
   background-color: $blue;
   color: white;
 }
 
-h2, h3, p {
+h1, h2, h3, p {
   text-align: center;
 }

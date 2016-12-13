@@ -1,6 +1,7 @@
-<select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
+
 
 <div ng-class="$ctrl.styles.details">
+  <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
   <ul>
     <li ng-repeat="image in $ctrl.images">
       <image-detail ng-if="$ctrl.view === 'Details' || $ctrl.view === undefined" image="image" remove="$ctrl.remove"></image-detail>
