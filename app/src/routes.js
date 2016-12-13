@@ -9,6 +9,30 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'landing'
   });
 
+  $stateProvider.state({
+    name: 'about',
+    url: '/about',
+    component: 'about'
+  });
+
+  $stateProvider.state({
+    name: 'about.app',
+    url: '/app',
+    component: 'aboutApp'
+  });
+
+  $stateProvider.state({
+    name: 'about.dev',
+    url: '/dev',
+    component: 'aboutDev'
+  });
+
+  $stateProvider.state({
+    name: 'gallery',
+    url: '/gallery',
+    component: 'image-app'
+  });
+
   $urlRouterProvider.otherwise('/');
 
 }
