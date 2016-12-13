@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     //list of files/patterns to load in browser
     files: [
-      './src/app.js',
+      './src/main.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './test/**/*.js'
     ],
@@ -19,7 +19,7 @@ module.exports = function(config) {
 
     //preprocess files before serving them to the browser
     preprocessors: {
-      './src/app.js': ['webpack'],
+      './src/main.js': ['webpack'],
       './test/**/*.js': ['babel']
     },
 
