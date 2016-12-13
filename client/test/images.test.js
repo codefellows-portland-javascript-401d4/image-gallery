@@ -56,7 +56,7 @@ describe( 'images component', () => {
 
         let component = null;
         before(() => {
-            component = $component('imageApp', { imageService });
+            component = $component('images', { imageService });
         });
 
 
