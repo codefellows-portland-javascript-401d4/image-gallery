@@ -1,0 +1,23 @@
+
+{
+  "name": "basic-express-server",
+  "version": "1.0.0",
+  "description": "basic express server",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPGothro/image-gallery.git"
+  },
+  "author": "JP Gothro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JPGothro/image-gallery/issues"
+  },
+  "homepage": "https://github.com/JPGothro/image-gallery#readme"
+}

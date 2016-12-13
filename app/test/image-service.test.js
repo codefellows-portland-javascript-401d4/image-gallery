@@ -2,7 +2,6 @@
 describe( 'image service', () => {
     const { assert } = chai;
 
-
     // mock the services module
     beforeEach( 
         angular.mock.module('services', { apiUrl: '/api' })
