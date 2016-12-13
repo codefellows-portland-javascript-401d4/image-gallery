@@ -1,0 +1,20 @@
+@import 'colors';
+
+.img-div-container {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.img-div {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 1%;
+  width: 20%;
+}
+
+.img-div:nth-child(odd) {
+  background-color: $div-bckgrd;
+}

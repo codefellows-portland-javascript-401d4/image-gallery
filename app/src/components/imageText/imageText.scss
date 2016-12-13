@@ -1,0 +1,12 @@
+@import 'borders';
+
+:local(.imageText) {
+  p {
+    text-align: center;
+  }
+
+  @include border(solid, 10px);
+  @include rounded(5px);
+  
+}
+

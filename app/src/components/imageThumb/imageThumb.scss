@@ -1,0 +1,12 @@
+@import 'borders';
+
+:local(.imageThumb) {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  // @include border(solid, 1px);
+  // @include rounded(5px);
+  
+}
