@@ -33225,7 +33225,7 @@
 	
 	    this.styles = _imageView4.default;
 	
-	    this.remove = function (image) {
+	    this.trash = function (image) {
 	        _this.remove(image);
 	    };
 	};
@@ -33234,7 +33234,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <hr>\n            <p>Image Title: {{image.title}}</p>\n            <p><a href=\"{{image.url}}\" target=\"_blank\">Link To: {{image.title}}</a></p>\n            <p>Image Description: {{image.description}}</p>\n            <button ng-click=\"$ctrl.remove(image)\">Remove Image</button>\n        </li>\n    </ul>\n</div>\n";
+	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <hr>\n            <p>Image Title: {{image.title}}</p>\n            <p><a href=\"{{image.url}}\" target=\"_blank\">Link To: {{image.title}}</a></p>\n            <p>Image Description: {{image.description}}</p>\n            <button ng-click=\"$ctrl.trash(image)\">Remove Image</button>\n        </li>\n    </ul>\n</div>\n";
 
 /***/ },
 /* 26 */
