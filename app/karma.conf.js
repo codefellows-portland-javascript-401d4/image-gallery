@@ -24,7 +24,7 @@ module.exports = function(config) {
     },
 
     //mock thru these browsers
-    browsers: [ 'Chrome' ],
+    browsers: [ 'Chrome', 'Safari'],
 
     //test results reporter
     reporters: ['spec'],
@@ -56,7 +56,7 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     };
-    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
+    configuration.browsers = ['Chrome_travis_ci'];
     configuration.singleRun = true;
   }
 
