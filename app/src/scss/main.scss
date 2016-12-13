@@ -1,8 +1,10 @@
 @import 'colors';
 @import 'buttons';
+@import 'fonts';
 
 html {
   font-size: 16px;
+  font-family: $text-font;
 }
 
 body {
@@ -15,10 +17,6 @@ ul {
 
 li {
   list-style-type: none;
-}
-
-header {
-  font-size: 4rem;
 }
 
 button {
