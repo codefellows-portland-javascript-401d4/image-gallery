@@ -1,5 +1,5 @@
 import template from './image-app.html';
-import style from './image-app.css';
+import style from './image-app.scss';
 
 export default {
   template,

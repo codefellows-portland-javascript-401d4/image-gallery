@@ -1,5 +1,5 @@
 import template from './image-thumb.html';
-import style from './image-thumb.css';
+import style from './image-thumb.scss';
 
 export default {
   bindings: {
