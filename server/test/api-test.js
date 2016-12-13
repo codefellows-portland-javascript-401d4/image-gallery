@@ -42,6 +42,7 @@ describe('image', () => {
               const image = res.body;
               assert.ok(image._id);
               cottontail._id = image._id;
+              cottontail.__v = 0;
               done();
             })
             .catch(done);
