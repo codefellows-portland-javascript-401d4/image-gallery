@@ -1,12 +1,47 @@
-li{
-    border: 3px solid darkslategrey;
-    text-decoration: none;
-}
+button {
+  background-color: #B1DAF5;
+  color: black; }
+  button:hover {
+    background-color: #FBE72C;
+    color: black;
+    cursor: pointer; }
 
+* {
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; }
+.header {
+  background-color: black;
+  height: 30vh; }
+
+h1 {
+  color: #B1DAF5;
+  font-size: 10vh;
+  margin: 1vh 5vh; }
+
+h4 {
+  color: #B1DAF5;
+  font-size: 4vh; }
+
+em {
+  color: #AAA;
+  float: right; }
+
+footer {
+  background-color: black;
+  height: 20vh; }
+li {
+  border: 3px solid #AAA;
+  text-decoration: none;
+  background-color: black;
+  color: #AAA; }
 
 ul li {
-    list-style-type: none;
-}h1 {
-    color: blue;
-}
+  list-style-type: none; }
+
+p {
+  color: #B1DAF5; }
+
+a {
+  color: #FBE72C; }
+
 /*# sourceMappingURL=main.css.map*/
