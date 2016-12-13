@@ -36,7 +36,10 @@ describe('images component', () => {
       get() {
         return Promise.resolve(images);
       },
-      add() {
+      add(image) {
+        return Promise.resolve(image);
+      },
+      remove() {
         return Promise.resolve(image);
       }
     };
@@ -58,7 +61,17 @@ describe('images component', () => {
 
       setTimeout(() => {
         assert.equal(images.length, 3);
-        assert.equal(images[2], image);
+        assert.deepEqual(images[2], image);
+        done();
+      });
+    });
+
+    it('removes image', done => {
+      const component = $component('images', { imageService });
+
+      component.remove(image);
+      setTimeout(() => {
+        assert.equal(component.images.length, 2);
         done();
       });
     });
