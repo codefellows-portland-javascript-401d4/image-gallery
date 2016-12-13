@@ -34964,7 +34964,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['description-class']\">\n  <h2>{{$ctrl.image.title}}</h2>\n  <h3><a ng-href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}} Link</a></h3>\n  <p>{{$ctrl.image.description}}</p>\n</section>\n<button ng-click=\"$ctrl.delete()\">remove</button>";
+	module.exports = "<section ng-class=\"$ctrl.styles.description\">\n  <h2>{{$ctrl.image.title}}</h2>\n  <h3><a ng-href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}} Link</a></h3>\n  <p>{{$ctrl.image.description}}</p>\n</section>\n<button ng-click=\"$ctrl.delete()\">remove</button>";
 
 /***/ },
 /* 19 */
@@ -35001,11 +35001,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3xX0XARuny7_IzDN28VTvV {\n  height: 145px;\n  margin-bottom: 5px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;EACb,mBAAkB;EAClB,kBAAiB;EACjB,aAAY;EACZ,oBAAmB,EACpB","file":"image-detail.scss","sourcesContent":[":local(.description-class) {\n  height: 145px;\n  margin-bottom: 5px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._1MV3p6mipD48S1ZfJqrL4G {\n  height: 145px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n  border: 2px solid black; }\n\nbutton {\n  margin-bottom: 10px; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;EACb,kBAAiB;EACjB,aAAY;EACZ,oBAAmB;EACnB,wBAAuB,EAExB;;AACC;EACE,oBAAmB,EACpB","file":"image-detail.scss","sourcesContent":[":local(.description) {\n  height: 145px;\n  margin-right: 5px;\n  width: 315px;\n  vertical-align: top;\n  border: 2px solid black;\n\n}\n  button {\n    margin-bottom: 10px;\n  }"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"description-class": "_3xX0XARuny7_IzDN28VTvV"
+		"description": "_1MV3p6mipD48S1ZfJqrL4G"
 	};
 
 /***/ },
@@ -35045,7 +35045,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>{{$ctrl.image.title}}</h2>\n<p>{{$ctrl.image.description}}</p>\n<img ng-class=\"$ctrl.styles['full-class']\" ng-src=\"{{$ctrl.image.url}}\" alt=\"{{$ctrl.image.title}}\">";
+	module.exports = "<div ng-class=\"$ctrl.styles.full\">\n  <h2>{{$ctrl.image.title}}</h2>\n  <p>{{$ctrl.image.description}}</p>\n  <img ng-src=\"{{$ctrl.image.url}}\" alt=\"{{$ctrl.image.title}}\">\n</div>";
 
 /***/ },
 /* 23 */
@@ -35082,11 +35082,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3xXg8bZLyyIlMB6PWRKgtz {\n  display: block; }\n\nimg {\n  margin-right: 10px;\n  border: 2px solid black; }\n", "", {"version":3,"sources":["/./src/components/image-full/src/components/image-full/image-full.scss"],"names":[],"mappings":"AAAA;EACE,eAAc,EACf;;AAED;EACE,mBAAkB;EAClB,wBAAuB,EACxB","file":"image-full.scss","sourcesContent":[":local(.full-class) {\n  display: block;\n}\n\nimg {\n  margin-right: 10px;\n  border: 2px solid black;\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._3Q7oEuLCMsOcMguQjs54RG img {\n  margin-right: 10px;\n  border: 2px solid black;\n  display: block; }\n", "", {"version":3,"sources":["/./src/components/image-full/src/components/image-full/image-full.scss"],"names":[],"mappings":"AAAA;EAGI,mBAAkB;EAClB,wBAAuB;EACvB,eAAc,EACf","file":"image-full.scss","sourcesContent":[":local(.full) {\n  \n  img {\n    margin-right: 10px;\n    border: 2px solid black;\n    display: block;\n  }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"full-class": "_3xXg8bZLyyIlMB6PWRKgtz"
+		"full": "_3Q7oEuLCMsOcMguQjs54RG"
 	};
 
 /***/ },
@@ -35126,7 +35126,7 @@
 /* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "<a href=\"{{$ctrl.image.url}}\"><img ng-class=\"$ctrl.styles['thumb-class']\" ng-src={{$ctrl.image.url}} alt={{$ctrl.image.title}}/></a>";
+	module.exports = "<div ng-class=\"$ctrl.styles.thumb\">\n  <a href=\"{{$ctrl.image.url}}\"><img ng-src={{$ctrl.image.url}} alt={{$ctrl.image.title}}/></a>\n</div>";
 
 /***/ },
 /* 27 */
@@ -35163,11 +35163,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._2jB6BhOVkyc-GOqAu9O-hL {\n  width: 100px;\n  height: 100px;\n  display: block;\n  margin-top: 5px;\n  margin-right: 1px; }\n", "", {"version":3,"sources":["/./src/components/image-thumb/src/components/image-thumb/image-thumb.scss"],"names":[],"mappings":"AAAA;EACE,aAAY;EACZ,cAAa;EACb,eAAc;EACd,gBAAe;EACf,kBAAiB,EAClB","file":"image-thumb.scss","sourcesContent":[":local(.thumb-class) {\n  width: 100px;\n  height: 100px;\n  display: block;\n  margin-top: 5px;\n  margin-right: 1px;\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._2SxE7N9aE9t3OCaVPyw6az img {\n  width: 100px;\n  height: 100px;\n  display: block;\n  margin-top: 5px;\n  margin-right: 1px;\n  border: 2px solid black; }\n", "", {"version":3,"sources":["/./src/components/image-thumb/src/components/image-thumb/image-thumb.scss"],"names":[],"mappings":"AAAA;EAEI,aAAY;EACZ,cAAa;EACb,eAAc;EACd,gBAAe;EACf,kBAAiB;EACjB,wBAAuB,EACxB","file":"image-thumb.scss","sourcesContent":[":local(.thumb) {\n  img {\n    width: 100px;\n    height: 100px;\n    display: block;\n    margin-top: 5px;\n    margin-right: 1px;\n    border: 2px solid black;\n  }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"thumb-class": "_2jB6BhOVkyc-GOqAu9O-hL"
+		"thumb": "_2SxE7N9aE9t3OCaVPyw6az"
 	};
 
 /***/ },
@@ -35228,7 +35228,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n\n  <ul>\n    <li ng-class=\"$ctrl.styles['detail-class']\" ng-repeat=\"image in $ctrl.images\">\n      <image-detail ng-if=\"$ctrl.view === 'Details' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-detail>\n      <image-thumb ng-if=\"$ctrl.view === 'Thumbnail'\" image=\"image\"></image-thumb>\n      <image-full ng-if=\"$ctrl.view === 'Full Size'\" image=\"image\"></image-full>\n    </li>\n  </ul>\n\n  <new-image add=\"$ctrl.add\"></new-image>\n</section>";
+	module.exports = "<select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n\n<div ng-class=\"$ctrl.styles.details\">\n  <ul>\n    <li ng-repeat=\"image in $ctrl.images\">\n      <image-detail ng-if=\"$ctrl.view === 'Details' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-detail>\n      <image-thumb ng-if=\"$ctrl.view === 'Thumbnail'\" image=\"image\"></image-thumb>\n      <image-full ng-if=\"$ctrl.view === 'Full Size'\" image=\"image\"></image-full>\n    </li>\n  </ul>\n</div>\n\n  <new-image add=\"$ctrl.add\"></new-image>\n</section>";
 
 /***/ },
 /* 31 */
@@ -35265,11 +35265,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3qDUpmMWYZxA1ohvlJNZIM {\n  list-style: none;\n  display: inline-block; }\n", "", {"version":3,"sources":["/./src/components/images/src/components/images/images.scss"],"names":[],"mappings":"AAAA;EACE,iBAAgB;EAChB,sBAAqB,EACtB","file":"images.scss","sourcesContent":[":local(.detail-class) {\n  list-style: none;\n  display: inline-block;\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._6zvkqV-G5seXOKFGQWyOj li {\n  list-style: none;\n  display: inline-block; }\n", "", {"version":3,"sources":["/./src/components/images/src/components/images/images.scss"],"names":[],"mappings":"AAAA;EAGI,iBAAgB;EAChB,sBAAqB,EACtB","file":"images.scss","sourcesContent":[":local(.details) {\n\n  li {\n    list-style: none;\n    display: inline-block;\n  }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"detail-class": "_3qDUpmMWYZxA1ohvlJNZIM"
+		"details": "_6zvkqV-G5seXOKFGQWyOj"
 	};
 
 /***/ },
@@ -35326,7 +35326,7 @@
 /* 34 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['upload-class']\">\n  <form>\n    <input ng-model=\"$ctrl.title\" placeholder=\"image title\">\n    <input ng-model=\"$ctrl.url\" placeholder=\"image url\">\n    <input ng-model=\"$ctrl.description\" placeholder=\"image description\" maxlength=\"150\">\n    <button ng-click=\"$ctrl.addNew()\">Upload Image</button>\n  </form>\n</section>";
+	module.exports = "<section ng-class=\"$ctrl.styles.upload\">\n  <form>\n    <input ng-model=\"$ctrl.title\" placeholder=\"image title\">\n    <input ng-model=\"$ctrl.url\" placeholder=\"image url\">\n    <input ng-model=\"$ctrl.description\" placeholder=\"image description\" maxlength=\"150\">\n    <button ng-click=\"$ctrl.addNew()\">Upload Image</button>\n  </form>\n</section>";
 
 /***/ },
 /* 35 */
@@ -35363,11 +35363,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._2NBwVVZbACO_JRdjnYuhrB {\n  margin-top: 5px; }\n", "", {"version":3,"sources":["/./src/components/new-image/src/components/new-image/new-image.scss"],"names":[],"mappings":"AAAA;EACE,gBAAe,EAChB","file":"new-image.scss","sourcesContent":[":local(.upload-class) {\n  margin-top: 5px;\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "._1eY5svYshjqwlgQq7vjkzZ {\n  margin-top: 5px; }\n", "", {"version":3,"sources":["/./src/components/new-image/src/components/new-image/new-image.scss"],"names":[],"mappings":"AAAA;EACE,gBAAe,EAChB","file":"new-image.scss","sourcesContent":[":local(.upload) {\n  margin-top: 5px;\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"upload-class": "_2NBwVVZbACO_JRdjnYuhrB"
+		"upload": "_1eY5svYshjqwlgQq7vjkzZ"
 	};
 
 /***/ },
