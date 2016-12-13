@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  target: 'web',
   entry: './src/main.js',
   output: {
     path: '../server/public',
@@ -12,7 +13,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new ExtractTextPlugin('main.scss')
+    new ExtractTextPlugin('main.css')
   ],
   module: {
     preLoaders: [{
@@ -37,7 +38,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract(
           'style-loader',
           'css-loader?sourceMap!sass-loader?sourceMap'
-      )    
+      )
     }
     // ,
     // {
