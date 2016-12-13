@@ -1,9 +1,9 @@
-import template from './image-detail.html';
-import style from './image-detail.css';
+import template from './image-gallery.html';
+import style from './image-gallery.css';
 
 export default {
   bindings: {
-    image: '<'
+    image: '='
   },
   controller,
   template

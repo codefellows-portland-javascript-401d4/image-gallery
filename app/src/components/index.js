@@ -11,6 +11,8 @@ const context = require.context(
 
 const module = angular.module('components', []);
 
+// this creates the components right here, the component files are
+// actually just functions which are exported
 context.keys().forEach(key => {
   // convert kabob-case to camelCase
   const name = camelcase(path.basename(key, '.js'));
