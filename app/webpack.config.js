@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin'); // eslint-disable-line no-unused-vars
 
 module.exports = {
     entry: './src/app.js',

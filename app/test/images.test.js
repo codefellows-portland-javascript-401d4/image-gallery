@@ -27,7 +27,7 @@ describe('image component test', () => {
             add(image) {
                 return Promise.resolve(image);
             },
-            remove(id) {
+            remove(id) { // eslint-disable-line no-unused-vars
                 return Promise.resolve();
             }
         };
