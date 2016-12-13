@@ -1,8 +1,15 @@
 @import 'fonts';
 
-:local(.unit) {
+:local(.column3) {
   width: 30%;
   margin-left: 3%;
+  margin-top: 3%;
+  display: inline-block;
+}
+
+:local(.column4) {
+  width: 22%;
+  margin-left: 2%;
   margin-top: 3%;
   display: inline-block;
 }
