@@ -1,0 +1,9 @@
+@import 'margin';
+@import 'colors';
+
+header {
+  h1 {
+    color: $headText;
+    font-size: 36px;
+  }
+}
