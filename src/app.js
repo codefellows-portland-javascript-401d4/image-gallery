@@ -1,5 +1,5 @@
 import angular from 'angular';
-import './scss/main.scss';
+import './css/main.css';
 import components from './components';
 
 angular.module('myApp', [components]);

@@ -4,7 +4,7 @@
   "description": "lab-1 image display",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0",
+    "test": "eslint . && exit 0",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
   },
