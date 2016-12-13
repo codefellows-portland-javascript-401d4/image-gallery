@@ -8,9 +8,9 @@ export default function routes($stateProvider, $urlRouterProvider) { //TODO - do
   });
 
   $stateProvider.state({
-    name: 'gallery',
-    url: '/gallery',
-    component: 'gallery-app'
+    name: 'images',
+    url: '/images',
+    component: 'galleryApp'
   });
 
   $urlRouterProvider.otherwise('/');
