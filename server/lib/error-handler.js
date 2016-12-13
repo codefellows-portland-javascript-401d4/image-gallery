@@ -1,11 +1,11 @@
-// eslint-disable-next-line no-unused-var
+// eslint-disable-next-line no-unused-vars
 module.exports = function errorHandler(err, req, res, next) {
 
   let code = 500, error = 'Internal Server Error';
 
   // Mongoose Validation Error?
-  if(err.name === 'ValidationError' || err.name === "CastError") {
-    console.log(err.errors)
+  if(err.name === 'ValidationError' || err.name === 'CastError') {
+    console.log(err.errors);
     code = 400;
     error = err.errors.name.message;
   }

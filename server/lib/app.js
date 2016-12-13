@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const errorHandler = require('./error-handler')
+const errorHandler = require('./error-handler');
 const morgan = require('morgan');
 
 const spiders = require('./routes/spiders');
@@ -17,7 +17,7 @@ if(process.env.NODE_ENV === 'production') {
   // what incoming protocol was used.
 
     // if https, call next
-    if(req.headers["x-forwarded-proto"] === "https") next();
+    if(req.headers['x-forwarded-proto'] === 'https') next();
     // otherwise redirect to same url but with https instead of http
     else res.redirect(`https://${req.hostname}${req.url}`);
   });
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static('./build'));
-  
+
 app.use('/api/spiders', spiders);
 
 app.use(errorHandler);
