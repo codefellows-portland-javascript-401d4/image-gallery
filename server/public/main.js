@@ -32467,353 +32467,14 @@
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(4);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "h1, h2 {\n  text-align: center; }\n\nh4 {\n  margin: 2px; }\n\np {\n  margin: 1em auto;\n  width: 60%;\n  text-align: justify;\n  text-indent: 3em; }\n\nnav {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  margin: 1em auto;\n  width: 60%; }\n\nnav select {\n  order: 1;\n  min-width: 160px;\n  margin: 2px; }\n\nbody {\n  background-color: #00BCD4; }\n\nsection {\n  width: 60%;\n  margin: 1em auto;\n  background-color: #B2EBF2;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  -ms-border-radius: 4px;\n  border-radius: 4px; }\n\nfooter {\n  width: 60%;\n  margin: 1em auto;\n  background-color: #B2EBF2; }\n", "", {"version":3,"sources":["/./src/scss/src/scss/main.scss","/./src/scss/src/scss/partials/_colors.scss","/./src/scss/src/scss/partials/_corners.scss"],"names":[],"mappings":"AAIA;EACI,mBAAkB,EACrB;;AAED;EACI,YAAW,EACd;;AAED;EACI,iBAAgB;EAChB,WAZU;EAaV,oBAAmB;EACnB,iBAAgB,EACnB;;AAED;EACI,cAAa;EACb,oBAAmB;EACnB,wBAAuB;EACvB,iBAAgB;EAChB,WAtBU,EAuBb;;AAED;EACI,SAAQ;EACR,iBAAgB;EAChB,YAAW,EACd;;AAED;EACI,0BClCoB,EDmCvB;;AAED;EACI,WApCU;EAqCV,iBAAgB;EAChB,0BCvCoB;ECApB,2BFwCoB;EEvCpB,wBFuCoB;EEtCpB,uBFsCoB;EErCpB,mBFqCoB,EACvB;;AAED;EACI,WA3CU;EA4CV,iBAAgB;EAChB,0BC9CoB,ED+CvB","file":"main.scss","sourcesContent":["@import 'colors';\n@import 'corners';\n$boxwidth: 60%;\n\nh1, h2 {\n    text-align: center;\n}\n\nh4 {\n    margin: 2px;\n}\n\np {\n    margin: 1em auto;\n    width: $boxwidth;\n    text-align: justify;\n    text-indent: 3em;\n}\n\nnav {\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    margin: 1em auto;\n    width: $boxwidth;\n}\n\nnav select {\n    order: 1;\n    min-width: 160px;\n    margin: 2px;\n}\n\nbody {\n    background-color: $backgroundblue;\n}\n\nsection {\n    width: $boxwidth;\n    margin: 1em auto;\n    background-color: $foregroundblue;\n    @include rounded(4px);\n}\n\nfooter {\n    width: $boxwidth;\n    margin: 1em auto;\n    background-color: $foregroundblue;\n}","$backgroundblue: #00BCD4;\n$foregroundblue: #B2EBF2;\n$frontcolor: #FFFFFF;","@mixin rounded($px) {\n    -webkit-border-radius: $px;\n    -moz-border-radius: $px;\n    -ms-border-radius: $px;\n    border-radius: $px;\n}\n\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
-/* 5 */
 /***/ function(module, exports) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-	
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-	
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-	
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-	
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-	
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-	
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-	
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-	
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-	
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-	
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-	
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-	
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-	
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-	
-		update(obj);
-	
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-	
-	var replaceText = (function () {
-		var textStore = [];
-	
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-	
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-	
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-	
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-	
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-	
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-	
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-	
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		var blob = new Blob([css], { type: "text/css" });
-	
-		var oldSrc = linkElement.href;
-	
-		linkElement.href = URL.createObjectURL(blob);
-	
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
+/* 4 */,
+/* 5 */,
+/* 6 */,
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33416,47 +33077,13 @@
 
 /***/ },
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(15);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-app.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-app.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"app":"_27q09CTezCOi4es8K1MuUP"};
 
 /***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._27q09CTezCOi4es8K1MuUP {\n  border: 1px black solid;\n  padding: 5px; }\n", "", {"version":3,"sources":["/./src/components/image-app/src/components/image-app/image-app.scss","/./src/components/image-app/src/scss/partials/_borders.scss"],"names":[],"mappings":"AAEA;EACI,wBCH0B;EDI1B,aAAY,EACf","file":"image-app.scss","sourcesContent":["@import 'borders';\n\n:local(.app) {\n    border: $simpleborder;\n    padding: 5px;\n}","$simpleborder: 1px black solid;"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"app": "_27q09CTezCOi4es8K1MuUP"
-	};
-
-/***/ },
+/* 15 */,
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33499,47 +33126,13 @@
 
 /***/ },
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(19);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-detail.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-detail.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"detail":"_1P8rGqG9AJOMZc6gOYxStU"};
 
 /***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._1P8rGqG9AJOMZc6gOYxStU {\n  max-width: 90%;\n  padding: 1em;\n  margin: 1em auto;\n  border: 1px black solid;\n  background-color: #FFFFFF;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  -ms-border-radius: 4px;\n  border-radius: 4px; }\n  ._1P8rGqG9AJOMZc6gOYxStU h4 {\n    margin: 0px; }\n  ._1P8rGqG9AJOMZc6gOYxStU p {\n    text-indent: 0px;\n    margin: 0px;\n    width: 100%;\n    overflow-wrap: break-word; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss","/./src/components/image-detail/src/scss/partials/_borders.scss","/./src/components/image-detail/src/scss/partials/_colors.scss","/./src/components/image-detail/src/scss/partials/_corners.scss","/./src/components/image-detail/src/scss/partials/_paragraph.scss"],"names":[],"mappings":"AAKA;EACI,eAAc;EACd,aAAY;EACZ,iBAAgB;EAEhB,wBCV0B;EDW1B,0BETgB;ECDhB,2BHWoB;EGVpB,wBHUoB;EGTpB,uBHSoB;EGRpB,mBHQoB,EASvB;EAhBD;IAUQ,YAAW,EACd;EAXL;IIJI,iBAAgB;IAChB,YAAW;IACX,YAAW;IACX,0BAAyB,EJgBxB","file":"image-detail.scss","sourcesContent":["@import 'borders';\n@import 'colors';\n@import 'corners';\n@import 'paragraph';\n\n:local(.detail) {\n    max-width: 90%;\n    padding: 1em;\n    margin: 1em auto;\n\n    border: $simpleborder;\n    background-color: $frontcolor;\n    @include rounded(4px);\n\n    h4 {\n        margin: 0px;\n    };\n\n    p {\n        @include sectionParagraph();\n    };\n}","$simpleborder: 1px black solid;","$backgroundblue: #00BCD4;\n$foregroundblue: #B2EBF2;\n$frontcolor: #FFFFFF;","@mixin rounded($px) {\n    -webkit-border-radius: $px;\n    -moz-border-radius: $px;\n    -ms-border-radius: $px;\n    border-radius: $px;\n}\n\n","@mixin sectionParagraph() {\n    text-indent: 0px;\n    margin: 0px;\n    width: 100%;\n    overflow-wrap: break-word;\n}"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"detail": "_1P8rGqG9AJOMZc6gOYxStU"
-	};
-
-/***/ },
+/* 19 */,
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33580,47 +33173,13 @@
 
 /***/ },
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(23);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-gallery.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-gallery.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"gallery":"_146LvsNqbvBRK7XjE03R0_"};
 
 /***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._146LvsNqbvBRK7XjE03R0_ {\n  padding: 1em;\n  overflow: scroll;\n  border: 1px black solid;\n  background-color: #FFFFFF;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  -ms-border-radius: 4px;\n  border-radius: 4px; }\n  ._146LvsNqbvBRK7XjE03R0_ h4 {\n    margin: 0px; }\n  ._146LvsNqbvBRK7XjE03R0_ p {\n    text-indent: 0px;\n    margin: 0px;\n    width: 100%;\n    overflow-wrap: break-word; }\n", "", {"version":3,"sources":["/./src/components/image-gallery/src/components/image-gallery/image-gallery.scss","/./src/components/image-gallery/src/scss/partials/_borders.scss","/./src/components/image-gallery/src/scss/partials/_colors.scss","/./src/components/image-gallery/src/scss/partials/_corners.scss","/./src/components/image-gallery/src/scss/partials/_paragraph.scss"],"names":[],"mappings":"AAKA;EACI,aAAY;EACZ,iBAAgB;EAEhB,wBCT0B;EDU1B,0BERgB;ECDhB,2BHUoB;EGTpB,wBHSoB;EGRpB,uBHQoB;EGPpB,mBHOoB,EASvB;EAfD;IASQ,YAAW,EACd;EAVL;IIJI,iBAAgB;IAChB,YAAW;IACX,YAAW;IACX,0BAAyB,EJexB","file":"image-gallery.scss","sourcesContent":["@import 'borders';\n@import 'corners';\n@import 'colors';\n@import 'paragraph';\n\n:local(.gallery) {\n    padding: 1em;\n    overflow: scroll;\n\n    border: $simpleborder;\n    background-color: $frontcolor;\n    @include rounded(4px);\n\n    h4 {\n        margin: 0px;\n    };\n\n    p {\n        @include sectionParagraph();\n    };\n}","$simpleborder: 1px black solid;","$backgroundblue: #00BCD4;\n$foregroundblue: #B2EBF2;\n$frontcolor: #FFFFFF;","@mixin rounded($px) {\n    -webkit-border-radius: $px;\n    -moz-border-radius: $px;\n    -ms-border-radius: $px;\n    border-radius: $px;\n}\n\n","@mixin sectionParagraph() {\n    text-indent: 0px;\n    margin: 0px;\n    width: 100%;\n    overflow-wrap: break-word;\n}"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"gallery": "_146LvsNqbvBRK7XjE03R0_"
-	};
-
-/***/ },
+/* 23 */,
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33680,47 +33239,13 @@
 
 /***/ },
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(27);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-new.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-new.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"new":"_3-KQJIk2g0BbcNbhDep1BD"};
 
 /***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3-KQJIk2g0BbcNbhDep1BD {\n  border: 1px black solid;\n  padding: 5px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  -ms-border-radius: 4px;\n  border-radius: 4px; }\n  ._3-KQJIk2g0BbcNbhDep1BD form {\n    display: flex;\n    flex-direction: row;\n    justify-content: center; }\n  ._3-KQJIk2g0BbcNbhDep1BD input {\n    max-width: 140px;\n    margin: 2px; }\n  ._3-KQJIk2g0BbcNbhDep1BD h4 {\n    margin: 0px; }\n  ._3-KQJIk2g0BbcNbhDep1BD button {\n    min-width: 100px;\n    margin-left: calc(50% - 50px); }\n", "", {"version":3,"sources":["/./src/components/image-new/src/components/image-new/image-new.scss","/./src/components/image-new/src/scss/partials/_borders.scss","/./src/components/image-new/src/scss/partials/_corners.scss"],"names":[],"mappings":"AAGA;EACI,wBCJ0B;EDK1B,aAAY;EEJZ,2BFKoB;EEJpB,wBFIoB;EEHpB,uBFGoB;EEFpB,mBFEoB,EAqBvB;EAxBD;IAMQ,cAAa;IACb,oBAAmB;IACnB,wBAAuB,EAC1B;EATL;IAYQ,iBAAgB;IAChB,YAAW,EACd;EAdL;IAiBQ,YAAW,EACd;EAlBL;IAqBQ,iBAAgB;IAChB,8BAA6B,EAChC","file":"image-new.scss","sourcesContent":["@import 'borders';\n@import 'corners';\n\n:local(.new) {\n    border: $simpleborder;\n    padding: 5px;\n    @include rounded(4px);\n\n    form {\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n    }\n\n    input {\n        max-width: 140px;\n        margin: 2px;\n    }\n\n    h4 {\n        margin: 0px;\n    }\n\n    button {\n        min-width: 100px;\n        margin-left: calc(50% - 50px);\n    }\n}\n","$simpleborder: 1px black solid;","@mixin rounded($px) {\n    -webkit-border-radius: $px;\n    -moz-border-radius: $px;\n    -ms-border-radius: $px;\n    border-radius: $px;\n}\n\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"new": "_3-KQJIk2g0BbcNbhDep1BD"
-	};
-
-/***/ },
+/* 27 */,
 /* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33769,48 +33294,13 @@
 
 /***/ },
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(31);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-options.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-options.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"option":"_245pZy20ofWoi4C2bNTZDl","boxing":"_27KwMae6YLDKxoOSsD-4ol"};
 
 /***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._245pZy20ofWoi4C2bNTZDl {\n  margin: 1em auto; }\n\n._27KwMae6YLDKxoOSsD-4ol {\n  display: flex;\n  flex-direction: row;\n  justify-content: center; }\n  ._27KwMae6YLDKxoOSsD-4ol select {\n    min-width: 120px;\n    margin: 2px; }\n  ._27KwMae6YLDKxoOSsD-4ol button {\n    min-width: 120px;\n    margin: 2px; }\n", "", {"version":3,"sources":["/./src/components/image-options/src/components/image-options/image-options.scss"],"names":[],"mappings":"AAAA;EACI,iBAAgB,EACnB;;AAED;EACI,cAAa;EACb,oBAAmB;EACnB,wBAAuB,EAW1B;EAdD;IAMQ,iBAAgB;IAChB,YAAW,EACd;EARL;IAWQ,iBAAgB;IAChB,YAAW,EACd","file":"image-options.scss","sourcesContent":[":local(.option) {\n    margin: 1em auto;\n}\n\n:local(.boxing) {\n    display: flex;\n    flex-direction: row;\n    justify-content: center; \n    \n    select {\n        min-width: 120px;\n        margin: 2px;\n    }\n\n    button {\n        min-width: 120px;\n        margin: 2px;\n    }\n}\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"option": "_245pZy20ofWoi4C2bNTZDl",
-		"boxing": "_27KwMae6YLDKxoOSsD-4ol"
-	};
-
-/***/ },
+/* 31 */,
 /* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33851,47 +33341,13 @@
 
 /***/ },
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(35);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-thumbnail.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-thumbnail.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"thumbnail":"_3w49sZuaJ8BbSDcbrRvIpi"};
 
 /***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3w49sZuaJ8BbSDcbrRvIpi {\n  padding: 1em;\n  max-width: 90%;\n  max-height: 100px;\n  margin: 1em auto;\n  width: auto;\n  display: flex;\n  border: 1px black solid;\n  background-color: #FFFFFF;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  -ms-border-radius: 4px;\n  border-radius: 4px; }\n  ._3w49sZuaJ8BbSDcbrRvIpi img {\n    height: 100px;\n    width: 100px;\n    margin: 0 auto; }\n", "", {"version":3,"sources":["/./src/components/image-thumbnail/src/components/image-thumbnail/image-thumbnail.scss","/./src/components/image-thumbnail/src/scss/partials/_borders.scss","/./src/components/image-thumbnail/src/scss/partials/_colors.scss","/./src/components/image-thumbnail/src/scss/partials/_corners.scss"],"names":[],"mappings":"AAIA;EACI,aAAY;EACZ,eAAc;EACd,kBAAiB;EACjB,iBAAgB;EAChB,YAAW;EACX,cAAa;EAEb,wBCZ0B;EDa1B,0BEXgB;ECDhB,2BHaoB;EGZpB,wBHYoB;EGXpB,uBHWoB;EGVpB,mBHUoB,EAOvB;EAjBD;IAaQ,cAAa;IACb,aAAY;IACZ,eAAc,EACjB","file":"image-thumbnail.scss","sourcesContent":["@import 'colors';\n@import 'borders';\n@import 'corners';\n\n:local(.thumbnail) {\n    padding: 1em;\n    max-width: 90%;\n    max-height: 100px;\n    margin: 1em auto;\n    width: auto;\n    display: flex;\n\n    border: $simpleborder;\n    background-color: $frontcolor;\n    @include rounded(4px);\n    \n    img {\n        height: 100px;\n        width: 100px;\n        margin: 0 auto;\n    }\n}\n","$simpleborder: 1px black solid;","$backgroundblue: #00BCD4;\n$foregroundblue: #B2EBF2;\n$frontcolor: #FFFFFF;","@mixin rounded($px) {\n    -webkit-border-radius: $px;\n    -moz-border-radius: $px;\n    -ms-border-radius: $px;\n    border-radius: $px;\n}\n\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"thumbnail": "_3w49sZuaJ8BbSDcbrRvIpi"
-	};
-
-/***/ },
+/* 35 */,
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
