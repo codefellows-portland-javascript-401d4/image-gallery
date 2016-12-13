@@ -1,0 +1,14 @@
+@import '../../scss/partials/_colors';
+@import '../../scss/partials/_buttons';
+
+:local(input) {
+  display: block;
+}
+
+:local(button) {
+  background-color: $blue;
+
+  &:hover {
+    background-color: $paleblue;
+  }
+}
