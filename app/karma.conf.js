@@ -2,7 +2,7 @@ const webpackConfig = require('./webpack.config');
 webpackConfig.entry = {};
 
 module.exports = function(config) {
-  config.set({
+  let configuration = {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
@@ -16,13 +16,25 @@ module.exports = function(config) {
       './src/app.js': ['webpack'],
       './test/**/*.js': ['babel']
     },
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox'],
     reports: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    singleRun: true,
+    singleRun: false,
     concurrency: Infinity
-  });
+  };
+
+  if (process.env.TRAVIS) {
+    configuration.customLaunchers = {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    };
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
+    configuration.singleRun = true;
+  }
+  config.set(configuration);
 };
