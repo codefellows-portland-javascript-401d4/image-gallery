@@ -1,4 +1,5 @@
 import template from './image-add.html';
+import styles from './image-add.scss';
 
 export default {
   template,
@@ -10,6 +11,8 @@ export default {
 };
 
 function controller() {
+  this.styles = styles;
+
   this.reset = () => {
     this.name = '';
     this.description = '';

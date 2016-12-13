@@ -1,6 +1,8 @@
+@import 'colors';
+@import 'mixins';
+
 :local(.image) {
   width: 10%;
-  background-color: purple;
-  border: 5px outset rosybrown;
-  border-radius: 4%;
+  border: 0.35rem outset $dkorange;
+  @include rounded-corners(5%);
 }
