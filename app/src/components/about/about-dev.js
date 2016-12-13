@@ -7,11 +7,5 @@ export default {
         keyboard, Gloria is generally in her overgrown vegetable and herb
         garden, or building custom mason-jar shelving in her woodshop.
     </p>
-    <p>To play with the code yourself, checkout
-        <a href="https://github.com/GloriaAnholt/image-gallery/">my
-            image-gallery repo on Github</a>.
-        A full suite of tests for the server are found in server/test/,
-        somewhat less comprehensive tests are available for the front end
-        in app/test.
-    </p>`
+    `
 };
