@@ -9,16 +9,23 @@ header {
   text-align: center;
   text-transform: uppercase;
   border-bottom: 1px dashed #444;
+  padding-bottom: 0.3em;
   margin-bottom: 1em; }
 
-image-app {
+images {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around; }
-  image-app section {
-    flex: 1;
-    padding: 1em;
-    min-width: 300px; }
+
+section {
+  flex: 1;
+  padding: 1em;
+  min-width: 300px; }
+  section h2 {
+    margin-top: 0; }
+
+.info {
+  max-width: 600px; }
 
 img {
   max-width: 100%; }
@@ -27,10 +34,10 @@ body {
   font-family: "Andale Mono", "Monaco", monospace;
   color: #444; }
 @media screen and (min-width: 740px) {
-  div {
+  ._3h_Ytab3EVP09PAl1jvwdQ {
     text-align: right;
     border-top: none; }
-    div h3 {
+    ._3h_Ytab3EVP09PAl1jvwdQ h3 {
       margin-top: 0; } }
 .P6U3tfKxFfOlKnYYSskQj img {
   width: 100px; }

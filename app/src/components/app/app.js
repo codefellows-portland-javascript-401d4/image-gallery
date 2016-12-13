@@ -1,12 +1,12 @@
 import template from './app.html';
 
 export default {
-    template,
-    controller
+    template
+    // controller
 };
 
-controller.$inject = ['$state'];
+// controller.$inject = ['$state'];
 
-function controller($state) {
+// function controller($state) {
     
-}
+// }

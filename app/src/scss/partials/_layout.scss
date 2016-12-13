@@ -8,19 +8,29 @@ header {
     text-align: center;
     text-transform: uppercase;
     border-bottom: 1px dashed $primary-color;
+    padding-bottom: 0.3em;
     margin-bottom: 1em;
 }
 
-image-app {
+images {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 
-    section {
-        flex: 1;
-        padding: 1em;
-        min-width: 300px;
+}
+
+section {
+    flex: 1;
+    padding: 1em;
+    min-width: 300px;
+
+    h2 {
+        margin-top: 0;
     }
+}
+
+.info {
+    max-width: 600px;
 }
 
 img {

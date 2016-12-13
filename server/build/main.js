@@ -33049,7 +33049,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>About Us</h2>\n<div>\n    <p>This image gallery was built with Angular.js and utilizes Angular components, services and routing.</p>\n    <p>Enjoy!</p>\n</div>";
+	module.exports = "<section class=\"info\">\n    <h2>About Us</h2>\n    <div>\n        <p>This image gallery was built with Angular.js and utilizes Angular components, services and routing.</p>\n        <p>Enjoy!</p>\n    </div>\n</section>\n";
 
 /***/ },
 /* 14 */
@@ -33068,14 +33068,15 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	    template: _app2.default,
-	    controller: controller
+	    template: _app2.default
+	    // controller
 	};
 	
+	// controller.$inject = ['$state'];
 	
-	controller.$inject = ['$state'];
+	// function controller($state) {
 	
-	function controller($state) {}
+	// }
 
 /***/ },
 /* 15 */
@@ -33193,6 +33194,8 @@
 	function controller() {
 	    var _this = this;
 	
+	    this.styles = _imageNew4.default;
+	
 	    this.reset = function () {
 	        _this.title = '';
 	        _this.description = '';
@@ -33215,13 +33218,14 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"div\">\n    <h3>Add an Image -</h3>\n        <div>\n            <label>Title:</label>\n            <input ng-model=\"$ctrl.title\">\n        </div>\n        <div>\n            <label>Description:</label>\n            <input ng-model=\"$ctrl.description\">\n        </div>\n        <div>\n            <label>Image URL:</label>\n            <input ng-model=\"$ctrl.url\">\n        </div>\n        <button ng-click=\"$ctrl.addNew()\">Add</button>\n</div>    ";
+	module.exports = "<div ng-class=\"$ctrl.styles.div\">\n    <h3>Add an Image -</h3>\n        <div>\n            <label>Title:</label>\n            <input ng-model=\"$ctrl.title\">\n        </div>\n        <div>\n            <label>Description:</label>\n            <input ng-model=\"$ctrl.description\">\n        </div>\n        <div>\n            <label>Image URL:</label>\n            <input ng-model=\"$ctrl.url\">\n        </div>\n        <button ng-click=\"$ctrl.addNew()\">Add</button>\n</div>    ";
 
 /***/ },
 /* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"div":"_3h_Ytab3EVP09PAl1jvwdQ"};
 
 /***/ },
 /* 23 */,
@@ -33348,7 +33352,7 @@
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>Welcome!</h2>\n<div>\n    <p>Welcome to this amazing build-it-yourself image gallery!</p>\n</div>";
+	module.exports = "<section class=\"info\">\n    <h2>Welcome!</h2>\n    <div>\n        <p>Welcome to this amazing build-it-yourself image gallery!</p>\n        <p><a ui-sref=\"image-new\">Check it out!</a></p>\n    </div>\n</section>";
 
 /***/ },
 /* 32 */
@@ -41817,6 +41821,12 @@
 	        name: 'about',
 	        url: '/about',
 	        component: 'about'
+	    });
+	
+	    $stateProvider.state({
+	        name: 'image-new',
+	        url: '/images',
+	        component: 'image-new'
 	    });
 	
 	    $urlRouterProvider.otherwise('/');
