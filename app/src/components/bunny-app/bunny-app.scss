@@ -16,3 +16,20 @@ h1 {
   text-align: center;
   font-size: $defaultFontSize;
 }
+
+.container a {
+  padding: 5px;
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+  text-decoration: none;
+}
+
+.container a:hover {
+  background-color: #fff;
+  text-decoration: underline;
+  transition: .5s;
+}
+
+.container a:visited {
+  color: inherit;
+}
