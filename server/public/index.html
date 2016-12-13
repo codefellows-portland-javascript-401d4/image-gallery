@@ -3,24 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Image Gallery</title>
-  <link rel="stylesheet" href="main.css">
-<link href="main.css" rel="stylesheet"></head>
+  <link rel="stylesheet" href="main.scss">
+</head>
 <body>
   <header>
-    <image-app></image-app>
+    <h1>Image Gallery</h1>
   </header>
-
+  
   <main>
-    <select ng-model="view">
-      <option value="" disabled>Select your view</option>
-      <option value="detail">Details</option>
-      <option value="thumb">Thumbnail</option>
-      <option value="full">Full Size</option>
-    </select>
-    <image-detail ng-if="view === 'detail' || view === undefined"></image-detail>
-    <image-thumb ng-if="view === 'thumb'"></image-thumb>
-    <image-viewer ng-if="view === 'full'"></image-viewer>
-    <images></images>
+    <image-app></image-app>
   </main>
 
 <script type="text/javascript" src="main.js"></script></body>
