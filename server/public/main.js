@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(31);
+	var _services = __webpack_require__(35);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -32470,353 +32470,14 @@
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(4);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "body {\n  margin: 0;\n  padding: 0;\n  background-color: #f6fbf5; }\n\nh1 {\n  font-family: 'Molle', cursive;\n  font-size: 60pt;\n  color: #f1da76;\n  padding: 30px; }\n\n.header {\n  height: 160px;\n  width: 100%;\n  margin: -5px;\n  background-color: #006a91; }\n", "", {"version":3,"sources":["/./src/scss/src/scss/main.scss","/./src/scss/src/scss/partials/_colors.scss"],"names":[],"mappings":"AAEA;EACI,UAAS;EACT,WAAU;EACV,0BCAU,EDCb;;AAED;EACI,8BAA6B;EAC7B,gBAAe;EACf,eCLS;EDMT,cAAa,EAChB;;AAED;EACI,cAAa;EACb,YAAW;EACX,aAAY;EACZ,0BChBU,EDiBb","file":"main.scss","sourcesContent":["@import 'partials/_colors.scss';\n\nbody {\n    margin: 0;\n    padding: 0;\n    background-color: $pale;\n}\n\nh1 {\n    font-family: 'Molle', cursive;\n    font-size: 60pt;\n    color: $tan;\n    padding: 30px;\n}\n\n.header {\n    height: 160px;\n    width: 100%;\n    margin: -5px;\n    background-color: $blue;\n}","// Color palette\n\n$darkblue: #010e3b;\n$blue: #006a91;\n$paleblue: #bededb;\n$pale: #f6fbf5;\n$tan: #f1da76;\n\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
-/* 5 */
 /***/ function(module, exports) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-	
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-	
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-	
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-	
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-	
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-	
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-	
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-	
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-	
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-	
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-	
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-	
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-	
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-	
-		update(obj);
-	
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-	
-	var replaceText = (function () {
-		var textStore = [];
-	
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-	
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-	
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-	
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-	
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-	
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-	
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-	
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		var blob = new Blob([css], { type: "text/css" });
-	
-		var oldSrc = linkElement.href;
-	
-		linkElement.href = URL.createObjectURL(blob);
-	
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
+/* 4 */,
+/* 5 */,
+/* 6 */,
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -34368,10 +34029,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-app/image-app.js": 15,
-		"./image-detail/image-detail.js": 19,
-		"./image-gallery/image-gallery.js": 23,
-		"./image-thumb/image-thumb.js": 27
+		"./add-image/add-image.js": 15,
+		"./image-app/image-app.js": 19,
+		"./image-detail/image-detail.js": 23,
+		"./image-gallery/image-gallery.js": 27,
+		"./image-thumb/image-thumb.js": 31
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -34397,11 +34059,85 @@
 	  value: true
 	});
 	
-	var _imageApp = __webpack_require__(16);
+	var _addImage = __webpack_require__(16);
+	
+	var _addImage2 = _interopRequireDefault(_addImage);
+	
+	var _addImage3 = __webpack_require__(17);
+	
+	var _addImage4 = _interopRequireDefault(_addImage3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _addImage2.default,
+	  bindings: {
+	    add: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['galleryService'];
+	
+	function controller(galleryService) {
+	  this.style = _addImage4.default;
+	
+	  this.reset = function () {
+	    this.title = '';
+	    this.url = '';
+	    this.description = '';
+	  };
+	
+	  // Start the page with blank input fields
+	  this.reset();
+	
+	  this.add = function () {
+	
+	    var newImage = {
+	      title: this.title,
+	      url: this.url,
+	      description: this.description
+	    };
+	
+	    console.log('the new image is: ', newImage);
+	
+	    galleryService.add(newImage).then(function (saved) {
+	      console.log('inside the service add, saved is: ', saved);
+	    });
+	
+	    this.reset();
+	  };
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div>\n        <p>Image title: <input type=\"text\" ng-model=\"$ctrl.title\" required=\"string\">\n        Image URL: <input type=\"text\" ng-model=\"$ctrl.url\" required=\"string\">\n        Description: <input type=\"text\" ng-model=\"$ctrl.description\" required=\"string\">\n        <button class=\"add\" ng-click=\"$ctrl.add()\">Add New Image</button>\n        </p>\n        <div>{{message}}</div>\n    </div>\n</section>";
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 18 */,
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _imageApp = __webpack_require__(20);
 	
 	var _imageApp2 = _interopRequireDefault(_imageApp);
 	
-	var _imageApp3 = __webpack_require__(17);
+	var _imageApp3 = __webpack_require__(21);
 	
 	var _imageApp4 = _interopRequireDefault(_imageApp3);
 	
@@ -34425,74 +34161,32 @@
 	    _this.images = images;
 	  });
 	
-	  this.add = function (image) {
+	  this.remove = function (id) {
 	    var _this2 = this;
 	
-	    galleryService.add(image).then(function (saved) {
-	      _this2.images.push(saved);
-	    });
-	  };
-	
-	  this.remove = function (id) {
-	    var _this3 = this;
-	
 	    galleryService.remove(id).then(function (removed) {
-	      var index = _this3.images.indexOf(removed);
-	      if (index > -1) _this3.images.splice(index, 1);
+	      var index = _this2.images.indexOf(removed);
+	      if (index > -1) _this2.images.splice(index, 1);
 	    });
 	  };
 	}
 
 /***/ },
-/* 16 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div>\n        <button class=\"main\" ng-click=\"$ctrl.view='gallery'\">Gallery View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='thumb'\">Thumbnail View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='detail'\">Detail View</button>\n    </div>\n\n    <div>\n        <select ng-options=\"image.title for image in $ctrl.images\" ng-model=\"$ctrl.image\">\n            <option value=\"\">view all</option>\n        </select>\n    </div>\n\n    <image-detail ng-if=\"$ctrl.view==='detail'\" ng-repeat=\"image in $ctrl.images\"></image-detail>\n    <image-thumb ng-if=\"$ctrl.view==='thumb'\" ng-repeat=\"image in $ctrl.images\"></image-thumb>\n    <image-gallery ng-if=\"$ctrl.view==='gallery'\" ng-repeat=\"image in $ctrl.images\"></image-gallery>\n\n</section>";
 
 /***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/* 21 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(18);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-app.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-app.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"image":"_3Pe6ieEL30iKQ2jjHP_Tsw"};
 
 /***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3Pe6ieEL30iKQ2jjHP_Tsw {\n  margin: 0 auto;\n  width: 100%; }\n", "", {"version":3,"sources":["/./src/components/image-app/src/components/image-app/image-app.scss"],"names":[],"mappings":"AAAA;EACI,eAAc;EACd,YAAW,EACd","file":"image-app.scss","sourcesContent":[":local(.image) {\n    margin: 0 auto;\n    width: 100%;\n}\n\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"image": "_3Pe6ieEL30iKQ2jjHP_Tsw"
-	};
-
-/***/ },
-/* 19 */
+/* 22 */,
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34501,11 +34195,11 @@
 	  value: true
 	});
 	
-	var _imageDetail = __webpack_require__(20);
+	var _imageDetail = __webpack_require__(24);
 	
 	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
-	var _imageDetail3 = __webpack_require__(21);
+	var _imageDetail3 = __webpack_require__(25);
 	
 	var _imageDetail4 = _interopRequireDefault(_imageDetail3);
 	
@@ -34526,55 +34220,21 @@
 	}
 
 /***/ },
-/* 20 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = "<span ng-class=\"$ctrl.style.detail\">\n    <h1>{{$parent.image.title}}</h1>\n    <p><a href=\"{{$parent.image.url}}\"><img ng-src=\"{{$parent.image.url}}\"></a></p>\n    <p>{{$parent.image.title}}</p>\n    <p>{{$parent.image.description}}</p>\n</span>";
 
 /***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/* 25 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(22);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-detail.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-detail.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"detail":"_1P8rGqG9AJOMZc6gOYxStU"};
 
 /***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._1P8rGqG9AJOMZc6gOYxStU {\n  text-align: center;\n  color: #010e3b;\n  border-radius: 10px;\n  margin: 5px 5px 0 5px;\n  padding: 10px 10px 0 10px; }\n  ._1P8rGqG9AJOMZc6gOYxStU h1 {\n    font-size: 48px;\n    padding: 5px; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss","/./src/components/image-detail/src/scss/partials/_colors.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,eCFc;EDGd,oBAAmB;EACnB,sBAAqB;EACrB,0BAAyB,EAM5B;EAXD;IAQQ,gBAAe;IACf,aAAY,EACf","file":"image-detail.scss","sourcesContent":["@import '../../scss/partials/_colors';\n\n:local(.detail) {\n    text-align: center;\n    color: $darkblue;\n    border-radius: 10px;\n    margin: 5px 5px 0 5px;\n    padding: 10px 10px 0 10px;\n\n    h1 {\n        font-size: 48px;\n        padding: 5px;\n    }\n}\n","// Color palette\n\n$darkblue: #010e3b;\n$blue: #006a91;\n$paleblue: #bededb;\n$pale: #f6fbf5;\n$tan: #f1da76;\n\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"detail": "_1P8rGqG9AJOMZc6gOYxStU"
-	};
-
-/***/ },
-/* 23 */
+/* 26 */,
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34583,11 +34243,11 @@
 	  value: true
 	});
 	
-	var _imageGallery = __webpack_require__(24);
+	var _imageGallery = __webpack_require__(28);
 	
 	var _imageGallery2 = _interopRequireDefault(_imageGallery);
 	
-	var _imageGallery3 = __webpack_require__(25);
+	var _imageGallery3 = __webpack_require__(29);
 	
 	var _imageGallery4 = _interopRequireDefault(_imageGallery3);
 	
@@ -34607,55 +34267,21 @@
 	}
 
 /***/ },
-/* 24 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = "<span ng-class=\"$ctrl.styles.gallery\">\n    <h1>{{$parent.image.title}}</h1>\n    <p><img ng-src=\"{{$parent.image.url}}\"></p>\n    <p>{{$parent.image.description}}</p>\n</span>";
 
 /***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/* 29 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(26);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-gallery.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-gallery.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"gallery":"_146LvsNqbvBRK7XjE03R0_"};
 
 /***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._146LvsNqbvBRK7XjE03R0_ {\n  text-align: center;\n  color: white;\n  border-radius: 10px;\n  margin: 5%; }\n\n._146LvsNqbvBRK7XjE03R0_ img {\n  max-width: 100%; }\n  ._146LvsNqbvBRK7XjE03R0_ img h1 {\n    font-size: 42px;\n    padding: 5px; }\n", "", {"version":3,"sources":["/./src/components/image-gallery/src/components/image-gallery/image-gallery.scss"],"names":[],"mappings":"AAAA;EACI,mBAAkB;EAClB,aAAY;EACZ,oBAAmB;EACnB,WAAU,EACb;;AAED;EACI,gBAAe,EAMlB;EAPD;IAIQ,gBAAe;IACf,aAAY,EACf","file":"image-gallery.scss","sourcesContent":[":local(.gallery) {\n    text-align: center;\n    color: white;\n    border-radius: 10px;\n    margin: 5%;\n}\n\n:local(.gallery) img {\n    max-width: 100%;\n\n    h1 {\n        font-size: 42px;\n        padding: 5px;\n    }\n}"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"gallery": "_146LvsNqbvBRK7XjE03R0_"
-	};
-
-/***/ },
-/* 27 */
+/* 30 */,
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34664,11 +34290,11 @@
 	  value: true
 	});
 	
-	var _imageThumb = __webpack_require__(28);
+	var _imageThumb = __webpack_require__(32);
 	
 	var _imageThumb2 = _interopRequireDefault(_imageThumb);
 	
-	var _imageThumb3 = __webpack_require__(29);
+	var _imageThumb3 = __webpack_require__(33);
 	
 	var _imageThumb4 = _interopRequireDefault(_imageThumb3);
 	
@@ -34688,55 +34314,21 @@
 	}
 
 /***/ },
-/* 28 */
+/* 32 */
 /***/ function(module, exports) {
 
 	module.exports = "<span ng-class=\"$ctrl.style.thumb\">\n    <img ng-src=\"{{$parent.image.url}}\">\n</span>";
 
 /***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/* 33 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(30);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-thumb.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-thumb.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
+	module.exports = {"thumb":"_2SxE7N9aE9t3OCaVPyw6az"};
 
 /***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._2SxE7N9aE9t3OCaVPyw6az {\n  display: inline-block;\n  margin: 10px; }\n\n._2SxE7N9aE9t3OCaVPyw6az img {\n  width: 100px;\n  height: 100px;\n  outline: 1px solid grey;\n  outline-offset: -10px;\n  border: 15px solid white;\n  margin: 10%; }\n", "", {"version":3,"sources":["/./src/components/image-thumb/src/components/image-thumb/image-thumb.scss"],"names":[],"mappings":"AAAA;EACI,sBAAqB;EACrB,aAAY,EACf;;AAED;EACI,aAAY;EACZ,cAAa;EACb,wBAAuB;EACvB,sBAAqB;EACrB,yBAAwB;EACxB,YAAW,EACd","file":"image-thumb.scss","sourcesContent":[":local(.thumb) {\n    display: inline-block;\n    margin: 10px;\n}\n\n:local(.thumb) img {\n    width: 100px;\n    height: 100px;\n    outline: 1px solid grey;\n    outline-offset: -10px;\n    border: 15px solid white;\n    margin: 10%;\n}\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-	exports.locals = {
-		"thumb": "_2SxE7N9aE9t3OCaVPyw6az"
-	};
-
-/***/ },
-/* 31 */
+/* 34 */,
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34749,7 +34341,7 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _galleryService = __webpack_require__(32);
+	var _galleryService = __webpack_require__(36);
 	
 	var _galleryService2 = _interopRequireDefault(_galleryService);
 	
@@ -34764,7 +34356,7 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 32 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';

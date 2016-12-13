@@ -1,34 +1,83 @@
 body {
-    background-color: cornsilk;
-}._3S27sEoQlDcgENzXMPGJNI {
-    width: 40%;
-    margin: 0 auto;
-}._3yCTas6A8zUCisoe9Boch6 {
-    text-align: center;
-    color: dimgrey;
-    border-radius: 10px;
-    margin: 5%;
-    padding: 10%;
-}
-._14OweBXFrqVUuBQ8dCXLk4 {
-    text-align: center;
-    color: white;
-    border-radius: 10px;
-    margin: 5%;
-}
+  margin: 0;
+  padding: 0;
+  background-color: #f6fbf5; }
 
-._14OweBXFrqVUuBQ8dCXLk4 img {
-    max-width: 100%;
-}._3jkesLqAW8SFVBix50My_a {
-    display: inline-block;
-    padding: 10px;
-}
+h1 {
+  font-family: 'Molle', cursive;
+  font-size: 60pt;
+  color: #f1da76;
+  padding: 30px; }
 
-._3jkesLqAW8SFVBix50My_a img {
-    width: 100px;
-    height: 100px;
-    border: white solid 10px;
-    border-radius: 5px;
-    margin: 10%;
-}
+.header {
+  height: 160px;
+  width: 100%;
+  margin: -5px;
+  background-color: #006a91; }
+input {
+  display: block; }
+
+p {
+  font-family: 'Cabin', sans-serif; }
+
+.add {
+  background-color: #006a91;
+  border-radius: 10px;
+  color: white;
+  margin: 0 50px 20px 50px;
+  margin-top: 10px;
+  padding: 9px;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  box-shadow: 3px 3px 5px #888888; }
+  .add:hover {
+    background-color: #bededb; }
+._3Pe6ieEL30iKQ2jjHP_Tsw {
+  margin: 0 auto;
+  width: 100%; }
+
+button.main {
+  background-color: #bededb;
+  border-radius: 10px;
+  color: #010e3b;
+  margin: 0 50px 20px 50px;
+  margin-top: -30px;
+  padding: 9px;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  box-shadow: 3px 3px 5px #888888; }
+  button.main:hover {
+    background-color: #f1da76; }
+._1P8rGqG9AJOMZc6gOYxStU {
+  text-align: center;
+  color: #010e3b;
+  border-radius: 10px;
+  margin: 5px 5px 0 5px;
+  padding: 10px 10px 0 10px; }
+  ._1P8rGqG9AJOMZc6gOYxStU h1 {
+    font-size: 48px;
+    padding: 5px; }
+._146LvsNqbvBRK7XjE03R0_ {
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  margin: 5%; }
+
+._146LvsNqbvBRK7XjE03R0_ img {
+  max-width: 100%; }
+  ._146LvsNqbvBRK7XjE03R0_ img h1 {
+    font-size: 42px;
+    padding: 5px; }
+._2SxE7N9aE9t3OCaVPyw6az {
+  display: inline-block;
+  margin: 10px; }
+
+._2SxE7N9aE9t3OCaVPyw6az img {
+  width: 100px;
+  height: 100px;
+  outline: 1px solid grey;
+  outline-offset: -10px;
+  border: 15px solid white;
+  margin: 10%; }
+
 /*# sourceMappingURL=main.css.map*/
