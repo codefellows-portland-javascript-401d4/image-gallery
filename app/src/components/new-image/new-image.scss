@@ -4,7 +4,7 @@
   margin-top: 5px;
 
   form {
-    width: 35%;
+    width: 350px;
     margin: auto;
     text-align: center;
     border: 2px solid black;
@@ -12,11 +12,17 @@
     background: $blue + 25;
   }
 
-  input {
-    display: inline-block;
+  input, textarea {
+    display: block;
+    margin: 0 auto 3px;
+    width: 90%;
+  }
+
+  ::-webkit-input-placeholder {
+   text-align: center;
   }
 
   button {
-    margin-top: 10px;
+    margin: 2px auto 0;
   }
 }
