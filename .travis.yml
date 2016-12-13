@@ -25,5 +25,5 @@ addons:
       - g++-4.8
       - mongodb-org-server
 
-sources:
+services:
   - mongodb
