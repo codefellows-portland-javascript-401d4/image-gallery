@@ -54,12 +54,12 @@ describe('spider service', () => {
 
     const spider = {
       name: 'Spike',
-      type: 'Punk'
+      type: 'punk'
     };
 
     $httpBackend
       .expectPOST('/api/spiders', spider)
-      .respond(pirate);
+      .respond(spider);
 
     spiderService.add(spider)
       .then(savedSpider => {

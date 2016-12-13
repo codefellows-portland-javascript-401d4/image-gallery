@@ -1,10 +1,13 @@
 {
-  "name": "image-gallery",
+  "name": "app",
   "version": "1.0.0",
-  "description": "build 3 different display components for image url",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "karma start",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "karma start --single-run",
+    "test:watch": "karma start",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
   },
@@ -32,11 +35,18 @@
     "karma-webpack": "^1.8.0",
     "mocha": "^3.0.2",
     "style-loader": "^0.13.1",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.0.2",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "angular": "^1.5.9",
     "camelcase": "^4.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
