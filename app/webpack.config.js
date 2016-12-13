@@ -11,8 +11,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new ExtractTextPlugin('main.css')
+    })//,
+    //new ExtractTextPlugin('main.css')
   ],
   module: {
     preLoaders: [{
@@ -39,6 +39,6 @@ module.exports = {
     }]
   },
   sassLoader: {
-    includePath: [ './src/scss/includes' ]
+    includePath: [ './src/scss/partials' ]
   }
 };
