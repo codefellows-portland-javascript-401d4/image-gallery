@@ -3,15 +3,13 @@ import style from './image-app.css';
 
 export default {
   template,
-  controller,
-  controllerAs: 'app'
+  controller
 };
 
 controller.$inject = ['galleryService'];
 
 function controller(galleryService) {
   this.style = style;
-  this.images;
   this.view = '';
 
   galleryService
@@ -20,5 +18,19 @@ function controller(galleryService) {
       this.images = images;
     });
 
+  this.add = function(image) {
+    galleryService.add(image)
+      .then(saved => {
+        this.images.push(saved);
+      });
+  };
+
+  this.remove = function(id) {
+    galleryService.remove(id)
+      .then(removed => {
+        const index = this.images.indexOf(removed);
+        if (index > -1) this.images.splice(index, 1);
+      });
+  };
 
 }
