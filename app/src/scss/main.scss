@@ -1,4 +1,10 @@
+@import 'colors';
+
+body {
+  background-color: $blue;
+  color: white;
+}
+
 h2, h3, p {
   text-align: center;
 }
-
