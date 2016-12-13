@@ -18,13 +18,6 @@ function controller(galleryService) {
       this.images = images;
     });
 
-  this.add = function(image) {
-    galleryService.add(image)
-      .then(saved => {
-        this.images.push(saved);
-      });
-  };
-
   this.remove = function(id) {
     galleryService.remove(id)
       .then(removed => {
