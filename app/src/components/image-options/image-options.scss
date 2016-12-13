@@ -6,14 +6,14 @@
     display: flex;
     flex-direction: row;
     justify-content: center; 
-}
+    
+    select {
+        min-width: 120px;
+        margin: 2px;
+    }
 
-:local(.boxing) select {
-    min-width: 120px;
-    margin: 2px;
-}
-
-:local(.boxing) button {
-    min-width: 120px;
-    margin: 2px;
+    button {
+        min-width: 120px;
+        margin: 2px;
+    }
 }
