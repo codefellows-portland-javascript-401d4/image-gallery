@@ -1,0 +1,44 @@
+body {
+  background-color: rgba(95, 158, 160, 0.9); }
+h1 {
+  background-color: rgba(127, 255, 212, 0.9);
+  font-weight: bolder;
+  padding: 25px;
+  margin: 20px;
+  border-radius: 10px; }
+
+.container {
+  font-family: "Raleway", sans-serif;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.25rem; }
+.thumbnail {
+  width: 100px; }
+.viewButton {
+  width: 200px;
+  height: 50px;
+  margin: 20px;
+  background-color: #c5c4c4;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  box-shadow: 1px 5px 10px #232121;
+  border: 0px;
+  border-radius: 10px; }
+
+.viewButton:hover {
+  background-color: #fff;
+  transition: .5s; }
+
+.component {
+  background-color: rgba(255, 235, 205, 0.9);
+  padding: 25px;
+  margin: 20px;
+  border-radius: 10px; }
+
+.component ul {
+  list-style-type: none;
+  padding: 0; }
+
+/*# sourceMappingURL=main.css.map*/
