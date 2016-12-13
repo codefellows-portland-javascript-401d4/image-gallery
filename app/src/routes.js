@@ -8,11 +8,17 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'welcomePage'
   });
 
-  $stateProvider.state({
-    name: 'about',
-    url: '/about',
-    component: 'about'
-  });
+  $stateProvider
+    .state({
+      name: 'about',
+      url: '/about',
+      component: 'about'
+    })
+    .state({
+      name: 'aboutDev',
+      url: '/about/dev',
+      component: 'aboutDev'
+    });
 
   $stateProvider.state({
     name: 'images',
