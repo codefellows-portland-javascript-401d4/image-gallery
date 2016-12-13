@@ -1,7 +1,7 @@
 @import 'corners';
 @import 'colors';
 
-:local(.root) nav {
+:local(.aboutpage) {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,7 +16,7 @@
         margin: 0 1em;
     }
 
-    a.current {
+    a.hot {
         color: $frontcolor;
         background-color: $hotlink;
         border: 1px solid $frontcolor;

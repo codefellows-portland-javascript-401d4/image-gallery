@@ -1,2 +1,12 @@
-<h1>About Me And Things...</h1>
+<h2>About Me And Things...</h2>
+<nav ng-class="$ctrl.styles.aboutpage">
+    <a ui-sref="about.plain" ui-sref-active="hot">Normal View</a>
+    <a ui-sref="about.cool" ui-sref-active="hot">Cool view</a>
+</nav>
 <p>Hi there, my name is Christopher Bruner and I am a web developer focused on the MEAN (mongo, express, angular, node.js) stack. Nice to meet you! :)</p>
+<section>
+    <ui-view name="header"></ui-view>
+</section>
+<section>
+    <ui-view name="main"></ui-view>
+</section>

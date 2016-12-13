@@ -20,5 +20,31 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'about'
     });
 
+    $stateProvider.state({
+        name: 'about.plain',
+        url: '/plain',
+        views: {
+            header: {
+                component: 'aboutHeader'
+            },
+            main: {
+                component: 'aboutMain'
+            }
+        }
+    });
+
+    $stateProvider.state({
+        name: 'about.cool',
+        url: '/cool',
+        views: {
+            header: {
+                component: 'aboutHeaderCool'
+            },
+            main: {
+                component: 'aboutMainCool'
+            }
+        }
+    });
+
     $urlRouterProvider.otherwise('/');
 };
