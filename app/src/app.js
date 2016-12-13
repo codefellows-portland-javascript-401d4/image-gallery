@@ -4,10 +4,14 @@ import angular from 'angular';
 import './scss/main.scss';
 import components from './components';
 import services from './services';
-
-const app = angular.module('imageGallery', [components, services]);
+import uirouter from 'angular-ui-router';
+import routes from './routes';
 
 const devServer = 'http://localhost:3000/api/gallery';
 
-// make the value of the server available to angular at app creation
-app.value('apiUrl', devServer);
+const app = angular.module('imageGallery',
+  [components, services, uirouter]
+);
+
+app.config(routes);
+app.value('apiUrl', devServer); // make server available at app creation
