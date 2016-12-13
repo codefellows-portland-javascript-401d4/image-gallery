@@ -32484,8 +32484,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./main.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./main.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./main.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -32503,7 +32503,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n    background-color: cornsilk;\n}", ""]);
+	exports.push([module.id, "body {\n  margin: 0;\n  padding: 0;\n  background-color: #f6fbf5; }\n\nh1 {\n  font-family: 'Molle', cursive;\n  font-size: 60pt;\n  color: #f1da76;\n  padding: 30px; }\n\n.header {\n  height: 160px;\n  width: 100%;\n  margin: -5px;\n  background-color: #006a91; }\n", "", {"version":3,"sources":["/./src/scss/src/scss/main.scss","/./src/scss/src/scss/partials/_colors.scss"],"names":[],"mappings":"AAEA;EACI,UAAS;EACT,WAAU;EACV,0BCAU,EDCb;;AAED;EACI,8BAA6B;EAC7B,gBAAe;EACf,eCLS;EDMT,cAAa,EAChB;;AAED;EACI,cAAa;EACb,YAAW;EACX,aAAY;EACZ,0BChBU,EDiBb","file":"main.scss","sourcesContent":["@import 'partials/_colors.scss';\n\nbody {\n    margin: 0;\n    padding: 0;\n    background-color: $pale;\n}\n\nh1 {\n    font-family: 'Molle', cursive;\n    font-size: 60pt;\n    color: $tan;\n    padding: 30px;\n}\n\n.header {\n    height: 160px;\n    width: 100%;\n    margin: -5px;\n    background-color: $blue;\n}","// Color palette\n\n$darkblue: #010e3b;\n$blue: #006a91;\n$paleblue: #bededb;\n$pale: #f6fbf5;\n$tan: #f1da76;\n\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -34409,8 +34409,7 @@
 	
 	exports.default = {
 	  template: _imageApp2.default,
-	  controller: controller,
-	  controllerAs: 'app'
+	  controller: controller
 	};
 	
 	
@@ -34420,19 +34419,35 @@
 	  var _this = this;
 	
 	  this.style = _imageApp4.default;
-	  this.images;
 	  this.view = '';
 	
 	  galleryService.get().then(function (images) {
 	    _this.images = images;
 	  });
+	
+	  this.add = function (image) {
+	    var _this2 = this;
+	
+	    galleryService.add(image).then(function (saved) {
+	      _this2.images.push(saved);
+	    });
+	  };
+	
+	  this.remove = function (id) {
+	    var _this3 = this;
+	
+	    galleryService.remove(id).then(function (removed) {
+	      var index = _this3.images.indexOf(removed);
+	      if (index > -1) _this3.images.splice(index, 1);
+	    });
+	  };
 	}
 
 /***/ },
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"app.style.image\">\n    <div>\n        <button ng-click=\"app.view='gallery'\">Gallery View</button>\n        <button ng-click=\"app.view='thumb'\">Thumbnail View</button>\n        <button ng-click=\"app.view='detail'\">Detail View</button>\n    </div>\n\n    <div>\n        <select ng-options=\"image.title for image in app.images\" ng-model=\"app.image\">\n            <option value=\"\">view all</option>\n        </select>\n    </div>\n\n    <image-detail ng-if=\"app.view==='detail'\" ng-repeat=\"image in app.images\"></image-detail>\n    <image-thumb ng-if=\"app.view==='thumb'\" ng-repeat=\"image in app.images\"></image-thumb>\n    <image-gallery ng-if=\"app.view==='gallery'\" ng-repeat=\"image in app.images\"></image-gallery>\n\n</section>";
+	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div>\n        <button class=\"main\" ng-click=\"$ctrl.view='gallery'\">Gallery View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='thumb'\">Thumbnail View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='detail'\">Detail View</button>\n    </div>\n\n    <div>\n        <select ng-options=\"image.title for image in $ctrl.images\" ng-model=\"$ctrl.image\">\n            <option value=\"\">view all</option>\n        </select>\n    </div>\n\n    <image-detail ng-if=\"$ctrl.view==='detail'\" ng-repeat=\"image in $ctrl.images\"></image-detail>\n    <image-thumb ng-if=\"$ctrl.view==='thumb'\" ng-repeat=\"image in $ctrl.images\"></image-thumb>\n    <image-gallery ng-if=\"$ctrl.view==='gallery'\" ng-repeat=\"image in $ctrl.images\"></image-gallery>\n\n</section>";
 
 /***/ },
 /* 17 */
@@ -34450,8 +34465,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./image-app.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./image-app.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-app.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-app.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -34469,11 +34484,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3S27sEoQlDcgENzXMPGJNI {\n    width: 40%;\n    margin: 0 auto;\n}", ""]);
+	exports.push([module.id, "._3Pe6ieEL30iKQ2jjHP_Tsw {\n  margin: 0 auto;\n  width: 100%; }\n", "", {"version":3,"sources":["/./src/components/image-app/src/components/image-app/image-app.scss"],"names":[],"mappings":"AAAA;EACI,eAAc;EACd,YAAW,EACd","file":"image-app.scss","sourcesContent":[":local(.image) {\n    margin: 0 auto;\n    width: 100%;\n}\n\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"image": "_3S27sEoQlDcgENzXMPGJNI"
+		"image": "_3Pe6ieEL30iKQ2jjHP_Tsw"
 	};
 
 /***/ },
@@ -34532,8 +34547,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./image-detail.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./image-detail.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-detail.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-detail.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -34551,11 +34566,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3yCTas6A8zUCisoe9Boch6 {\n    text-align: center;\n    color: dimgrey;\n    border-radius: 10px;\n    margin: 5%;\n    padding: 10%;\n}\n", ""]);
+	exports.push([module.id, "._1P8rGqG9AJOMZc6gOYxStU {\n  text-align: center;\n  color: #010e3b;\n  border-radius: 10px;\n  margin: 5px 5px 0 5px;\n  padding: 10px 10px 0 10px; }\n  ._1P8rGqG9AJOMZc6gOYxStU h1 {\n    font-size: 48px;\n    padding: 5px; }\n", "", {"version":3,"sources":["/./src/components/image-detail/src/components/image-detail/image-detail.scss","/./src/components/image-detail/src/scss/partials/_colors.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,eCFc;EDGd,oBAAmB;EACnB,sBAAqB;EACrB,0BAAyB,EAM5B;EAXD;IAQQ,gBAAe;IACf,aAAY,EACf","file":"image-detail.scss","sourcesContent":["@import '../../scss/partials/_colors';\n\n:local(.detail) {\n    text-align: center;\n    color: $darkblue;\n    border-radius: 10px;\n    margin: 5px 5px 0 5px;\n    padding: 10px 10px 0 10px;\n\n    h1 {\n        font-size: 48px;\n        padding: 5px;\n    }\n}\n","// Color palette\n\n$darkblue: #010e3b;\n$blue: #006a91;\n$paleblue: #bededb;\n$pale: #f6fbf5;\n$tan: #f1da76;\n\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"detail": "_3yCTas6A8zUCisoe9Boch6"
+		"detail": "_1P8rGqG9AJOMZc6gOYxStU"
 	};
 
 /***/ },
@@ -34613,8 +34628,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./image-gallery.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./image-gallery.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-gallery.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-gallery.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -34632,11 +34647,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._14OweBXFrqVUuBQ8dCXLk4 {\n    text-align: center;\n    color: white;\n    border-radius: 10px;\n    margin: 5%;\n}\n\n._14OweBXFrqVUuBQ8dCXLk4 img {\n    max-width: 100%;\n}", ""]);
+	exports.push([module.id, "._146LvsNqbvBRK7XjE03R0_ {\n  text-align: center;\n  color: white;\n  border-radius: 10px;\n  margin: 5%; }\n\n._146LvsNqbvBRK7XjE03R0_ img {\n  max-width: 100%; }\n  ._146LvsNqbvBRK7XjE03R0_ img h1 {\n    font-size: 42px;\n    padding: 5px; }\n", "", {"version":3,"sources":["/./src/components/image-gallery/src/components/image-gallery/image-gallery.scss"],"names":[],"mappings":"AAAA;EACI,mBAAkB;EAClB,aAAY;EACZ,oBAAmB;EACnB,WAAU,EACb;;AAED;EACI,gBAAe,EAMlB;EAPD;IAIQ,gBAAe;IACf,aAAY,EACf","file":"image-gallery.scss","sourcesContent":[":local(.gallery) {\n    text-align: center;\n    color: white;\n    border-radius: 10px;\n    margin: 5%;\n}\n\n:local(.gallery) img {\n    max-width: 100%;\n\n    h1 {\n        font-size: 42px;\n        padding: 5px;\n    }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"gallery": "_14OweBXFrqVUuBQ8dCXLk4"
+		"gallery": "_146LvsNqbvBRK7XjE03R0_"
 	};
 
 /***/ },
@@ -34694,8 +34709,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./image-thumb.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./image-thumb.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-thumb.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./image-thumb.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -34713,11 +34728,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3jkesLqAW8SFVBix50My_a {\n    display: inline-block;\n    padding: 10px;\n}\n\n._3jkesLqAW8SFVBix50My_a img {\n    width: 100px;\n    height: 100px;\n    border: white solid 10px;\n    border-radius: 5px;\n    margin: 10%;\n}", ""]);
+	exports.push([module.id, "._2SxE7N9aE9t3OCaVPyw6az {\n  display: inline-block;\n  margin: 10px; }\n\n._2SxE7N9aE9t3OCaVPyw6az img {\n  width: 100px;\n  height: 100px;\n  outline: 1px solid grey;\n  outline-offset: -10px;\n  border: 15px solid white;\n  margin: 10%; }\n", "", {"version":3,"sources":["/./src/components/image-thumb/src/components/image-thumb/image-thumb.scss"],"names":[],"mappings":"AAAA;EACI,sBAAqB;EACrB,aAAY,EACf;;AAED;EACI,aAAY;EACZ,cAAa;EACb,wBAAuB;EACvB,sBAAqB;EACrB,yBAAwB;EACxB,YAAW,EACd","file":"image-thumb.scss","sourcesContent":[":local(.thumb) {\n    display: inline-block;\n    margin: 10px;\n}\n\n:local(.thumb) img {\n    width: 100px;\n    height: 100px;\n    outline: 1px solid grey;\n    outline-offset: -10px;\n    border: 15px solid white;\n    margin: 10%;\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
-		"thumb": "_3jkesLqAW8SFVBix50My_a"
+		"thumb": "_2SxE7N9aE9t3OCaVPyw6az"
 	};
 
 /***/ },
@@ -34767,14 +34782,18 @@
 	        return res.data;
 	      });
 	    },
-	
 	    add: function add(image) {
 	      return $http.post(apiUrl + '/', image).then(function (res) {
 	        return res.data;
 	      });
+	    },
+	    remove: function remove(id) {
+	      return $http.delete(apiUrl + '/' + id).then(function (res) {
+	        return res.data;
+	      });
 	    }
 	  };
-	};
+	}
 
 /***/ }
 /******/ ]);
