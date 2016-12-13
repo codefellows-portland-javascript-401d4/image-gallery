@@ -16,7 +16,10 @@ images {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
 
+.display div {
+    margin-bottom: 1.5em;
 }
 
 section {

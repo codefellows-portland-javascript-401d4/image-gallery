@@ -11,7 +11,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'images',
         url: '/images',
-        component: 'images'
+        component: 'images',
     });
 
     $stateProvider.state({

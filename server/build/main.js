@@ -33265,7 +33265,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<span ng-class=\"$ctrl.styles.image\">\n    <h3>Image Thumbnail -</h3>\n    <ul>\n        <li>\n            <img class=\"thumb\" ng-src=\"{{$ctrl.image.url}}\" />\n        </li>\n    </ul>\n</span>";
+	module.exports = "<span ng-class=\"$ctrl.styles.image\">\n    <h3>Image Thumbnail -</h3>\n    <ul>\n        <li>\n            <img ng-src=\"{{$ctrl.image.url}}\" />\n        </li>\n    </ul>\n</span>";
 
 /***/ },
 /* 26 */
@@ -33326,7 +33326,7 @@
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" remove=\"$ctrl.remove\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n</section>\n<section>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
+	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li remove=\"$ctrl.remove\">\n    </ul>\n</section>\n<section>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
 
 /***/ },
 /* 30 */
@@ -33352,7 +33352,7 @@
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"info\">\n    <h2>Welcome!</h2>\n    <div>\n        <p>Welcome to this amazing build-it-yourself image gallery!</p>\n        <p><a ui-sref=\"image-new\">Check it out!</a></p>\n    </div>\n</section>";
+	module.exports = "<section class=\"info\">\n    <h2>Welcome!</h2>\n    <div>\n        <p>Welcome to this amazing build-it-yourself image gallery!</p>\n        <p><a ui-sref=\"images\">Check it out!</a></p>\n    </div>\n</section>";
 
 /***/ },
 /* 32 */
@@ -41823,11 +41823,23 @@
 	        component: 'about'
 	    });
 	
-	    $stateProvider.state({
-	        name: 'image-new',
-	        url: '/images',
-	        component: 'image-new'
-	    });
+	    // $stateProvider.state({
+	    //     name: 'images.detail',
+	    //     url: '/detail',
+	    //     component: 'imageDetail'
+	    // });
+	
+	    // $stateProvider.state({
+	    //     name: 'images.thumbnail',
+	    //     url: '/thumbnail',
+	    //     component: 'imageThumbnail'
+	    // });
+	
+	    // $stateProvider.state({
+	    //     name: 'images.gallery',
+	    //     url: '/gallery',
+	    //     component: 'imageGallery'
+	    // });
 	
 	    $urlRouterProvider.otherwise('/');
 	}

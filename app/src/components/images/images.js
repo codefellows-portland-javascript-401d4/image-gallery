@@ -27,5 +27,5 @@ function controller(images) {
             });
     };
 
-    this.selected = 'detail';
+    this.selected = 'Detail';
 }
