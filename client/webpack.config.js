@@ -12,7 +12,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
-        new ExtractTextPlugin('main.scss')
+        new ExtractTextPlugin('main.css')
     ],
     module: {
         preLoaders: [{
@@ -30,7 +30,9 @@ module.exports = {
             } 
         }, {
             test: /\.scss$/,
-            loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+            // loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+            // loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap')
+            loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!sass?sourceMap')
         }, {
             test: /\.html$/,
             loader: 'html-loader'

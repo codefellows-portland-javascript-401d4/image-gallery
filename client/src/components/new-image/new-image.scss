@@ -1,23 +1,23 @@
+@import 'colors';
+@import 'buttons';
+
 :local(.new) {
-    color: #341c1c;
-    background-color: #adb8ac;;
+    color: $maroon-brown;
+    background-color: $grey;
     border: 1px solid black;
     border-radius: 15px;
     margin: 5%;
+
+    button {
+        @include button();
+        margin-bottom: 5%;
+        transition: transform .5s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
 }
 
-:local(.new) button {
-    padding: 1%;
-    margin-bottom: 5%;
-    text-align: center;
-    background-color: #8b8182;
-    width: 20%;
-    outline: none;
-    border: none;
-    border-radius: 15px;
-    transition: transform .5s;
-}
 
-:local(.new) button:hover {
-    transform: scale(1.1);
-}

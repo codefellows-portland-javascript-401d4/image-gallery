@@ -1,23 +1,10 @@
-/*COLORS
-aqua #adfcf9
-grey-green #89a894
-grey #adb8ac
-army green #4b644a
-grey maroon #49393b
-maroon brown #341c1c*/
+@import 'colors';
+@import 'buttons';
 
 body {
-    background-color: #adfcf9;
-    color: #341c1c;
+    background-color: $aqua;
+    color: $maroon-brown;
 }
 
-h1 {
-    background-color: #89a894;
-    border-radius: 15px;
-    text-align: center;
-    width: 50%;
-    margin: 5% auto;
-    padding: 2%;
-}
 
 

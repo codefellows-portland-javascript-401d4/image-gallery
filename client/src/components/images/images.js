@@ -1,10 +1,9 @@
-import template from './image-app.html';
-import styles from './image-app.scss';
+import template from './images.html';
+import styles from './images.scss';
 
 export default {
     template,
-    controller,
-    controllerAs: 'app'    
+    controller,    
 };
 
 controller.$inject = ['imageService'];
