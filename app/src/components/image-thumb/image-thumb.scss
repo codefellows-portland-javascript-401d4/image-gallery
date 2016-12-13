@@ -2,7 +2,7 @@
 @import 'mixins';
 
 :local(.image) {
-  width: 10%;
+  width: 35%;
   border: 0.35rem outset $dkorange;
   @include rounded-corners(5%);
 }

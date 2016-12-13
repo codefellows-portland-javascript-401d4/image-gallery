@@ -1,6 +1,10 @@
 @import 'colors';
 @import 'buttons';
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: $ltblue;
 }
