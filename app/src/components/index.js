@@ -11,8 +11,8 @@ const context = require.context(
 const module = angular.module('components', []);
 
 context.keys().forEach(key => {
-    const name = camelcase(path.basename(key, '.js'));
-    module.component(name, context(key).default);
+  const name = camelcase(path.basename(key, '.js'));
+  module.component(name, context(key).default);
 });
 
 export default module.name;

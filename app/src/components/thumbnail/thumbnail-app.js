@@ -3,9 +3,6 @@ import styles from './thumbnail-app.css';
 
 export default {
   template,
-  bindings: {
-    bunny: '='
-  },
   controller
 };
 
