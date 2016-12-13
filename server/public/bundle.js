@@ -33636,19 +33636,13 @@
 	};
 	
 	
-	function controller() {
-	  var _this = this;
-	
-	  this.delete = function () {
-	    _this.remove(_this.image);
-	  };
-	}
+	function controller() {}
 
 /***/ },
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n  <img src=\"{{$full.image.url}}\"><br>\n  {{$full.image.name}}<br>\n  {{$full.image.description}}<br>\n  <button name=\"list\" ng-click=\"$full.toggleView('list')\">list</button>\n  <button name=\"thumb\" ng-click=\"$full.toggleView('thumb')\">thumb</button>\n  <button ng-click=\"$full.delete()\">remove</button>\n</span>";
+	module.exports = "<span>\n  <img src=\"{{$full.image.url}}\"><br>\n  {{$full.image.name}}<br>\n  {{$full.image.description}}<br>\n  <button name=\"list\" ng-click=\"$full.toggleView('list')\">list</button>\n  <button name=\"thumb\" ng-click=\"$full.toggleView('thumb')\">thumb</button>\n  <button ng-click=\"$full.remove($full.image)\">remove</button>\n</span>";
 
 /***/ },
 /* 18 */
@@ -33678,19 +33672,13 @@
 	};
 	
 	
-	function controller() {
-	  var _this = this;
-	
-	  this.delete = function () {
-	    _this.remove(_this.image);
-	  };
-	}
+	function controller() {}
 
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n  {{$list.image.name}} <br>\n  {{$list.image.url}}<br>\n  {{$list.image.description}}<br>\n  <button name=\"thumb\" ng-click=\"$list.toggleView('thumb')\">thumb</button>\n  <button name=\"full\" ng-click=\"$list.toggleView('full')\">full</button>\n  <button ng-click=\"$list.delete()\">remove</button>\n</span>";
+	module.exports = "<span>\n  {{$list.image.name}} <br>\n  {{$list.image.url}}<br>\n  {{$list.image.description}}<br>\n  <button name=\"thumb\" ng-click=\"$list.toggleView('thumb')\">thumb</button>\n  <button name=\"full\" ng-click=\"$list.toggleView('full')\">full</button>\n  <button ng-click=\"$list.remove($list.image)\">remove</button>\n</span>";
 
 /***/ },
 /* 20 */
@@ -33725,20 +33713,14 @@
 	
 	
 	function controller() {
-	  var _this = this;
-	
 	  this.styles = _imageThumb4.default;
-	
-	  this.delete = function () {
-	    _this.remove(_this.image);
-	  };
 	}
 
 /***/ },
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n  <img ng-class=\"$thumb.styles.image\" src=\"{{$thumb.image.url}}\"><br>\n  <button name=\"list\" ng-click=\"$thumb.toggleView('list')\">list</button>\n  <button name=\"full\" ng-click=\"$thumb.toggleView('full')\">full</button>\n  <button ng-click=\"$thumb.delete()\">remove</button>\n</span>";
+	module.exports = "<span>\n  <img ng-class=\"$thumb.styles.image\" src=\"{{$thumb.image.url}}\"><br>\n  <button name=\"list\" ng-click=\"$thumb.toggleView('list')\">list</button>\n  <button name=\"full\" ng-click=\"$thumb.toggleView('full')\">full</button>\n  <button ng-click=\"$thumb.remove($thumb.image)\">remove</button>\n</span>";
 
 /***/ },
 /* 22 */

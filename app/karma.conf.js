@@ -24,7 +24,7 @@ module.exports = function(config) {
     },
 
     //mock thru these browsers
-    browsers: [ 'Chrome', 'Safari'],
+    browsers: ['Chrome'],
 
     //test results reporter
     reporters: ['spec'],
