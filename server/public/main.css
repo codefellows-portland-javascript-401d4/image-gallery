@@ -29,6 +29,10 @@ em {
 footer {
   background-color: black;
   height: 20vh; }
+
+a.foo {
+  background: #FBE72C;
+  color: black; }
 li {
   border: 3px solid #AAA;
   text-decoration: none;

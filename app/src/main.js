@@ -2,13 +2,11 @@ import angular from 'angular';
 import './scss/main.scss';
 import components from './components';
 import services from './services';
+import uiRouter from 'angular-ui-router';
+import routes from './routes'; 
 
-const app = angular.module('myApp', [components, services]);
+const app = angular.module('myApp', [components, services, uiRouter]);
 
-const dev = 'http://localhost:3500/api';
-// const prod = '/api/';
+app.config(routes);
 
-// above is same as:
-app.factory('apiUrl', function() {
-	return dev;
-});
+app.value('apiUrl', 'http://localhost:3500/api');

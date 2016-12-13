@@ -8,3 +8,9 @@ export default {
 		this.styles = styles;
 	}
 };
+
+controller.$inject = ['$state'];
+
+function controller($state) {
+	this.gotoImages = () => $state.go('images');
+}
