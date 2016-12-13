@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugIn = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './app.js',
+    entry: './src/app.js',
     output: {
         path: '../server/public',
         filename: 'app.bundle.js'
@@ -10,7 +10,7 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './src/index.html'
         }),
         new ExtractTextPlugIn('styles.css')
     ],
