@@ -1,3 +1,6 @@
-@import 'font', 'list';
+@import 'font', 'colors', 'list', 'layout';
 
-
+body {
+    font-family: $primary-font;
+    color: $primary-color;
+}
