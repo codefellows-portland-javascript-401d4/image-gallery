@@ -11,8 +11,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })//,
-    //new ExtractTextPlugin('main.css')
+    }),
+    new ExtractTextPlugin('main.css')
   ],
   module: {
     preLoaders: [{
@@ -32,7 +32,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract('style-loader!css-loader')
     }, {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style-loader!css-loader?sourceMap!sass-loader?sourceMap')
+      loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
     }, {
       test: /\.html$/,
       loader: 'html-loader'
@@ -40,5 +40,6 @@ module.exports = {
   },
   sassLoader: {
     includePath: [ './src/scss/partials' ]
-  }
+  },
+  target: 'web'
 };
