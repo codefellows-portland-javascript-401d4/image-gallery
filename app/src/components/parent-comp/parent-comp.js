@@ -1,5 +1,5 @@
 import template from './parent-comp.html';
-import styles from '../../main.css';
+import stylesParent from './parent-comp.scss';
 
 export default {
   template,
@@ -11,7 +11,7 @@ controller.$inject = ['imageService'];
 
 function controller (images) {
 
-  this.styles = styles;
+  this.stylesParent = stylesParent;
   this.loading = true;
 
   images.get()
