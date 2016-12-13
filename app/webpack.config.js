@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const cssExtract = new ExtractTextPlugin('main.css');
+
 module.exports = {
   entry: './src/app.js',
   output: {
@@ -11,7 +13,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    cssExtract
   ],
   module: {
     preLoaders: [{
@@ -29,8 +32,10 @@ module.exports = {
       }
     }, {
       test: /\.scss$/,
-      loader:
-        'style-loader!css-loader?sourceMap!sass-loader?sourceMap'	
+      loader: cssExtract.extract(
+        'style-loader',
+        'css-loader?sourceMap!sass-loader?sourceMap'
+      )  	
     }, {
       test: /\.html$/,
       loader: 'html-loader'	
