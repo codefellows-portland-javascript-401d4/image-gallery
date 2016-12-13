@@ -52,10 +52,22 @@ describe('gallery app', () => {
       let imageAppComponent = null;
       imageAppComponent = $component('imageApp', { galleryService });
       imageAppComponent.add(newImage);
-      
+
       setTimeout(() => {
         assert.equal(imageAppComponent.images.length, 3);
         assert.deepEqual(imageAppComponent.images[2], newImage);
+        done();
+      });
+    });
+
+    it('deletes an image', done => {
+
+      let imageAppComponent = null;
+      imageAppComponent = $component('imageApp', { galleryService });
+      imageAppComponent.remove(_id);
+
+      setTimeout(() => {
+        assert.equal(imageAppComponent.images.length, 2);
         done();
       });
     });
