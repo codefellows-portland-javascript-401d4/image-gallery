@@ -1,0 +1,25 @@
+$height: 100px;
+@import 'corners';
+
+:local(.spider) {
+
+  height: $height;
+  $input-height: .35 * $height;
+
+  border: 2px solid darkblue;
+  @include rounded(5px);
+
+  div {
+    height: $input-height;
+  }
+
+  button {
+    height: $height - (2 * $input-height) - 20px;
+  }
+
+  label {
+    color: black;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+
+}
