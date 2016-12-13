@@ -1,16 +1,17 @@
 @import 'colors';
 
-button.main {
-  background-color: $paleblue;
+@mixin button($bg, $font, $hover, $margin) {
+  background-color: $bg;
   border-radius: 10px;
-  color: $darkblue;
-  margin: -30px 50px 20px 50px;
+  color: $font;
+  margin: 0 50px 20px 50px;
+  margin-top: $margin;
   padding: 9px;
   font-family: 'Cabin', sans-serif;
   font-weight: 700;
   box-shadow: 3px 3px 5px #888888;
 
   &:hover {
-    background-color: $tan;
+    background-color: $hover;
   }
 }
