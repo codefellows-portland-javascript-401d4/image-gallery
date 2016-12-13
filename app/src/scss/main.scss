@@ -1,8 +1,9 @@
-img {
-  max-width: 70%;
+@import 'colors';
+
+body {
+  background: $lightblue;
 }
 
-.thumb {
-  max-height: 100px;
-  max-width: 100px;
+img {
+  max-width: 70%;
 }
