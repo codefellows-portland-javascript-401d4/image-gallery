@@ -1,7 +1,7 @@
 /** Created by Gloria Anholt on 12/6/16. **/
 
 import angular from 'angular';
-import './css/main.scss';
+import './scss/main.scss';
 import components from './components';
 import services from './services';
 
