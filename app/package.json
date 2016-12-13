@@ -15,7 +15,8 @@
     "type": "git",
     "url": "git+https://github.com/gnkatchmar/image-gallery.git"
   },
-  "author": "Greg Katchmar <gunk55@msn.com> (www.gkatchmar.com)",
+ "author": "Greg Katchmar <gunk55@msn.com> (www.gkatchmar.com)",
+  "license": "ISC",
   "devDependencies": {
     "angular-mocks": "^1.5.9",
     "babel-core": "^6.18.2",
@@ -32,6 +33,7 @@
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-safari-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
