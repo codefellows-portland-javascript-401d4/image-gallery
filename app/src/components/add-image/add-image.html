@@ -1,9 +1,10 @@
 <section ng-class="$ctrl.style.image">
     <div>
-        Image title: <input type="text" ng-model="$ctrl.title" required="string">
+        <p>Image title: <input type="text" ng-model="$ctrl.title" required="string">
         Image URL: <input type="text" ng-model="$ctrl.url" required="string">
         Description: <input type="text" ng-model="$ctrl.description" required="string">
-        <button class="main" ng-click="$ctrl.add()">Add New Image</button>
+        <button class="add" ng-click="$ctrl.add()">Add New Image</button>
+        </p>
         <div>{{message}}</div>
     </div>
 </section>

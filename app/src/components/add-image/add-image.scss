@@ -1,14 +1,15 @@
-@import '../../scss/partials/_colors';
 @import '../../scss/partials/_buttons';
+@import '../../scss/partials/_colors';
 
 :local(input) {
   display: block;
 }
 
-:local(button) {
-  background-color: $blue;
-
-  &:hover {
-    background-color: $paleblue;
-  }
+:local(p) {
+  font-family: 'Cabin', sans-serif;
 }
+
+.add {
+  @include button($blue, white, $paleblue, 10px);
+}
+
