@@ -37,13 +37,10 @@ describe('images component', () => {
 
 
         it('loads images', done => {
-
             let component = $component('imageChoice', {imageService});
-            // assert.isOk(component.loading);
 
             setTimeout(() => {
                 assert.equal(component.images, images);
-                // assert.isNotOk(component.loading);
                 done();
             });
         });
