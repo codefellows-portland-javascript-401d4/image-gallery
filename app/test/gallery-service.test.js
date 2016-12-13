@@ -37,4 +37,22 @@ describe('Gallery Service', () => {
     $httpBackend.flush();
   });
 
+  it('adds a new image', done => {
+
+    const newImage = { title:"Image 3", url:"www.pic.com", description:"A more different image!" };
+
+    $httpBackend
+      .expectPOST('/api/gallery/', newImage)
+      .respond(newImage);
+
+    galleryService.add(newImage)
+      .then(savedImage => {
+        assert.deepEqual(savedImage, newImage);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+  });
+
 });
