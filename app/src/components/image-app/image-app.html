@@ -1,0 +1,10 @@
+<section>
+  Choose image display:
+  <select ng-model="$ctrl.selected">
+    <option value="thumbnail">Thumbnail</option>
+    <option value="detail">Detail</option>
+  </select>
+
+  <image-thumbnail ng-if="$ctrl.selected === 'thumbnail'" image="$ctrl.image"</image-thumbnail>
+  <image-detail ng-if="$ctrl.selected === 'detail'" image="$ctrl.image"</image-detail>
+</section>
