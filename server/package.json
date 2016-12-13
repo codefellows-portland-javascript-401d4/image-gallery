@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=myapp.* nodemon server.js",
-    "test": "MONGODB_URI=mongodb://localhost/pirates-test mocha",
-    "test:watch": "MONGODB_URI=mongodb://localhost/pirates-test nodemon --exec mocha"
+    "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
+    "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "ISC",

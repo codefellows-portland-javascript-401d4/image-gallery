@@ -41,9 +41,9 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
-},
-"dependencies": {
-  "angular": "^1.5.9",
-  "camelcase": "^4.0.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.9",
+    "camelcase": "^4.0.0"
   }
 }

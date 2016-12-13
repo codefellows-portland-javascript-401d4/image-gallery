@@ -1,3 +1,15 @@
+<select ng-model="$ctrl.view">
+  <option value="Detail">Detail</option>
+  <option value="Thumbnail">Thumbnail</option>
+  <option value="Large">Large</option>
+</select>
+
+<section>
+    <image-detail ng-if="$ctrl.view === 'Detail'" image="app.image"></image-detail>
+    <image-thumbnail ng-if="$ctrl.view === 'Thumbnail'" image="app.image"></image-thumbnail>
+    <image-large ng-if="$ctrl.view === 'Large'" image="app.image"></image-large>
+</section>
+
 <div class="component">
   <image-detail
     image="app.image">

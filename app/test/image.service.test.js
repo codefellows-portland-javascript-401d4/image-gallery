@@ -40,9 +40,25 @@ describe( 'image service', () => {
 
     it('add image', done => {
         const image = {
+            image_title: 'very small bunny',
+            url: 'imageurl.com',
+            image_description: 'a small bunny eats a carrot'
+        };
 
-        }
+        $httpBackend
+            .expectPOST('/api/images', image)
+            .respond(image);
+
+        imageService.add(image)
+            .then(newImage => {
+                assert.deepEqual(newImage, image);
+                done();
     })
+    .catch(done);
 
+    $httpBackend.flush();
+
+
+});
 
 });

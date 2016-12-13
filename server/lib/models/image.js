@@ -7,10 +7,12 @@ const schema = new Schema({
     required: true
   },
   url: {
-    type: String
+    type: String,
+    required: true
   },
   image_description: {
-    type: String
+    type: String,
+    required: true
   }
 });
 
