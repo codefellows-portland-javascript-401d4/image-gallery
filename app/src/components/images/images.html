@@ -1,0 +1,15 @@
+<section ng-class="">
+  select display:
+  <select ng-model="$ctrl.display" ng-options="display for display in $ctrl.display"></select>
+  
+  <ul>
+    <li ng-class="$ctrl.styles['gallery-class']" ng-repeat="image in $ctrl.images">
+      <image-preview ng-if="$ctrl.selected === 'preview'" image="$ctrl.image"></image-preview>
+      <image-detail ng-if="$ctrl.selected === 'details'" image="$ctrl.image"></image-detail>
+      <image-full ng-if="$ctrl.selected === 'full'" image="$ctrl.image"></image-full>
+    </li>
+  </ul>
+
+  <image-add add="$ctrl.add"></image-add>
+  <image-remove remove="$ctrl.remove"></image-remove>
+</section>
