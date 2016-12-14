@@ -7,9 +7,12 @@
 <body>
   <header>
     <h1>cute bunny image gallery</h1>
+    <a ui-sref="welcome">home</a>
+    <a ui-sref="imageApp">Image gallery</a>
+    <a ui-sref="about">About</a>
   </header>
   <main>
-    <image-app></image-app>
+    <ui-view></ui-view>
   </main>
 </body>
 </html>
