@@ -1,7 +1,7 @@
 describe('Image gallery component', () => {
   const {assert} = chai;
 
-  beforeEacb(
+  beforeEach(
     angular.mock.module('components')
   );
 
@@ -13,7 +13,7 @@ describe('Image gallery component', () => {
 
   describe('Create component', () => {
     const images = [
-      { image_title: 'image3', url: 'imageurl.com', image_description: 'tiny little bunny' }
+      { url: 'imageurl.com', image_title: 'image3', image_description: 'tinylittlebunny' }
     ];
 
     const imageService = {
@@ -22,10 +22,12 @@ describe('Image gallery component', () => {
       }
     };
 
+    // const component = $component('images', { imageService });
+
     it('Loads the images', done => {
       let component = $component('imageApp', {imageService });
       setTimeout(() => {
-        assert.equal(component.img, images[0]);
+        assert.equal(component.image, images[0]);
         done();
       });
     });

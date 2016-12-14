@@ -25,10 +25,7 @@ module.exports = function(config) {
             './src/app.js': [ 'webpack' ],
             './test/**/*.js': [ 'babel' ]
         },
-
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome', 'Safari'],
+        browsers: ['Chrome'],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'

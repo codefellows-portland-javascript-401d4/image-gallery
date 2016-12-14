@@ -17,7 +17,7 @@ describe( 'image service', () => {
     }));
 
     afterEach(() => {
-        $httpBackEnd.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
     });
 
@@ -25,7 +25,7 @@ describe( 'image service', () => {
         const images = [1, 2, 3];
 
         $httpBackend
-            .expectGet('/api/images')
+            .expectGET('/api/images')
             .respond(images);
 
         imageService.get()
