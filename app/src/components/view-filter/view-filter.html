@@ -1,0 +1,8 @@
+<select name="filter" ng-model="view" ng-change="$ctrl.changeView(view)">
+    <option value="">Select your view</option>
+    <option value="description">description</option>
+    <option value="thumbnail">thumbnail</option>
+    <option value="full-size">full-size</option>
+</select>
+
+<span>{{$ctrl.view}}</span>

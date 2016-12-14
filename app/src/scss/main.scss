@@ -1,0 +1,28 @@
+@import 'color';
+
+body {
+    font-family: sans-serif;
+    color: $primaryFont;
+    background-color: $primaryColor;
+}
+
+main {
+    background-color: white;
+    border: .15em solid $outlineColor;
+}
+
+header {
+    background-color: black;
+    height: 5em;
+}
+
+h1 {
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-top: .25em;
+    font-weight: 700;
+    font-size: 3em;
+    color: white;
+}
+

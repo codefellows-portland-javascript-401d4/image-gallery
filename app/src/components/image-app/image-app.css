@@ -1,7 +1,0 @@
-:local(ul) {
-    list-style-type: none;
-}
-
-:local(*) {
-    font-family: sans-serif;
-}
