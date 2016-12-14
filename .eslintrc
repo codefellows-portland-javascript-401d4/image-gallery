@@ -18,6 +18,10 @@
     "mocha": true,
     "es6": true
   },
+  "globals": {
+    "angular": false,
+    "chai": false
+  },
   "rules": {
     "semi": [2, "always"],
     "strict": [2, "global"],
