@@ -21,7 +21,15 @@ function controller($scope) {
 		}
 		else {
 			console.log('no');
-			$scope.responseText = 'Sorry, we do not have any pictures of '+$scope.animalChoice+'s.';
+			var arr = $scope.animalChoice.split('');
+			var lastLetter = arr.pop();
+			console.log(lastLetter);
+			if(lastLetter === 's' || lastLetter === 'S'){
+				$scope.responseText = 'Sorry, we do not have any pictures of '+$scope.animalChoice+'.';
+			}
+			else{
+				$scope.responseText = 'Sorry, we do not have any pictures of '+$scope.animalChoice+'s.';
+			}
 		}
 	};
 }
