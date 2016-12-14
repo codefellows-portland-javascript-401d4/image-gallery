@@ -25,15 +25,21 @@ module.exports = {
             exclude: /node_modules/,
             loader:'babel-loader',
             query: {
-                presets: ['es2015']
+                cacheDirectory: true,
+                // plugins: ['transform-runtime']    
             } 
         }, {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            test: /\.scss$/,
+            // loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+            // loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap')
+            loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!sass?sourceMap')
         }, {
             test: /\.html$/,
             loader: 'html-loader'
         }]
+    },
+    sassLoader: {
+        includePaths: ['./src/scss/partials']
     }
 };
 

@@ -13,10 +13,6 @@
         "mocha": true,
         "es6": true
     },
-    "globals": {
-        "angular": false,
-        "chai": false
-    },
     "rules": {
         "no-console": "off",
         "indent": [

@@ -1,7 +1,9 @@
+@import 'colors';
+
 :local(.detail) {
     text-align: center;
     color: white;
-    background-color: #adb8ac;
+    background-color: $grey;
     border-radius: 15px;
     width: 50%;
     margin: 5% auto;

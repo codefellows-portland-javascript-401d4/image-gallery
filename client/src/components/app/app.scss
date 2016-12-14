@@ -1,0 +1,14 @@
+@import 'colors';
+
+:local(.header) {
+
+    h1 {
+        background-color: $grey-green;
+        border-radius: 15px;
+        text-align: center;
+        width: 50%;
+        margin: 5% auto;
+        padding: 2%;
+    }
+
+}
