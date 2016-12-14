@@ -1,0 +1,18 @@
+<section ng-class="$ctrl.styles.album">
+    <h3>{{$ctrl.album.name}}</h3>
+    <!--These references may be off a bit-->
+    <div>
+        <img ng-src="{{$ctrl.images.url}}">
+    </div>
+
+    <ul ng-if="$ctrl.view === 'detail'">
+        <li ng-repeat="album in $ctrl.album.images">
+            <image-detail image="image"></image-detail>
+        </li>
+    </ul>
+
+    <div ng-if="$ctrl.view !== 'detail'">
+        There are {{$ctrl.album.images.length}} images in this album.
+    </div>
+    
+</section>

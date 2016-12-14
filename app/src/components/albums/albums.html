@@ -1,0 +1,26 @@
+<section ng-class="$ctrl.styles.albums">
+    <h3>Albums</h3>
+    <div>
+        <span ng-repeat="view in ['detail', 'summary']">
+            <input 
+                ng-model="$ctrl.view"
+                ng-change="$ctrl.updateView()"
+                name="view"
+                ng-value="view"
+                type="radio">
+                {{view}}
+        </span>
+    </div>
+    <ul>
+        <li ng-repeat="album in $ctrl.albums"
+            ui-sref="albums.detail({
+                id: album._id,
+                view: $ctrl.view
+            })">
+
+            <h4>{{album.name}}</h4>
+            <img ng-src="{{image.url}}">
+        </li>
+    </ul>
+    <ui-view>Select an album to view details</ui-view>
+</section>
