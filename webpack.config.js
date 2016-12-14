@@ -28,7 +28,7 @@ module.exports = {
         presets: ['es2015'] //,
         // cacheDirectory: true,
         // plugins: ['transform-runtime']
-        }
+      }
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader')	
