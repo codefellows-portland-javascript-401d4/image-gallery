@@ -24,3 +24,11 @@ h1 {
   font-family: $header-font;
   margin-top: 3rem;
 }
+
+a.shut {
+  visibility: hidden;
+}
+
+a.open {
+  visibility: visible; 
+}

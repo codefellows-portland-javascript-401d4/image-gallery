@@ -10,6 +10,10 @@
 <image-add add="app.add"></image-add>
 
 <h1>{{app.view}}</h1>
+<a ui-sref="list.names">Names</a>
+<ui-view></ui-view>
+
+
 <ul ng-if="app.view === 'list'">
   <li ng-repeat="image in app.images">
     <image-list

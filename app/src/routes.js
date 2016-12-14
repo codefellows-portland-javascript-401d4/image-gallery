@@ -19,5 +19,45 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'images'
   });
 
+  $stateProvider.state({
+    name: 'list.all',
+    url: '/all',
+    component: 'listViewNames'
+    // views: {
+    //   urls: {
+    //     component: 'listViewUrls'
+    //   },
+    //   names: {
+    //     component: 'listViewNames'
+    //   }
+    // }
+  });
+
+  $stateProvider.state({
+    name: 'list.names',
+    url: '/names',
+    component: 'list-view-names'
+    // views: {
+    //   urls: {
+    //     component: 'listViewUrls'
+    //   },
+    //   names: {
+    //     component: 'listViewNames'
+    //   }
+    // }
+  });
+  $stateProvider.state({
+    name: 'list.urls',
+    url: '/urls',
+    views: {
+      urls: {
+        component: 'listViewUrls'
+      },
+      names: {
+        component: 'listViewNames'
+      }
+    }
+  });
+
   $urlRouterProvider.otherwise('/');
 }
