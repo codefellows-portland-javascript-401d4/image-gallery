@@ -34,22 +34,12 @@ module.exports = {
       loader: 'html-loader'
     },
     {
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      loader: 'url?limit=10000!img?progressive=true'
-    },
-    {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(
           'style-loader',
           'css-loader?sourceMap!sass-loader?sourceMap'
       )
-    }
-    // ,
-    // {
-    //   test: /\.css$/,
-    //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-    // }
-    ]
+    }]
   },
   sassLoader: {
     includePaths: ['./src/scss/partials']
