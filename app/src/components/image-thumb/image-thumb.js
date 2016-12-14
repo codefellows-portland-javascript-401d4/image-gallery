@@ -1,4 +1,4 @@
-import template from './image-full.html';
+import template from './image-thumb.html';
 
 export default {
   template,
@@ -6,7 +6,6 @@ export default {
     img: '='
   },
   controller
-  // controllerAs: 'app'
 };
 
 function controller() {
