@@ -7,7 +7,6 @@ describe('image service', () => {
     );
 
     let $httpBackend = null, imageService = null;
-    $httpBackend.whenGET(/api/).respond(200, '');
 
     beforeEach(angular.mock.inject((_imageService_, _$httpBackend_ ) => {
         $httpBackend = _$httpBackend_;
