@@ -1,0 +1,17 @@
+@import 'colors';
+@import 'buttons';
+
+:local(.new) {
+        width: 30%;
+        border: .1em solid $dkblue;
+    
+    div {
+        padding: .12em;
+    }
+
+    p {
+        margin: .1em auto;
+        color: $dkgreen;
+    }
+
+}
