@@ -13,6 +13,12 @@ export default function routes($stateProvider, $urlRouterProvider) { //TODO - do
     component: 'galleryApp'
   });
 
+  $stateProvider.state({
+    name: 'about',
+    url: '/about',
+    component: 'about'
+  });
+
   $urlRouterProvider.otherwise('/');
 
 }
