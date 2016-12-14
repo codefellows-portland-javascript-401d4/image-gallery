@@ -33,7 +33,7 @@ module.exports = function(config) {
                 flags: ['--no-sandbox']
                 }
             };
-        options.browsers = ['Chrome_travis_ci', 'Firefox'];
+        options.browsers = ['Chrome_travis_ci'];
         options.singleRun = true;
         }
     
