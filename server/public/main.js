@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(26);
+	var _services = __webpack_require__(28);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33513,7 +33513,7 @@
 		"./image-gallery/image-gallery.js": 18,
 		"./image-thumb/image-thumb.js": 20,
 		"./images/images.js": 22,
-		"./new-image/new-image.js": 24
+		"./new-image/new-image.js": 26
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33560,7 +33560,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "\n    <!-------------------------Header---------------------------------->\n    <header>\n        <h1>Goat Images</h1>\n        <h2><em>Images of goats.  That's it.</em></h2>\n    </header>\n    <!-------------------------Image Gallery------------------------------>\n<main>\n    <images></images>\n</main>";
+	module.exports = "\n    <!-------------------------Header---------------------------------->\n    <div class='header'>\n        <h1>Goat Images</h1>\n        <h2><em>Images of goats.  That's it.</em></h2>\n    </div>\n    <!-------------------------Image Gallery------------------------------>\n<main>\n    <images></images>\n</main>\n<footer>\n    <h4>Mugsy Carter &copy 2016</h4>\n    </footer>";
 
 /***/ },
 /* 14 */
@@ -33706,6 +33706,10 @@
 	
 	var _images2 = _interopRequireDefault(_images);
 	
+	var _images3 = __webpack_require__(24);
+	
+	var _images4 = _interopRequireDefault(_images3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
@@ -33722,6 +33726,8 @@
 	
 		console.log('in images.js');
 		this.loading = true;
+	
+		this.styles = _images4.default;
 	
 		this.displays = ['thumbnail', 'text', 'full', 'all'];
 	
@@ -33758,10 +33764,17 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n    <form id=\"diplay-form\">\n        Select an image display.\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        </select>\n    </form>\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n\n    <new-image add=\"images.add\"></new-image>\n</section>";
+	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n    <form id=\"diplay-form\">\n        <h2>Select an image display.</h2>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        </select>\n    </form>\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n\n    <new-image add=\"images.add\"></new-image>\n</section>";
 
 /***/ },
 /* 24 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 25 */,
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33770,7 +33783,7 @@
 		value: true
 	});
 	
-	var _newImage = __webpack_require__(25);
+	var _newImage = __webpack_require__(27);
 	
 	var _newImage2 = _interopRequireDefault(_newImage);
 	
@@ -33812,13 +33825,13 @@
 	}
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n    <h2>Add more goat images</h2>\n    <div>\n        <label>Title:</label>\n        <input ng-model=\"newImage.title\">\n    </div>\n      <div>\n        <label>Description:</label>\n        <input ng-model=\"newImage.description\">\n    </div>\n    <div>\n        <label>URL:</label>\n        <input ng-model=\"newImage.url\">\n    </div>\n    <button ng-click=\"newImage.addNew()\">add</button>\n</section>";
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33842,7 +33855,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(27);
+	var context = __webpack_require__(29);
 	
 	// create the module to put the resources in,
 	// in this case directives
@@ -33861,11 +33874,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 28
+		"./image-service.js": 30
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33878,11 +33891,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 27;
+	webpackContext.id = 29;
 
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
