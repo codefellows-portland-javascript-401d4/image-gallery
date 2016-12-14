@@ -2,6 +2,8 @@
 @import 'buttons';
 
 :local(.detail) {
+
+    margin: 2%;
     
     button {
         @include button();

@@ -1,7 +1,21 @@
+@import 'colors';
+@import 'headings';
+
 :local(.image) {
-    text-align: center;
-    width: 80%;
-    margin: 0 auto;
+
+    h2 {
+        @include page-heading();
+    }
+
+    h3 {
+        background-color: $redish-grey;
+        color: white;
+        border-radius: 15px;
+        text-align: center;
+        width: 30%;
+        margin: 2% auto;
+        padding: 1%;
+    } 
 
     select {
         display: block;

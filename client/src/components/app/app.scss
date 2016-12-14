@@ -1,4 +1,6 @@
 @import 'colors';
+@import 'links';
+@import 'divs';
 
 :local(.header) {
 
@@ -9,6 +11,15 @@
         width: 50%;
         margin: 5% auto;
         padding: 2%;
+    }
+
+    div {
+        @include links-div();
+        margin: 0 auto 4%;
+    }
+
+    a {
+        @include nav-links();
     }
 
 }

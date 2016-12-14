@@ -1,11 +1,11 @@
 <section ng-class="$ctrl.styles.image">
+    <h2>Choose an Image to View</h2>
     <div>
-        <h2>Choose an Image to View</h2>
         <select ng-model="$ctrl.bunny" ng-options="i.title for i in $ctrl.images">
             <option value="">Preview All</option>
         </select>
         <div ng-if="$ctrl.bunny">
-        <h2>Choose an Image View Format</h2>
+        <h3>Choose an Image View Format</h3>
         <select ng-init="$ctrl.view = 'gallery'" ng-model="$ctrl.view">
             <option value="detail">Detail View</option>
             <option value="thumbnail">Thumbnail View</option>

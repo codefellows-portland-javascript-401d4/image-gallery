@@ -1,0 +1,15 @@
+@import 'colors';
+@import 'headings';
+@import 'divs';
+
+:local(.welcome) {
+
+    div {
+        @include page-content();
+    }
+    
+    h2 {
+        @include page-heading();
+    }  
+
+}

@@ -1,0 +1,9 @@
+@mixin page-heading() {
+    background-color: $army-green;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    width: 40%;
+    margin: 2% auto;
+    padding: 2%;
+}
