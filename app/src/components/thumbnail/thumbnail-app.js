@@ -12,7 +12,6 @@ function controller(images) {
   this.styles = styles;
 
   images.get().then(images => {
-    console.log(images);
     this.images = images;
   });
 
@@ -21,6 +20,13 @@ function controller(images) {
       .then(() => {
         const index = this.images.indexOf(image);
         if(index > -1) this.images.splice(index, 1);
+      });
+  };
+
+  this.add = image => {
+    images.add(image)
+      .then(saved => {
+        this.pirates.push(saved);
       });
   };
 }
