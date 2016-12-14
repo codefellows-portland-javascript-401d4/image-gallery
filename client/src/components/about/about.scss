@@ -1,0 +1,25 @@
+@import 'colors';
+@import 'headings';
+@import 'divs';
+@import 'links';
+
+:local(.about) {
+
+    .links {
+        @include links-div();
+        margin: 4% auto 0;
+    }
+
+    .content {
+        @include page-content();
+    }
+
+    h2 {
+        @include page-heading();
+    }
+
+    a {
+        @include nav-links();
+    } 
+
+}

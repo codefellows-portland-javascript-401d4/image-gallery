@@ -1,0 +1,20 @@
+<section ng-class="$ctrl.styles.image">
+    <h2>Choose an Image to View</h2>
+    <div>
+        <select ng-model="$ctrl.bunny" ng-options="i.title for i in $ctrl.images">
+            <option value="">Preview All</option>
+        </select>
+        <div ng-if="$ctrl.bunny">
+        <h3>Choose an Image View Format</h3>
+        <select ng-init="$ctrl.view = 'gallery'" ng-model="$ctrl.view">
+            <option value="detail">Detail View</option>
+            <option value="thumbnail">Thumbnail View</option>
+            <option value="gallery">Gallery View</option>
+        </select>
+        </div>
+    </div>
+    <image-detail ng-hide="!$ctrl.bunny" ng-if="$ctrl.view==='detail'" image="$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]"></image-detail>
+    <image-thumbnail ng-hide="!$ctrl.bunny" ng-if="$ctrl.view==='thumbnail'" image="$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]"></image-thumbnail>
+    <image-gallery ng-hide="!$ctrl.bunny" ng-if="$ctrl.view==='gallery'" image="$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]"></image-gallery>
+    <image-all ng-hide="$ctrl.bunny" add="$ctrl.add" remove="$ctrl.remove" images="$ctrl.images"></image-all>
+</section>

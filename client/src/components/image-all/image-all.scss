@@ -1,0 +1,21 @@
+@import 'colors';
+@import 'divs';
+
+:local(.all) {
+    @include page-content();
+
+    img {
+        width: 100px;
+        height: 100px;
+    }
+
+    div {
+        color: #341c1c;
+        background-color: $grey;
+        border: 1px solid black;
+        border-radius: 15px;
+        padding: 1px;
+        margin: 5%;
+    }
+
+}

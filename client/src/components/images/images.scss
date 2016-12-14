@@ -1,0 +1,29 @@
+@import 'colors';
+@import 'headings';
+
+:local(.image) {
+
+    h2 {
+        @include page-heading();
+    }
+
+    h3 {
+        background-color: $redish-grey;
+        color: white;
+        border-radius: 15px;
+        text-align: center;
+        width: 30%;
+        margin: 2% auto;
+        padding: 1%;
+    } 
+
+    select {
+        display: block;
+        margin: 2% auto;
+        width: 175px;
+        border-radius: 15px;
+    }
+
+}
+
+

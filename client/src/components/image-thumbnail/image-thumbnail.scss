@@ -1,14 +1,17 @@
+@import 'colors';
+
 :local(.thumbnail) {
     text-align: center;
     color: white;
-    background-color: #8b8182;
+    background-color: $redish-grey;
     border-radius: 15px;
     width: 50%;
     margin: 5% auto;
     padding: 5%;
-}
 
-:local(.thumbnail) img {
-    width: 100px;
-    height: 100px;
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    
 }
