@@ -14,12 +14,14 @@ function controller(imageService) {
     this.loading = true;
     this.image = '';
 
-    imageService
-        .get()
-        .then(images => {
-            this.images = images;
-            this.loading = false;
-        });
+    this.$onInit = () => {
+        imageService
+            .get()
+            .then(images => {
+                this.images = images;
+                this.loading = false;
+            });
+    };
 
     this.viewOptions = ['', 'detail','thumbnail','gallery'];
     this.view = '';

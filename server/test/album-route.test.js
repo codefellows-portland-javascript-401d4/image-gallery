@@ -17,7 +17,7 @@ describe('testing image api end points', () => {
 
     it('tests the get route', done => {
         request
-            .get('/api/images')
+            .get('/api/albums')
             .then(res => {
                 assert.isOk(res.body);
                 done();
@@ -39,24 +39,26 @@ describe('testing image api end points', () => {
 
     it('tests the post route', done => {
         request
-            .post('/api/images')
-            .send(whateverImage)
+            .post('/api/albums')
+            .send(whateverAlbum)
             .then(res => {
                 assert.isOk(res.body);
                 let {__v, _id} = res.body;
-                whateverImage.__v = __v;
-                whateverImage._id = _id;
-                assert.deepEqual(res.body, whateverImage);
+                whateverAlbum.__v = __v;
+                whateverAlbum._id = _id;
+                assert.deepEqual(res.body, whateverAlbum);
                 done();
             })
             .catch(done);
     });
 
+    // TODO: include get/name route
+
     it('tests the delete route', done => {
         request
-            .del(`/api/images/${whateverImage._id}`)
+            .del(`/api/albums/${whateverAlbum._id}`)
             .then(res => {
-                assert.deepEqual(res.body, whateverImage);
+                assert.deepEqual(res.body, whateverAlbum);
                 done();
             })  
             .catch(done);
