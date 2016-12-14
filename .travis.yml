@@ -24,5 +24,7 @@ addons:
       - g++-4.8
       - mongodb-org-server
 
+    firefox: latest
+
 services:
   - mongodb  

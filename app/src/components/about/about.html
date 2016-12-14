@@ -1,0 +1,11 @@
+<h2>About Me And Things...</h2>
+<nav ng-class="$ctrl.styles.aboutpage">
+    <a ui-sref="about.me" ui-sref-active="hot">Myself</a>
+    <a ui-sref="about.gallery" ui-sref-active="hot">This Image Gallery</a>
+</nav>
+<section>
+    <ui-view name="header"></ui-view>
+</section>
+<section>
+    <ui-view name="main"></ui-view>
+</section>
