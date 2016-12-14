@@ -34,6 +34,10 @@ module.exports = {
       loader: 'html-loader'
     },
     {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loader: 'url?limit=10000!img?progressive=true'
+    },
+    {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(
           'style-loader',
