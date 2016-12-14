@@ -1,3 +1,4 @@
+/* globals angular chai*/
 describe( 'image service', () => {
 	const { assert } = chai;
 

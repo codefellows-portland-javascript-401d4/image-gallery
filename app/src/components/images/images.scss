@@ -1,0 +1,21 @@
+@import 'colors';
+
+li {
+    border: 3px solid $grey;
+    text-decoration: none;
+    background-color: black;
+    color: $grey;
+}
+
+ul li {
+
+    list-style-type: none;
+}
+
+p {
+    color: $blue;
+}
+
+a{
+    color: $gold;
+}

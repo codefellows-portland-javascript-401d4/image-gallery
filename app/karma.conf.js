@@ -2,7 +2,7 @@ const webpackConfig = require( './webpack.config' );
 webpackConfig.entry = {};
 
 module.exports = function(config) {
-	config.set({
+	const options = {
         // base path that will be used to resolve all patterns (eg. files, exclude)
 		basePath: '',
 
@@ -12,7 +12,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
 		files: [
-			'./src/app.js',
+			'./src/main.js',
 			'./node_modules/angular-mocks/angular-mocks.js',
 			'./test/**/*.js' 
 		],
@@ -22,7 +22,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'./src/app.js': [ 'webpack' ],
+			'./src/main.js': [ 'webpack' ],
 			'./test/**/*.js': [ 'babel' ]
 		},
 
@@ -55,6 +55,17 @@ module.exports = function(config) {
         // Concurrency level
         // how many browser should be started simultaneous
 		concurrency: Infinity
+	};
 
-	});
+	if (process.env.TRAVIS){
+		options.customLaunchers = {
+			Chrome_travis_ci: {
+				base: 'Chrome',
+				flags: ['--no-sandbox']
+			}
+		};
+	    options.browsers = ['Chrome_travis_ci', 'Firefox']; // Don't forget karma-firefox-launcher!
+		options.singleRun = true;
+	}
+	  config.set(options);
 };

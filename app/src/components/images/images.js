@@ -1,4 +1,5 @@
 import template from './images.html';
+import styles from './images.scss';
 
 export default {
 	template,
@@ -11,7 +12,9 @@ controller.$inject = ['imageService'];
 function controller(images) {
 	console.log('in images.js');
 	this.loading = true;
-
+ 
+	this.styles = styles;
+	
 	this.displays = ['thumbnail', 'text', 'full', 'all'];
 
     // call the get to load all images
