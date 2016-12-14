@@ -12,6 +12,8 @@ function controller(images) {
 
     this.styles = styles;
 
+    this.view = 'Gallery View';
+
     images.get().then(images => {
         this.images = images;
     });
