@@ -20,5 +20,5 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'about'
     });
 
-    $urlRouterProvider.otherwise('/#/');
+    $urlRouterProvider.otherwise('/');
 }
