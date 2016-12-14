@@ -81,4 +81,15 @@ describe('Validating Image routes', () => {
             .catch(done);
     });
 
+    it('DELETE an image', done => {
+        request
+            .delete(`/api/images/${testImage._id}`)
+            .then(res => {
+                const deletedImage = res.body;
+                assert.ok(deletedImage._id);
+                done();
+            })
+            .catch(done);
+    });
+
 });

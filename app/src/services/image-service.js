@@ -12,7 +12,6 @@ export default function imageService($http, apiUrl) {
                 .then(res => res.data);
         }, 
         remove(image) {
-            console.log('deleting image: ', image);
             return $http.delete(`${apiUrl}/images/${image._id}`)
                 .then(res => res.data);
         }
