@@ -56,15 +56,15 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(29);
+	var _services = __webpack_require__(33);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(31);
+	var _angularUiRouter = __webpack_require__(35);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(32);
+	var _routes = __webpack_require__(36);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
@@ -32873,9 +32873,17 @@
 	
 	var _about2 = _interopRequireDefault(_about);
 	
+	var _aboutStaff = __webpack_require__(30);
+	
+	var _aboutStaff2 = _interopRequireDefault(_aboutStaff);
+	
+	var _delImage = __webpack_require__(31);
+	
+	var _delImage2 = _interopRequireDefault(_delImage);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var components = _angular2.default.module('components', []).component('parentComp', _parentComp2.default).component('imageThumbnail', _imageThumbnail2.default).component('imageText', _imageText2.default).component('imageFull', _imageFull2.default).component('imageAll', _imageAll2.default).component('newImage', _newImage2.default).component('welcome', _welcome2.default).component('about', _about2.default);
+	var components = _angular2.default.module('components', []).component('parentComp', _parentComp2.default).component('about', _about2.default).component('aboutStaff', _aboutStaff2.default).component('imageThumbnail', _imageThumbnail2.default).component('imageText', _imageText2.default).component('imageFull', _imageFull2.default).component('imageAll', _imageAll2.default).component('newImage', _newImage2.default).component('delImage', _delImage2.default).component('welcome', _welcome2.default);
 	
 	exports.default = components.name;
 
@@ -32902,7 +32910,8 @@
 	exports.default = {
 	  template: _imageThumbnail2.default,
 	  bindings: {
-	    thumbnails: '='
+	    thumbnails: '=',
+	    remove: '<'
 	  },
 	  controller: controller,
 	  controllerAs: 'app'
@@ -32910,14 +32919,20 @@
 	
 	
 	function controller() {
+	  var _this = this;
+	
 	  this.styles = _imageThumbnail4.default;
+	
+	  this.delete = function (image) {
+	    _this.remove(image);
+	  };
 	};
 
 /***/ },
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Document</title>\n</head>\n<body>\n    <h1>Thumbnails...</h1>\n    <ul>\n        <li ng-class=\"app.styles.thumbnails\" ng-repeat=\"thumbnails in app.thumbnails\"><img ng-src=\"{{thumbnails.thumbnail}}\"></li>\n    </ul>\n</body>\n</html>";
+	module.exports = "\n<body>\n    <h1>Thumbnails...</h1>\n    <ul>\n        <li ng-class=\"app.styles.thumbnails\" ng-repeat=\"thumbnails in app.thumbnails\">\n            <img ng-src=\"{{thumbnails.thumbnail}}\">\n            <button ng-click=\"app.delete(thumbnails)\">remove</button>\n        </li>\n    </ul>\n</body>\n";
 
 /***/ },
 /* 10 */
@@ -32997,10 +33012,18 @@
 	  this.loading = true;
 	
 	  images.get().then(function (images) {
-	    console.log(images);
 	    _this.loading = false;
 	    _this.images = images;
 	  });
+	
+	  this.remove = function (image) {
+	    _this.loading = true;
+	    images.remove(image._id).then(function () {
+	      _this.loading = false;
+	      var index = _this.images.indexOf(image);
+	      if (index > -1) _this.images.splice(index, 1);
+	    });
+	  };
 	
 	  this.add = function (image) {
 	    _this.loading = true;
@@ -33015,7 +33038,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<!--<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Main Component Showing All Data</title>\n</head>-->\n<body>\n    <h1 class=\"title\">Image Gallery</h1>\n    <main>\n        <div class=\"loader\" ng-if=\"app.loading\">Loading...</div>\n        <section ng-class=\"app.stylesParent.parentComp\">\n            <select ng-model=\"selection\">\n                <option value=\"all\">All</option>\n                <option value=\"text\">Text</option>\n                <option value=\"full\">Full</option>\n                <option value=\"thumb\">Thumb</option>\n            </select>\n\n            <image-all ng-if=\"selection === 'all'\" all=\"app.images\" class=\"full\"></image-all>\n            <image-thumbnail ng-if=\"selection === 'thumb'\" thumbnails=\"app.images\" class=\"thumb\"></image-thumbnail>\n            <image-text ng-if=\"selection === 'text'\" text=\"app.images\" ></image-text>\n            <image-full ng-if=\"selection === 'full'\" full=\"app.images\" class=\"full\"></full-image>\n        </section>\n\n        <new-image add=\"app.add\"></new-image>\n\n    </main>\n<!--</body>\n</html>-->";
+	module.exports = "\n    <h1 class=\"title\">Image Gallery</h1>\n    <a ui-sref=\"welcome\" ui-sref-active=\"link\">Home</a>\n    <a ui-sref=\"about\" ui-sref-active=\"link\">About</a>\n    <main>\n        <div class=\"loader\" ng-if=\"app.loading\">Loading...</div>\n        <section ng-class=\"app.stylesParent.parentComp\">\n            <select ng-model=\"selection\">\n                <option value=\"\">please select</option>\n                <option value=\"all\">All</option>\n                <option value=\"text\">Text</option>\n                <option value=\"full\">Full</option>\n                <option value=\"thumb\">Thumb</option>\n            </select>\n\n            <image-all ng-if=\"selection === 'all'\" all=\"app.images\" class=\"full\"></image-all>\n            <image-thumbnail ng-if=\"selection === 'thumb'\" thumbnails=\"app.images\" remove=\"app.remove\" class=\"thumb\"></image-thumbnail>\n            <image-text ng-if=\"selection === 'text'\" text=\"app.images\" ></image-text>\n            <image-full ng-if=\"selection === 'full'\" full=\"app.images\" class=\"full\"></full-image>\n        </section>\n\n        <new-image add=\"app.add\" ></new-image>\n\n    </main>";
 
 /***/ },
 /* 14 */
@@ -33091,7 +33114,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Document</title>\n</head>\n<body>\n    <h1>Image Text...</h1>\n    <ul>\n        <li ng-repeat=\"text in app.text track by text.title\">\n            <p>{{text.title}}</p>\n            <p>{{text.description}}</p>\n            <p>Url: {{text.url}}</p>\n        </li>\n    </ul>\n</body>\n</html>";
+	module.exports = "\n<body>\n    <h1>Image Text...</h1>\n    <ul>\n        <li ng-repeat=\"text in app.text track by text.title\">\n            <p>{{text.title}}</p>\n            <p>{{text.description}}</p>\n            <p>Url: {{text.url}}</p>\n        </li>\n    </ul>\n</body>\n";
 
 /***/ },
 /* 18 */
@@ -33125,7 +33148,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Document</title>\n</head>\n<body>\n    <h1>Full Size Image</h1>\n    <ul>\n        <li ng-repeat=\"full in app.full track by full.title\">\n            <p>{{full.title}}</p>\n            <p>{{full.description}}</p>\n            <img ng-src=\"{{full.fullImage}}\">\n        </li>\n    </ul>\n</body>\n</html>";
+	module.exports = "\n<body>\n    <h1>Full Size Image</h1>\n    <ul>\n        <li ng-repeat=\"full in app.full track by full.title\">\n            <p>{{full.title}}</p>\n            <p>{{full.description}}</p>\n            <img ng-src=\"{{full.fullImage}}\">\n        </li>\n    </ul>\n</body>";
 
 /***/ },
 /* 20 */
@@ -33159,7 +33182,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Main Component Showing All Data</title>\n</head>\n<body>\n    <h1>Image Gallery</h1>\n\n        <ul>\n            <li ng-repeat=\"all in app.all track by all.title\">\n                <p>{{all.title}}</p>\n                <p>{{all.description}}</p>\n                <p>Url: {{all.url}}</p>\n                <img ng-src=\"{{all.fullImage}}\">\n            </li>\n        </ul>\n\n</body>\n</html>";
+	module.exports = "\n<body>\n    <h1>Image Gallery</h1>\n\n        <ul>\n            <li ng-repeat=\"all in app.all track by all.title\">\n                <p>{{all.title}}</p>\n                <p>{{all.description}}</p>\n                <p>Url: {{all.url}}</p>\n                <img ng-src=\"{{all.fullImage}}\">\n            </li>\n        </ul>\n\n</body>\n";
 
 /***/ },
 /* 22 */
@@ -33184,7 +33207,8 @@
 	exports.default = {
 	  template: _newImage2.default,
 	  bindings: {
-	    add: '<'
+	    add: '<',
+	    remove: '<'
 	  },
 	  controller: controller,
 	  controllerAs: 'app'
@@ -33215,6 +33239,10 @@
 	      thumbnail: _this.thumbnail
 	    });
 	    _this.reset();
+	  };
+	
+	  this.delete = function () {
+	    _this.remove(_this.image);
 	  };
 	}
 
@@ -33259,7 +33287,7 @@
 	
 	
 	// module
-	exports.push([module.id, "label {\n  font-style: Courier;\n  font-weight: bold; }\n\n._1HmE4z-cbF-37viyxB02Ku {\n  border: .1em solid black;\n  background-color: lightgrey; }\n", "", {"version":3,"sources":["/./src/components/new-image/src/scss/partials/_fonts.scss","/./src/components/new-image/src/components/new-image/new-image.scss"],"names":[],"mappings":"AAAA;EACI,oBAAmB;EACnB,kBAAiB,EACpB;;ACDD;EACI,yBAAwB;EACxB,4BDCiB,ECCpB","file":"new-image.scss","sourcesContent":["label {\n    font-style: Courier;\n    font-weight: bold;\n}\n\n$lightGrey: lightgrey;","@import 'fonts';\n\n:local(.newImage) {\n    border: .1em solid black;\n    background-color: $lightGrey\n\n}"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "label {\n  font-style: Courier;\n  font-weight: bold; }\n\n._1HmE4z-cbF-37viyxB02Ku {\n  margin-top: 1em;\n  border: .1em solid black;\n  background-color: lightgrey; }\n  ._1HmE4z-cbF-37viyxB02Ku div {\n    display: inline-block;\n    padding: .5em; }\n", "", {"version":3,"sources":["/./src/components/new-image/src/scss/partials/_fonts.scss","/./src/components/new-image/src/components/new-image/new-image.scss"],"names":[],"mappings":"AAAA;EACI,oBAAmB;EACnB,kBAAiB,EACpB;;ACDD;EACI,gBAAe;EACf,yBAAwB;EACxB,4BDAiB,ECKpB;EARD;IAKQ,sBAAqB;IACrB,cAAa,EAChB","file":"new-image.scss","sourcesContent":["label {\n    font-style: Courier;\n    font-weight: bold;\n}\n\n$lightGrey: lightgrey;","@import 'fonts';\n\n:local(.newImage) {\n    margin-top: 1em;\n    border: .1em solid black;\n    background-color: $lightGrey;\n    div {\n        display: inline-block;\n        padding: .5em;\n    }\n}"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 	exports.locals = {
@@ -33290,7 +33318,7 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<header>\n    <h1>Welcome to the Image Gallery</h1>\n    <a ui-sref=\"parentComp\" ui-sref-active=\"link\">Gallery</a>\n    <a ui-sref=\"about\" ui-sref-active=\"link\">About</a>\n</header>\n<div>\n</div>";
+	module.exports = "<header>\n    <h1>Welcome to the Image Gallery</h1>\n    <a ui-sref=\"parentComp\" ui-sref-active=\"link\">Gallery</a>\n    <a ui-sref=\"about\" ui-sref-active=\"link\">About</a>\n</header>\n<div>\n</div>";
 
 /***/ },
 /* 28 */
@@ -33302,7 +33330,7 @@
 	  value: true
 	});
 	
-	var _about = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./about.html\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _about = __webpack_require__(29);
 	
 	var _about2 = _interopRequireDefault(_about);
 	
@@ -33314,6 +33342,69 @@
 
 /***/ },
 /* 29 */
+/***/ function(module, exports) {
+
+	module.exports = "<header>\n    <h1>About Us!</h1>\n    <a ui-sref=\"parentComp\" ui-sref-active=\"link\">Gallery</a>\n    <a ui-sref=\"welcome\" ui-sref-active=\"link\">Home</a>\n</header>\n<div>\n    <p>A bunch of info about our awesome company!</p>\n</div>\n<div>\n    <a ui-sref=\"about.staff\" ui-sref-active=\"link\">Staff Info.</a>\n    <ui-view></ui-view>\n</div>";
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  template: '\n    <section>\n        <h2>Staff!</h2>\n        <p> Staff information, blah, blah, blah </p>\n        <button ng-click="$ctrl.gotoAbout()">Hide</button>\n    </section>\n    ',
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['$state'];
+	
+	function controller($state) {
+	  this.gotoAbout = function () {
+	    return $state.go('about');
+	  };
+	}
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _delImage = __webpack_require__(32);
+	
+	var _delImage2 = _interopRequireDefault(_delImage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _delImage2.default,
+	  bindings: {
+	    remove: '<'
+	  },
+	  controller: controller,
+	  controllerAs: 'app'
+	};
+	
+	
+	function controller() {}
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	module.exports = "<span>\n    {{app.image.name}}\n    \n</span>";
+
+/***/ },
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33326,7 +33417,7 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _imageService = __webpack_require__(30);
+	var _imageService = __webpack_require__(34);
 	
 	var _imageService2 = _interopRequireDefault(_imageService);
 	
@@ -33337,7 +33428,7 @@
 	exports.default = service.name;
 
 /***/ },
-/* 30 */
+/* 34 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33355,6 +33446,11 @@
 	        return res.data;
 	      });
 	    },
+	    remove: function remove(id) {
+	      return $http.delete(apiUrl + '/images/' + id).then(function (res) {
+	        return res.data;
+	      });
+	    },
 	    add: function add(image) {
 	      return $http.post(apiUrl + '/images', image).then(function (res) {
 	        return res.data;
@@ -33364,7 +33460,7 @@
 	}
 
 /***/ },
-/* 31 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -41713,7 +41809,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 32 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41742,6 +41838,12 @@
 	    name: 'about',
 	    url: '/about',
 	    component: 'about'
+	  });
+	
+	  $stateProvider.state({
+	    name: 'about.staff',
+	    url: '/staff',
+	    component: 'aboutStaff'
 	  });
 	
 	  $urlRouterProvider.otherwise('/');

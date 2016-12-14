@@ -4,7 +4,8 @@ import styles from './new-image.scss';
 export default {
   template,
   bindings: {
-    add: '<'
+    add: '<',
+    remove: '<'
   },
   controller,
   controllerAs: 'app'
@@ -33,5 +34,9 @@ function controller () {
       thumbnail: this.thumbnail
     });
     this.reset();
+  };
+
+  this.delete = () => {
+    this.remove(this.image);
   };
 }

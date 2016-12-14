@@ -1,7 +1,7 @@
 const express =  require ('express');
 const router = express.Router();//eslint-disable-line
 const bodyParser = require ('body-parser').json();
-const Image = require('../models/image');
+const Album = require('../models/album');
 
 router
     .get('/', (req, res, next) => {
@@ -9,9 +9,9 @@ router
       if(req.query.title) query.title = req.query.title;
 
       Image.find(query)
-        .select('title description url fullImage thumbnail')
+        .select('title description')
         .lean()
-        .then(images => res.send(images))
+        .then(albums => res.send(albums))
         .catch(next);
     })
 
@@ -22,8 +22,7 @@ router
     })
 
     .post('/', bodyParser, (req, res, next) => {
-      console.log('req.body', req.body);
-      new Image(req.body).save()
+      new Album(req.body).save()
         .then(saved => {
           res.send(saved);
         })

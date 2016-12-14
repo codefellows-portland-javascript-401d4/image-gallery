@@ -9,6 +9,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
+    name: 'albums',
+    url:'/',
+    component: 'albums'
+  });
+
+  $stateProvider.state({
     name: 'parentComp',
     url: '/gallery',
     component: 'parentComp'

@@ -3,6 +3,7 @@ const app = express();
 const errorHandler = require('./error-handler');
 
 const images = require ('./routes/images');
+const albums = require ('./routes/albums');
 
 if(process.env.NODE_ENV === 'production'){
   app.use((req, res, next) => {
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 app.use(express.static('./public'));
 
 app.use('/images', images);
+app.use('/albums', albums);
 
 app.use(errorHandler);
 

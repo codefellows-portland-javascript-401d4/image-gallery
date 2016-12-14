@@ -8,6 +8,7 @@ import newImage from './new-image/new-image';
 import welcome from './welcome/welcome';
 import about from './about/about';
 import aboutStaff from './about/about-staff';
+import albums from './albums/albums';
 
 const components = angular.module('components', [])
   .component('parentComp', parentComp)
@@ -18,7 +19,8 @@ const components = angular.module('components', [])
   .component('imageFull', imageFull)
   .component('imageAll', imageAll)
   .component('newImage', newImage)
-  .component('welcome', welcome);
+  .component('welcome', welcome)
+  .component('albums', albums);
 
 
 export default components.name;
