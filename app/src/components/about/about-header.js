@@ -1,3 +1,3 @@
 export default {
-    template: '<h1>whatever</h1>'
+    template: '<h2>Who I am</h2>'
 };

@@ -9,7 +9,7 @@ const app = angular.module('myApp', [components, services, uiRouter]);
 
 app.config(routes);
 
-const dev = 'http://localhost:3000/api';
+const dev = 'http://localhost:3001/api';
 
 app.value('apiUrl', dev);
 

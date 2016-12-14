@@ -10,6 +10,8 @@
         @include rounded(4px);
         text-decoration: none;
         color: $hotlink;
+        min-width: 80px;
+        text-align: center;
         background-color: $frontcolor;
         border: 1px solid $hotlink;
         padding: 0.1em 0.4em;

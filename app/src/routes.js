@@ -21,8 +21,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
-        name: 'about.plain',
-        url: '/plain',
+        name: 'about.me',
+        url: '/me',
         views: {
             header: {
                 component: 'aboutHeader'
@@ -34,14 +34,14 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
-        name: 'about.cool',
-        url: '/cool',
+        name: 'about.gallery',
+        url: '/gallery',
         views: {
             header: {
-                component: 'aboutHeaderCool'
+                component: 'aboutHeaderGallery'
             },
             main: {
-                component: 'aboutMainCool'
+                component: 'aboutMainGallery'
             }
         }
     });
