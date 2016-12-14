@@ -9,21 +9,21 @@ router
         // if(req.query.rank) query.rank = req.query.rank;
 
       Image.find(query)
-            // .select('name rank')
-            // .lean()
-            // .populate({
-            //     path: 'crewId',
-            //     select: 'name'
-            // })
-            // .lean()
+            .select('title desc')
+            .lean()
+            .populate({
+              path: 'albumId',
+              select: 'name'
+            })
+            .lean()
             .then(images => res.send(images ))
             .catch(next);
     })
 
     .get('/:id', (req, res, next) => {
       Image.findById(req.params.id)
-            // .select('name rank')
-            // .lean()
+            .select('title desc')
+            .lean()
             .then(image => res.send(image ))
             .catch(next);
     })
