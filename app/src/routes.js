@@ -9,6 +9,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
+        name: 'albums',
+        url: '/',
+        component: 'albums'
+    });
+
+    $stateProvider.state({
         name: 'images',
         url: '/images',
         component: 'images',
