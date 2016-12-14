@@ -1,5 +1,11 @@
 import angular from 'angular';
-import './css/main.css';
+import './scss/main.scss';
 import components from './components';
+import services from './services';
 
-angular.module('myApp', [components]);
+const app = angular.module('imageGalleryApp', [
+  components,
+  services
+  ]);
+
+app.value('apiUrl', 'http://localhost:3000/api');
