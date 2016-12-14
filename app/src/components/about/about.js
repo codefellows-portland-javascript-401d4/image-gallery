@@ -4,7 +4,7 @@ export default {
     <h2>About the Bunny Gallery!</h2>
     <div class="about">
       <a ui-sref="about.bio">Developer bio</a>
-      <a ui-sref="about.lab">About the app</a>
+      <a ui-sref="about.lab">App info</a>
       <section>
           <ui-view name="about.bio"></ui-view>
       </section>

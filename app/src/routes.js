@@ -34,7 +34,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     name: 'about.lab',
     url: '/app',
     views: {
-      bio: {
+      lab: {
         component: 'lab'
       }
     }
