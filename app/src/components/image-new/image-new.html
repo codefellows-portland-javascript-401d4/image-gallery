@@ -1,12 +1,17 @@
 <section ng-class="ctrl.styles.image">
   <div>
     <label>title:</label>
-    <input ng-model="$ctrl.image.title">
+    <input ng-model="$ctrl.image.title" placeholder="image title">
   </div>
 
   <div>
     <label>description:</label>
-    <input ng-model="$ctrl.image.description">
+    <input ng-model="$ctrl.image.description" placeholder="image description">
+  </div>
+
+   <div>
+    <label>url:</label>
+    <input ng-model="$ctrl.image.url" placeholder="image url">
   </div>
 
   <button ng-click="$ctrl.addNew()">add new</button>
