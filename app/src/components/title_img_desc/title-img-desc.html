@@ -1,7 +1,8 @@
 <section>
-  <div>
-    <h1>{{$ctrl.title}}</h1>
-    <img ng-src="{{$ctrl.img.src}}" style="width:50%; height:50%">
-    <p>{{$ctrl.desc}}</p>
+  <div ng-repeat="images in $ctrl.images">
+    <h1>{{images.name}}</h1>
+    <img ng-src="{{images.src}}" style="width:50%; height:50%">
+    <p>{{images.description}}</p>
+    <button ng-click="$ctrl.remove(images)">Delete</button>
   </div>
 </section>

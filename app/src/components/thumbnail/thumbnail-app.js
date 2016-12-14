@@ -6,9 +6,21 @@ export default {
   controller
 };
 
-function controller() {
+controller.$inject = ['imageService'];
+
+function controller(images) {
   this.styles = styles;
-  this.thumbnail = {
-    src: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
+
+  images.get().then(images => {
+    console.log(images);
+    this.images = images;
+  });
+
+  this.remove = image => {
+    images.remove(image._id)
+      .then(() => {
+        const index = this.images.indexOf(image);
+        if(index > -1) this.images.splice(index, 1);
+      });
   };
 }

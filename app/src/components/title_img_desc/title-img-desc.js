@@ -5,10 +5,19 @@ export default {
   controller
 };
 
-function controller() {
-  this.img = {
-    src: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
+controller.$inject = ['imageService'];
+
+function controller(images) {
+  images.get().then(images => {
+    console.log(images);
+    this.images = images;
+  });
+
+  this.remove = image => {
+    images.remove(image._id)
+      .then(() => {
+        const index = this.images.indexOf(image);
+        if (index > -1) this.images.splice(index,1);
+      });
   };
-  this.title = 'Cute Bunny Picture';
-  this.desc = 'Picture of a cute bunny';
 }
