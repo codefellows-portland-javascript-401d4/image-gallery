@@ -9,7 +9,7 @@
     <h1 class="title">Image Gallery</h1>
     <main>
         <div class="loader" ng-if="app.loading">Loading...</div>
-        <section>
+        <section ng-class="app.stylesParent.parentComp">
             <select ng-model="selection">
                 <option value="all">All</option>
                 <option value="text">Text</option>

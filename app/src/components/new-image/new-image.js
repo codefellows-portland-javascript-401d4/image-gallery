@@ -1,4 +1,5 @@
 import template from './new-image.html';
+import styles from './new-image.scss';
 
 export default {
   template,
@@ -10,6 +11,8 @@ export default {
 };
 
 function controller () {
+
+  this.styles = styles;
 
   this.reset = () => {
     this.title = '';
