@@ -6,7 +6,7 @@ export default {
 	controllerAs: 'homeDetail'  
 };
 
-controller.$inject = ['$scope', '$location'];
+controller.$inject = ['$scope'];
 
 function controller($scope) {
 	this.loading = true;
@@ -29,11 +29,6 @@ function controller($scope) {
 			}
 			$scope.picturesButton = false;
 		}
-	};
-
-	this.goToImages = function($location){
-		console.log('button clicked.  path is ', $location.path);
-		$location.path('images'); 
 	};
 
 }
