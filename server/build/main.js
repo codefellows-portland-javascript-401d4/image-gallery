@@ -33131,7 +33131,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n    <h3>Image Detail -</h3>\n    <ul>\n        <li>Title: {{$ctrl.image.title}}</li>\n        <li>Url: <a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.url | limitTo: 20}}...</a></li>\n        <li>Description: {{$ctrl.image.description}}</li>\n    </ul> \n    <button ng-click=\"$ctrl.delete()\">Remove</button>\n</span>";
+	module.exports = "<div>\n    <ul>\n        <li>Title: {{$ctrl.image.title}}</li>\n        <li>Url: <a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.url | limitTo: 20}}...</a></li>\n        <li>Description: {{$ctrl.image.description}}</li>\n    </ul> \n    <button ng-click=\"$ctrl.delete()\">Remove</button>\n</div>";
 
 /***/ },
 /* 18 */
@@ -33160,7 +33160,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n    <h3>Image Gallery -</h3>\n    <ul>\n        <li>Title: {{$ctrl.image.title}}</li>\n        <li><img ng-src=\"{{$ctrl.image.url}}\" /></li>\n        <li>Description: {{$ctrl.image.description}}</li>\n    </ul> \n</span>";
+	module.exports = "<div>\n    <ul>\n        <li>Title: {{$ctrl.image.title}}</li>\n        <li><img ng-src=\"{{$ctrl.image.url}}\" /></li>\n        <li>Description: {{$ctrl.image.description}}</li>\n    </ul> \n</div>";
 
 /***/ },
 /* 20 */
@@ -33265,7 +33265,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<span ng-class=\"$ctrl.styles.image\">\n    <h3>Image Thumbnail -</h3>\n    <ul>\n        <li>\n            <img ng-src=\"{{$ctrl.image.url}}\" />\n        </li>\n    </ul>\n</span>";
+	module.exports = "<div ng-class=\"$ctrl.styles.image\">\n    <ul>\n        <li>\n            <img ng-src=\"{{$ctrl.image.url}}\" />\n        </li>\n    </ul>\n</div>";
 
 /***/ },
 /* 26 */
@@ -33319,14 +33319,14 @@
 	        });
 	    };
 	
-	    this.selected = 'detail';
+	    this.selected = 'Detail';
 	}
 
 /***/ },
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"detail\">Detail</option>\n        <option value=\"thumbnail\">Thumbnail</option>\n        <option value=\"gallery\">Gallery</option>\n    </select>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'detail'\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'gallery'\" image=\"image\"></image-gallery>\n        </li remove=\"$ctrl.remove\">\n    </ul>\n</section>\n<section>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
+	module.exports = "<section class=\"display\">\n    Display Mode: <select ng-model=\"$ctrl.selected\">\n        <option value=\"Detail\">Detail</option>\n        <option value=\"Thumbnail\">Thumbnail</option>\n        <option value=\"Gallery\">Gallery</option>\n    </select>\n    <ul>\n        <h3>Image {{$ctrl.selected}} -</h3>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail ng-if=\"$ctrl.selected === 'Detail'\" remove=\"$ctrl.remove\" image=\"image\"></image-detail>\n            <image-thumbnail ng-if=\"$ctrl.selected === 'Thumbnail'\" image=\"image\"></image-thumbnail>\n            <image-gallery ng-if=\"$ctrl.selected === 'Gallery'\" image=\"image\"></image-gallery>\n        </li>\n    </ul>\n</section>\n<section>\n    <image-new add=\"$ctrl.add\">Add</image-new>\n</section>";
 
 /***/ },
 /* 30 */
@@ -41822,24 +41822,6 @@
 	        url: '/about',
 	        component: 'about'
 	    });
-	
-	    // $stateProvider.state({
-	    //     name: 'images.detail',
-	    //     url: '/detail',
-	    //     component: 'imageDetail'
-	    // });
-	
-	    // $stateProvider.state({
-	    //     name: 'images.thumbnail',
-	    //     url: '/thumbnail',
-	    //     component: 'imageThumbnail'
-	    // });
-	
-	    // $stateProvider.state({
-	    //     name: 'images.gallery',
-	    //     url: '/gallery',
-	    //     component: 'imageGallery'
-	    // });
 	
 	    $urlRouterProvider.otherwise('/');
 	}

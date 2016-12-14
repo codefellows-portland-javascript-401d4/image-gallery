@@ -17,6 +17,9 @@ images {
   flex-wrap: wrap;
   justify-content: space-around; }
 
+.display div {
+  margin-bottom: 1.5em; }
+
 section {
   flex: 1;
   padding: 1em;
