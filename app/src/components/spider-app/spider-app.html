@@ -1,20 +1,11 @@
-<!-- all spider views -->
+<header>
+  <h1 ng-click="$ctrl.gotoSpiders()">Spiders!</h1>
+  <a ui-sref="welcome" ui-sref-active="foo">Home</a>
+  <a ui-sref="spiders" ui-sref-active="foo">Spiders</a>
+  <a ui-sref="about.plain" ui-sref-active="foo">About Plain</a>
+  <a ui-sref="about.special" ui-sref-active="foo">About Special</a>
+</header>
 
-<div>
-  <spider-detail
-    spider="app.spider">
-  </spider-detail>
-</div>
-<br/><br/><br/>
-<div>
-  <spider-thumbnail
-    spider="app.spider">
-  </spider-thumbnail>
-</div>
-<br/>
-<br/>
-<div>
-  <spider-image
-    spider="app.spider">
-  </spider-image>
-</div>
+<main>
+  <ui-view></ui-view>
+</main>

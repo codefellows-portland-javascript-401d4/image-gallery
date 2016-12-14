@@ -1,61 +1,35 @@
-describe('spiders component', () => {
-  const {assert} = chai;
+/* globals angular, chai */
 
-  angular.mock.module.sharedInjector();
-  // we need to mock the components module,
-  // which is where spiders component lives
-  before(
-    angular.mock.module('components')
-  );
+const {assert} = chai;
 
-  let $component = null;
-  before(angular.mock.inject($componentController => {
-    $component = $componentController;
-  }));
+describe('component', () => {
 
-  describe('create component', () => {
+  beforeEach(angular.mock.module('components'));
 
-    const spiders = [
-      {name: 'Igor', type: 'dapper'},
-      {name: 'Spike', type: 'punk'}
-    ];
-
-    const spider = {name: 'Goblin', type: 'greeny'};
-
-    const spiderService = {
-      get() {
-        return Promise.resolve(spiders);
-      },
-      add(spider) {
-        return Promise.resolve(spider);
-      }
-    };
-
-    let component = null;
-    before(() => {
-      component = $component('spiders', {spiderService});
-    });
-
-    it('loads spiders', done => {
-
-      assert.isOk(component.loading);
-
-      setTimeout(() => {
-        assert.equal(component.spiders, spiders);
-        assert.isNotOk(component.loading);
-        done();
-      });
-    });
-
-    it('add a spider', done => {
-
-      component.add(spider);
-
-      setTimeout(() => {
-        assert.equal(spiders.length, 3);
-        assert.equal(spiders[2], spider);
-        done();
-      });
-    });
+  const fn = angular.mock.inject(function(_$componentCompiler_) {
+    // $rootScope allows us to create new scopes
+    // $scope = $rootScope.$new();
+    // $controller is the generic controller factory
+    $controller = _$controller_;
   });
+
+  beforeEach(fn);
+
+  it('has a default player, at the start of the map', () => {
+    const location = {};
+    const player = {location};
+
+    const $scope = {};
+
+    $controller('game', {
+      $scope,
+      playerService: {
+        getNew() { return player; }
+      }
+    });
+
+    assert.equal($scope.player, player);
+    assert.equal($scope.getLocation(), location);
+  });
+
 });

@@ -24,20 +24,3 @@ module.exports = function errorHandler(err, req, res, next) {
   }
   res.status(code).send({ error });
 };
-
-// module.exports = function errorHandler(err, req, res, next) { // eslint-disable-line no-unused-var
-
-//  // what should we write to the server log? (not user facing)
-//  // is this one of our errors? or something unexpected?
-//  const knownError = !!err.code;
-//  const toLog = knownError ? `${err.code}: ${err.error}` : err;
-//  console.error(toLog);
-
-//  // what should the status code be?
-//  const code = knownError ? err.code : 500;
-
-//  // what message do we return to the caller?
-//  const error = knownError ? err.error: 'Internal Server Error';
-
-// 	res.status(code).send({ error });
-// };

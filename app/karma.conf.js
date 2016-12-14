@@ -2,9 +2,7 @@ const webpackConfig = require( './webpack.config' );
 webpackConfig.entry = {};
 
 module.exports = function(config) {
-
-	// Define the configuration first, because we need to mod it if we're testing in Travis
-  let configuration = {
+  const options = {
         // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -16,7 +14,7 @@ module.exports = function(config) {
     files: [
       './src/app.js',
       './node_modules/angular-mocks/angular-mocks.js',
-      './test/**/*.js' 
+      './test/**/*.js'
     ],
 
     webpack: webpackConfig,
@@ -30,7 +28,7 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Safari'],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
@@ -57,20 +55,19 @@ module.exports = function(config) {
         // Concurrency level
         // how many browser should be started simultaneous
     concurrency: Infinity
-
   };
 
-// Configuration changes for running tests on Travis CI
+// if we are running tests on Travis CI
   if (process.env.TRAVIS) {
-    configuration.customLaunchers = {
+    options.customLaunchers = {
       Chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox']
       }
     };
-    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
-    configuration.singleRun = true;
+    options.browsers = ['Chrome_travis_ci', 'Firefox'];
+    options.singleRun = true;
   }
 
-  config.set(configuration);
+  config.set(options);
 };
