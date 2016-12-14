@@ -14,5 +14,31 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'images'
   });
 
+  $stateProvider.state({
+    name: 'about',
+    url: '/about',
+    component: 'about'
+  });
+
+  $stateProvider.state({
+    name: 'about.bio',
+    url: '/bio',
+    views: {
+      bio: {
+        component: 'bio'
+      }
+    }
+  });
+
+  $stateProvider.state({
+    name: 'about.lab',
+    url: '/app',
+    views: {
+      bio: {
+        component: 'lab'
+      }
+    }
+  });
+
   $urlRouterProvider.otherwise('/');
 }

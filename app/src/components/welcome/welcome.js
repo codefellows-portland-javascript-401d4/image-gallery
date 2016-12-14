@@ -1,8 +1,10 @@
 export default {
   template: `
-  <h2>Welcome to the Bunny Gallery!</h2>
-  <section>
-    <ui-view>Bunnies! Bunnies! Bunnies!</ui-view>
-  </section>
+  <div class="component">
+    <h2>Welcome to the Bunny Gallery!</h2>
+    <section>
+      <p>Bunnies! Bunnies! Bunnies!</p>
+    </section>
+  </div>
   `
 };

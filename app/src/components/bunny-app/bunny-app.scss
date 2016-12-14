@@ -21,15 +21,28 @@ h1 {
   padding: 5px;
   margin: $defaultMargin;
   border-radius: $defaultBorderRadius;
-  text-decoration: none;
+  text-decoration: underline;
+  color: #000;
 }
 
 .container a:hover {
+  font-weight: $primaryFontWeight;
   background-color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   transition: .5s;
 }
 
 .container a:visited {
   color: inherit;
+}
+
+.component {
+  background-color: rgba(255,235,205,.9);
+  padding: $defaultPadding;
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+}
+
+.about a {
+  display: inline;
 }
