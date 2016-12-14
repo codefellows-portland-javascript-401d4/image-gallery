@@ -16,7 +16,6 @@ function controller (images) {
 
   images.get()
     .then(images => {
-      console.log(images);
       this.loading = false;
       this.images = images;
     });
@@ -30,11 +29,3 @@ function controller (images) {
       });
   };
 }
-
-  // this.data = [
-  //   {title: 'Bunny Photo',
-  //     description: 'Picture of a cute bunny!',
-  //     url: 'f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-  //     fullImage: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-  //     thumbnail: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'}
-  // ];

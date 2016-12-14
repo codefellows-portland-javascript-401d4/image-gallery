@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main Component Showing All Data</title>
-    <!--<link rel="stylesheet" type="text/css" href="src/main.css">-->
-</head>
-<body>
+
     <h1 class="title">Image Gallery</h1>
+    <a ui-sref="welcome" ui-sref-active="link">Home</a>
+    <a ui-sref="about" ui-sref-active="link">About</a>
     <main>
         <div class="loader" ng-if="app.loading">Loading...</div>
         <section ng-class="app.stylesParent.parentComp">
             <select ng-model="selection">
+                <option value="">please select</option>
                 <option value="all">All</option>
                 <option value="text">Text</option>
                 <option value="full">Full</option>
@@ -26,5 +22,3 @@
         <new-image add="app.add"></new-image>
 
     </main>
-</body>
-</html>
