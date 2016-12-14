@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const cssExtract = new ExtractTextPlugin('main.css');
+//const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/app.js',
@@ -33,10 +31,7 @@ module.exports = {
       }
     }, {
       test: /\.scss$/,
-      loader: cssExtract.extract(
-        'style-loader',
-        'css-loader?sourceMap!sass-loader?sourceMap'
-      )
+      loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'	
     }, {
       test: /\.html$/,
       loader: 'html-loader'	
