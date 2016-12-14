@@ -1,0 +1,10 @@
+@import 'colors';
+
+button.basic {
+    color: $black;
+    background-color: $btn-bkgrnd;
+
+    &:hover {
+        background-color: $btn-bkgrnd-hvr;
+    }
+}

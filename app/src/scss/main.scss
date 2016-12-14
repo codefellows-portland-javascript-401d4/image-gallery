@@ -1,0 +1,13 @@
+@import 'colors';
+
+header, h1, h2, h3, label {
+    color: $dkgreen;
+}
+
+header, body {
+    background-color: $blue;
+}
+
+li {
+    list-style-type: none;
+}
