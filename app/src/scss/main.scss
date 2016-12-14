@@ -1,0 +1,43 @@
+@import 'colors';
+@import 'buttons';
+
+h1 {
+  color: $main;
+  font-family: fantasy;
+  font-size: 10rem;
+  margin: 0;
+}
+
+h2, h3, h4 {
+  color: $secondary;
+  font-family: fantasy;
+}
+
+p {
+  color: $dark-shade;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+header {
+  background: url(http://www.freetattoodesigns.org/images/lower-back-tribal-dragon.gif) no-repeat;
+  background-size: 100% 100%;
+  min-height: 250px;
+  background-color: $main;
+  text-align: center;
+  margin: auto;
+}
+
+footer {
+  background-color: $main;
+}
+
+body {
+  width: 80%;
+  margin: auto;
+}
+
+.nav-bar li {
+  display: inline-block;
+  list-style:none;
+  padding-right: 5rem;
+}

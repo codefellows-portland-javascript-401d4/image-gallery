@@ -1,0 +1,18 @@
+<div class="nav-bar">
+  <ul>
+    <li><a ui-sref="images.add"><h2>Add Image</h2></a></li>
+    <li><a ui-sref="images.delete"><h2>Delete Image</h2></a></li>
+  </ul>
+</div>
+<body> 
+  <ui-view images="$ctrl.images" add="$ctrl.add" delete="$ctrl.remove()" name="main"></ui-view>
+  <div>
+    <label>Viewing Choice</label>
+    <select ng-model="$ctrl.myChoice" ng-options="choice.name for choice in $ctrl.choices"></select>
+
+    <image-view ng-if="$ctrl.myChoice.value === 'view'" images="$ctrl.images" remove="$ctrl.remove"></image-view>
+    <image-gallery ng-if="$ctrl.myChoice.value === 'gallery'" images="$ctrl.images"></image-gallery>
+    <image-thumbnail ng-if="$ctrl.myChoice.value === 'thumbnail'" images="$ctrl.images"></image-thumbnail>
+  </div>
+
+</body>

@@ -1,0 +1,13 @@
+@import 'colors';
+
+.gallery {
+  display: inline-block;
+  clear: left;
+}
+
+.gallery img {
+  max-width: 500px;
+  max-height: 500px;
+  border: 10px ridge darkred;
+  margin: 5px;
+}

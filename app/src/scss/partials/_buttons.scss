@@ -1,0 +1,11 @@
+@import 'colors';
+
+button.primary {
+  background: url(https://www.askideas.com/media/17/Outline-Flying-Dragon-Tattoo-Idea.png) no-repeat;
+  background-size: 100% 100%;
+  background-color: $highlight;
+  min-width: 10rem;
+  min-height: 5rem;
+  color: $highlight;
+  box-shadow: 10px 5px $dark-shade;
+}
