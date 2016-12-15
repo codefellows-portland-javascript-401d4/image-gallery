@@ -7,31 +7,61 @@ h1 {
   font-family: 'Molle', cursive;
   font-size: 60pt;
   color: #f1da76;
-  padding: 30px; }
+  padding: 30px;
+  margin: -10px; }
 
 .header {
-  height: 160px;
+  position: absolute;
+  height: 25%;
   width: 100%;
-  margin: -5px;
   background-color: #006a91; }
+
+.leftnav {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 0;
+  width: 22%;
+  background-color: #bededb;
+  padding-left: 10px; }
+
+.body {
+  position: absolute;
+  left: 22%;
+  top: 25%;
+  right: 0;
+  bottom: 0;
+  margin: 10px 0 0 10px;
+  padding-left: 10px; }
 input {
-  display: block; }
+  display: block;
+  padding: 5px;
+  margin-left: 5px; }
 
 p {
-  font-family: 'Cabin', sans-serif; }
+  font-family: 'Cabin', sans-serif;
+  padding: 5px;
+  margin-left: 5px; }
 
 .add {
   background-color: #006a91;
   border-radius: 10px;
   color: white;
-  margin: 0 50px 20px 50px;
-  margin-top: 10px;
+  margin: 10px 30px 10px 30px;
   padding: 9px;
   font-family: 'Cabin', sans-serif;
   font-weight: 700;
   box-shadow: 3px 3px 5px #888888; }
   .add:hover {
     background-color: #bededb; }
+
+.widget {
+  padding: 5px;
+  margin: 5px;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px #888888;
+  background-color: #f1da76; }
 ._3Pe6ieEL30iKQ2jjHP_Tsw {
   margin: 0 auto;
   width: 100%; }
@@ -40,8 +70,7 @@ button.main {
   background-color: #bededb;
   border-radius: 10px;
   color: #010e3b;
-  margin: 0 50px 20px 50px;
-  margin-top: -30px;
+  margin: 10px 30px 10px 30px;
   padding: 9px;
   font-family: 'Cabin', sans-serif;
   font-weight: 700;

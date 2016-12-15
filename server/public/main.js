@@ -34065,40 +34065,67 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.default = {
-	    template: "    <h2>About this Gallery Software</h2>\n    <p>This image Gallery is written in Javascript/ES6 using Angular 1 and\n        a component-based architecture. The app is built using webpack.\n        It runs on an Express web server with MongoDB for document storage\n        (using Mongoose for validation). The server-side API provides basic\n        CRUD routes (GET, POST, PUT, DELETE) available at /api/gallery\n    </p>\n    <p>To play with the code yourself, checkout\n        <a href=\"https://github.com/GloriaAnholt/image-gallery/\">my\n            image-gallery repo on Github</a>.\n        A full suite of tests for the server are found\n        in server/test/, somewhat less comprehensive tests are available for\n        the front end in app/test.\n    </p>"
+	    bindings: {
+	        view: '@'
+	    },
+	    controller: controller,
+	    template: '    <h2>About this Gallery Software</h2>\n    <p>This image Gallery is written in Javascript/ES6 using Angular 1 and\n        a component-based architecture. The app is built using webpack.\n        It runs on an Express web server with MongoDB for document storage\n        (using Mongoose for validation). The server-side API provides basic\n        CRUD routes (GET, POST, PUT, DELETE) available at /api/gallery\n    </p>\n    <p>To play with the code yourself, checkout\n        <a href="https://github.com/GloriaAnholt/image-gallery/">my\n            image-gallery repo on Github</a>.\n        A full suite of tests for the server are found\n        in server/test/, somewhat less comprehensive tests are available for\n        the front end in app/test.\n    </p>'
 	};
+	
+	
+	function controller() {
+	    this.view = 'about.app';
+	}
 
 /***/ },
 /* 16 */
 /***/ function(module, exports) {
 
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = {
-	    template: "    <h2>About the Developer</h2>\n    <p>Gloria Anholt is a Full-Stack JavaScript developer, specializing in\n        the MEAN (Mongo, Express, Angular, NodeJS) stack. A long time Linux\n        loving nerd, she also codes in Python, when possible. When not at a\n        keyboard, Gloria is generally in her overgrown vegetable and herb\n        garden, or building custom mason-jar shelving in her woodshop.\n    </p>\n    "
-	};
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	exports.default = {
-	  template: "<a ui-sref=\"about.app\">About the App</a>\n   <a ui-sref=\"about.dev\">About the Developer</a>\n   <section><ui-view></ui-view></section>\n  "
+	  bindings: {
+	    view: '@'
+	  },
+	  controller: controller,
+	  template: '    <h2>About the Developer</h2>\n    <p>Gloria Anholt is a Full-Stack JavaScript developer, specializing in\n        the MEAN (Mongo, Express, Angular, NodeJS) stack. A long time Linux\n        loving nerd, she also codes in Python, when possible. When not at a\n        keyboard, Gloria is generally in her overgrown vegetable and herb\n        garden, or building custom mason-jar shelving in her woodshop.\n    </p>\n    '
 	};
+	
+	
+	function controller() {
+	  this.view = 'about.app';
+	}
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  bindings: {
+	    view: '@'
+	  },
+	  controller: controller,
+	  template: '<ui-view></ui-view>'
+	};
+	
+	
+	function controller() {
+	  this.view = 'about';
+	}
 
 /***/ },
 /* 18 */
@@ -34151,10 +34178,8 @@
 	      description: this.description
 	    };
 	
-	    console.log('the new image is: ', newImage);
-	
 	    galleryService.add(newImage).then(function (saved) {
-	      console.log('inside the service add, saved is: ', saved);
+	      console.log('Saved ', saved.title);
 	    });
 	
 	    this.reset();
@@ -34165,7 +34190,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div>\n        <p>Image title: <input type=\"text\" ng-model=\"$ctrl.title\" required=\"string\">\n        Image URL: <input type=\"text\" ng-model=\"$ctrl.url\" required=\"string\">\n        Description: <input type=\"text\" ng-model=\"$ctrl.description\" required=\"string\">\n        <button class=\"add\" ng-click=\"$ctrl.add()\">Add New Image</button>\n        </p>\n        <div>{{message}}</div>\n    </div>\n</section>";
+	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div class=\"widget\">\n        <p>Image title: <input type=\"text\" ng-model=\"$ctrl.title\" required=\"string\">\n        Image URL: <input type=\"text\" ng-model=\"$ctrl.url\" required=\"string\">\n        Description: <input type=\"text\" ng-model=\"$ctrl.description\" required=\"string\">\n        <button class=\"add\" ng-click=\"$ctrl.add()\">Add New Image</button>\n        </p>\n    </div>\n</section>";
 
 /***/ },
 /* 20 */
@@ -34226,7 +34251,7 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div>\n        <button class=\"main\" ng-click=\"$ctrl.view='gallery'\">Gallery View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='thumb'\">Thumbnail View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='detail'\">Detail View</button>\n    </div>\n\n    <div>\n        <select ng-options=\"image.title for image in $ctrl.images\" ng-model=\"$ctrl.image\">\n            <option value=\"\">view all</option>\n        </select>\n    </div>\n\n    <image-detail ng-if=\"$ctrl.view==='detail'\" ng-repeat=\"image in $ctrl.images\"></image-detail>\n    <image-thumb ng-if=\"$ctrl.view==='thumb'\" ng-repeat=\"image in $ctrl.images\"></image-thumb>\n    <image-gallery ng-if=\"$ctrl.view==='gallery'\" ng-repeat=\"image in $ctrl.images\"></image-gallery>\n\n</section>";
+	module.exports = "<section ng-class=\"$ctrl.style.image\">\n    <div>\n        <button class=\"main\" ng-click=\"$ctrl.view='gallery'\">Gallery View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='thumb'\">Thumbnail View</button>\n        <button class=\"main\" ng-click=\"$ctrl.view='detail'\">Detail View</button>\n    </div>\n\n    <!--<div>-->\n        <!--<select ng-options=\"image.title for image in $ctrl.images\" ng-model=\"$ctrl.image\">-->\n            <!--<option value=\"\">view all</option>-->\n        <!--</select>-->\n    <!--</div>-->\n\n    <image-detail ng-if=\"$ctrl.view==='detail'\" ng-repeat=\"image in $ctrl.images\"></image-detail>\n    <image-thumb ng-if=\"$ctrl.view==='thumb'\" ng-repeat=\"image in $ctrl.images\"></image-thumb>\n    <image-gallery ng-if=\"$ctrl.view==='gallery'\" ng-repeat=\"image in $ctrl.images\"></image-gallery>\n\n    <ui-view></ui-view>\n</section>";
 
 /***/ },
 /* 24 */
@@ -34388,7 +34413,7 @@
 	  value: true
 	});
 	exports.default = {
-	  template: "<h3>A Simple Gallery App</h3>" + "<p>Click Gallery View to see images full-size</p>" + "<p>Click Thumbnail View to see all images</p>" + "<p>Click Detail View to see one image</p>"
+	  template: "<h3>A Simple Gallery App</h3>" + "<p>Welcome to the image gallery.</p>" + "<p>Click Gallery View to see images full-size, " + "Thumbnail View to see all images, " + "or Detail View to see one image</p>"
 	};
 
 /***/ },
@@ -42822,6 +42847,7 @@
 	
 	  $stateProvider.state({
 	    name: 'about',
+	    abstract: true,
 	    url: '/about',
 	    component: 'about'
 	  });
@@ -42839,9 +42865,9 @@
 	  });
 	
 	  $stateProvider.state({
-	    name: 'gallery',
-	    url: '/gallery',
-	    component: 'image-app'
+	    name: 'add',
+	    url: '/add',
+	    component: 'addImage'
 	  });
 	
 	  $urlRouterProvider.otherwise('/');
