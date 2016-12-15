@@ -2,15 +2,15 @@
   <span>Add an Image</span>
   <div>
     <label>name:</label>
-    <input ng-model="$addImage.name">
+    <input ng-model="$addImage.name" required placeholder="enter name">
   </div>
   <div>
     <label>description:</label>
-    <input ng-model="$addImage.description">
+    <input ng-model="$addImage.description" placeholder="enter description">
   </div>
   <div>
     <label>url:</label>
-    <input ng-model="$addImage.url">
+    <input ng-model="$addImage.url" required placeholder="enter image url">
   </div>
   <!-- TODO:  need to add variable for the array of albums
               need a setAlbum method on the image-add controller?

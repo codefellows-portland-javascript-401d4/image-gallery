@@ -2,11 +2,11 @@
   <span>Add an Album</span>
   <div>
     <label>name:</label>
-    <input ng-model="$addAlbum.name">
+    <input ng-model="$addAlbum.name" required placeholder="enter name">
   </div>
   <div>
     <label>description:</label>
-    <input ng-model="$addAlbum.description">
+    <input ng-model="$addAlbum.description" placeholder="enter description">
   </div>
-  <button ng-click="$addAlbum.addOneAlbum()">add img</button>
+  <button ng-click="$addAlbum.addOneAlbum()">add album</button>
 </section>

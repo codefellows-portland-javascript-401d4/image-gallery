@@ -8,7 +8,10 @@ const router = express.Router();
 
 router
   .get('/', (req, res, next) => {
-    Album.find(req.query)
+    const query = {};
+
+    Album.find(query)
+      .select('name description _id')
       .lean()
       .then((data) => {
         res.send(data);
