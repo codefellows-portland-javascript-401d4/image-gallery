@@ -11,9 +11,14 @@ describe('imageApp component', () => {
       {title: 'title', description: 'description', url: 'http://url.com'}
     ];
 
+    const newImg = {title: 'new image', description: 'a new image', url: 'http://newurl.com'};
+
     const imageService = {
       get() {
         return Promise.resolve(imagesArray);
+      },
+      add() {
+        return Promise.resolve(newImg);
       }
     };
 
@@ -25,7 +30,16 @@ describe('imageApp component', () => {
 
     it('gets images from database', done => {
       setTimeout(() => {
-        assert.deepEqual(component.img, imagesArray[0]);
+        assert.deepEqual(component.img[0], imagesArray[0]);
+        done();
+      });
+    });
+
+    it('adds an image', done => {
+      component.add(newImg);
+      setTimeout(() => {
+        assert.equal(imagesArray.length, 2);
+        assert.deepEqual(imagesArray[1], newImg);
         done();
       });
     });

@@ -1,5 +1,5 @@
-<div ng-class=$ctrl.styles.gallery>
-  <img ng-src={{$ctrl.img.url}}>
-  <h1>Title: {{$ctrl.img.title}}</h1>
-  <h1>Description: {{$ctrl.img.description}}</h1>
+<div ng-repeat="image in $ctrl.img" ng-class=$ctrl.styles.gallery>
+  <img ng-src={{image.url}}>
+  <h1>Title: {{image.title}}</h1>
+  <h1>Description: {{image.description}}</h1>
 </div>

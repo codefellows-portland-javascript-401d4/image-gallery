@@ -3,17 +3,21 @@ import styles from './image-app.scss';
 
 export default {
   template,
-  controller,
-  bindings: {
-    add: '='
-  }
+  controller
 };
 
 controller.$inject = ['imageService'];
 function controller(images) {
   images.get().then(images => {
-    this.img = images[0];
+    this.img = images;
   });
   this.view = 'detail';
   this.styles = styles;
+
+  this.add = image => {
+    images.add(image)
+      .then(saved => {
+        this.img.push(saved);
+      });
+  };
 }

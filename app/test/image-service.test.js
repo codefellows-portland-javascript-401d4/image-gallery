@@ -33,4 +33,24 @@ describe('image service', () => {
     $httpBackend.flush();
   });
 
+  it('adds images', done => {
+    const image = {
+      title: 'title',
+      description: 'description',
+      url: 'http://url.com'
+    };
+
+    $httpBackend
+      .expectPOST('/images', image)
+      .respond(image);
+
+    imageService.add(image)
+      .then(saved => {
+        assert.deepEqual(saved, image);
+        done();
+      })
+      .catch(done);
+    $httpBackend.flush();
+  });
+
 });
