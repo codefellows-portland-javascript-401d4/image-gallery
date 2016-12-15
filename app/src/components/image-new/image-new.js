@@ -4,7 +4,8 @@ import styles from './image-new.scss';
 export default {
     template,
     bindings: {
-        add: '<'
+        add: '<',
+        catoptions: '<'
     },
     controller
 };
@@ -24,7 +25,8 @@ function controller() {
         this.add({
             title : this.title,
             description: this.description,
-            url: this.url
+            url: this.url,
+            category: this.category,
         });
         this.reset();
     }; 

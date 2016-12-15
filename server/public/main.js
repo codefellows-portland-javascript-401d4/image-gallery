@@ -60,11 +60,11 @@
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(53);
+	var _angularUiRouter = __webpack_require__(54);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(54);
+	var _routes = __webpack_require__(55);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
@@ -74,7 +74,7 @@
 	
 	app.config(_routes2.default);
 	
-	var dev = 'http://localhost:3001/api';
+	var dev = 'http://localhost:3000/api';
 	
 	app.value('apiUrl', dev);
 
@@ -33156,10 +33156,12 @@
 	    this.loading = true;
 	    this.image = '';
 	
-	    imageService.get().then(function (images) {
-	        _this.images = images;
-	        _this.loading = false;
-	    });
+	    this.$onInit = function () {
+	        imageService.get().then(function (images) {
+	            _this.images = images;
+	            _this.loading = false;
+	        });
+	    };
 	
 	    this.viewOptions = ['', 'detail', 'thumbnail', 'gallery'];
 	    this.view = '';
@@ -33570,7 +33572,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 52
+		"./album-service.js": 52,
+		"./image-service.js": 53
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33588,6 +33591,43 @@
 
 /***/ },
 /* 52 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = albumService;
+	albumService.$inject = ['$http', 'apiUrl'];
+	
+	function albumService($http, apiUrl) {
+	    return {
+	        getAll: function getAll() {
+	            return $http.get(apiUrl + '/albums').then(function (albums) {
+	                return albums.data;
+	            });
+	        },
+	        getAlbum: function getAlbum(name) {
+	            return $http.get(apiUrl + '/albums/' + name).then(function (album) {
+	                return album.data;
+	            });
+	        },
+	        remove: function remove(id) {
+	            return $http.delete(apiUrl + '/albums/' + id).then(function (res) {
+	                return res.data;
+	            });
+	        },
+	        add: function add(album) {
+	            return $http.post(apiUrl + '/albums', album).then(function (res) {
+	                return res.data;
+	            });
+	        }
+	    };
+	}
+
+/***/ },
+/* 53 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33619,7 +33659,7 @@
 	}
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -41968,7 +42008,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports) {
 
 	'use strict';

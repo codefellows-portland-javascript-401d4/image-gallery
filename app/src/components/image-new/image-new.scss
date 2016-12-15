@@ -12,9 +12,13 @@
         justify-content: center;
     }
 
-    input {
+    input, select {
         max-width: 140px;
         margin: 2px;
+    }
+
+    select {
+        padding: 1px 0;
     }
 
     h4 {

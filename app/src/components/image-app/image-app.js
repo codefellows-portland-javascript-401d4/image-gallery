@@ -25,6 +25,9 @@ function controller(imageService) {
 
     this.viewOptions = ['', 'detail','thumbnail','gallery'];
     this.view = '';
+    //TODO: try to make categories dynamic from the albums collection...
+    this.categoryOptions = ['', 'animals', 'anime'];
+    this.category = '';
 
     this.remove = image => {
         this.loading = true;
@@ -45,5 +48,13 @@ function controller(imageService) {
                 this.loading = false;
                 this.images.push(saved);
             });
+    };
+
+    this.nullImage = () => {
+        this.image = '';
+    };
+
+    this.nullCategory = () => {
+        this.category = '';
     };
 };
