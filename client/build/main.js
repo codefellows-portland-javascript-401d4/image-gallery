@@ -33394,6 +33394,12 @@
 	
 	
 	function controller() {
+	    //if you needed to work on binding on top level,
+	    //i.e. when it is loading, you need to use this.$onInit
+	    //if updated to latest version of angular 1
+	    //this.$onInit = () => {
+	    //    this.image.title.toUpperCase();
+	    //}   
 	    this.styles = _imageThumbnail4.default;
 	}
 
@@ -33444,6 +33450,8 @@
 	
 	    this.styles = _images4.default;
 	
+	    this.view = 'Gallery View';
+	
 	    images.get().then(function (images) {
 	        _this.images = images;
 	    });
@@ -33467,7 +33475,7 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.image\">\n    <h2>Choose an Image to View</h2>\n    <div>\n        <select ng-model=\"$ctrl.bunny\" ng-options=\"i.title for i in $ctrl.images\">\n            <option value=\"\">Preview All</option>\n        </select>\n        <div ng-if=\"$ctrl.bunny\">\n        <h3>Choose an Image View Format</h3>\n        <select ng-init=\"$ctrl.view = 'gallery'\" ng-model=\"$ctrl.view\">\n            <option value=\"detail\">Detail View</option>\n            <option value=\"thumbnail\">Thumbnail View</option>\n            <option value=\"gallery\">Gallery View</option>\n        </select>\n        </div>\n    </div>\n    <image-detail ng-hide=\"!$ctrl.bunny\" ng-if=\"$ctrl.view==='detail'\" image=\"$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]\"></image-detail>\n    <image-thumbnail ng-hide=\"!$ctrl.bunny\" ng-if=\"$ctrl.view==='thumbnail'\" image=\"$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]\"></image-thumbnail>\n    <image-gallery ng-hide=\"!$ctrl.bunny\" ng-if=\"$ctrl.view==='gallery'\" image=\"$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]\"></image-gallery>\n    <image-all ng-hide=\"$ctrl.bunny\" add=\"$ctrl.add\" remove=\"$ctrl.remove\" images=\"$ctrl.images\"></image-all>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.image\">\n    <h2>Choose an Image to View</h2>\n    <div>\n        <select ng-model=\"$ctrl.bunny\" ng-options=\"i.title for i in $ctrl.images\">\n            <option value=\"\">Preview All</option>\n        </select>\n        <div ng-if=\"$ctrl.bunny\">\n        <h3>Choose an Image View Format</h3>\n        <select ng-model=\"$ctrl.view\" ng-options=\"view for view in ['Detail View', 'Thumbnail View', 'Gallery View']\">\n        </select>\n        </div>\n    </div>\n    <image-detail ng-hide=\"!$ctrl.bunny\" ng-if=\"$ctrl.view==='Detail View'\" image=\"$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]\"></image-detail>\n    <image-thumbnail ng-hide=\"!$ctrl.bunny\" ng-if=\"$ctrl.view==='Thumbnail View'\" image=\"$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]\"></image-thumbnail>\n    <image-gallery ng-hide=\"!$ctrl.bunny\" ng-if=\"$ctrl.view==='Gallery View'\" image=\"$ctrl.images[$ctrl.images.indexOf($ctrl.bunny)]\"></image-gallery>\n    <image-all ng-hide=\"$ctrl.bunny\" add=\"$ctrl.add\" remove=\"$ctrl.remove\" images=\"$ctrl.images\"></image-all>\n</section>\n";
 
 /***/ },
 /* 46 */

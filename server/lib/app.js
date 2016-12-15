@@ -8,6 +8,7 @@ const cors = require('cors')();
 const checkDb = require('./check-connection')();
 
 const images = require('./routes/images');
+const albums = require('./routes/albums');
 
 app.use(morgan('dev'));
 // Redirect http to https.
@@ -19,7 +20,9 @@ app.use(cors);
 app.use(express.static('./public'));
 app.use(errorHandler);
 app.use(checkDb);
+app.use('/api/albums', albums);
 app.use('/api/images', images);
+
 
 
 module.exports = app;
