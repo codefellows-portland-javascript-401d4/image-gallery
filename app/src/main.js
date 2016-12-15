@@ -3,7 +3,7 @@ import './scss/main.scss';
 import components from './components';
 import services from './services';
 
-const app = angular.module('imageGalleryApp', [
+const app = angular.module('galleryApp', [
   components,
   services
   ]);
