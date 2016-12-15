@@ -9,15 +9,8 @@ const schema = new Schema({
   description: {
     type: String,
     required: false
-  },
-  url: {
-    type: String,
-    required: true
-  },
-  albumId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Album'
   }
+
 });
 
-module.exports = mongoose.model('Image', schema);
+module.exports = mongoose.model('Album', schema);

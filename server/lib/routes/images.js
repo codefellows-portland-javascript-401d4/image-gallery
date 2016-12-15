@@ -9,7 +9,7 @@ router
     const query = {};
 
     Image.find(query)
-      .select('name description url')
+      .select('name description url album')
       .lean()
       .then(images => res.send(images))
       .catch(next);
