@@ -6,7 +6,7 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
-      './src/main.js',
+      './src/app.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './test/**/*.js' 
     ],
