@@ -11,11 +11,31 @@ h1 {
     font-size: 60pt;
     color: $tan;
     padding: 30px;
+    margin: -10px;
 }
 
 .header {
-    height: 160px;
+    position: absolute;
+    height: 25%;
     width: 100%;
-    margin: -5px;
     background-color: $blue;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    bottom: 0;
+    width: 22%;
+    background-color: $paleblue;
+    padding-left: 10px;
+}
+.main {
+    position: absolute;
+    left: 22%;
+    top: 25%;
+    right:0;
+    bottom:0;
+    margin: 10px 0 0 10px;
+    padding-left: 10px;
 }
