@@ -7,7 +7,7 @@ export default {
     addAlbum: '<'
   },
   controller,
-  controllerAs: '$add-album'
+  controllerAs: '$addAlbum'
 };
 
 function controller() {

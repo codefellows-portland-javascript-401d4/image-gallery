@@ -1,3 +1,7 @@
-span {
+:local(.listItem) {
   font-size: 0.85rem;
+
+  button {
+    margin-bottom: 0.75rem;
+  }
 }

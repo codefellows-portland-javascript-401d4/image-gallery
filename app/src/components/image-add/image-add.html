@@ -12,9 +12,12 @@
     <label>url:</label>
     <input ng-model="$add.url">
   </div>
-  <!--<div>
+  <!-- TODO:  need to add variable for the array of albums
+              need a setAlbum method on the image-add controller?
+                                      on the images controller?  -->
+  <div>
     <label>album:</label>
-    <select ng-model="myAlbum" ng-options="album for album in albums" ng-change="pickAlbum(myAlbum)"></select>
-  </div>-->
+    <select ng-model="myAlbum" ng-options="album for album in ['qute', 'stuffies', 'suits']" ng-change="setAlbum(myAlbum)"></select>
+  </div>
   <button ng-click="$add.addOneImage()">add img</button>
 </section>
