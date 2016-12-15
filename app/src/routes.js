@@ -29,9 +29,9 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'gallery',
-    url: '/gallery',
-    component: 'image-app'
+    name: 'add',
+    url: '/add',
+    component: 'addImage'
   });
 
   $urlRouterProvider.otherwise('/');
