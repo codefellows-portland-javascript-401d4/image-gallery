@@ -44,30 +44,38 @@ import styles from './app.scss';
 
 export default {
   template,
-  controller
+  controller,
+  controllerAs: 'app'   
 };
 
-controller.$inject = ['albumService', '$state'];
-function controller(albums, $state) {
+controller.$inject = ['albumService'];
+
+function controller(albums) {
+
   this.styles = styles;
 
   this.loading = true;
-
-  // this.updateView = () => {
-  //   $state.go($state.current.name, { view: this.view });
-  // };
 
   albums.get().then(albums => {
     this.loading = false;
     this.albums = albums;
   });
 
+  this.remove = album => {
+    this.loading = true;
+    albums.remove(album._id)
+            .then(() => {
+              this.loading = false;
+              const index = this.albums.indexOf(album);
+              if (index > -1) this.albums.splice(index, 1);
+            });
+  };
+
   this.add = album => {
     this.loading = true;
     albums.add(album)
             .then(saved => {
               this.loading = false;
-                // push to in-memory array
               this.albums.push(saved);
             });
   };

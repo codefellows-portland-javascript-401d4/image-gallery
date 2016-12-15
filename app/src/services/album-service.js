@@ -1,15 +1,8 @@
-// $http is Angular's built-in AJAX library
 albumService.$inject = ['$http', 'apiUrl'];
 
-// $http gets injected
 export default function albumService($http, apiUrl) {
   return {
-    get(id) {
-      if(!id) return this.getAll();
-      return $http.get(`${apiUrl}/albums/${id}`)
-                .then(res => res.data);
-    },
-    getAll() {
+    get() {
       return $http.get(`${apiUrl}/albums`)
                 .then(res => res.data);
     },
