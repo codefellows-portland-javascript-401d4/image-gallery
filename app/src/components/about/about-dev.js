@@ -1,4 +1,8 @@
 export default {
+  bindings: {
+    view: '@'
+  },
+  controller,
   template:
   `    <h2>About the Developer</h2>
     <p>Gloria Anholt is a Full-Stack JavaScript developer, specializing in
@@ -9,3 +13,7 @@ export default {
     </p>
     `
 };
+
+function controller() {
+  this.view = 'about.app';
+}

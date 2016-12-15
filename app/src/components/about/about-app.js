@@ -1,4 +1,8 @@
 export default {
+  bindings: {
+    view: '@'
+  },
+  controller,
   template:
   `    <h2>About this Gallery Software</h2>
     <p>This image Gallery is written in Javascript/ES6 using Angular 1 and
@@ -15,3 +19,7 @@ export default {
         the front end in app/test.
     </p>`
 };
+
+function controller() {
+  this.view = 'about.app';
+}
