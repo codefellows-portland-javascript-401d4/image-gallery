@@ -11,6 +11,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'about',
+    abstract: true,
     url: '/about',
     component: 'about'
   });

@@ -6,13 +6,21 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin|Molle:400i" rel="stylesheet">
 </head>
 <body>
-    <h1 class="header">Image Gallery</h1>
 
-    <image-app></image-app>
+    <div class="header">
+        <h1>Image Gallery</h1>
+    </div>
+    <div class="left">
+        <p>About</p>
+        <p><a ui-sref="about.app">About the App</a></p>
+        <p><a ui-sref="about.dev">About the Developer</a></p>
 
-    <a ui-sref="about">About</a>
-    <ui-view></ui-view>
-
+    </div>
+    <div class="main">
+        <!--<image-app></image-app>-->
+        <ui-view></ui-view>
+        
+    </div>
 
 </body>
 </html>
