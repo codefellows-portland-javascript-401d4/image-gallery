@@ -1,0 +1,37 @@
+<div ng-init="views = ['list', 'thumb']">
+  <button ng-repeat="view in views" name="view" ng-click="$albums.toggleAlbum(view)">
+    {{view}}
+  </button>
+</div>
+<a ui-sref="images">Browse All Pix</a>
+<a ui-sref="welcome">Welcome</a>
+<a ui-sref="about">About</a>
+
+<image-add add-image="$albums.addImage"></image-add>
+<album-add add-album="$albums.addAlbum"></album-add>
+
+<h1>{{$albums.view}}</h1>
+<a ui-sref="list.names">Names</a>
+<ui-view></ui-view>
+
+
+<ul ng-if="$albums.view === 'list'">
+  <li ng-repeat="album in $albums.albums">
+    <album-list
+      image="image"
+      remove="$albums.remove"
+      toggle-album="$albums.toggleAlbum">
+    </album-list>    
+  </li>
+</ul>
+
+<ul ng-if="$albums.view === 'thumb'">
+  <li ng-class="$albums.styles.column4" ng-repeat="album in $albums.albums">
+    <album-thumb
+      image="albums"
+      remove="$albums.remove"
+      toggle-album="$albums.toggleAlbum">
+    </album-thumb>    
+  </li>
+</ul>
+

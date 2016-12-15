@@ -4,9 +4,13 @@ albumService.$inject = ['$http', 'apiUrl'];
 //$http injection
 export default function albumService($http, apiUrl) {
   return {
-    get() {
+    getAll() {
       return $http.get(`${apiUrl}/albums`)
         .then(res => res.data); //returns the data property of res obj
+    },
+    getOne(id) {
+      return $http.get(`${apiUrl}/albums/${id}`)
+        .then(res => res.data);
     },
     remove(id) {
       return $http.delete(`${apiUrl}/albums/${id}`)

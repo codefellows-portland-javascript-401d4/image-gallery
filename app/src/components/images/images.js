@@ -4,7 +4,7 @@ import styles from './images.scss';
 export default {
   template,
   controller,
-  controllerAs: 'app'
+  controllerAs: '$images'
 };
 
 controller.$inject = ['imageService'];
@@ -16,7 +16,7 @@ function controller(images) {
 
   this.loading = true;
 
-  images.get().then(images => {
+  images.getAll().then(images => {
     this.loading = false;
     this.images = images;
   });
@@ -29,15 +29,6 @@ function controller(images) {
         this.images.push(saved);
       });
   };
-
-  // this.addAlbum = album => {
-  //   this.loading = true;
-  //   albums.addAlbum(album)
-  //     .then(saved => {
-  //       this.loading = false;
-  //       this.albums.push(saved);
-  //     });
-  // };
 
   this.remove = image => {
     this.loading = true;

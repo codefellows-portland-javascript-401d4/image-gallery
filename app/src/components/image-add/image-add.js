@@ -7,7 +7,7 @@ export default {
     addImage: '<'
   },
   controller,
-  controllerAs: '$add'
+  controllerAs: '$addImage'
 };
 
 function controller() {

@@ -8,7 +8,7 @@ const router = express.Router();
 
 router
   .get('/', (req, res, next) => {
-    Album.find()
+    Album.find(req.query)
       .lean()
       .then((data) => {
         res.send(data);
@@ -62,4 +62,4 @@ router
       .catch(next);
   });
 
-  module.exports = router;
+module.exports = router;

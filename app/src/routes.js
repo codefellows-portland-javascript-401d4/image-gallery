@@ -14,9 +14,15 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'gallery',
-    url: '/gallery',
+    name: 'images',
+    url: '/images',
     component: 'images'
+  });
+
+  $stateProvider.state({
+    name: 'albums',
+    url: '/albums',
+    component: 'albums'
   });
 
   $stateProvider.state({
