@@ -5,5 +5,7 @@
         <li>Description: {{$ctrl.image.description}}</li>
     </ul> 
     <button ng-click="$ctrl.delete()">Remove</button>
-    <button ng-click="$ctrl.addtoalbum()">Add to Album</button>
+    Add to Album: <select>
+        <options ng-repeat="album in $ctrl.albums"></options>
+    </select>
 </div>
