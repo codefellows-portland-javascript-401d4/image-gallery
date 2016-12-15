@@ -3,6 +3,7 @@
     <form id="diplay-form">
         <h2>Select an image display.</h2>
         <select ng-model="displayChoice" ng-options="x for x in images.displays">
+        <option value="">select one</option>
         </select>
     </form>
     <div>
@@ -10,6 +11,5 @@
         <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images" remove="images.remove"></image-gallery>
         <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images" remove="images.remove"></image-thumbnail>
     </div>
-
-    <new-image add="images.add"></new-image>
+    <!--<new-image add="images.add"></new-image>-->
 </section>

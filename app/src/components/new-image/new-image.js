@@ -3,7 +3,9 @@ import template from './new-image.html';
 export default {
 	template,
 	bindings: {
-		add: '<'
+		add: '<',
+		images: '<',
+		albums: '<'
 	},
 	controller,
 	controllerAs: 'newImage'  
@@ -15,6 +17,7 @@ function controller() {
 		this.title = '';
 		this.url = '';
 		this.description ='';
+		this.albumId='';
 	};
 
 	this.reset();
@@ -24,7 +27,8 @@ function controller() {
 		this.add({
 			title: this.title,
 			url: this.url,
-			description: this.description
+			description: this.description,
+			albumId: this.albumId
 		});
 		console.log('image added');
         // clear out controls so

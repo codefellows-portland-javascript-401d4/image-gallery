@@ -20,5 +20,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
 		component: 'about'
 	});
    
+	$stateProvider.state({
+		name: 'add',
+		url: '/add',
+		component: 'add'
+	});
+
 	$urlRouterProvider.otherwise('/');
 }

@@ -7,10 +7,9 @@ export default {
 	controllerAs: 'images'   
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
 function controller(images) {
-	console.log('in images.js');
 	this.loading = true;
  
 	this.styles = styles;
@@ -25,7 +24,6 @@ function controller(images) {
 
     // remove this image
 	this.remove = image => {
-		console.log('remove image clicked.  This is the image', image);
 		this.loading = true;
 		images.remove(image._id)
             .then(() => {
@@ -37,13 +35,13 @@ function controller(images) {
 	};
 
     // add an image
-	this.add = image => {
-		this.loading = true;
-		images.add(image)
-            .then(saved => {
-	this.loading = false;
-                // push to in-memory array
-	this.images.push(saved);
-});
-	};
+// 	this.add = image => {
+// 		this.loading = true;
+// 		images.add(image)
+//             .then(saved => {
+// 	this.loading = false;
+//                 // push to in-memory array
+// 	this.images.push(saved);
+// });
+// 	};
 }

@@ -1,5 +1,16 @@
 <section>
     <h2>Add more goat images</h2>
+
+        <form id="album-select-form">
+        <label>Select an album to add your image to.</label>
+             <li ng-repeat ='album.title for album in newImage.albums'> 
+            <h3>album: {{album.title}}<h3> 
+            <p>Description: {{album.description}}</h3>
+        </li>
+        <select ng-model="albumChoice" ng-options="x.title for x in newImage.albums">
+        <option value="">select one</option>
+        </select>
+    </form>
     <div>
         <label>Title:</label>
         <input ng-model="newImage.title">
