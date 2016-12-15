@@ -1,0 +1,7 @@
+<section ng-repeat="image in $ctrl.album.images">
+    <div ng-class="">
+        <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
+        <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="image"></image-thumbnail>
+        <image-gallery ng-if="$ctrl.view === 'gallery'" image="image"></image-gallery>
+    </div>
+</section>

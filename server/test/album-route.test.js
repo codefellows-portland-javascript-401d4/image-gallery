@@ -5,7 +5,7 @@ const app = require('../lib/app');
 const connection = require('./mongoose-test-setup');
 chai.use(chaiHttp);
 
-describe('testing image api end points', () => {
+describe('testing album api end points', () => {
 
     before((done) => {
         const drop = () => connection.db.dropDatabase(done);
@@ -14,6 +14,16 @@ describe('testing image api end points', () => {
     });
 
     let request = chai.request(app);
+
+    it('tests the get route', done => {
+        request
+            .get('/api/albums')
+            .then(res => {
+                assert.isOk(res.body);
+                done();
+            })
+            .catch(done);
+    });
 
     let whateverAlbum = {
         name: 'whatever',
@@ -27,9 +37,8 @@ describe('testing image api end points', () => {
         category: 'whatever'
     };
 
-    let whateverAlbumId = '';
-
-    it('posts to Albums and then to Images', done => {
+    it('tests the post route and posts image to image route with category', done => {
+        let whateverAlbumId = '';
         request
             .post('/api/albums')
             .send(whateverAlbum)
@@ -57,14 +66,11 @@ describe('testing image api end points', () => {
             .catch(done);
     });
 
-    it('tests the get route', done => {
+    it('tests the get/:name route to make sure images are populated', done => {
         request
-            .get('/api/images')
+            .get(`/api/albums/${whateverAlbum.name}`)
             .then(res => {
-                assert.isOk(res.body);
-                whateverAlbum.images = [];
-                whateverImage.albumId = whateverAlbum;
-                assert.deepEqual(res.body[0], whateverImage);
+                assert.deepEqual(res.body, whateverAlbum);
                 done();
             })
             .catch(done);
@@ -72,10 +78,10 @@ describe('testing image api end points', () => {
 
     it('tests the delete route', done => {
         request
-            .del(`/api/images/${whateverImage._id}`)
+            .del(`/api/albums/${whateverAlbum._id}`)
             .then(res => {
-                whateverImage.albumId = whateverAlbumId;
-                assert.deepEqual(res.body, whateverImage);
+                whateverAlbum.images = [];
+                assert.deepEqual(res.body, whateverAlbum);
                 done();
             })  
             .catch(done);

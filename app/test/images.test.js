@@ -32,8 +32,25 @@ describe('image component test', () => {
             }
         };
 
+        const albums = [{name:'animals', images: images}];
+
+        const albumService = {
+            getAll() {
+                return Promise.resolve(albums);
+            },
+            getAlbum(album) {
+                return Promise.resolve(albums[0]);
+            },
+            remove(id) {
+                return Promise.resolve();
+            },
+            add(album) {
+                return Promise.resolve(album);
+            }
+        };
+
         it('loads images', done => {
-            const component = $component('imageApp', {imageService});
+            const component = $component('imageApp', {imageService, albumService});
             assert.isOk(component.loading);
 
             setTimeout(() => {
@@ -44,7 +61,7 @@ describe('image component test', () => {
         });
 
         it('add new image', done => {
-            const component = $component('imageApp', {imageService});
+            const component = $component('imageApp', {imageService, albumService});
             component.add(image);
 
             setTimeout(() => {
@@ -55,7 +72,7 @@ describe('image component test', () => {
         });
 
         it('deletes an image', done => {
-            const component = $component('imageApp', {imageService});
+            const component = $component('imageApp', {imageService, albumService});
             assert.isOk(component.loading);
             component.remove(image);
 
