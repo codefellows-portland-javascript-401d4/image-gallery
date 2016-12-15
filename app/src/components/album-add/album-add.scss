@@ -7,11 +7,12 @@
   border: 0.35rem inset $ltpurple;
   @include rounded-corners(10%);
   margin: 1% 0;
-  padding: 0.5%;
+  padding: 1%;
 
   button {
     background: $dkblue;
     color: $mdyellow;
+    padding: 0.25rem;
     @include rounded-corners(12%);
   }
 
