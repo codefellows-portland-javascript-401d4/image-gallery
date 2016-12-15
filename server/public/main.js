@@ -33244,7 +33244,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "";
+	module.exports = "<footer>\n    <h4>Add a new album to the collection by filling out the input below!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Album Name:</h4>\n            <input type=\"text\" ng-model=\"$ctrl.name\">\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addAlbum()\">Add</button>\n</footer>";
 
 /***/ },
 /* 26 */

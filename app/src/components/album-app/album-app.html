@@ -6,6 +6,17 @@
                 ng-change="app.updateView()">
             <option value=""></option>
         </select>
+        <!--<div>
+            <span ng-repeat="view in ['detail', 'thumbnail', 'gallery']">
+                <input
+                    ng-model="app.view"
+                    ng-change="app.updateView()"
+                    name="view"
+                    ng-value="view" 
+                    type="radio">
+                {{view}}
+            </span>
+        </div>-->
         <ul>
             <li ng-repeat="album in app.albums"
                 ui-sref="albums.options({

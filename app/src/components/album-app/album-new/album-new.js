@@ -16,7 +16,7 @@ function controller() {
         this.name = '';
     };
     
-    this.newAlbum = () => {
+    this.addAlbum = () => {
         this.add({
             name: this.name
         });
