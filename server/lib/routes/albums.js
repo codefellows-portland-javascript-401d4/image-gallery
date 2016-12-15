@@ -29,6 +29,7 @@ router
             .catch(next);
     })
     .post('/', bodyParser, (req, res, next) => {
+        req.body.name = req.body.name.toLowerCase();
         let newAlbum = new Album(req.body);
         newAlbum
             .save()

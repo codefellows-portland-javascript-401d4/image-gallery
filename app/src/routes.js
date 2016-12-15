@@ -21,8 +21,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
             view: { dynamic: true }
         },
         resolve: {
-            name: ['$transitions$', t => t.params().name],
-            view: ['$transitions$', t => t.params().view]
+            name: ['$transition$', t => t.params().name],
+            view: ['$transition$', t => t.params().view || 'detail']
         },
         component: 'albumOptions'
     });
