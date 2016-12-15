@@ -1,0 +1,23 @@
+@import 'colors';
+@import 'mixins';
+
+:local(.addbox) {
+  width: 30%;
+  background-color: $dkpurple;
+  border: 0.35rem inset $ltpurple;
+  @include rounded-corners(10%);
+  margin: 1% 0;
+  padding: 0.5%;
+
+  button {
+    background: $dkblue;
+    color: $mdyellow;
+    @include rounded-corners(12%);
+  }
+
+  button:hover {
+    background: $ltblue;
+    color: $dkorange;
+  }
+
+}

@@ -30,7 +30,7 @@ describe('in the image-add component', () => {
       component.description = fakeImage.description;
       component.url = fakeImage.url;
 
-      component.add = function(image) {
+      component.addImage = function(image) {
         returnImage = image;
       };
     });

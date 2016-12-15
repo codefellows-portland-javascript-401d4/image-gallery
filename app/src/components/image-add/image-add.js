@@ -4,7 +4,7 @@ import styles from './image-add.scss';
 export default {
   template,
   bindings: {
-    add: '<'
+    addImage: '<'
   },
   controller,
   controllerAs: '$add'
@@ -17,12 +17,13 @@ function controller() {
     this.name = '';
     this.description = '';
     this.url = '';
+    this.album = '';
   };
 
   this.reset();
 
   this.addOneImage = () => {
-    this.add({
+    this.addImage({
       name: this.name,
       description: this.description,
       url: this.url,

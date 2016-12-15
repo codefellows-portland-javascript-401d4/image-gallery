@@ -21,14 +21,23 @@ function controller(images) {
     this.images = images;
   });
 
-  this.add = image => {
+  this.addImage = image => {
     this.loading = true;
-    images.add(image)
+    images.addImage(image)
       .then(saved => {
         this.loading = false;
         this.images.push(saved);
       });
   };
+
+  // this.addAlbum = album => {
+  //   this.loading = true;
+  //   albums.addAlbum(album)
+  //     .then(saved => {
+  //       this.loading = false;
+  //       this.albums.push(saved);
+  //     });
+  // };
 
   this.remove = image => {
     this.loading = true;
