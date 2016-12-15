@@ -19,5 +19,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'about'
   });
 
+  $stateProvider.state({
+    name: 'imageApp.add',
+    url: '/addImage',
+    component: 'addImage'
+  });
+
   $urlRouterProvider.otherwise('/');
 }
