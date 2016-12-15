@@ -1,0 +1,17 @@
+<section ng-class="$ctrl.styles.albums">
+    <h2>Choose an Album to View</h2>
+    <select ng-model="$ctrl.album" ng-options="a.name for a in $ctrl.albums">
+    </select>
+    <div>
+        <ul>
+            <li ng-repeat="album in $ctrl.albums"
+                ui-sref="albums.detail({ 
+                    id: crew._id,
+                    view: $ctrl.view
+                })">
+                <h4>{{album.name}}</h4>
+                <img ng-src="{{album.featured}}">
+            </li>
+        </ul>
+    </div>
+</section>
