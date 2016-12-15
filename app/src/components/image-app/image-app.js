@@ -15,19 +15,19 @@ function controller(imageService, albumService) {
     this.image = '';
     this.album = '';
 
-    this.$onInit = () => {
-        imageService
-            .get()
-            .then(images => {
-                this.images = images;
-                this.loading = false;
-            });
-        albumService
-            .getAll()
-            .then(albums => {
-                this.albums = albums;
-            });
-    };
+    // this.$onInit = () => { //for whatever reason images.test.js doesn't like this'
+    imageService
+        .get()
+        .then(images => {
+            this.images = images;
+            this.loading = false;
+        });
+    albumService
+        .getAll()
+        .then(albums => {
+            this.albums = albums;
+        });
+    // };
 
     this.viewOptions = ['', 'detail','thumbnail','gallery'];
     this.view = '';
