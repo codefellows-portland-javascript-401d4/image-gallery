@@ -21,7 +21,7 @@ h1 {
     background-color: $blue;
 }
 
-.left {
+.leftnav {
     position: absolute;
     left: 0;
     top: 25%;
@@ -30,7 +30,8 @@ h1 {
     background-color: $paleblue;
     padding-left: 10px;
 }
-.main {
+
+.body {
     position: absolute;
     left: 22%;
     top: 25%;

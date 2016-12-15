@@ -6,5 +6,5 @@
 }
 
 button.main {
-    @include button($paleblue, $darkblue, $tan, -30px);
+    @include button($paleblue, $darkblue, $tan);
 }

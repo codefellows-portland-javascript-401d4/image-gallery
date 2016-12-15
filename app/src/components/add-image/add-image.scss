@@ -10,6 +10,6 @@
 }
 
 .add {
-  @include button($blue, white, $paleblue, 10px);
+  @include button($blue, white, $paleblue);
 }
 
