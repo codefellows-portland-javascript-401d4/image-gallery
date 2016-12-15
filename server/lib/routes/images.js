@@ -6,14 +6,13 @@ const Image = require('../models/image');
 router
     .get('/', (req, res, next) => {
       const query = {};
-        // if(req.query.rank) query.rank = req.query.rank;
+      if(req.query.name) query.name = req.query.name;  //e.g. "Rabbits"
 
       Image.find(query)
-            .select('title desc')
-            .lean()
+            .select('title desc album')
             .populate({
               path: 'albumId',
-              select: 'name'
+              select: 'album'
             })
             .lean()
             .then(images => res.send(images ))

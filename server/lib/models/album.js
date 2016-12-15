@@ -7,7 +7,8 @@ const schema = new Schema({
     required: true
   },
   cover: {
-    type: String
+    type: String,
+    default: 'https://image.freepik.com/free-icon/photo-album_318-31831.jpg'
   }
 });
 

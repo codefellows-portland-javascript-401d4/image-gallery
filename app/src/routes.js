@@ -9,8 +9,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'gallery', // name of this defined app "state"
-    url: '/images', // url associated with the state,
+    name: 'gallery',
+    url: '/gallery',
     component: 'app' 
   });
 
