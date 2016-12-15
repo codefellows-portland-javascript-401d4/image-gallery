@@ -10,16 +10,18 @@
     <div class="header">
         <h1>Image Gallery</h1>
     </div>
-    <div class="left">
+    <div class="leftnav">
+        <p><a href="/">Home</a></p>
         <p>About</p>
-        <p><a ui-sref="about.app">About the App</a></p>
-        <p><a ui-sref="about.dev">About the Developer</a></p>
+        <p>&nbsp;&nbsp;&nbsp;
+            <a ui-sref="about.app">About the App</a></p>
+        <p>&nbsp;&nbsp;&nbsp;
+            <a ui-sref="about.dev">About the Developer</a></p>
+        <p><a ui-sref="add">Add an image</a></p>
 
     </div>
-    <div class="main">
-        <!--<image-app></image-app>-->
-        <ui-view></ui-view>
-        
+    <div class="body">
+        <image-app></image-app>
     </div>
 
 </body>
