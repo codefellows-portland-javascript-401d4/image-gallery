@@ -8,13 +8,13 @@ router
     .get('/', bodyParser, (req, res, next) => {
         Image
             .find({})
+            .populate('albumId')
             .then(images => {
                 res.send(images);
             })
             .catch(next);
     })
     .post('/', bodyParser, (req, res, next) => {
-        //TODO: post needs to get the album ID as well;
         const {title, description, url, category} = req.body;
         if (!title || !description || !url || !category) {
             return next({
@@ -23,9 +23,13 @@ router
             });
         };
 
-        let importImage = new Image(req.body);
-        importImage
-            .save()
+        Album
+            .findOne({name: category})
+            .then(album => {
+                req.body.albumId = album._id;
+                let importImage = new Image(req.body);
+                return importImage.save();
+            })
             .then(image => {
                 res.send(image);
             })

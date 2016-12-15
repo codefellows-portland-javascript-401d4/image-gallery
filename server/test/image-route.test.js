@@ -15,16 +15,6 @@ describe('testing image api end points', () => {
 
     let request = chai.request(app);
 
-    it('tests the get route', done => {
-        request
-            .get('/api/images')
-            .then(res => {
-                assert.isOk(res.body);
-                done();
-            })
-            .catch(done);
-    });
-
     let whateverAlbum = {
         name: 'whatever',
         images: []
@@ -37,16 +27,44 @@ describe('testing image api end points', () => {
         category: 'whatever'
     };
 
-    it('tests the post route', done => {
+    let whateverAlbumId = '';
+
+    it('posts to Albums and then to Images', done => {
         request
-            .post('/api/images')
-            .send(whateverImage)
+            .post('/api/albums')
+            .send(whateverAlbum)
+            .then(res => {
+                assert.isOk(res.body);
+                let {__v, _id} = res.body;
+                whateverAlbum.__v = __v;
+                whateverAlbum._id = _id;
+                whateverAlbumId = _id;
+                assert.deepEqual(res.body, whateverAlbum);
+                return request
+                    .post('/api/images')
+                    .send(whateverImage);
+            })
             .then(res => {
                 assert.isOk(res.body);
                 let {__v, _id} = res.body;
                 whateverImage.__v = __v;
                 whateverImage._id = _id;
+                whateverImage.albumId = whateverAlbumId;
                 assert.deepEqual(res.body, whateverImage);
+                whateverAlbum.images.push(whateverImage); 
+                done();
+            })
+            .catch(done);
+    });
+
+    it('tests the get route', done => {
+        request
+            .get('/api/images')
+            .then(res => {
+                assert.isOk(res.body);
+                whateverAlbum.images = [];
+                whateverImage.albumId = whateverAlbum;
+                assert.deepEqual(res.body[0], whateverImage);
                 done();
             })
             .catch(done);
@@ -56,6 +74,7 @@ describe('testing image api end points', () => {
         request
             .del(`/api/images/${whateverImage._id}`)
             .then(res => {
+                whateverImage.albumId = whateverAlbumId;
                 assert.deepEqual(res.body, whateverImage);
                 done();
             })  

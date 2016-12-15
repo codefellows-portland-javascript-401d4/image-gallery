@@ -32,8 +32,8 @@ router
         let newAlbum = new Album(req.body);
         newAlbum
             .save()
-            .then(image => {
-                res.send(image);
+            .then(album => {
+                res.send(album);
             })
             .catch(next);
     })
