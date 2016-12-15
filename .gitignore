@@ -53,3 +53,4 @@ jspm_packages
 DS_Store
 .vscode
 .env
+.json
