@@ -5,7 +5,7 @@ export default {
     template,
     bindings: {
         add: '<',
-        catoptions: '<'
+        albumoptions: '<'
     },
     controller
 };
@@ -26,7 +26,7 @@ function controller() {
             title : this.title,
             description: this.description,
             url: this.url,
-            category: this.category,
+            category: this.category.name,
         });
         this.reset();
     }; 

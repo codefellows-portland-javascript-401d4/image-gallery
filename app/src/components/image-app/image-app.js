@@ -7,12 +7,13 @@ export default {
     controllerAs: 'app'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller(imageService) {
+function controller(imageService, albumService) {
     this.styles = styles;
     this.loading = true;
     this.image = '';
+    this.album = '';
 
     this.$onInit = () => {
         imageService
@@ -21,13 +22,15 @@ function controller(imageService) {
                 this.images = images;
                 this.loading = false;
             });
+        albumService
+            .getAll()
+            .then(albums => {
+                this.albums = albums;
+            });
     };
 
     this.viewOptions = ['', 'detail','thumbnail','gallery'];
     this.view = '';
-    //TODO: try to make categories dynamic from the albums collection...
-    this.categoryOptions = ['', 'animals', 'anime'];
-    this.category = '';
 
     this.remove = image => {
         this.loading = true;
@@ -54,7 +57,7 @@ function controller(imageService) {
         this.image = '';
     };
 
-    this.nullCategory = () => {
-        this.category = '';
+    this.nullAlbum = () => {
+        this.album = '';
     };
 };

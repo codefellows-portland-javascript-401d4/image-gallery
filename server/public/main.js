@@ -33130,6 +33130,8 @@
 	    value: true
 	});
 	
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	
 	var _imageApp = __webpack_require__(21);
 	
 	var _imageApp2 = _interopRequireDefault(_imageApp);
@@ -33147,19 +33149,31 @@
 	};
 	
 	
-	controller.$inject = ['imageService'];
+	controller.$inject = ['imageService', 'albumService'];
 	
-	function controller(imageService) {
+	function controller(imageService, albumService) {
 	    var _this = this;
 	
 	    this.styles = _imageApp4.default;
 	    this.loading = true;
 	    this.image = '';
+	    this.category = '';
 	
 	    this.$onInit = function () {
-	        imageService.get().then(function (images) {
+	        Promise.all([imageService.get(),
+	        // .then(images => {
+	        //     this.images = images;
+	        //     this.loading = false;
+	        // }),
+	        albumService.get()]).then(function (_ref) {
+	            var _ref2 = _slicedToArray(_ref, 2),
+	                images = _ref2[0],
+	                albums = _ref2[1];
+	
 	            _this.images = images;
-	            _this.loading = false;
+	            console.log(albums);
+	            _this.albums = albums;
+	            _this.load = false;
 	        });
 	    };
 	
@@ -33182,13 +33196,21 @@
 	            _this.images.push(saved);
 	        });
 	    };
+	
+	    this.nullImage = function () {
+	        _this.image = '';
+	    };
+	
+	    this.nullCategory = function () {
+	        _this.category = '';
+	    };
 	};
 
 /***/ },
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav>\n    <div>\n        <h4>View Option:</h4>\n        <select ng-options=\"option for option in app.viewOptions\" ng-model=\"app.view\">\n        </select>\n    </div>\n    <div>\n        <h4>Image Select:</h4>\n        <select ng-options=\"image.title for image in app.images\" ng-model=\"app.image\">\n            <option value=\"\">View All</option>\n        </select>\n    </div>\n</nav>\n<hr>\n<section ng-if=\"!app.image\" ng-repeat=\"image in app.images track by $index\" ng-class=\"app.styles.app\">\n    <image-options image=\"image\" viewoptions=\"app.viewOptions\" view=\"app.view\" del=\"app.remove\"></image-options>\n</section>\n<section ng-if=\"app.image\" ng-class=\"app.styles.app\">\n    <image-options image=\"app.image\" viewoptions=\"app.viewOptions\" view=\"app.view\" del=\"app.remove\"></image-options>\n</section>\n<image-new add=\"app.add\"></image-new>";
+	module.exports = "<nav>\n    <div>\n        <h4>View Option:</h4>\n        <select ng-options=\"option for option in app.viewOptions\" ng-model=\"app.view\">\n        </select>\n    </div>\n    <div>\n        <h4>Album Filter:</h4>\n        <select ng-options=\"album.name for album in app.albums\" \n                ng-model=\"app.category\" \n                ng-change=\"app.nullImage()\">\n        </select>\n    </div>\n    <div>\n        <h4>Image Select:</h4>\n        <select ng-options=\"image.title for image in app.images\" \n                ng-model=\"app.image\"\n                ng-change=\"app.nullCategory()\">\n            <option value=\"\">View All</option>\n        </select>\n    </div>\n</nav>\n<hr>\n<section ng-if=\"!app.image\" ng-repeat=\"image in app.images | filter:app.category\" ng-class=\"app.styles.app\">\n    <image-options \n                image=\"image\" \n                viewoptions=\"app.viewOptions\" \n                view=\"app.view\" \n                del=\"app.remove\">\n    </image-options>\n</section>\n<section ng-if=\"app.image\" ng-class=\"app.styles.app\">\n    <image-options \n                image=\"app.image\" \n                viewoptions=\"app.viewOptions\" \n                view=\"app.view\" \n                del=\"app.remove\">\n    </image-options>\n</section>\n<image-new add=\"app.add\" catoptions=\"app.categoryOptions\"></image-new>";
 
 /***/ },
 /* 22 */
@@ -33317,7 +33339,8 @@
 	exports.default = {
 	    template: _imageNew2.default,
 	    bindings: {
-	        add: '<'
+	        add: '<',
+	        catoptions: '<'
 	    },
 	    controller: controller
 	};
@@ -33340,7 +33363,8 @@
 	        _this.add({
 	            title: _this.title,
 	            description: _this.description,
-	            url: _this.url
+	            url: _this.url,
+	            category: _this.category
 	        });
 	        _this.reset();
 	    };
@@ -33350,7 +33374,7 @@
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<footer ng-class=\"$ctrl.styles.new\">\n    <h4>Add a new image to the gallery by filling out the below form and pressing the add button!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Title:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.title\" required>\n        </div>\n        <div>\n            <h4>Description:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.description\" required>\n        </div>\n        <div>\n            <h4>Url:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.url\" required>\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</footer>";
+	module.exports = "<footer ng-class=\"$ctrl.styles.new\">\n    <h4>Add a new image to the gallery by filling out the below form and pressing the add button!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Title:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.title\" required>\n        </div>\n        <div>\n            <h4>Description:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.description\" required>\n        </div>\n        <div>\n            <h4>Url:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.url\" required>\n        </div>\n        <div>\n            <h4>Category:</h4> \n            <select ng-options=\"category for category in $ctrl.catoptions\" \n                    ng-model=\"$ctrl.category\" \n                    required>\n            </select>\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</footer>";
 
 /***/ },
 /* 34 */

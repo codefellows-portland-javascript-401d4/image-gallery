@@ -15,8 +15,8 @@
             <input type="text" ng-model="$ctrl.url" required>
         </div>
         <div>
-            <h4>Category:</h4> 
-            <select ng-options="category for category in $ctrl.catoptions" 
+            <h4>Album:</h4> 
+            <select ng-options="album.name for album in $ctrl.albumoptions" 
                     ng-model="$ctrl.category" 
                     required>
             </select>

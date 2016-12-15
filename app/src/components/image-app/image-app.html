@@ -6,22 +6,23 @@
     </div>
     <div>
         <h4>Album Filter:</h4>
-        <select ng-options="category for category in app.categoryOptions" 
-                ng-model="app.category" 
+        <select ng-options="album.name for album in app.albums" 
+                ng-model="app.album" 
                 ng-change="app.nullImage()">
+            <option value=""></option>
         </select>
     </div>
     <div>
         <h4>Image Select:</h4>
         <select ng-options="image.title for image in app.images" 
                 ng-model="app.image"
-                ng-change="app.nullCategory()">
+                ng-change="app.nullAlbum()">
             <option value="">View All</option>
         </select>
     </div>
 </nav>
 <hr>
-<section ng-if="!app.image" ng-repeat="image in app.images | filter:app.category" ng-class="app.styles.app">
+<section ng-if="!app.image" ng-repeat="image in app.images | filter:app.album.name" ng-class="app.styles.app">
     <image-options 
                 image="image" 
                 viewoptions="app.viewOptions" 
@@ -37,4 +38,4 @@
                 del="app.remove">
     </image-options>
 </section>
-<image-new add="app.add" catoptions="app.categoryOptions"></image-new>
+<image-new add="app.add" albumoptions="app.albums"></image-new>

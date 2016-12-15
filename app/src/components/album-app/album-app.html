@@ -1,0 +1,11 @@
+<nav>
+    <div>
+        <h4>Album Filter:</h4>
+        <select ng-options="album.name for album in app.albums" 
+                ng-model="app.album">
+            <option value=""></option>
+        </select>
+
+        
+    </div>
+</nav>

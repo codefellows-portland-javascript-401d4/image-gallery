@@ -9,6 +9,25 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
+        name: 'albums',
+        url: '/albums',
+        component: 'albumApp'
+    });
+
+    $stateProvider.state({
+        name: 'albums.options',
+        url: '/:name?view',
+        params: {
+            view: { dynamic: true }
+        },
+        resolve: {
+            name: ['$transitions$', t => t.params().name],
+            view: ['$transitions$', t => t.params().view]
+        },
+        component: 'albumOptions'
+    });
+
+    $stateProvider.state({
         name: 'images',
         url: '/images',
         component: 'imageApp'
