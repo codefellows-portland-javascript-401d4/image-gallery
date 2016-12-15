@@ -5,11 +5,11 @@
         <button class="main" ng-click="$ctrl.view='detail'">Detail View</button>
     </div>
 
-    <div>
-        <select ng-options="image.title for image in $ctrl.images" ng-model="$ctrl.image">
-            <option value="">view all</option>
-        </select>
-    </div>
+    <!--<div>-->
+        <!--<select ng-options="image.title for image in $ctrl.images" ng-model="$ctrl.image">-->
+            <!--<option value="">view all</option>-->
+        <!--</select>-->
+    <!--</div>-->
 
     <image-detail ng-if="$ctrl.view==='detail'" ng-repeat="image in $ctrl.images"></image-detail>
     <image-thumb ng-if="$ctrl.view==='thumb'" ng-repeat="image in $ctrl.images"></image-thumb>
