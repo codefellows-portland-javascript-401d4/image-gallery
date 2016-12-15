@@ -10,8 +10,21 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state({
         name: 'albums',
-        url: '/',
+        url: '/albums',
         component: 'albums'
+    });
+
+    $stateProvider.state({
+        name: 'albums.detail',
+        url: '/:id/?view',
+        params: {
+            view: {dynamic: true}
+        },
+        resolve: {
+            id: ['$transition$', t => t.params().id],
+            view: ['$transition$', t => t.params().view || 'detail']
+        },
+        component: 'albumDetail'
     });
 
     $stateProvider.state({

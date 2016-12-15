@@ -9,9 +9,15 @@ export default {
     controller
 };
 
+controller.$inject = ['albumService'];
+
 function controller() {
 
     this.delete = () => {
         this.remove(this.image);
     };
+
+    // this.addtoalbum = () => {
+    //     this.
+    // };
 }

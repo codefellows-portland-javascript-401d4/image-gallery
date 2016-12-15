@@ -1,9 +1,11 @@
 <header>
     <h1 ui-sref="images">Baby Animal Time</h1>
     <a ui-sref="welcome">Welcome</a>
-    <a ui-sref="images">Images</a>
+    <a ui-sref="images" ui-sref="active">Images</a>
+    <a ui-sref="albums" ui-sref="active">Albums</a>
     <a ui-sref="about">About</a>
 </header>
+<ui-view></ui-view>
 <main>
-    <ui-view></ui-view>
+    <ui-view name="main"></ui-view>
 </main>
