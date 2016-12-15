@@ -31,11 +31,9 @@ function controller(galleryService) {
       description: this.description
     };
 
-    console.log('the new image is: ', newImage);
-
     galleryService.add(newImage)
       .then(saved => {
-        console.log('inside the service add, saved is: ', saved);
+        console.log('Saved ', saved.title);
       });
 
     this.reset();
