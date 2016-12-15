@@ -13,6 +13,10 @@ const schema = new Schema({
   description: {
     type: String,
     required: true
+  },
+  albumId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Album'
   }
 });
 
