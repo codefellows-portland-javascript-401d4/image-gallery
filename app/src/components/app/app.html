@@ -1,4 +1,3 @@
-<section>
 	<!--<form>
 		Select an action: <select ng-model="view" ng-options="v for v in app.views"></select>
 	</form>
@@ -20,34 +19,5 @@
 			remove="app.remove"
 			image="image">
 		</remove-image>-->
-		<section ng-class="$ctrl.styles.albums">
-    <div class="loader" ng-if="$ctrl.loading">Loading...</div>
-    <h2>Image albums</h2>
-    <div>
-        <span ng-repeat="view in ['detail', 'summary']">
-        <input 
-            ng-model="$ctrl.view" 
-            ng-change="$ctrl.updateView()" 
-            name="view" 
-            ng-value="view" 
-            type="radio"> 
-            {{view}}
-        </span> 
-    </div>
-    <ul>
-        <li ng-repeat="album in $ctrl.albums"
-            ui-sref="albums.detail({ 
-                id: album._id,
-                view: $ctrl.view
-            })">
-
-            <h4>{{album.name}}</h4>
-            <img ng-src="{{album.flag}}">
-
-        </li>
-    </ul>
-
-    <ui-view>select a album to see detail</ui-view>
-    
-</section>
-		</section>
+		<albums></albums>
+		<new-album></new-album>

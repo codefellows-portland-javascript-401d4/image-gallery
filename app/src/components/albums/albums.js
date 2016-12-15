@@ -1,5 +1,5 @@
 import template from './albums.html';
-// import styles from './albums.scss';
+import styles from './albums.scss';
 
 export default {
   template,
@@ -22,13 +22,13 @@ function controller(albums, $state) {
     this.albums = albums;
   });
 
-//    this.add = album => {
-//         this.loading = true;
-//         albums.add(album)
-//             .then(saved => {
-//                 this.loading = false;
-//                 // push to in-memory array
-//                 this.albums.push(saved);
-//             });
-//     };
+  this.add = album => {
+    this.loading = true;
+    albums.add(album)
+            .then(saved => {
+              this.loading = false;
+                // push to in-memory array
+              this.albums.push(saved);
+            });
+  };
 }

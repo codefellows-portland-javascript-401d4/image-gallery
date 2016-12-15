@@ -9,8 +9,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'gallery',
-    url: '/gallery',
+    name: 'albums',
+    url: '/albums',
     component: 'app' 
   });
 
@@ -32,7 +32,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
       }
     }
   });
-
 
   $stateProvider.state({
     name: 'about.long',
