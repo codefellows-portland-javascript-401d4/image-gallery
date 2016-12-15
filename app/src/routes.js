@@ -14,6 +14,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'images'
   });
 
+  // $stateProvider.state({
+  //   name:'images.add',
+  //   url: '/add',
+  //   component: 'new-image'
+  // });
+
   $stateProvider.state({
     name: 'about',
     url: '/about',
