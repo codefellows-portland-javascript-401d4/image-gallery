@@ -18,8 +18,6 @@ function controller() {
     this.url = '';
   };
 
-  this.reset();
-
   this.addNew = () => {
     this.add({
       title: this.title,
