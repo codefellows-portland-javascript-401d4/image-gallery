@@ -12,15 +12,14 @@ export default {
     controller
 };
 
-controller.$inject = ['imageService'];
-controller.$inject = ['albumService'];
+controller.$inject = ['albumService', 'imageService'];
 
 function controller(albums, images) {
 
-    this.selected = (albums, images) => {
-        images.put(albums._id, images._id).then(saved => {
+    this.chosen = (albumid, imageid) => {
+        console.log('albumid, imageid', albumid, imageid);
+        images.put(albumid, imageid).then(saved => {
             console.log('saved', saved);
-            console.log('albums._id, images._id', albums._id, images._id);
             this.images = images(saved);
             this.albums = albums(saved);
         });
