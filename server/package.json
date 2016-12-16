@@ -7,8 +7,8 @@
     "start": "nodemon server.js",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "MONGODB_URI=mongodb://127.0.0.1/images-test mocha",
-    "test:watch": "MONGODB_URI=mongodb://127.0.0.1/images-test nodemon --exec mocha"
+    "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
+    "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
   },
   "author": "Greg Katchmar <gunk55@msn.com> (www.gkatchmar.com)",
   "license": "ISC",

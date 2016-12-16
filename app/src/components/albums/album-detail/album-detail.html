@@ -4,9 +4,6 @@
         <img ng-src="{{$ctrl.album.cover}}">
     </div>
 
-		<p>CTRL Album Images = {{ctrl.album.images}}</p>
-
-
     <ul ng-if="$ctrl.view === 'detail'">
         <li ng-repeat="image in $ctrl.album.images">
             <image-detail image="image"></image-detail>
