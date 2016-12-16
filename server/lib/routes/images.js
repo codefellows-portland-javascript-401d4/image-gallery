@@ -20,6 +20,14 @@ router
             .catch(next);
 })
 
+//find by album id
+    .get('/albumId/:albumId', function (req, res, next) {
+	    Animal.find({albumId: req.params.albumId})
+            .then(image => res.send(image ))
+            .catch(next);
+})
+
+
     .delete('/:id', (req, res, next) => {
 	Image.findByIdAndRemove(req.params.id)
             .then(deleted => res.send(deleted ))

@@ -56,15 +56,15 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(34);
+	var _services = __webpack_require__(36);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(37);
+	var _angularUiRouter = __webpack_require__(40);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(38);
+	var _routes = __webpack_require__(41);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
@@ -33514,14 +33514,15 @@
 	var map = {
 		"./about/about.js": 12,
 		"./add/add.js": 13,
-		"./app/app.js": 15,
-		"./home-detail/home-detail.js": 19,
-		"./home/home.js": 21,
-		"./image-detail/image-detail.js": 22,
-		"./image-gallery/image-gallery.js": 24,
-		"./image-thumb/image-thumb.js": 26,
-		"./images/images.js": 28,
-		"./new-image/new-image.js": 32
+		"./albums/albums.js": 15,
+		"./app/app.js": 17,
+		"./home-detail/home-detail.js": 21,
+		"./home/home.js": 23,
+		"./image-detail/image-detail.js": 24,
+		"./image-gallery/image-gallery.js": 26,
+		"./image-thumb/image-thumb.js": 28,
+		"./images/images.js": 30,
+		"./new-image/new-image.js": 34
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33568,34 +33569,37 @@
 	
 	exports.default = {
 		template: _add2.default,
+		bindings: {
+			add: '<'
+		},
 		controller: controller,
 		controllerAs: 'addImage'
 	};
 	
 	
-	controller.$inject = ['imageService'];
+	controller.$inject = ['imageService', 'albumService'];
 	
-	function controller(images) {
+	function controller(images, albums) {
 		var _this = this;
 	
-		this.loading = true;
+		// call the get to load all images
+		images.get().then(function (images) {
+			_this.loading = false;
+			_this.images = images;
+		});
 	
-		// add an image
-		this.add = function (image) {
-			_this.loading = true;
-			images.add(image).then(function (saved) {
-				_this.loading = false;
-				// push to in-memory array
-				_this.images.push(saved);
-			});
-		};
+		// call the get to load all images
+		albums.get().then(function (albums) {
+			_this.loading = false;
+			_this.albums = albums;
+		});
 	}
 
 /***/ },
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <new-image add=\"images.add\"></new-image>\n</section>";
+	module.exports = "<section>\n    <new-image images=\"addImage.images\" albums=\"addImage.albums\"></new-image>\n    <!--<new-album add=\"images.add\"></new-album>-->\n   \n\n</section>";
 
 /***/ },
 /* 15 */
@@ -33607,11 +33611,80 @@
 		value: true
 	});
 	
-	var _app = __webpack_require__(16);
+	var _albums = __webpack_require__(16);
+	
+	var _albums2 = _interopRequireDefault(_albums);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import styles from './albums.scss';
+	
+	exports.default = {
+		template: _albums2.default,
+		controller: controller,
+		controllerAs: 'albums'
+	};
+	
+	
+	controller.$inject = ['albumService'];
+	
+	function controller(albums) {
+		var _this = this;
+	
+		this.loading = true;
+	
+		// this.styles = styles;
+	
+		// call the get to load all albums
+		albums.get().then(function (albums) {
+			_this.loading = false;
+			_this.albums = albums;
+		});
+	
+		// remove this album
+		this.remove = function (album) {
+			_this.loading = true;
+			albums.remove(album._id).then(function () {
+				_this.loading = false;
+				// after server has updated data, modify in-memory array
+				var index = _this.albums.indexOf(album);
+				if (index > -1) _this.albums.splice(index, 1);
+			});
+		};
+	
+		// add an album
+		// 	this.add = album => {
+		// 		this.loading = true;
+		// 		albums.add(album)
+		//             .then(saved => {
+		// 	this.loading = false;
+		//                 // push to in-memory array
+		// 	this.albums.push(saved);
+		// });
+		// 	};
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n    <ul>\n        <li ng-repeat=\"album in albums.albums\">{{album.title}}</li>\n    </ul>\n        </section>";
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _app = __webpack_require__(18);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _app3 = __webpack_require__(17);
+	var _app3 = __webpack_require__(19);
 	
 	var _app4 = _interopRequireDefault(_app3);
 	
@@ -33634,20 +33707,20 @@
 	}
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = "\n    <!-------------------------Header---------------------------------->\n    <div class='header'>\n        <h1>Goat Images</h1>\n        <h2><em>Images of goats.  That's it.</em></h2>\n    <a ui-sref=\"home\" ui-sref-active=\"clicked\">Home</a>\n    <a ui-sref=\"images\" ui-sref-active=\"clicked\">Images</a>\n    <a ui-sref=\"add\" ui-sref-active=\"clicked\">Add Images</a>\n    <a ui-sref=\"about\" ui-sref-active=\"clicked\">About</a>\n\n    </div>\n    <!-------------------------Image Gallery------------------------------>\n<main>\n    <ui-view></ui-view>\n</main>\n<footer>\n    <h4>Mugsy Carter &copy 2016</h4>\n    </footer>";
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 18 */,
-/* 19 */
+/* 20 */,
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33656,7 +33729,7 @@
 		value: true
 	});
 	
-	var _homeDetail = __webpack_require__(20);
+	var _homeDetail = __webpack_require__(22);
 	
 	var _homeDetail2 = _interopRequireDefault(_homeDetail);
 	
@@ -33694,13 +33767,13 @@
 	}
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n    <form> What animal would you like to see images of?<br>\n        <input type=\"text\" ng-model=\"animalChoice\"><br>\n        <input type=\"submit\" ng-click=\"homeDetail.checkAnimal()\">\n    </form>\n    <div>{{responseText}}<div>\n    <button ng-show=\"picturesButton\" ui-sref=\"images\">See Goat Images!</button>\n";
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33713,7 +33786,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33722,7 +33795,7 @@
 		value: true
 	});
 	
-	var _imageDetail = __webpack_require__(23);
+	var _imageDetail = __webpack_require__(25);
 	
 	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
@@ -33748,13 +33821,13 @@
 	}
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n        <ul>\n        <li ng-repeat ='image in imageDetail.images'> \n            <h3>Image Title: {{image.title}}<h3>\n             <p>Description: {{image.description}}</h3>\n             <p>URL: </p><a ng-href=\"{{image.url}}\">{{image.url}}</a>\n             <button ng-click=\"imageDetail.removeImage(image)\">remove</button>\n        </li>\n    </ul>\n</section>";
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33763,7 +33836,7 @@
 		value: true
 	});
 	
-	var _imageGallery = __webpack_require__(25);
+	var _imageGallery = __webpack_require__(27);
 	
 	var _imageGallery2 = _interopRequireDefault(_imageGallery);
 	
@@ -33789,13 +33862,13 @@
 	}
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n    <ul>\n        <li ng-repeat ='image in imageGallery.images'> \n            <h3>Image Title: {{image.title}}<h3>\n            <img ng-src=\"{{image.url}}\" alt={{image.title}}> \n            <p>Description: {{image.description}}</h3>\n            <p>URL: </p><a href={{image.url}}>{{image.url}}</a>\n            <button ng-click=\"imageGallery.removeImage(image)\">remove</button>\n        </li>\n    </ul>\n</section>";
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33804,7 +33877,7 @@
 		value: true
 	});
 	
-	var _imageThumb = __webpack_require__(27);
+	var _imageThumb = __webpack_require__(29);
 	
 	var _imageThumb2 = _interopRequireDefault(_imageThumb);
 	
@@ -33830,13 +33903,13 @@
 	}
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n    <ul>\n        <li ng-repeat ='image in imageThumb.images'> \n            <h3>Image Title: {{image.title}}<h3>\n            <img ng-src=\"{{image.url}}\" alt={{image.title}} height=\"100px\" width=\"100px\"> \n            <button ng-click=\"imageThumb.removeImage(image)\">remove</button>\n        </li>\n    </ul>\n</section>";
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33845,11 +33918,11 @@
 		value: true
 	});
 	
-	var _images = __webpack_require__(29);
+	var _images = __webpack_require__(31);
 	
 	var _images2 = _interopRequireDefault(_images);
 	
-	var _images3 = __webpack_require__(30);
+	var _images3 = __webpack_require__(32);
 	
 	var _images4 = _interopRequireDefault(_images3);
 	
@@ -33862,10 +33935,10 @@
 	};
 	
 	
-	controller.$inject = ['imageService'];
+	controller.$inject = ['imageService', 'albumService'];
 	
-	function controller(images) {
-		var _this = this;
+	function controller(images, albums) {
+		var _this2 = this;
 	
 		this.loading = true;
 	
@@ -33873,20 +33946,35 @@
 	
 		this.displays = ['thumbnail', 'text', 'full', 'all'];
 	
-		// call the get to load all images
-		images.get().then(function (images) {
-			_this.loading = false;
-			_this.images = images;
+		this.filterImages = function () {
+			var _this = this;
+	
+			images.getByAlbum(this.albumChoice).then(function (images) {
+				_this.loading = false;
+				_this.images = images;
+			});
+		};
+	
+		// call the get to load all albums
+		albums.get().then(function (albums) {
+			_this2.loading = false;
+			_this2.albums = albums;
 		});
+	
+		// call the get to load all images
+		// images.get().then(images => {
+		// 	this.loading = false;
+		// 	this.images = images;
+		// });
 	
 		// remove this image
 		this.remove = function (image) {
-			_this.loading = true;
+			_this2.loading = true;
 			images.remove(image._id).then(function () {
-				_this.loading = false;
+				_this2.loading = false;
 				// after server has updated data, modify in-memory array
-				var index = _this.images.indexOf(image);
-				if (index > -1) _this.images.splice(index, 1);
+				var index = _this2.images.indexOf(image);
+				if (index > -1) _this2.images.splice(index, 1);
 			});
 		};
 	
@@ -33903,20 +33991,20 @@
 	}
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n    <form id=\"diplay-form\">\n        <h2>Select an image display.</h2>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        </select>\n    </form>\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n\n    <!--<new-image add=\"images.add\"></new-image>-->\n</section>";
+	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n\n    <form id=\"album-select-form\">\n        <h3>Select an album.</h3>\n        <select ng-model=\"albumChoice\" ng-options=\"x.title for x in images.albums\">\n        <option value=\"\">select an album</option>\n        </select>\n    </form>\n\n    <form id=\"diplay-select-form\">\n        <h3>Select an image display.</h3>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        <option value=\"\">select a display</option>\n        </select>\n    </form>\n\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n</section>";
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 31 */,
-/* 32 */
+/* 33 */,
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33925,7 +34013,7 @@
 		value: true
 	});
 	
-	var _newImage = __webpack_require__(33);
+	var _newImage = __webpack_require__(35);
 	
 	var _newImage2 = _interopRequireDefault(_newImage);
 	
@@ -33934,46 +34022,63 @@
 	exports.default = {
 		template: _newImage2.default,
 		bindings: {
-			add: '<'
+			add: '<',
+			images: '<',
+			albums: '<'
 		},
 		controller: controller,
 		controllerAs: 'newImage'
 	};
 	
 	
-	function controller() {
+	controller.$inject = ['imageService', 'albumService'];
+	
+	function controller(images, albums) {
 		var _this = this;
 	
 		this.reset = function () {
 			_this.title = '';
 			_this.url = '';
 			_this.description = '';
+			_this.albumId = '';
+			_this.albumTitle = '';
+			_this.albumDescription = '';
 		};
-	
 		this.reset();
 	
-		this.addNew = function () {
+		this.addNewAlbum = function () {
 			console.log(_this);
-			_this.add({
+			console.log('album title is ', _this.albumTitle);
+			console.log('album description is ', _this.albumDescription);
+			albums.add({
+				title: _this.albumTitle,
+				description: _this.albumDescription
+			});
+			console.log('new album added');
+			_this.reset();
+		};
+	
+		this.addNewImage = function () {
+			console.log(_this);
+			images.add({
 				title: _this.title,
 				url: _this.url,
-				description: _this.description
+				description: _this.description,
+				albumId: _this.album._id
 			});
-			console.log('image added');
-			// clear out controls so
-			// next image can be added
+			console.log('new image added');
 			_this.reset();
 		};
 	}
 
 /***/ },
-/* 33 */
+/* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <h2>Add more goat images</h2>\n    <div>\n        <label>Title:</label>\n        <input ng-model=\"newImage.title\">\n    </div>\n      <div>\n        <label>Description:</label>\n        <input ng-model=\"newImage.description\">\n    </div>\n    <div>\n        <label>URL:</label>\n        <input ng-model=\"newImage.url\">\n    </div>\n    <button ng-click=\"newImage.addNew()\">add</button>\n</section>";
+	module.exports = "<section>\n    <div>\n\n    </div>\n        <h3>Add more goat albums</h3>\n        <form id=\"add-album-form\">\n            <div>\n                <label>New Ablum Title</label>\n                <input ng-model=\"newImage.albumTitle\">\n            </div>\n            <div>\n                <label>New Album Desctiption</label>\n                <input ng-model=\"newImage.albumDescription\">\n            </div>\n            <button ng-click=\"newImage.addNewAlbum()\">add</button>\n        </form>\n\n    <div>\n        <h3>Add more goat images</h3>\n        <form id=\"add-image-form\">\n            <label>Select an album to add your image to.</label>\n            <select ng-model=\"newImage.album\" ng-options=\"x.title for x in newImage.albums\">\n            <option value='new' ng-selected=>New Album</option>\n            <option value=\"\">select one</option>\n            </select>\n \n        <div>\n            <label>Title:</label>\n            <input ng-model=\"newImage.title\">\n        </div>\n        <div>\n            <label>Description:</label>\n            <input ng-model=\"newImage.description\">\n        </div>\n        <div>\n            <label>URL:</label>\n            <input ng-model=\"newImage.url\">\n        </div>\n        <button ng-click=\"newImage.addNewImage()\">add</button>\n        </form>\n    </div>\n</section>";
 
 /***/ },
-/* 34 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33997,7 +34102,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(35);
+	var context = __webpack_require__(37);
 	
 	// create the module to put the resources in,
 	// in this case directives
@@ -34016,11 +34121,12 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 36
+		"./album-service.js": 38,
+		"./image-service.js": 39
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -34033,11 +34139,43 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 35;
+	webpackContext.id = 37;
 
 
 /***/ },
-/* 36 */
+/* 38 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = albumService;
+	albumService.$inject = ['$http', 'apiUrl'];
+	
+	function albumService($http, apiUrl) {
+		return {
+			get: function get() {
+				return $http.get(apiUrl + '/albums').then(function (res) {
+					return res.data;
+				});
+			},
+			remove: function remove(id) {
+				return $http.delete(apiUrl + '/albums/' + id).then(function (res) {
+					return res.data;
+				});
+			},
+			add: function add(album) {
+				return $http.post(apiUrl + '/albums', album).then(function (res) {
+					return res.data;
+				});
+			}
+		};
+	}
+
+/***/ },
+/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34059,6 +34197,11 @@
 					return res.data;
 				});
 			},
+			getByAlbum: function getByAlbum(albumId) {
+				return $http.get(apiUrl + '/images/albumId/' + albumId).then(function (res) {
+					return res.data;
+				});
+			},
 			remove: function remove(id) {
 				return $http.delete(apiUrl + '/images/' + id).then(function (res) {
 					return res.data;
@@ -34073,7 +34216,7 @@
 	}
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -42422,7 +42565,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';

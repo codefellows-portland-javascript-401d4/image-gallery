@@ -15,15 +15,15 @@ function controller(images, albums) {
 	this.styles = styles;
 	
 	this.displays = ['thumbnail', 'text', 'full', 'all'];
-	this.displayImages = [];
+	
 
 	this.filterImages = function(){
-
-		// this.displayImages = [];
-		// this.displayImages = this.images.filter(function(image){
-		// 	return image.albumId === 
-		// });
+		images.getByAlbum(this.albumChoice).then(images => {
+			this.loading = false;
+			this.images = images;
+		});
 	};
+
 	  // call the get to load all albums
 	albums.get().then(albums => {
 		this.loading = false;
@@ -31,10 +31,10 @@ function controller(images, albums) {
 	});
 
     // call the get to load all images
-	images.get().then(images => {
-		this.loading = false;
-		this.images = images;
-	});
+	// images.get().then(images => {
+	// 	this.loading = false;
+	// 	this.images = images;
+	// });
 
     // remove this image
 	this.remove = image => {
