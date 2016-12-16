@@ -2,7 +2,7 @@
     <div class="loader" ng-if="$ctrl.loading">Loading...</div>
     <h2>Image Albums</h2>
     <div>
-        <span ng-repeat="view in ['detail', 'image', 'thumbnail']">
+        <span ng-repeat="view in ['text view', 'image view', 'thumbnail view']">
         <input 
             ng-model="$ctrl.view" 
             ng-change="$ctrl.updateView()" 
@@ -20,8 +20,7 @@
             })">
 
             <h4>{{album.name}}</h4>
-            <img ng-src="{{album.cover}}">
-
+            <img ng-src="{{album.cover}}" height="50" width="50">
         </li>
     </ul>
 

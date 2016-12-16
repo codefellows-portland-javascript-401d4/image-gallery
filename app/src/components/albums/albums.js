@@ -8,7 +8,7 @@ export default {
 
 controller.$inject = ['albumService', '$state'];
 function controller(albums, $state) {
-  this.view = 'detail';
+  this.view = 'text view';
   this.styles = styles;
 
   this.loading = true;
