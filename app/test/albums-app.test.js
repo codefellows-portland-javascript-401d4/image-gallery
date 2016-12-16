@@ -65,5 +65,16 @@ describe('album component test', () => {
                 done();
             });
         });
+
+        it('adds albums', done => {
+            const component = $component('albumApp', {imageService, albumService, $state});
+            component.add(album);
+
+            setTimeout(() => {
+                assert.equal(component.albums.length, 3);
+                assert.deepEqual(component.albums[2], album);
+                done();
+            });
+        });
     });
 });
