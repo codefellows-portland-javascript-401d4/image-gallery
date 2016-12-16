@@ -1,8 +1,5 @@
 <section ng-class="$ctrl.styles.album">
     <h2>{{$ctrl.album.name}}</h2>
-    <!--<div>
-        <img ng-src="{{$ctrl.album.featured}}">
-    </div>-->
 
     <ul ng-if="$ctrl.view === 'detail'">
         <li class="detail" ng-repeat="image in $ctrl.album.images">

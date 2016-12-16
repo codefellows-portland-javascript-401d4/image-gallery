@@ -20,6 +20,13 @@ function controller(albums, $state) {
         this.albums = albums;
     });
 
+    this.reset = () => {
+        this.name = '';
+        this.featured = '';
+    };
+
+    this.reset();
+
     this.addAlbum = album => {
         albums.add({
             name: this.name,
@@ -28,7 +35,19 @@ function controller(albums, $state) {
             .then(saved => {
                 // push to in-memory array
                 this.albums.push(saved);
-            });
+            })
+            .then(this.reset());
+    };
+
+    this.deleteAlbum = (album, event) => {
+        // const thisAlbum = this.albums.indexOf(album);
+        // console.log('this album: ', this.albums);
+        event.stopPropagation();
+        albums.remove(album._id)
+        .then(() => {
+            const index = this.albums.indexOf(album);
+            if (index > -1) this.albums.splice(index, 1);
+        });
     };
 
 }

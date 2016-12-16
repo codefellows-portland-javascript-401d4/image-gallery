@@ -27,9 +27,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
             // "view" is name of component binding, 
             // t.params().view is dependent on key above
             view: ['$transition$', t => t.params().view || 'detail']
-            // crew: ['$transition$', 'crewService', (t, crews) => {
-            //     return crews.get(t.params().id);
-            // }]
         },
         component: 'albumContents'
     });

@@ -10,7 +10,7 @@ const context = require.context(
 );
 
 // create the module to put the resources in,
-// in this case directives
+// in this case services
 const module = angular.module('services', []);
 
 // iterate each of the found required contexts (files)

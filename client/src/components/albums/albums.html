@@ -1,8 +1,5 @@
 <section ng-class="$ctrl.styles.albums">
     <h2>Choose an Album to View</h2>
-    <!--<select ng-model="$ctrl.album" ng-options="a.name for a in $ctrl.albums">
-        <option value="">Preview All</option>
-    </select>-->
     <div class="preview">
         <ul>
             <li ng-repeat="album in $ctrl.albums"
@@ -12,6 +9,7 @@
                 })">
                 <h4>{{album.name}}</h4>
                 <img class="img-preview" ng-src="{{album.featured}}">
+                <p><button ng-click="$ctrl.deleteAlbum(album, $event)">Remove</button></p>
             </li>
         </ul>
     </div>

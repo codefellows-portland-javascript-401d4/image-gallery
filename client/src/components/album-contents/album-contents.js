@@ -30,15 +30,7 @@ function controller(albums, images) {
         });
     };
 
-    this.fetchAlbum = () => {
-        albums.get(this.id).then(album => {
-            this.album = album;
-            console.log('new album contents: ', this.album);
-        });
-    };
-
     this.uiOnParamsChanged = params => {
-        console.log(params);
         this.view = params.view;
     };
 
@@ -50,7 +42,7 @@ function controller(albums, images) {
             album: this.album._id
         })
             .then(saved => {
-                // push to in-memory array
+                //update local album contents
                 this.album.images.push(saved);
             })
             .then(this.reset());

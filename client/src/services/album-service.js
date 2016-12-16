@@ -1,3 +1,4 @@
+// $http is Angular's built-in AJAX library
 albumService.$inject = ['$http', 'apiUrl'];
 
 // $http gets injected

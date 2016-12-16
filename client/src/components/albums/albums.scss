@@ -5,6 +5,17 @@
 
 :local(.albums) {
 
+    button {
+        @include button();
+        margin-bottom: 5%;
+        transition: transform .5s;
+        margin-top: 2%;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
     h2 {
         @include page-heading();
     }
@@ -24,6 +35,13 @@
         @include page-content();
         padding-top: 5px;
         padding-bottom: 0;
+
+        li {
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: $grey;
+            padding: 0 2%;
+        }
     }
 
     .img-preview {
@@ -44,17 +62,6 @@
             display: block;
             width: 80%;
             margin: 0 auto;
-        }
-
-        button {
-            @include button();
-            margin-bottom: 5%;
-            transition: transform .5s;
-            margin-top: 2%;
-        }
-
-        button:hover {
-            transform: scale(1.1);
         }
 
     }
