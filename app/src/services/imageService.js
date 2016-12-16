@@ -14,8 +14,12 @@ export default function imageService($http, apiUrl) {
             return $http.post(`${apiUrl}/images`, image)
                 .then(res => res.data);
         },
-        put(id) {
-            return $http.put(`${apiUrl}/images/${id}`)
+        // put(id) {
+        //     return $http.put(`${apiUrl}/images/${id}`)
+        //         .then(res => res.data);
+        // },
+        put(albumId, imageId) {
+            return $http.put(`${apiUrl}/${imageId}`, {album: albumId})
                 .then(res => res.data);
         }
     };
