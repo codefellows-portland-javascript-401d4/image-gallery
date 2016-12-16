@@ -1,11 +1,8 @@
-import template from './image-manage.html';
-import styles from './image-manage.scss';
+import template from './images.html';
+import styles from './images.scss';
 
 export default {
   template,
-  bindings: {
-    image: '='
-  },
   controller
 };
 
