@@ -33946,10 +33946,11 @@
 	
 		this.displays = ['thumbnail', 'text', 'full', 'all'];
 	
-		this.filterImages = function () {
+		this.filter = function () {
 			var _this = this;
 	
-			images.getByAlbum(this.albumChoice).then(function (images) {
+			console.log('filter called. albumchoice id is ', this.albumChoice._id);
+			images.getByAlbum(this.albumChoice._id).then(function (images) {
 				_this.loading = false;
 				_this.images = images;
 			});
@@ -33994,7 +33995,7 @@
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n\n    <form id=\"album-select-form\">\n        <h3>Select an album.</h3>\n        <select ng-model=\"albumChoice\" ng-options=\"x.title for x in images.albums\">\n        <option value=\"\">select an album</option>\n        </select>\n    </form>\n\n    <form id=\"diplay-select-form\">\n        <h3>Select an image display.</h3>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        <option value=\"\">select a display</option>\n        </select>\n    </form>\n\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n</section>";
+	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n\n    <form id=\"album-select-form\">\n        <h3>Select an album.</h3>\n        <select ng-model=\"images.albumChoice\" ng-options=\"x.title for x in images.albums\" ng-change = 'images.filter()'>\n        <option value=\"\">select an album</option>\n        </select>\n    </form>\n\n    <form id=\"diplay-select-form\">\n        <h3>Select an image display.</h3>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        <option value=\"\">select a display</option>\n        </select>\n    </form>\n\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n</section>";
 
 /***/ },
 /* 32 */

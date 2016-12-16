@@ -16,26 +16,35 @@ function controller(images, albums) {
 	
 	this.displays = ['thumbnail', 'text', 'full', 'all'];
 	
-
-	this.filterImages = function(){
-		images.getByAlbum(this.albumChoice).then(images => {
-			this.loading = false;
-			this.images = images;
-		});
+	//find images that meet the filter selection
+	this.filter = function(){
+		if(this.albumChoice.title === 'All Albums')	{
+			console.log('all albums selected');
+			//finds all images if alll images choice is selected
+			images.get().then(images => {
+				this.loading = false;
+				this.images = images;
+			});
+		}
+		else{
+			//finds images from the selected album
+			console.log('looking for images from this album: ', this.albumChoice.title);
+			images.getByAlbum(this.albumChoice._id).then(images => {
+				this.loading = false;
+				this.images = images;
+			});
+		}
 	};
 
-	  // call the get to load all albums
+
+
+
 	albums.get().then(albums => {
 		this.loading = false;
 		this.albums = albums;
+		albums.push({title: 'All Albums'});
 	});
-
-    // call the get to load all images
-	// images.get().then(images => {
-	// 	this.loading = false;
-	// 	this.images = images;
-	// });
-
+  
     // remove this image
 	this.remove = image => {
 		this.loading = true;

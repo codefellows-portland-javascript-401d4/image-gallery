@@ -3,7 +3,7 @@
 
     <form id="album-select-form">
         <h3>Select an album.</h3>
-        <select ng-model="albumChoice" ng-options="x.title for x in images.albums">
+        <select ng-model="images.albumChoice" ng-options="x.title for x in images.albums" ng-change = 'images.filter()'>
         <option value="">select an album</option>
         </select>
     </form>
