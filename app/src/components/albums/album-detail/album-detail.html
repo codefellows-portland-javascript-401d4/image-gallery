@@ -4,14 +4,20 @@
         <img ng-src="{{$ctrl.album.cover}}">
     </div>
 
-    <ul ng-if="$ctrl.view === 'detail'">
+		<app
+			image="image">
+		<app>
+
+    <!--<ul ng-if="$ctrl.view === 'detail'">
         <li ng-repeat="image in $ctrl.album.images">
             <image-detail image="image"></image-detail>
         </li>
-    </ul>
+    </ul>-->
 
-    <div ng-if="$ctrl.view !== 'detail'">
+		    <!--<div ng-if="$ctrl.view !== 'detail'">
         There are {{$ctrl.album.images.length}} images in this album.
-    </div>
+    </div>-->
+
+
 
 </section>

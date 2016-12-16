@@ -1,4 +1,4 @@
-	<!--<form>
+	<form>
 		Select an action: <select ng-model="view" ng-options="v for v in app.views"></select>
 	</form>
 	<hr>
@@ -16,10 +16,7 @@
 			image="image">
 		</full-image>
 			<remove-image ng-if="view==='remove image'"
-			remove="app.remove"
+			<!--remove="app.remove"
 			image="image">
-		</remove-image>-->
-		<albums></albums>
-		<new-album add="app.add">
-			album="album"
-		</new-album>
+		</remove-image>
+			
