@@ -17,7 +17,4 @@ function controller() {
         this.remove(this.image);
     };
 
-    // this.addtoalbum = () => {
-    //     this.
-    // };
 }
