@@ -18,8 +18,10 @@
                 view: $ctrl.view
             })">
             <h4>{{album.name}}</h4>
-            <!--<img ng-src="{{album.images[0].url}}">-->
         </li>
     </ul>
     <ui-view>Select an album to view details</ui-view>
+</section>
+<section>
+    <album-new add="$ctrl.add">album-new should be here</album-new>
 </section>
