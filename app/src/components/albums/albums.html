@@ -1,0 +1,12 @@
+<section>
+  <h2>Albums</h2>
+  <div ng-class="$ctrl.styles.albums">
+    <ul>
+      <li ng-repeat="album in $ctrl.albums">
+        <h3>{{$ctrl.album.name}}</h3>
+      </li>
+    </ul>
+  </div>
+  <new-album></new-album>
+</section>
+

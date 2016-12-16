@@ -8,6 +8,11 @@ router
     const query = {};
 
     Image.find(query)
+      .populate({
+        path: 'gameId',
+        select: 'title'
+      })
+      .lean()
       .then(images => res.send(images))
       .catch(next);
   })
@@ -22,6 +27,6 @@ router
     Image.findByIdAndRemove(req.params.id)
       .then(deleted => res.send(deleted))
       .catch(next);
-  })
+  });
 
 module.exports = router;
