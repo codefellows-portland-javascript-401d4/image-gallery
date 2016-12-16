@@ -13,13 +13,13 @@ function controller(galleryService) {
   this.view = '';
 
   galleryService
-    .get()
+    .getAlbums()
     .then(images => {
       this.images = images;
     });
 
   this.remove = function(id) {
-    galleryService.remove(id)
+    galleryService.removeImage(id)
       .then(removed => {
         const index = this.images.indexOf(removed);
         if (index > -1) this.images.splice(index, 1);

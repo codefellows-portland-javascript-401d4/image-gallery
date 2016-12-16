@@ -31,7 +31,7 @@ function controller(galleryService) {
       description: this.description
     };
 
-    galleryService.add(newImage)
+    galleryService.addImage(newImage)
       .then(saved => {
         console.log('Saved ', saved.title);
       });
