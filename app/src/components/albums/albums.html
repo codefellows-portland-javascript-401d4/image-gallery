@@ -1,8 +1,8 @@
 <section ng-class="$ctrl.styles.albums">
     <div class="loader" ng-if="$ctrl.loading">Loading...</div>
     <h2>Image Albums</h2>
-    <!--<div>
-        <span ng-repeat="view in ['detail', 'summary']">
+    <div>
+        <span ng-repeat="view in ['detail', 'image', 'thumbnail']">
         <input 
             ng-model="$ctrl.view" 
             ng-change="$ctrl.updateView()" 
@@ -11,7 +11,7 @@
             type="radio"> 
             {{view}}
         </span> 
-    </div>-->
+    </div>
     <ul>
         <li ng-repeat="album in $ctrl.albums"
             ui-sref="albums.detail({ 
@@ -28,3 +28,4 @@
     <ui-view>select an album to see its images</ui-view>
     
 </section>
+
