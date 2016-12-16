@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser').json();
+const jsonParser = require('body-parser').json();
 const Image = require('../models/image');
 
 router
@@ -9,6 +9,7 @@ router
     if(req.query) query = req.query;
     
     Image.find(query)
+      .populate('album', 'name')
       .lean()
       .then(images => res.send(images))
       .catch(next);
@@ -27,7 +28,7 @@ router
       .catch(next);
   })
 
-  .post('/', bodyParser, (req, res, next) => {
+  .post('/', jsonParser, (req, res, next) => {
     new Image(req.body).save()
       .then(saved => res.send(saved))
       .catch(next);
