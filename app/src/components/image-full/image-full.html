@@ -1,3 +1,5 @@
-<h1>{{$ctrl.img.title}}</h1>
-<img ng-src={{$ctrl.img.url}}>
-<p>{{$ctrl.img.description}}</p>
+<div ng-repeat="img in $ctrl.img">
+  <h1>{{img.title}}</h1>
+  <img ng-src={{img.url}}>
+  <p>{{img.description}}</p>
+</div>

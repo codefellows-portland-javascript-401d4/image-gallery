@@ -1,6 +1,6 @@
 routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-export default function routes($stateProvider, $urlRouterProvider) { //TODO - do these work as $xxx??
+export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'welcome',
     url: '/',
@@ -10,7 +10,7 @@ export default function routes($stateProvider, $urlRouterProvider) { //TODO - do
   $stateProvider.state({
     name: 'images',
     url: '/images',
-    component: 'galleryApp'
+    component: 'gallery'
   });
 
   $stateProvider.state({

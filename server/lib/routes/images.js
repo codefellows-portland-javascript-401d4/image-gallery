@@ -20,6 +20,12 @@ router
     new Image(req.body).save()
       .then(newImg => res.send(newImg))
       .catch(next);
+  })
+
+  .delete('/:id', (req, res, next) => {
+    Image.findByIdAndRemove(req.params.id)
+      .then(del => res.send(del))
+      .catch(next);
   });
 
 module.exports = router;

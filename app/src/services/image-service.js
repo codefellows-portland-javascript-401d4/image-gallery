@@ -8,7 +8,11 @@ export default function imageService($http, apiUrl) {
     },
     add(image) {
       return $http.post(`${apiUrl}/images`, image)
-      .then(res => res.data);
+        .then(res => res.data);
+    },
+    remove(imageId) {
+      return $http.delete(`${apiUrl}/images/${imageId}`)
+        .then(res => res.data);
     }
   };
 } 
