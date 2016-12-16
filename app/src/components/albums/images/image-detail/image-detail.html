@@ -3,8 +3,9 @@
         <li>Title: {{$ctrl.image.title}}</li>
         <li>Url: <a href="{{$ctrl.image.url}}">{{$ctrl.image.url | limitTo: 20}}...</a></li>
         <li>Description: {{$ctrl.image.description}}</li>
-        <li>In Album: {{$ctrl.image.album}}</li>
+        <li>In Album: {{selected}}</li>
     </ul> 
     <button ng-click="$ctrl.delete()">Remove</button>
-    Add to Album: <select><options ng-repeat="albums in $ctrl.albums"></options></select>
+    Add to Album: <select ng-model="selected" ng-options="album.name as album.name for album in $ctrl.albums"></select>
 </div>
+<!-- track by album.id-->
