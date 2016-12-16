@@ -5,9 +5,10 @@ const Image = require('../models/image');
 
 router  
     .get('/', (req, res, next) => {
-        Image.find()
+        Image.find(req.query)
+        .select('title description url album')
+        .populate('album', 'name')
         .lean()
-        .select('title description url')
         .then(images => res.send(images))
         .catch(err => {
             console.log('error getting images: ', err);
@@ -17,8 +18,8 @@ router
 
     .get('/:id', (req, res, next) => {
         Image.findById(req.params.id)
-            .lean()
             .select('title description url')
+            .lean()
             .then(image => res.send(image))
             .catch(err => {
                 console.log('error getting image by id: ', err);
@@ -28,6 +29,12 @@ router
     
     .post('/', bodyParser, (req, res, next) => {
         new Image(req.body).save()
+            .then(saved => res.send(saved))
+            .catch(next);
+    })
+
+    .put('/:id', bodyParser, (req, res, next) => {
+        Image.findByIdAndUpdate(req.params.id, req.body)
             .then(saved => res.send(saved))
             .catch(next);
     })
