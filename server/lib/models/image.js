@@ -3,16 +3,18 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema ({
   title: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   url: {
     type: String,
-    reuired: true
+    required: true
+  },
+  album: {
+    type: Schema.Types.ObjectId,
+    ref: 'Album'
   }
 });
 
