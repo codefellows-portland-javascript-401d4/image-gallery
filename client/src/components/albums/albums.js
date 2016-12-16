@@ -40,8 +40,6 @@ function controller(albums, $state) {
     };
 
     this.deleteAlbum = (album, event) => {
-        // const thisAlbum = this.albums.indexOf(album);
-        // console.log('this album: ', this.albums);
         event.stopPropagation();
         albums.remove(album._id)
         .then(() => {
