@@ -33160,12 +33160,12 @@
 	    this.albums = [];
 	    this.view = '';
 	
-	    this.$onInit = function () {
-	        albumService.getAll().then(function (albums) {
-	            _this.albums = albums;
-	            _this.loading = false;
-	        });
-	    };
+	    // this.$onInit = () => { // testing doesn't seem to like this
+	    albumService.getAll().then(function (albums) {
+	        _this.albums = albums;
+	        _this.loading = false;
+	    });
+	    // };
 	
 	    this.updateView = function () {
 	        $state.go($state.current.name, { view: _this.view });
@@ -33184,14 +33184,14 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav>\n    <div>\n        <h4>View Filter:</h4>\n        <select ng-options=\"option for option in ['detail', 'thumbnail', 'gallery']\" \n                ng-model=\"app.view\"\n                ng-change=\"app.updateView()\">\n            <option value=\"\"></option>\n        </select>\n        <ul>\n            <li ng-repeat=\"album in app.albums\"\n                ui-sref=\"albums.options({\n                    name: album.name,\n                    view: app.view\n                })\">\n                {{album.name}}</li>\n        </ul>\n    </div>\n</nav>\n<ui-view></ui-view>\n<album-new add=\"app.add\"></album-new>";
+	module.exports = "<div ng-class=\"app.styles.top\">\n    <div>\n        <h4>View Filter:</h4>\n        <select ng-options=\"option for option in ['detail', 'thumbnail', 'gallery']\" \n                ng-model=\"app.view\"\n                ng-change=\"app.updateView()\">\n            <option value=\"\"></option>\n        </select>\n    </div>\n    <br>\n    <div>\n        <h4>Album Choice:</h4>\n        <ul ng-class=\"app.styles.list\">\n            <li ng-repeat=\"album in app.albums\"\n                ui-sref=\"albums.options({\n                    name: album.name,\n                    view: app.view})\">{{album.name}}\n            </li>\n        </ul>\n    </div>\n</div>\n<hr>\n<ui-view></ui-view>\n<album-new add=\"app.add\" loading=\"app.loading\"></album-new>";
 
 /***/ },
 /* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"app":"_327CDCISEbCfmniNPYLFbF"};
+	module.exports = {"list":"_1JLIhay7JV355sxHQZbo-y","top":"_2jiyzKYUPdZiD3jkAQAIMB"};
 
 /***/ },
 /* 23 */,
@@ -33217,7 +33217,8 @@
 	exports.default = {
 	    template: _albumNew2.default,
 	    bindings: {
-	        add: '<'
+	        add: '<',
+	        loading: '='
 	    },
 	    controller: controller
 	};
@@ -33232,7 +33233,7 @@
 	        _this.name = '';
 	    };
 	
-	    this.newAlbum = function () {
+	    this.addAlbum = function () {
 	        _this.add({
 	            name: _this.name
 	        });
@@ -33244,13 +33245,14 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<footer>\n    <h4>Add a new album to the collection by filling out the input below!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Album Name:</h4>\n            <input type=\"text\" ng-model=\"$ctrl.name\">\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addAlbum()\">Add</button>\n</footer>";
+	module.exports = "<div class=\"loader\" ng-if=\"$ctrl.loading\">Loading...</div>\n<footer ng-class=\"$ctrl.styles.new\">\n    <h4>Add a new album to the collection by filling out the input below!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Album Name:</h4>\n            <input type=\"text\" ng-model=\"$ctrl.name\">\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addAlbum()\">Add</button>\n</footer>";
 
 /***/ },
 /* 26 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"new":"_1IRzGE8PGUhlAlcBAt4Lr7"};
 
 /***/ },
 /* 27 */,
@@ -33297,19 +33299,24 @@
 	            _this.album = album;
 	        });
 	    };
+	
+	    this.uiOnParamsChanged = function (params) {
+	        _this.view = params.view;
+	    };
 	};
 
 /***/ },
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-repeat=\"image in $ctrl.album.images\">\n    <div ng-class=\"\">\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n        <image-thumbnail ng-if=\"$ctrl.view === 'thumbnail'\" image=\"image\"></image-thumbnail>\n        <image-gallery ng-if=\"$ctrl.view === 'gallery'\" image=\"image\"></image-gallery>\n    </div>\n</section>";
+	module.exports = "<h2>You are viewing the images in the {{$ctrl.album.name}} album</h2>\n<section ng-repeat=\"image in $ctrl.album.images\" ng-class=\"$ctrl.styles.section\">\n    <div ng-class=\"$ctrl.styles.option\">\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n        <image-thumbnail ng-if=\"$ctrl.view === 'thumbnail'\" image=\"image\"></image-thumbnail>\n        <image-gallery ng-if=\"$ctrl.view === 'gallery'\" image=\"image\"></image-gallery>\n    </div>\n</section>";
 
 /***/ },
 /* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"section":"_2Xr8zA6wHfbgW9YGS53Gpm","option":"_1dTS9uyoTuKX_HF0-ESSs6"};
 
 /***/ },
 /* 31 */,
@@ -33349,15 +33356,15 @@
 	    this.image = '';
 	    this.album = '';
 	
-	    this.$onInit = function () {
-	        imageService.get().then(function (images) {
-	            _this.images = images;
-	            _this.loading = false;
-	        });
-	        albumService.getAll().then(function (albums) {
-	            _this.albums = albums;
-	        });
-	    };
+	    // this.$onInit = () => { //for whatever reason images.test.js doesn't like this'
+	    imageService.get().then(function (images) {
+	        _this.images = images;
+	        _this.loading = false;
+	    });
+	    albumService.getAll().then(function (albums) {
+	        _this.albums = albums;
+	    });
+	    // };
 	
 	    this.viewOptions = ['', 'detail', 'thumbnail', 'gallery'];
 	    this.view = '';
@@ -33556,7 +33563,7 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<footer ng-class=\"$ctrl.styles.new\">\n    <h4>Add a new image to the gallery by filling out the below form and pressing the add button!</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Title:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.title\" required>\n        </div>\n        <div>\n            <h4>Description:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.description\" required>\n        </div>\n        <div>\n            <h4>Url:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.url\" required>\n        </div>\n        <div>\n            <h4>Album:</h4> \n            <select ng-options=\"album.name for album in $ctrl.albumoptions\" \n                    ng-model=\"$ctrl.category\" \n                    required>\n            </select>\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</footer>";
+	module.exports = "<footer ng-class=\"$ctrl.styles.new\">\n    <h4>Add a new image to the gallery by filling out the form below</h4>\n    <hr>\n    <form>\n        <div>\n            <h4>Title:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.title\" required>\n        </div>\n        <div>\n            <h4>Description:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.description\" required>\n        </div>\n        <div>\n            <h4>Url:</h4> \n            <input type=\"text\" ng-model=\"$ctrl.url\" required>\n        </div>\n        <div>\n            <h4>Album:</h4> \n            <select ng-options=\"album.name for album in $ctrl.albumoptions\" \n                    ng-model=\"$ctrl.category\" \n                    required>\n            </select>\n        </div>\n    </form>\n    <button ng-click=\"$ctrl.addNew()\">Add</button>\n</footer>";
 
 /***/ },
 /* 46 */

@@ -8,8 +8,10 @@
 
     form {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
     }
 
     input, select {
@@ -29,5 +31,11 @@
     button {
         min-width: 100px;
         margin-left: calc(50% - 50px);
+    }
+
+    @media only screen and (min-width: 520px) {
+        form {
+            flex-direction: row;
+        }
     }
 }
