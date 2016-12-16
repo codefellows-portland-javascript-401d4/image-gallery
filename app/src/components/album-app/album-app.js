@@ -15,14 +15,14 @@ function controller(imageService, albumService, $state) {
     this.albums = [];
     this.view = '';
 
-    this.$onInit = () => {
-        albumService
-            .getAll()
-            .then(albums => {
-                this.albums = albums;
-                this.loading = false;
-            });
-    };
+    // this.$onInit = () => { // testing doesn't seem to like this
+    albumService
+        .getAll()
+        .then(albums => {
+            this.albums = albums;
+            this.loading = false;
+        });
+    // };
 
     this.updateView = () => {
         $state.go($state.current.name, { view: this.view });
