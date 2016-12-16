@@ -16,16 +16,15 @@ function controller(albums) {
     albums.getAll().then(albums => {
         this.albums = albums;
         this.selected = albums[0].name;
-        console.log(albums);
-        console.log(albums[0].name);
     });
 
-    this.addtoalbum = (album) => {
-        albums.put(album).then(album => {
+    this.selected = () => {
+        albums.put(this._id).then(album => {
+            console.log('albums', albums);
+            console.log('album', album);
             this.album = album;
         });
     };
-
 
     this.delete = () => {
         this.remove(this.image);
