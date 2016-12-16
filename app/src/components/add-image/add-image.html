@@ -3,6 +3,7 @@
         <p>Image title: <input type="text" ng-model="$ctrl.title" required="string">
             Image URL: <input type="text" ng-model="$ctrl.url" required="string">
             Description: <input type="text" ng-model="$ctrl.description" required="string">
+            Album: <br />
             <select ng-model="$ctrl.album"
                     ng-options="album as album.title for album in $ctrl.albums track by album._id">
             </select>
