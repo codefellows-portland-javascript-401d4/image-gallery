@@ -3,15 +3,18 @@
     ng-if="$ctrl.view !== 'add'">
     Add Image
 </button>
-<select ng-model="$ctrl.view">
+<select 
+    ng-if="$ctrl.view !== 'add'"
+    ng-model="$ctrl.view">
     <option value="info">Info</option>
     <option value="thumbnail">Thumbnail</option>
     <option value="full">Full</option>
 </select>
-<section>
+<section id="gallery">
     <add-image
         ng-if="$ctrl.view === 'add'"
-        add="$ctrl.add">
+        add="$ctrl.add"
+        view="$ctrl.view">
     </add-image>
     <image-info 
         ng-if="$ctrl.view === 'info'"

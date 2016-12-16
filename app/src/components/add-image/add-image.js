@@ -4,7 +4,8 @@ import styles from './add-image.scss';
 export default {
   template,
   bindings: {
-    add: '<'
+    add: '<',
+    view: '='
   },
   controller
 };
@@ -12,11 +13,19 @@ export default {
 function controller() {
   this.styles = styles;
 
+  this.reset = () => {
+    this.title = '';
+    this.description = '';
+    this.url = '';
+  };
+
   this.addNew = () => {
     this.add({
       title: this.title,
       description: this.description,
       url: this.url
     });
+    this.reset();
+    this.view = 'info';
   };
 }
