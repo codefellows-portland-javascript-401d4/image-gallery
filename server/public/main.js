@@ -56,15 +56,15 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(30);
+	var _services = __webpack_require__(34);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(33);
+	var _angularUiRouter = __webpack_require__(37);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(34);
+	var _routes = __webpack_require__(38);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
@@ -33513,13 +33513,15 @@
 
 	var map = {
 		"./about/about.js": 12,
-		"./app/app.js": 13,
-		"./home/home.js": 17,
-		"./image-detail/image-detail.js": 18,
-		"./image-gallery/image-gallery.js": 20,
-		"./image-thumb/image-thumb.js": 22,
-		"./images/images.js": 24,
-		"./new-image/new-image.js": 28
+		"./add/add.js": 13,
+		"./app/app.js": 15,
+		"./home-detail/home-detail.js": 19,
+		"./home/home.js": 21,
+		"./image-detail/image-detail.js": 22,
+		"./image-gallery/image-gallery.js": 24,
+		"./image-thumb/image-thumb.js": 26,
+		"./images/images.js": 28,
+		"./new-image/new-image.js": 32
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33542,10 +33544,10 @@
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	exports.default = {
-	    template: "\n    <h1>About Goat Images</h1>\n        <ui-view name=\"header\"><p>These are a bunch of images of goats.</p></ui-view>\n    </section>\n    <section>    \n"
+	  template: "\n    <h2>About Goat Images</h2>\n        <ui-view name=\"header\"><h3>These are a bunch of images of goats, that's it.  Just some pictures of goats. </h3></ui-view>"
 	};
 
 /***/ },
@@ -33558,11 +33560,58 @@
 		value: true
 	});
 	
-	var _app = __webpack_require__(14);
+	var _add = __webpack_require__(14);
+	
+	var _add2 = _interopRequireDefault(_add);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		template: _add2.default,
+		controller: controller,
+		controllerAs: 'addImage'
+	};
+	
+	
+	controller.$inject = ['imageService'];
+	
+	function controller(images) {
+		var _this = this;
+	
+		this.loading = true;
+	
+		// add an image
+		this.add = function (image) {
+			_this.loading = true;
+			images.add(image).then(function (saved) {
+				_this.loading = false;
+				// push to in-memory array
+				_this.images.push(saved);
+			});
+		};
+	}
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n    <new-image add=\"images.add\"></new-image>\n</section>";
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _app = __webpack_require__(16);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _app3 = __webpack_require__(15);
+	var _app3 = __webpack_require__(17);
 	
 	var _app4 = _interopRequireDefault(_app3);
 	
@@ -33585,33 +33634,20 @@
 	}
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "\n    <!-------------------------Header---------------------------------->\n    <div class='header'>\n        <h1>Goat Images</h1>\n        <h2><em>Images of goats.  That's it.</em></h2>\n        <!--<h1 ng-click=\"$ctrl.gotoPirates()\">Pirates!</h1>-->\n    <a ui-sref=\"home\" ui-sref-active=\"clicked\">Home</a>\n    <a ui-sref=\"images\" ui-sref-active=\"clicked\">Images</a>\n    <a ui-sref=\"about\" ui-sref-active=\"clicked\">About</a>\n\n    </div>\n    <!-------------------------Image Gallery------------------------------>\n<main>\n    <ui-view></ui-view>\n</main>\n<footer>\n    <h4>Mugsy Carter &copy 2016</h4>\n    </footer>";
+	module.exports = "\n    <!-------------------------Header---------------------------------->\n    <div class='header'>\n        <h1>Goat Images</h1>\n        <h2><em>Images of goats.  That's it.</em></h2>\n    <a ui-sref=\"home\" ui-sref-active=\"clicked\">Home</a>\n    <a ui-sref=\"images\" ui-sref-active=\"clicked\">Images</a>\n    <a ui-sref=\"add\" ui-sref-active=\"clicked\">Add Images</a>\n    <a ui-sref=\"about\" ui-sref-active=\"clicked\">About</a>\n\n    </div>\n    <!-------------------------Image Gallery------------------------------>\n<main>\n    <ui-view></ui-view>\n</main>\n<footer>\n    <h4>Mugsy Carter &copy 2016</h4>\n    </footer>";
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 16 */,
-/* 17 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-	exports.default = {
-	   template: "<h1>Welcome to Pictures of Goats!  A wierd idea for a website, but whatever. </h1>\n    <section><ui-view>This is the default text</ui-view></section>"
-	};
-
-/***/ },
-/* 18 */
+/* 18 */,
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33620,7 +33656,73 @@
 		value: true
 	});
 	
-	var _imageDetail = __webpack_require__(19);
+	var _homeDetail = __webpack_require__(20);
+	
+	var _homeDetail2 = _interopRequireDefault(_homeDetail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		template: _homeDetail2.default,
+		controller: controller,
+		controllerAs: 'homeDetail'
+	};
+	
+	
+	controller.$inject = ['$scope'];
+	
+	function controller($scope) {
+		this.loading = true;
+	
+		this.checkAnimal = function () {
+			var patt = /goats?/i;
+			var result = patt.test($scope.animalChoice);
+			if (result) {
+				$scope.responseText = 'Good choice!  We have lots of pictures of goats!';
+				$scope.picturesButton = true;
+			} else {
+				var arr = $scope.animalChoice.split('');
+				var lastLetter = arr.pop();
+				if (lastLetter === 's' || lastLetter === 'S') {
+					$scope.responseText = 'Sorry, we do not have any pictures of ' + $scope.animalChoice + '.';
+				} else {
+					$scope.responseText = 'Sorry, we do not have any pictures of ' + $scope.animalChoice + 's.';
+				}
+				$scope.picturesButton = false;
+			}
+		};
+	}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n    <form> What animal would you like to see images of?<br>\n        <input type=\"text\" ng-model=\"animalChoice\"><br>\n        <input type=\"submit\" ng-click=\"homeDetail.checkAnimal()\">\n    </form>\n    <div>{{responseText}}<div>\n    <button ng-show=\"picturesButton\" ui-sref=\"images\">See Goat Images!</button>\n";
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+	exports.default = {
+	   template: "<h2>Welcome to Pictures of Goats!  A wierd idea for a website, but whatever. </h2>\n    <section><ui-view>This website was made for a class assignment.  </ui-view></section>\n    <home-detail></home-detail>"
+	};
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _imageDetail = __webpack_require__(23);
 	
 	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
@@ -33646,13 +33748,13 @@
 	}
 
 /***/ },
-/* 19 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n        <ul>\n        <li ng-repeat ='image in imageDetail.images'> \n            <h3>Image Title: {{image.title}}<h3>\n             <p>Description: {{image.description}}</h3>\n             <p>URL: </p><a ng-href=\"{{image.url}}\">{{image.url}}</a>\n             <button ng-click=\"imageDetail.removeImage(image)\">remove</button>\n        </li>\n    </ul>\n</section>";
 
 /***/ },
-/* 20 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33661,7 +33763,7 @@
 		value: true
 	});
 	
-	var _imageGallery = __webpack_require__(21);
+	var _imageGallery = __webpack_require__(25);
 	
 	var _imageGallery2 = _interopRequireDefault(_imageGallery);
 	
@@ -33687,13 +33789,13 @@
 	}
 
 /***/ },
-/* 21 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n    <ul>\n        <li ng-repeat ='image in imageGallery.images'> \n            <h3>Image Title: {{image.title}}<h3>\n            <img ng-src=\"{{image.url}}\" alt={{image.title}}> \n            <p>Description: {{image.description}}</h3>\n            <p>URL: </p><a href={{image.url}}>{{image.url}}</a>\n            <button ng-click=\"imageGallery.removeImage(image)\">remove</button>\n        </li>\n    </ul>\n</section>";
 
 /***/ },
-/* 22 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33702,7 +33804,7 @@
 		value: true
 	});
 	
-	var _imageThumb = __webpack_require__(23);
+	var _imageThumb = __webpack_require__(27);
 	
 	var _imageThumb2 = _interopRequireDefault(_imageThumb);
 	
@@ -33728,13 +33830,13 @@
 	}
 
 /***/ },
-/* 23 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n    <ul>\n        <li ng-repeat ='image in imageThumb.images'> \n            <h3>Image Title: {{image.title}}<h3>\n            <img ng-src=\"{{image.url}}\" alt={{image.title}} height=\"100px\" width=\"100px\"> \n            <button ng-click=\"imageThumb.removeImage(image)\">remove</button>\n        </li>\n    </ul>\n</section>";
 
 /***/ },
-/* 24 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33743,11 +33845,11 @@
 		value: true
 	});
 	
-	var _images = __webpack_require__(25);
+	var _images = __webpack_require__(29);
 	
 	var _images2 = _interopRequireDefault(_images);
 	
-	var _images3 = __webpack_require__(26);
+	var _images3 = __webpack_require__(30);
 	
 	var _images4 = _interopRequireDefault(_images3);
 	
@@ -33765,7 +33867,6 @@
 	function controller(images) {
 		var _this = this;
 	
-		console.log('in images.js');
 		this.loading = true;
 	
 		this.styles = _images4.default;
@@ -33780,7 +33881,6 @@
 	
 		// remove this image
 		this.remove = function (image) {
-			console.log('remove image clicked.  This is the image', image);
 			_this.loading = true;
 			images.remove(image._id).then(function () {
 				_this.loading = false;
@@ -33791,31 +33891,32 @@
 		};
 	
 		// add an image
-		this.add = function (image) {
-			_this.loading = true;
-			images.add(image).then(function (saved) {
-				_this.loading = false;
-				// push to in-memory array
-				_this.images.push(saved);
-			});
-		};
+		// 	this.add = image => {
+		// 		this.loading = true;
+		// 		images.add(image)
+		//             .then(saved => {
+		// 	this.loading = false;
+		//                 // push to in-memory array
+		// 	this.images.push(saved);
+		// });
+		// 	};
 	}
 
 /***/ },
-/* 25 */
+/* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n    <form id=\"diplay-form\">\n        <h2>Select an image display.</h2>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        </select>\n    </form>\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n\n    <new-image add=\"images.add\"></new-image>\n</section>";
+	module.exports = "<section>\n    <div class=\"loader\" ng-if=\"images.loading\">Loading...</div>\n    <form id=\"diplay-form\">\n        <h2>Select an image display.</h2>\n        <select ng-model=\"displayChoice\" ng-options=\"x for x in images.displays\">\n        </select>\n    </form>\n    <div>\n        <image-detail ng-if=\"displayChoice==='text' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-detail>\n        <image-gallery ng-if=\"displayChoice==='full' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-gallery>\n        <image-thumb ng-if=\"displayChoice==='thumbnail' || displayChoice==='all'\" images=\"images.images\" remove=\"images.remove\"></image-thumbnail>\n    </div>\n\n    <!--<new-image add=\"images.add\"></new-image>-->\n</section>";
 
 /***/ },
-/* 26 */
+/* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 27 */,
-/* 28 */
+/* 31 */,
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33824,7 +33925,7 @@
 		value: true
 	});
 	
-	var _newImage = __webpack_require__(29);
+	var _newImage = __webpack_require__(33);
 	
 	var _newImage2 = _interopRequireDefault(_newImage);
 	
@@ -33866,13 +33967,13 @@
 	}
 
 /***/ },
-/* 29 */
+/* 33 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n    <h2>Add more goat images</h2>\n    <div>\n        <label>Title:</label>\n        <input ng-model=\"newImage.title\">\n    </div>\n      <div>\n        <label>Description:</label>\n        <input ng-model=\"newImage.description\">\n    </div>\n    <div>\n        <label>URL:</label>\n        <input ng-model=\"newImage.url\">\n    </div>\n    <button ng-click=\"newImage.addNew()\">add</button>\n</section>";
 
 /***/ },
-/* 30 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33896,7 +33997,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(31);
+	var context = __webpack_require__(35);
 	
 	// create the module to put the resources in,
 	// in this case directives
@@ -33915,11 +34016,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 31 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 32
+		"./image-service.js": 36
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33932,11 +34033,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 31;
+	webpackContext.id = 35;
 
 
 /***/ },
-/* 32 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33972,7 +34073,7 @@
 	}
 
 /***/ },
-/* 33 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -42321,7 +42422,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 34 */
+/* 38 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42350,6 +42451,12 @@
 			name: 'about',
 			url: '/about',
 			component: 'about'
+		});
+	
+		$stateProvider.state({
+			name: 'add',
+			url: '/add',
+			component: 'add'
 		});
 	
 		$urlRouterProvider.otherwise('/');

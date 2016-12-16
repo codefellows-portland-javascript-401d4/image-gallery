@@ -9,12 +9,26 @@ export default {
 
 controller.$inject = ['imageService', 'albumService'];
 
-function controller(images) {
+function controller(images, albums) {
 	this.loading = true;
  
 	this.styles = styles;
 	
 	this.displays = ['thumbnail', 'text', 'full', 'all'];
+	this.displayImages = [];
+
+	this.filterImages = function(){
+
+		// this.displayImages = [];
+		// this.displayImages = this.images.filter(function(image){
+		// 	return image.albumId === 
+		// });
+	};
+	  // call the get to load all albums
+	albums.get().then(albums => {
+		this.loading = false;
+		this.albums = albums;
+	});
 
     // call the get to load all images
 	images.get().then(images => {

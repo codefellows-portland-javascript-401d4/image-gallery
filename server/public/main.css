@@ -9,9 +9,13 @@ button {
 * {
   color: black;
   font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; }
+
+a {
+  text-decoration: none;
+  margin: 0 6vw; }
 .header {
   background-color: black;
-  height: 30vh; }
+  height: 24vh; }
 
 h1 {
   color: #B1DAF5;
@@ -30,9 +34,8 @@ footer {
   background-color: black;
   height: 20vh; }
 
-a.foo {
-  background: #FBE72C;
-  color: black; }
+a.clicked {
+  color: #AAA; }
 li {
   border: 3px solid #AAA;
   text-decoration: none;

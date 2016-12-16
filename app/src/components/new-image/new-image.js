@@ -11,28 +11,41 @@ export default {
 	controllerAs: 'newImage'  
 };
 
-function controller() {
+controller.$inject = ['imageService', 'albumService'];
+
+function controller(images, albums) {
 
 	this.reset = () => {
 		this.title = '';
 		this.url = '';
 		this.description ='';
 		this.albumId='';
+		this.albumTitle='';
+		this.albumDescription='';
 	};
-
 	this.reset();
 
-	this.addNew = () => {
+	this.addNewAlbum = () => {
 		console.log(this);
-		this.add({
+		console.log('album title is ', this.albumTitle);
+		console.log('album description is ', this.albumDescription);
+		albums.add({
+			title: this.albumTitle,
+			description: this.albumDescription,
+		});
+		console.log('new album added');
+		this.reset();
+	};
+
+	this.addNewImage = () => {
+		console.log(this);
+		images.add({
 			title: this.title,
 			url: this.url,
 			description: this.description,
-			albumId: this.albumId
+			albumId: this.album._id
 		});
-		console.log('image added');
-        // clear out controls so
-        // next image can be added
+		console.log('new image added');
 		this.reset();
 	};
 }

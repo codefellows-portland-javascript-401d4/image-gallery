@@ -1,27 +1,42 @@
 <section>
-    <h2>Add more goat images</h2>
+    <div>
 
-        <form id="album-select-form">
-        <label>Select an album to add your image to.</label>
-             <li ng-repeat ='album.title for album in newImage.albums'> 
-            <h3>album: {{album.title}}<h3> 
-            <p>Description: {{album.description}}</h3>
-        </li>
-        <select ng-model="albumChoice" ng-options="x.title for x in newImage.albums">
-        <option value="">select one</option>
-        </select>
-    </form>
+    </div>
+        <h3>Add more goat albums</h3>
+        <form id="add-album-form">
+            <div>
+                <label>New Ablum Title</label>
+                <input ng-model="newImage.albumTitle">
+            </div>
+            <div>
+                <label>New Album Desctiption</label>
+                <input ng-model="newImage.albumDescription">
+            </div>
+            <button ng-click="newImage.addNewAlbum()">add</button>
+        </form>
+
     <div>
-        <label>Title:</label>
-        <input ng-model="newImage.title">
+        <h3>Add more goat images</h3>
+        <form id="add-image-form">
+            <label>Select an album to add your image to.</label>
+            <select ng-model="newImage.album" ng-options="x.title for x in newImage.albums">
+            <option value='new' ng-selected=>New Album</option>
+            <option value="">select one</option>
+            </select>
+ 
+        <div>
+            <label>Title:</label>
+            <input ng-model="newImage.title">
+        </div>
+        <div>
+            <label>Description:</label>
+            <input ng-model="newImage.description">
+        </div>
+        <div>
+            <label>URL:</label>
+            <input ng-model="newImage.url">
+        </div>
+        <button ng-click="newImage.addNewImage()">add</button>
+        </form>
     </div>
-      <div>
-        <label>Description:</label>
-        <input ng-model="newImage.description">
-    </div>
-    <div>
-        <label>URL:</label>
-        <input ng-model="newImage.url">
-    </div>
-    <button ng-click="newImage.addNew()">add</button>
 </section>
