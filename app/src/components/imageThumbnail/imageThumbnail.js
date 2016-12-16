@@ -1,6 +1,6 @@
 
 import template from './imageThumbnail.html';
-import styles from './imageThumbnail.css';
+import styles from './imageThumbnail.scss';
 
 export default {
     template,

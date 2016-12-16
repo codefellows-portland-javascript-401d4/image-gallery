@@ -1,6 +1,6 @@
 
 import template from './imageChoice.html';
-
+import styles from './imageChoice.scss';
 
 export default {
     template,
@@ -10,6 +10,8 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(imageService) {
+    this.styles = styles;
+
     this.choices = [
         {name: 'Gallery', value: 'gallery'},
         {name: 'Thumbnail', value: 'thumbnail'},

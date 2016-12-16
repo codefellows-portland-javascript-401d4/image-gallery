@@ -1,6 +1,6 @@
 
 import template from './imageAdd.html';
-import styles from './imageAdd.css';
+import styles from './imageAdd.scss';
 
 export default {
     template,
