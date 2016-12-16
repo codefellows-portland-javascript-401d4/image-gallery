@@ -13,6 +13,4 @@ const app = angular.module('myApp', [
 
 app.config(routes);
 
-const dev = 'http://127.0.0.1:3000/api';
-
-app.value('apiUrl', dev);
+app.value('apiUrl', 'http://localhost:3000/api');

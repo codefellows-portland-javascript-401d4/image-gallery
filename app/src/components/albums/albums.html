@@ -1,14 +1,30 @@
 <section ng-class="$ctrl.styles.albums">
     <div class="loader" ng-if="$ctrl.loading">Loading...</div>
     <h2>Image Albums</h2>
+    <div>
+        <span ng-repeat="view in ['detail', 'summary']">
+        <input 
+            ng-model="$ctrl.view" 
+            ng-change="$ctrl.updateView()" 
+            name="view" 
+            ng-value="view" 
+            type="radio"> 
+            {{view}}
+        </span> 
+    </div>
     <ul>
-			<li ng-repeat="album in $ctrl.albums"
-				ui-sref="albums.detail({ 
-					id: album._id
-				})">
-				<h4>{{album.name}}</h4>
-				<img ng-src="{{album.cover}}">
-       </li>
+        <li ng-repeat="album in $ctrl.albums"
+            ui-sref="albums.detail({ 
+                id: album._id,
+                view: $ctrl.view
+            })">
+
+            <h4>{{album.name}}</h4>
+            <img ng-src="{{album.cover}}">
+
+        </li>
     </ul>
-    <ui-view>select an album to see its images</ui-view>
+
+    <ui-view>select a album to see detail</ui-view>
+    
 </section>

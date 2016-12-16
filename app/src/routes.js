@@ -9,9 +9,29 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'albums',
-    url: '/albums',
-    component: 'app' 
+    name: 'albums', // name of this defined app "state"
+    url: '/albums', // url associated with the state,
+    component: 'albums' 
+  });
+
+  $stateProvider.state({
+    name: 'albums.detail',
+        // the url, plus implied params id and view
+    url: '/:id',
+    params: {
+            // "view" same key as above
+      view: { dynamic: true }
+    },
+    resolve: {
+      id: ['$transition$', t => t.params().id],
+            // "view" is name of component binding, 
+            // t.params().view is dependent on key above
+      view: ['$transition$', t => t.params().view || 'detail']
+            // album: ['$transition$', 'albumService', (t, albums) => {
+            //     return albums.get(t.params().id);
+            // }]
+    },
+    component: 'albumDetail'
   });
 
   $stateProvider.state({
@@ -48,5 +68,3 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 }
-
-
