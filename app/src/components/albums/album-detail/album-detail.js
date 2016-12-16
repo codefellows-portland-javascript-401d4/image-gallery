@@ -5,7 +5,8 @@ export default {
     template,
     bindings: {
         id: '<',
-        view: '<'
+        view: '<',
+        remove: '<'
     },
     controller
 };
@@ -24,5 +25,9 @@ function controller(albums) {
 
     this.uiOnParamsChanged = params => {
         this.view = params.view;
+    };
+
+    this.deleteAlbum = () => {
+        albums.remove(this.id);
     };
 }

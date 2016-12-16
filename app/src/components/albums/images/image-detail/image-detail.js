@@ -25,7 +25,6 @@ function controller(albums, images) {
 
     albums.getAll().then(albums => {
         this.albums = albums;
-        // this.selected = albums[0].name;
     });
 
     this.delete = () => {
