@@ -3,14 +3,14 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function routes($stateProvider, $urlRouterProvider) {
     
   $stateProvider.state({
-    name: 'welcome', // name of this defined app "state"
-    url: '/', // url associated with the state,
+    name: 'welcome',
+    url: '/',
     component: 'welcome' 
   });
 
   $stateProvider.state({
-    name: 'albums', // name of this defined app "state"
-    url: '/albums', // url associated with the state,
+    name: 'albums',
+    url: '/albums',
     component: 'albums' 
   });
 
@@ -33,6 +33,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
     },
     component: 'albumDetail'
   });
+
+	 $stateProvider.state({
+   name: 'images',
+   url: '/images',
+   component: 'images' 
+ });
 
   $stateProvider.state({
     name: 'about',

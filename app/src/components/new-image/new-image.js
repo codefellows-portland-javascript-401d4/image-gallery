@@ -8,6 +8,8 @@ export default {
   controller
 };
 
+controller.$inject = ['imageService'];
+
 function controller() {
 
   this.reset = () => {
