@@ -13,10 +13,10 @@ router
       .catch(next);
   })
 
-  .get('/:album', (req, res, next) => {
-    Album.find({title: req.params.album})
+  .get('/albums/:albumId', (req, res, next) => {
+    Image.find({ album: req.params.albumId })
       .lean()
-      .then(album => res.send(album))
+      .then(images => res.send(images))
       .catch(next);
   })
 
