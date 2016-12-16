@@ -47,7 +47,7 @@ router
       });
   })
 
-  .post('/album', bodyParser, (req, res, next) => {
+  .post('/albums', bodyParser, (req, res, next) => {
     const album = new Album(req.body);
     album.save()
       .then(response => {
