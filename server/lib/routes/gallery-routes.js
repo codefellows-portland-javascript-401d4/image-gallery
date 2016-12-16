@@ -67,14 +67,14 @@ router
       });
   })
 
-  .put('/:id', bodyParser, (req, res, next) => {
+  .put('/images/:id', bodyParser, (req, res, next) => {
     Image.findByIdAndUpdate(req.params.id, req.body) // doesn't return the obj
       .then(() => { return Image.findById(req.params.id); }) // re-fetch obj
       .then(saved => res.send(saved))
       .catch(next);
   })
 
-  .delete('/:id', (req, res, next) => {
+  .delete('/images/:id', (req, res, next) => {
     Image.findByIdAndRemove(req.params.id)
       .then(deleted => res.send(deleted))
       .catch(next);
