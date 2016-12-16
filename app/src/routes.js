@@ -1,3 +1,5 @@
+
+
 routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 
@@ -31,7 +33,10 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'add',
     url: '/add',
-    component: 'addImage'
+    component: 'addImage',
+    resolve: {
+      albums: ['galleryService', albums => albums.getAlbums()]
+    }
   });
 
   $urlRouterProvider.otherwise('/');
