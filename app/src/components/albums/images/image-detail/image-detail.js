@@ -20,8 +20,6 @@ function controller(albums, images) {
         console.log('albumid, imageid', albumid, imageid);
         images.put(albumid, imageid).then(saved => {
             console.log('saved', saved);
-            this.images = images(saved);
-            this.albums = albums(saved);
         });
     };
 
