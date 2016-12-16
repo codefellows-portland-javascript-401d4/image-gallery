@@ -13,9 +13,7 @@ router
     Album.find(query)
       .select('name description _id')
       .lean()
-      .then((data) => {
-        res.send(data);
-      })
+      .then(data => res.send(data))
       .catch(next);
   })
 

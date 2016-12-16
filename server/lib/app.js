@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/images', images);
-app.use('api/albums', albums);
+app.use('/api/albums', albums);
 
 app.use(errHandler);
 
