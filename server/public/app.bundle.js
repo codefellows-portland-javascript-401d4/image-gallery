@@ -33033,14 +33033,14 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.new\">\n    <div>\n        <p>ADD A NEW IMAGE:</p>\n        <p>\n            <label>Image Title:</label>\n            <input ng-model=\"$ctrl.title\">\n        </p>\n        <p>\n            <label>Image URL:</label>\n            <input ng-model=\"$ctrl.url\">\n        </p>\n        <p>\n            <label>Image Description:</label>\n            <input ng-model=\"$ctrl.description\">\n        </p>\n    </div>\n    <button ng-click=\"$ctrl.addImage()\">Add Image</button>\n</section>";
+	module.exports = "<section ng-class=\"$ctrl.styles.new\">\n    <div>\n        <p>ADD A NEW IMAGE:</p>\n        <p>\n            <label>Image Title:</label>\n            <input ng-model=\"$ctrl.title\">\n        </p>\n        <p>\n            <label>Image Description:</label>\n            <input ng-model=\"$ctrl.description\">\n        </p>\n        <p>\n            <label>Image URL:</label>\n            <input ng-model=\"$ctrl.url\">\n        </p>\n    </div>\n    <button class=\"basic\" ng-click=\"$ctrl.addImage()\">Add Image</button>\n</section>";
 
 /***/ },
 /* 10 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"new":"_1YPI68rRVc_YD77FPrlEse"};
+	module.exports = {"new":"LVBOpzCDPAza16saRH3bp"};
 
 /***/ },
 /* 11 */,
@@ -33100,7 +33100,7 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section>\n    <label>Viewing Choice:</label>\n    <select ng-model=\"$ctrl.myChoice\" ng-options=\"choice.name for choice in $ctrl.choices\"></select>\n    <hr>\n\n    <image-view ng-if=\"$ctrl.myChoice.value === 'view'\" images=\"$ctrl.images\" remove=\"$ctrl.remove\"></image-view>\n    <image-gallery ng-if=\"$ctrl.myChoice.value === 'gallery'\" images=\"$ctrl.images\"></image-gallery>\n    <image-thumbnail ng-if=\"$ctrl.myChoice.value === 'thumbnail'\" images=\"$ctrl.images\"></image-thumbnail>\n\n    <hr>\n    <image-add add=\"$ctrl.add\"></image-add>\n</section>\n";
+	module.exports = "\n<section>\n    <label>Viewing Choices:</label>\n    <select ng-model=\"$ctrl.myChoice\" ng-options=\"choice.name for choice in $ctrl.choices\"></select>\n    <hr>\n\n    <image-view ng-if=\"$ctrl.myChoice.value === 'view'\" images=\"$ctrl.images\" remove=\"$ctrl.remove\"></image-view>\n    <image-gallery ng-if=\"$ctrl.myChoice.value === 'gallery'\" images=\"$ctrl.images\"></image-gallery>\n    <image-thumbnail ng-if=\"$ctrl.myChoice.value === 'thumbnail'\" images=\"$ctrl.images\"></image-thumbnail>\n\n    <hr>\n    <image-add add=\"$ctrl.add\"></image-add>\n</section>\n";
 
 /***/ },
 /* 16 */
@@ -33143,7 +33143,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"full":"j8D9hzv5OzJceebzwThPy"};
+	module.exports = {"full":"_2pD5v6zDdUi2jX4alb2yhf"};
 
 /***/ },
 /* 19 */,
@@ -33187,7 +33187,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"thumb":"_1L7Z2n4VQ-G1keK-CudeSf"};
+	module.exports = {"thumb":"_2OjRt6lK6ahqvZN_vhmdY1"};
 
 /***/ },
 /* 23 */,
@@ -33234,14 +33234,14 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <hr>\n            <p>Image Title: {{image.title}}</p>\n            <p><a href=\"{{image.url}}\" target=\"_blank\">Link To: {{image.title}}</a></p>\n            <p>Image Description: {{image.description}}</p>\n            <button ng-click=\"$ctrl.trash(image)\">Remove Image</button>\n        </li>\n    </ul>\n</div>\n";
+	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <p>Title: {{image.title}}</p>\n            <p><span>Link To: </span><a href=\"{{image.url}}\" target=\"_blank\">{{image.title}}</a></p>\n            <p>Description: {{image.description}}</p>\n            <button class=\"basic\" ng-click=\"$ctrl.trash(image)\">Remove Image</button>\n        </li>\n    </ul>\n</div>\n";
 
 /***/ },
 /* 26 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"view":"eXDYY1Bd5BRBPn1esoQgd"};
+	module.exports = {"view":"tKv564lckBLOz7IjnkmAa"};
 
 /***/ },
 /* 27 */,
@@ -33326,7 +33326,6 @@
 	            });
 	        },
 	        remove: function remove(image) {
-	            console.log('deleting image: ', image);
 	            return $http.delete(apiUrl + '/images/' + image._id).then(function (res) {
 	                return res.data;
 	            });

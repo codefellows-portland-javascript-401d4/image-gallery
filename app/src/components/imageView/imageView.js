@@ -1,6 +1,6 @@
 
 import template from './imageView.html';
-import styles from './imageView.css';
+import styles from './imageView.scss';
 
 export default {
     template,
