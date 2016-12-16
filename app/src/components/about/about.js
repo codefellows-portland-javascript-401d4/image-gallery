@@ -8,7 +8,6 @@ export default {
     </section>
     <section>
         <ui-view name="main"></ui-view>
-    </section>
-    
+    </section>    
 `
 };

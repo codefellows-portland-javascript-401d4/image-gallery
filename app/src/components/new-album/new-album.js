@@ -8,6 +8,8 @@ export default {
   controller
 };
 
+controller.$inject = ['albumService'];
+
 function controller() {
 
   this.reset = () => {
