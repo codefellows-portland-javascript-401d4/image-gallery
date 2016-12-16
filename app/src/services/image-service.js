@@ -11,4 +11,4 @@ export default function imageService($http, apiUrl) {
         .then(res => res.data);
     }
   };
-}; 
+}

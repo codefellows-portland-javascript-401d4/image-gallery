@@ -1,4 +1,5 @@
 import template from './image-manage.html';
+import styles from './image-manage.scss';
 
 export default {
   template,
