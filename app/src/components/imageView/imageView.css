@@ -1,0 +1,12 @@
+:local(.view) p {
+    margin:  auto;
+}
+
+:local(.view) button {
+    color: black;
+    background-color: white;
+}
+
+:local(.view) button:hover {
+    background-color: palegreen;
+}

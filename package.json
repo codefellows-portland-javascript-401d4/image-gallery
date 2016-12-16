@@ -1,13 +1,14 @@
+
 {
-  "name": "image-gallery",
+  "name": "basic-express-server",
   "version": "1.0.0",
-  "description": "Build 3 displays",
+  "description": "basic express server",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server --inline",
-    "test": "eslint . && exit 0",
-    "lint": "eslint ."
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
   },
   "repository": {
     "type": "git",
@@ -18,21 +19,5 @@
   "bugs": {
     "url": "https://github.com/JPGothro/image-gallery/issues"
   },
-  "homepage": "https://github.com/JPGothro/image-gallery#readme",
-  "dependencies": {
-    "angular": "^1.5.9"
-  },
-  "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
-    "babel-preset-es2015": "^6.18.0",
-    "css-loader": "^0.26.1",
-    "eslint": "^3.11.1",
-    "eslint-loader": "^1.6.1",
-    "html-loader": "^0.4.4",
-    "html-webpack-plugin": "^2.24.1",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
-  }
+  "homepage": "https://github.com/JPGothro/image-gallery#readme"
 }

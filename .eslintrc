@@ -1,4 +1,7 @@
 {
+  "ecmaFeatures": {
+    "modules": true
+  },
   "parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module",
@@ -7,16 +10,12 @@
 			"experimentalObjectRestSpread": true,
 			"impliedStrict": true
 		}
-	},
-  "settings": {
-    "ecmascript": 6
   },
-   "env": {
+  "env": {
     "browser": true,
-    "es6": true,
     "jquery": true,
-    "mocha": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
   "rules": {
     "semi": 1,
