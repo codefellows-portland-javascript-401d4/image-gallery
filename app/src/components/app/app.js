@@ -1,4 +1,5 @@
 import template from './app.html';
+import styles from './app.scss';
 
 export default {
   template,
@@ -8,5 +9,5 @@ export default {
 // controller.$inject = [$state];
 
 function controller() {
-
+  this.styles = styles;
 }
