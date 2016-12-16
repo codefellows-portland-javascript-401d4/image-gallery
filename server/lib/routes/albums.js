@@ -37,9 +37,7 @@ router
 
   .post('/', bodyParser, (req, res, next) => {
     new Album(req.body).save()
-      .then(data => {
-        res.send({data: data});
-      })
+      .then(data => res.send({data: data}))
       .catch(next);
   })
 

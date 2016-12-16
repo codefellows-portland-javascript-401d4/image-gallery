@@ -13,11 +13,12 @@ const schema = new Schema({
   url: {
     type: String,
     required: true
-  },
-  albumId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Album'
   }
+  // ,
+  // albumId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Album'
+  // }
 });
 
 module.exports = mongoose.model('Image', schema);
