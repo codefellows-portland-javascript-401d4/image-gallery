@@ -14,11 +14,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'images'
   });
 
-  // $stateProvider.state({
-  //   name:'images.add',
-  //   url: '/add',
-  //   component: 'new-image'
-  // });
+  $stateProvider.state({
+    name:'albums',
+    url: '/albums',
+    component: 'albums'
+  });
 
   $stateProvider.state({
     name: 'about',

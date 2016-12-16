@@ -1,4 +1,4 @@
-import template from './new-image.html';
+import template from './new-album.html';
 
 export default {
   template,
@@ -11,18 +11,14 @@ export default {
 function controller() {
 
   this.reset = () => {
-    this.url = '';
-    this.imageTitle = '';
-    this.imageDescription = '';
+    this.name = '';
   };
 
   this.reset();
 
   this.addNew = () => {
     this.add({
-      url: this.url,
-      imageTitle: this.imageTitle,
-      imageDescription: this.imageDescription
+      name: this.name
     });
     this.reset();
   };
