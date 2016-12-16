@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'headings';
 @import 'divs';
+@import 'buttons';
 
 :local(.albums) {
 
@@ -15,19 +16,57 @@
         border-radius: 15px;
     }
 
-    div {
-        @include page-content();
+    .view {
+        text-align: center;
     }
 
-    img {
+    .preview {
+        @include page-content();
+        padding-top: 5px;
+        padding-bottom: 0;
+    }
+
+    .img-preview {
         width: 200px;
         height: 200px;
     }
 
+    .add-album {
+        text-align: center;
+        color: $maroon-brown;
+        background-color: $grey;
+        border-radius: 15px;
+        margin: 0 auto 2%;
+        width: 30%;
+        padding-top: 1%;
+
+        input {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        button {
+            @include button();
+            margin-bottom: 5%;
+            transition: transform .5s;
+            margin-top: 2%;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+    }
+
     ul {
-        // margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 2% 4%;
     }
     
 }

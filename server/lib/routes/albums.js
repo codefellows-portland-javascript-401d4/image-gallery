@@ -16,7 +16,7 @@ router
 
         Promise.all([
             Album.findById(album).lean(),
-            Image.find({album}).select('title', 'url', 'description').lean()
+            Image.find({album}).select('title url description').lean()
         ])
         .then(([album, images]) => {
             album.images = images;

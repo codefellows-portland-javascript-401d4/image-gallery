@@ -33,6 +33,38 @@ body {
   color: white;
   margin: 1%;
   padding: 2% 4%; }
+.tOB100066YCkd8sj0ot9b h2 {
+  background-color: #4b644a;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  width: 40%;
+  margin: 2% auto;
+  padding: 2%; }
+
+.tOB100066YCkd8sj0ot9b select {
+  display: block;
+  margin: 2% auto;
+  width: 175px;
+  border-radius: 15px; }
+
+.tOB100066YCkd8sj0ot9b div {
+  text-align: center;
+  color: white;
+  background-color: #584545;
+  border-radius: 15px;
+  width: 60%;
+  min-height: 300px;
+  margin: 5% auto;
+  padding: 5%; }
+
+.tOB100066YCkd8sj0ot9b img {
+  width: 200px;
+  height: 200px; }
+
+.tOB100066YCkd8sj0ot9b ul {
+  padding: 0;
+  list-style: none; }
 ._2Pv07dcn44y_VQIbaBxzQ2 h1 {
   background-color: #89a894;
   border-radius: 15px;

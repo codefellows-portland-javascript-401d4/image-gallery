@@ -1,17 +1,44 @@
 <section ng-class="$ctrl.styles.albums">
     <h2>Choose an Album to View</h2>
-    <select ng-model="$ctrl.album" ng-options="a.name for a in $ctrl.albums">
-    </select>
-    <div>
+    <!--<select ng-model="$ctrl.album" ng-options="a.name for a in $ctrl.albums">
+        <option value="">Preview All</option>
+    </select>-->
+    <div class="preview">
         <ul>
             <li ng-repeat="album in $ctrl.albums"
-                ui-sref="albums.detail({ 
-                    id: crew._id,
+                ui-sref="albums.contents({ 
+                    id: album._id,
                     view: $ctrl.view
                 })">
                 <h4>{{album.name}}</h4>
-                <img ng-src="{{album.featured}}">
+                <img class="img-preview" ng-src="{{album.featured}}">
             </li>
         </ul>
     </div>
+
+    <div class="add-album">
+        <div>
+            <h3>Add an Album</h3>
+            <label>Name:</label>
+            <input ng-model="$ctrl.name">
+        </div>
+        <div>
+            <label>URL of an Image to Represent the Album:</label>
+            <input ng-model="$ctrl.featured">
+        </div>
+        <button ng-click="$ctrl.addAlbum()">Add</button>       
+    </div>
+
+    <div class="view">
+        <span ng-repeat="view in ['detail', 'thumbnail', 'gallery']">
+        <input 
+            ng-model="$ctrl.view" 
+            ng-change="$ctrl.updateView()" 
+            name="view" 
+            ng-value="view" 
+            type="radio"> 
+            {{view}}
+        </span> 
+    </div>
+    <ui-view></ui-view>
 </section>
