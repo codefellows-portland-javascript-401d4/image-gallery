@@ -8,7 +8,7 @@ const schema = new Schema({
     },
     description: {
         type: String,
-        default: 'New album'
+        default: 'Edit album description'
     }
 });
 
