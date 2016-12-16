@@ -4,7 +4,8 @@ import styles from './album-new.scss';
 export default {
     template,
     bindings: {
-        add: '<'
+        add: '<',
+        loading: '='
     },
     controller
 };

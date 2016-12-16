@@ -32,7 +32,7 @@ describe('image component test', () => {
             }
         };
 
-        const albums = [{name:'animals', images: images}];
+        const albums = [{name:'animals', images: []}, {name:'anime', images:[]}];
 
         const albumService = {
             getAll() {
@@ -58,6 +58,19 @@ describe('image component test', () => {
                 assert.isNotOk(component.loading);
                 done();
             });
+        });
+
+        it('loads albums', done => {
+            const component = $component('imageApp', {imageService, albumService});
+            assert.isOk(component.loading);
+
+            setTimeout(() => {
+                assert.equal(component.albums, albums);
+                assert.isNotOk(component.loading);
+                done();
+            });
+
+            done();
         });
 
         it('add new image', done => {
