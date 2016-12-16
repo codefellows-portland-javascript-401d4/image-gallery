@@ -26,7 +26,6 @@ function controller(albumService) {
     };
 
     this.uiOnParamsChanged = params => {
-        console.log(params);
         this.view = params.view;
     };
 };

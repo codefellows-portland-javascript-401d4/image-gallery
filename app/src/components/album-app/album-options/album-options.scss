@@ -1,0 +1,10 @@
+@import 'borders';
+
+:local(.section) {
+    border: $simpleborder;
+    padding: 5px;
+}
+
+:local(.option) {
+    margin: 1em auto;
+}
