@@ -3,7 +3,7 @@ const app = express();
 const errorHandler = require('./error-handler');
 const morgan = require('morgan');
 const images = require('./routes/images');
-const albums = requires('./routes/albums');
+const albums = require('./routes/albums');
 
 app.use(morgan('dev'));
 app.use(express.static('./public'));

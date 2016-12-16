@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser').json();
 const Album = require('../models/album');
-const Image = require('../models/pirate');
+const Image = require('../models/image');
 
 router
   .get('/', (req, res, next) => {

@@ -6,7 +6,8 @@ describe('Image model', () => {
     const image = new Image({
       title: 'title',
       description: 'description',
-      url: 'http://url.com'
+      url: 'http://url.com',
+      album: 'album'
     });
 
     image.validate(err => {
