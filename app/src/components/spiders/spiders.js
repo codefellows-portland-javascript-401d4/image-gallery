@@ -1,5 +1,5 @@
 import template from './spiders.html';
-import styles from './spiders.css';
+import styles from './spiders.scss';
 
 export default {
   template,

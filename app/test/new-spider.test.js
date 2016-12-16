@@ -4,44 +4,81 @@ const {assert} = chai;
 
 describe('component', () => {
 
-  // angular mock WILL NOT WORK with before,
-  // unless we tell it that we are using sharedInjector
-  angular.mock.inject.sharedInjector();
+  // to use before, instead of beforeEach, this code is required ...
+  angular.mock.module.sharedInjector();
+
+  // tell angular mock that we want to use components module
+  // Note: using before instead of beforeEach
   before(angular.mock.module('components'));
 
-  // this is the component 'factory',
-  // usable via:
-  // const component = $component(name, locals, bindings);
-  let newSpider = null;
+  // get a reference to the $componentController, which
+  // we can then use to create component instances.
+  // In this case, we are creating it only once, via before ...
+  let $component = null;
+  before(angular.mock.inject($componentController => {
+    $component = $componentController;
+  }));
 
-  let addedSpider = null;
+  // use a suite to create one component, then run a series
+  // of tests, in order, against that component ...
+  describe('create component', () => {
 
-  const inject = angular.mock.inject(function($componentController) {
-    newSpider = $componentController(
-      'newSpider', // name of component
-      null,        // locals ==> Dependencies to Inject (key: value)
-      { add(s) { addedSpider = s; } }  // bindings (key: value)
-    );
+    const spiders = [
+      { name: 'Igor', type: 'dapper' },
+      { name: 'Spike', type: 'punk' }
+    ];
+
+    const spider = { name: 'Goblin', type: 'greeny'};
+    const _id = 123;
+
+    const spiderService = {
+      get() {
+        return Promise.resolve(spiders);
+      },
+      add(pirate) {
+        pirate._id = _id;
+        return Promise.resolve(spider);
+      },
+      remove(pirateId) {
+        assert.equal(pirateId, _id);
+        return Promise.resolve(true);
+      }
+    };
+
+    let component = null;
+    before(() => {
+      component = $component('spiders', {spiderService});
+    });
+
+    it('loads spiders', done => {
+      assert.isOk(component.loading);
+
+      setTimeout(() => {
+        assert.equal(component.spiders, spiders);
+        assert.isNotOk(component.loading);
+        done();
+      });
+    });
+
+    it('adds a spider', done => {
+
+      component.add(spider);
+
+      setTimeout(() => {
+        assert.equal(spiders.length, 3);
+        assert.equal(spiders[2], spider);
+        done();
+      });
+    });
+
+    it('removes spider', done => {
+      component.remove(spider);
+
+      setTimeout(() => {
+        assert.equal(spiders.length, 2);
+        assert.notInclude(spiders, spider);
+        done();
+      });
+    });
   });
-
-  before(inject);
-
-  function testEmpty() {
-    assert.equal(newSpider.name, '');
-    assert.equal(newSpider.type, '');
-  }
-
-  it('defaults to empty strings on prop', testEmpty);
-
-  it('calls the add function with property data', () => {
-    const name = 'Igor';
-    const type = 'dapper';
-    newSpider.name = name;
-    newSpider.type = type;
-    newSpider.addNew();
-    assert.deepEqual(addedSpider, {name, type});
-  });
-
-  it('resets the properties after add', testEmpty);
-
 });

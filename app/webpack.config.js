@@ -17,7 +17,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    // new ExtractTextPlugin('main.css')
+    cssExtract
   ],
   module: {
     preLoaders: [{
@@ -36,6 +36,7 @@ module.exports = {
     }, {
       test: /\.scss$/,
       loader: cssExtract.extract(
+      // loader: ExtractTextPlugin.extract(
         'style-loader',
         'css-loader?sourceMap!sass-loader?sourceMap'
       )
