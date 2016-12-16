@@ -4,7 +4,9 @@ import style from './add-image.scss';
 export default {
   template,
   bindings: {
-    add: '<'
+    add: '<',
+    albums: '=',
+    album: '<'
   },
   controller
 };
@@ -28,8 +30,11 @@ function controller(galleryService) {
     let newImage = {
       title: this.title,
       url: this.url,
-      description: this.description
+      description: this.description,
+      album: this.album._id
     };
+
+    console.log('You made an image: ', newImage);
 
     galleryService.addImage(newImage)
       .then(saved => {
