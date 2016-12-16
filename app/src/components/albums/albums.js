@@ -6,9 +6,9 @@ export default {
   controller
 };
 
-controller.$inject = ['albumService'];
+controller.$inject = ['albumService','imageService'];
 
-function controller(albums) {
+function controller(albums, imageService) {
 
   this.styles = styles;
 
@@ -25,6 +25,12 @@ function controller(albums) {
       this.albums.push(saved);
     });
   };
+
+
+  imageService.get().then(images => {
+    this.images = images;
+  });
+
 
   this.new = function() {
     this.viewNew = true;

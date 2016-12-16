@@ -5,7 +5,9 @@ const Image = require('../models/image');
 
 router
   .get('/', (req, res, next) => {
-    Image.find()
+    Image.find(req.query)
+      .select('url imageTitle imageDescription album')
+      .populate('album')
       .then(images => {
         res.send(images);
       })

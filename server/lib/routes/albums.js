@@ -6,7 +6,9 @@ const Album = require('../models/album');
 
 router
   .get('/', (req, res, next) => {
-    Album.find()
+    Album.find(req.query)
+      .select('name images')
+      .populate('images')
       .then(albums => {
         res.send(albums);
       })

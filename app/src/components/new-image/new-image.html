@@ -6,5 +6,7 @@
   <input ng-model=$ctrl.imageTitle>
   <label>description:</label>
   <input ng-model="$ctrl.imageDescription">
+  <label>album:</label>
+  <select ng-options="album._id as album.name for album in $ctrl.albums" ng-model="$ctrl.album"></select>
 </form>
 <button class="viewButton" ng-click=$ctrl.addNew()>Add Image</button>
