@@ -9,7 +9,6 @@ controller.$inject = ['imageService'];
 
 function controller(images) {
   images.get().then(images => {
-    console.log(images);
     this.images = images;
   });
 

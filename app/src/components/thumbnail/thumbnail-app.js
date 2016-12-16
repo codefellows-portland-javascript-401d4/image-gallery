@@ -22,11 +22,4 @@ function controller(images) {
         if(index > -1) this.images.splice(index, 1);
       });
   };
-
-  this.add = image => {
-    images.add(image)
-      .then(saved => {
-        this.pirates.push(saved);
-      });
-  };
 }

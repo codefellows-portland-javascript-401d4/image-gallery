@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "test": "MONGODB_URI=mongodb://localhost:images-test mocha",
+    "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
   },
   "author": "",
   "license": "ISC",
