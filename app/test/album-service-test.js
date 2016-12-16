@@ -1,5 +1,5 @@
 /* globals angular chai*/
-describe( 'image service', () => {
+describe( 'album service', () => {
 	const { assert } = chai;
 
 
@@ -9,11 +9,11 @@ describe( 'image service', () => {
         angular.mock.module('services', { apiUrl: '/api' })
     );
     
-	let $httpBackend = null, imageService = null;
+	let $httpBackend = null, albumService = null;
     
-	beforeEach(angular.mock.inject((_imageService_, _$httpBackend_) => {
+	beforeEach(angular.mock.inject((_albumService_, _$httpBackend_ ) => {
 		$httpBackend = _$httpBackend_;
-		imageService = _imageService_;
+		albumService = _albumService_;
 	}));
 
 	afterEach(() => {
@@ -23,25 +23,25 @@ describe( 'image service', () => {
 		$httpBackend.verifyNoOutstandingRequest();
 	});
 
-	it( 'get images', done => {
+	it( 'get albums', done => {
         // mock return data from image get
-		const images = [1, 2, 3];
+		const albums = [1, 2, 3];
         
         // set the expectation
 		$httpBackend
             // what http VERB and url are we expecting?
-            .expectGET('/api/images')
+            .expectGET('/api/albums')
             // mock a reponse that will get set on the .data 
             // property of $http response object
-            .respond(images);
+            .respond(albums);
 
         // make the call against SUT
-		imageService.get()
-            .then(allimages => {
+		albumService.get()
+            .then(allalbums => {
                 // $httpBackend serializes the object we pass to
                 // .respond, so to "test" we need to do 
                 // deepEqual as they are no longer the same object reference
-	assert.deepEqual(allimages, images);
+	assert.deepEqual(allalbums, albums);
 	done();
 })
             .catch(done);
@@ -51,27 +51,26 @@ describe( 'image service', () => {
 		$httpBackend.flush();
 	});
 
+	it('add an album', done => {
 
-	it('add an image', done => {
-
-		const image = {
-			title: 'x',
-			url: 'xx',
-			description: 'xxx',
-			albumId: 'xxxx'
+		const album = {
+			title: 'y',
+			description: 'yy'
 		};
         
 		$httpBackend
-            .expectPOST('/api/images', image)
-            .respond(image);
+            .expectPOST('/api/albums', album)
+            .respond(album);
 
-		imageService.add(image)
-            .then(savedimage => {
-	assert.deepEqual(savedimage, image);
+		albumService.add(album)
+            .then(savedAlbum => {
+	assert.deepEqual(savedAlbum, album);
 	done();
 })
             .catch(done);
 
 		$httpBackend.flush();
 	});
+
+
 });

@@ -19,7 +19,6 @@ function controller(images, albums) {
 	//find images that meet the filter selection
 	this.filter = function(){
 		if(this.albumChoice.title === 'All Albums')	{
-			console.log('all albums selected');
 			//finds all images if alll images choice is selected
 			images.get().then(images => {
 				this.loading = false;
@@ -28,16 +27,12 @@ function controller(images, albums) {
 		}
 		else{
 			//finds images from the selected album
-			console.log('looking for images from this album: ', this.albumChoice.title);
 			images.getByAlbum(this.albumChoice._id).then(images => {
 				this.loading = false;
 				this.images = images;
 			});
 		}
 	};
-
-
-
 
 	albums.get().then(albums => {
 		this.loading = false;
