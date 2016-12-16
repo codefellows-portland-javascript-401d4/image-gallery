@@ -24,15 +24,35 @@ describe('Gallery API and routes', () => {
     description: 'A very classy gent, this T-Rex prefers Assams.'
   };
 
+  const dinos = {
+    title: 'Dinosaurs',
+    description: 'An album of awesome dinosaur pictures.'
+  };
+
   var id;
   const baddino = { title: 'Bad Dino' };
   const newTitle = {title:'Different T-Rex'};
 
-  it('Gets an empty array before images have been added', done => {
+  it('Gets an empty array before albums have been added', done => {
     request
-      .get('/api/gallery/')
+      .get('/api/')
       .then(res => {
         assert.deepEqual(res.body, []);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Adds an album to the db', done => {
+    request
+      .post('/api/albums/')
+      .send(dinos)
+      .then(res => {
+        let album = JSON.parse(res.text);
+        id = album._id;
+        assert.equal(album.title, dinos.title);
+        assert.equal(album.url, dinos.url);
+        assert.equal(album.description, dinos.description);
         done();
       })
       .catch(done);
