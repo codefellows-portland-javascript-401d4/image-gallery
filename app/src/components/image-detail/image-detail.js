@@ -11,5 +11,4 @@ export default {
 
 function controller() {
   this.styles = styles;
-  this.selected = 'detail';
 }

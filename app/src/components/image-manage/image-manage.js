@@ -2,6 +2,9 @@ import template from './image-manage.html';
 
 export default {
   template,
+  bindings: {
+    image: '='
+  },
   controller
 };
 
