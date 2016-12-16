@@ -7,11 +7,10 @@ export default {
     remove: '<'
   },
   controller
-  // controllerAs: 'app'
 };
 
 function controller() {
-  this.delete = () => {
-    this.remove(this.img);
+  this.delete = img => {
+    this.remove(img);
   };
 }

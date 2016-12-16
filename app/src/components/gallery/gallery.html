@@ -1,25 +1,29 @@
-<button ng-click="$ctrl.view = 'Add'">Add Image</button>
+<button 
+    ng-click="$ctrl.view = 'add'"
+    ng-if="$ctrl.view !== 'add'">
+    Add Image
+</button>
 <select ng-model="$ctrl.view">
-    <option value="Info">Info</option>
-    <option value="Thumbnail">Thumbnail</option>
-    <option value="Full">Full</option>
+    <option value="info">Info</option>
+    <option value="thumbnail">Thumbnail</option>
+    <option value="full">Full</option>
 </select>
 <section>
     <add-image
-        ng-if="$ctrl.view === 'Add'"
+        ng-if="$ctrl.view === 'add'"
         add="$ctrl.add">
     </add-image>
     <image-info 
-        ng-if="$ctrl.view === 'Info'"
+        ng-if="$ctrl.view === 'info'"
         img="$ctrl.img"
         remove="$ctrl.remove">
     </image-info>
     <image-thumb
-        ng-if="$ctrl.view === 'Thumbnail'"
+        ng-if="$ctrl.view === 'thumbnail'"
         img="$ctrl.img">
     </image-thumb>
     <image-full
-        ng-if="$ctrl.view === 'Full'"
+        ng-if="$ctrl.view === 'full'"
         img="$ctrl.img">
     </image-full>
 </section>

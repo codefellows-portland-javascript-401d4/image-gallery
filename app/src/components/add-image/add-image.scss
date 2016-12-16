@@ -1,3 +1,14 @@
-input {
-  font-family: helvetica;
+@import 'colors';
+
+label {
+  font-family: helvetica, sans-serif;
 };
+
+input {
+  color: $pink;
+  background-color: lightgrey;
+
+  &:focus {
+    background-color: white;
+  }
+}
