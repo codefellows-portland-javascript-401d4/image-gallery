@@ -16,19 +16,30 @@ function controller(albums, images) {
 
     this.styles = styles;
 
+    this.reset = () => {
+        this.title = '';
+        this.url = '';
+        this.description = '';
+    };
+
+    this.reset();
+
     this.$onInit = () => {
         albums.get(this.id).then(album => {
             this.album = album;
         });
     };
 
+    this.fetchAlbum = () => {
+        albums.get(this.id).then(album => {
+            this.album = album;
+            console.log('new album contents: ', this.album);
+        });
+    };
+
     this.uiOnParamsChanged = params => {
         console.log(params);
         this.view = params.view;
-    };
-
-    this.updatePage = () => {
-        $state.go('^');
     };
 
     this.addImage = album => {
@@ -40,15 +51,16 @@ function controller(albums, images) {
         })
             .then(saved => {
                 // push to in-memory array
-                this.albums.push(saved);
-            });
+                this.album.images.push(saved);
+            })
+            .then(this.reset());
     };
 
     this.removeImage = image => {
         images.remove(image._id)
         .then(() => {
-            const index = this.images.indexOf(image);
-            if (index > -1) this.images.splice(index, 1);
+            const index = this.album.images.indexOf(image);
+            if (index > -1) this.album.images.splice(index, 1);
         });
     };
 

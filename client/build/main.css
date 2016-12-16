@@ -33,6 +33,46 @@ body {
   color: white;
   margin: 1%;
   padding: 2% 4%; }
+._3QoWNGrji8feIaFDENge38 ul {
+  text-align: center; }
+
+._3QoWNGrji8feIaFDENge38 .detail {
+  width: 25%; }
+
+._3QoWNGrji8feIaFDENge38 .thumbnail {
+  padding: 0;
+  box-sizing: border-box;
+  width: 120px; }
+
+._3QoWNGrji8feIaFDENge38 .gallery {
+  width: 80%; }
+
+._3QoWNGrji8feIaFDENge38 .add-image {
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  background-color: #adb8ac;
+  border-radius: 15px;
+  width: 25%;
+  margin: 0 2% 2%;
+  clear: both; }
+  ._3QoWNGrji8feIaFDENge38 .add-image button {
+    padding: 1%;
+    text-align: center;
+    background-color: #8b8182;
+    width: 75px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    transition: transform .5s; }
+  ._3QoWNGrji8feIaFDENge38 .add-image button:hover {
+    transform: scale(1.1); }
+  ._3QoWNGrji8feIaFDENge38 .add-image input {
+    display: block;
+    width: 80%;
+    margin: 0 auto; }
 .tOB100066YCkd8sj0ot9b h2 {
   background-color: #4b644a;
   color: white;
@@ -48,7 +88,10 @@ body {
   width: 175px;
   border-radius: 15px; }
 
-.tOB100066YCkd8sj0ot9b div {
+.tOB100066YCkd8sj0ot9b .view {
+  text-align: center; }
+
+.tOB100066YCkd8sj0ot9b .preview {
   text-align: center;
   color: white;
   background-color: #584545;
@@ -56,15 +99,47 @@ body {
   width: 60%;
   min-height: 300px;
   margin: 5% auto;
-  padding: 5%; }
+  padding: 5%;
+  padding-top: 5px;
+  padding-bottom: 0; }
 
-.tOB100066YCkd8sj0ot9b img {
+.tOB100066YCkd8sj0ot9b .img-preview {
   width: 200px;
   height: 200px; }
+
+.tOB100066YCkd8sj0ot9b .add-album {
+  text-align: center;
+  color: #341c1c;
+  background-color: #adb8ac;
+  border-radius: 15px;
+  margin: 0 auto 2%;
+  width: 30%;
+  padding-top: 1%; }
+  .tOB100066YCkd8sj0ot9b .add-album input {
+    display: block;
+    width: 80%;
+    margin: 0 auto; }
+  .tOB100066YCkd8sj0ot9b .add-album button {
+    padding: 1%;
+    text-align: center;
+    background-color: #8b8182;
+    width: 75px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    transition: transform .5s;
+    margin-top: 2%; }
+  .tOB100066YCkd8sj0ot9b .add-album button:hover {
+    transform: scale(1.1); }
 
 .tOB100066YCkd8sj0ot9b ul {
   padding: 0;
   list-style: none; }
+
+.tOB100066YCkd8sj0ot9b li {
+  display: inline-block;
+  margin: 0 2% 4%; }
 ._2Pv07dcn44y_VQIbaBxzQ2 h1 {
   background-color: #89a894;
   border-radius: 15px;
@@ -87,12 +162,17 @@ body {
   margin: 1%;
   padding: 2% 4%; }
 ._1m1XnsIgrsMMUaT2LxoT_6 {
+  text-align: center;
+  color: white;
+  background-color: #adb8ac;
+  border-radius: 15px;
+  padding: 5%;
   margin: 2%; }
   ._1m1XnsIgrsMMUaT2LxoT_6 button {
     padding: 1%;
     text-align: center;
     background-color: #8b8182;
-    width: 20%;
+    width: 75px;
     outline: none;
     border: none;
     border-radius: 15px;
@@ -131,8 +211,6 @@ body {
   color: white;
   background-color: #584545;
   border-radius: 15px;
-  width: 80%;
-  margin: 5% auto;
   padding: 5%; }
   ._146LvsNqbvBRK7XjE03R0_ img {
     max-width: 100%; }
@@ -141,10 +219,11 @@ body {
   color: white;
   background-color: #8b8182;
   border-radius: 15px;
-  width: 50%;
-  margin: 5% auto;
   padding: 5%; }
   ._3w49sZuaJ8BbSDcbrRvIpi img {
+    padding-top: 5px;
+    margin: 0;
+    border-radius: 15px;
     width: 100px;
     height: 100px; }
 ._3Nusd3IOl19McFX9P71KsJ h2 {
@@ -180,7 +259,7 @@ body {
     padding: 1%;
     text-align: center;
     background-color: #8b8182;
-    width: 20%;
+    width: 75px;
     outline: none;
     border: none;
     border-radius: 15px;
