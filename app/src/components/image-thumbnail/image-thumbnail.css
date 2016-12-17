@@ -1,0 +1,17 @@
+:local(.thumbnail) {
+    border: 1px black solid;
+    padding: 1em;
+    max-width: 90%;
+    max-height: 100px;
+    margin: 1em auto;
+    width: auto;
+    display: flex;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+
+:local(.thumbnail) img {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+}

@@ -1,0 +1,45 @@
+h1, h2 {
+    text-align: center;
+}
+
+h4 {
+    margin: 2px;
+}
+
+p {
+    margin: 1em auto;
+    width: 60%;
+    text-align: justify;
+    text-indent: 3em;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em auto;
+    width: 60%;
+}
+
+nav select {
+    order: 1;
+    min-width: 160px;
+    margin: 2px;
+}
+
+body {
+    background-color: #00BCD4;
+}
+
+section {
+    width: 60%;
+    margin: 1em auto;
+    background-color: #B2EBF2;
+    border-radius: 4px;
+}
+
+footer {
+    width: 60%;
+    margin: 1em auto;
+    background-color: #B2EBF2;
+}
