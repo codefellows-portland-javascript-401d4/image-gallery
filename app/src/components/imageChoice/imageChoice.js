@@ -7,9 +7,9 @@ export default {
     controller
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', '$state'];
 
-function controller(imageService) {
+function controller(imageService, $state) {
     this.styles = styles;
 
     this.choices = [
@@ -19,6 +19,10 @@ function controller(imageService) {
     ];
 
     this.myChoice = this.choices[2];
+
+    this.updateView = () => {
+        $state.go($state.current.name, {view: this.myChoice});
+    };
 
     this.images = [];
 
