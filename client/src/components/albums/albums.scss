@@ -5,6 +5,8 @@
 
 :local(.albums) {
 
+    margin: 2%;
+
     button {
         @include button();
         margin-bottom: 5%;
@@ -45,8 +47,8 @@
     }
 
     .img-preview {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
 
     .add-album {

@@ -4,6 +4,8 @@
 
 :local(.welcome) {
 
+    margin: 2%;
+
     div {
         @include page-content();
     }

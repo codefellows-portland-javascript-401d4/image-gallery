@@ -5,6 +5,8 @@
 
 :local(.about) {
 
+    margin: 2%;
+
     .links {
         @include links-div();
         margin: 4% auto 0;

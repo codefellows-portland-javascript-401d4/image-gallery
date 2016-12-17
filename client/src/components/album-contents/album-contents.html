@@ -1,11 +1,13 @@
 <section ng-class="$ctrl.styles.album">
     <h2>{{$ctrl.album.name}}</h2>
 
-    <ul ng-if="$ctrl.view === 'detail'">
-        <li class="detail" ng-repeat="image in $ctrl.album.images">
-            <image-all-detail remove="$ctrl.removeImage" image="image"></image-all-detail>
-        </li>
-        <li class="add-image">
+    <div ng-if="$ctrl.view === 'detail'">
+        <ul>
+            <li class="detail" ng-repeat="image in $ctrl.album.images">
+                <image-all-detail remove="$ctrl.removeImage" image="image"></image-all-detail>
+            </li>
+        </ul>
+        <div class="add-image">
             <p>Add an Image</p>
             <div>
                 <label>Title:</label>
@@ -20,8 +22,8 @@
                 <input ng-model="$ctrl.description">
             </div>
             <button ng-click="$ctrl.addImage()">Add</button>
-        </li>
-    </ul>
+        </div>    
+    </div>
 
     <ul ng-if="$ctrl.view === 'thumbnail'">
         <li class="thumbnail" ng-repeat="image in $ctrl.album.images">

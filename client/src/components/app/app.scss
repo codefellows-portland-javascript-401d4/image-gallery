@@ -4,22 +4,25 @@
 
 :local(.header) {
 
+    background-color: $grey-green;
+    margin: 0;
+
     h1 {
-        background-color: $grey-green;
-        border-radius: 15px;
         text-align: center;
-        width: 50%;
-        margin: 5% auto;
-        padding: 2%;
+        margin: 0;       
+        padding: 2% 0;
+
     }
 
     div {
         @include links-div();
-        margin: 0 auto 4%;
+        margin: 0 auto;
+        padding-bottom: 2%;
     }
 
     a {
         @include nav-links();
+        display: inline-block;
     }
 
 }
