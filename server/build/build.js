@@ -65,16 +65,18 @@
 	//pick up index.js from components & services folder
 	var app = _angular2.default.module('myApp', [_components2.default, _services2.default]);
 	
-	var dev = 'http://localhost:3000/api';
+	app.value('apiUrl', 'http://localhost:3000/api');
+	
+	// const dev = 'http://localhost:3000/api';
 	// const prod = '/api/';
 	
 	// .value gives service 'object' directly to angular
-	app.value('apiUrl', dev);
+	// app.value('apiUrl', dev);
 	
 	// above is same as ...
-	app.factory('api.Url', function () {
-	  return dev;
-	});
+	// app.factory('api.Url', function() {
+	//   return dev;
+	// });
 
 /***/ },
 /* 1 */
@@ -33596,7 +33598,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"spider-class":"_2CLaLYqrgeZGRPh19FZEP9"};
+	module.exports = {"spider":"_2IeunUQZ5MxNCBku3hz4ZB"};
 
 /***/ },
 /* 15 */,
@@ -33665,7 +33667,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- detail view for spider -->\n\n<div>\n  <p>Title:  {{$ctrl.spider.title}}</p>\n  <p>Description:  {{$ctrl.spider.description}}</p>\n  <a href=\"{{$ctrl.spider.url}}\">spider image link</a>\n</div>\n";
+	module.exports = "<!-- detail view for spider -->\n\n<!-- <div>\n  <p>Title:  {{$ctrl.spider.title}}</p>\n  <p>Description:  {{$ctrl.spider.description}}</p>\n  <a href=\"{{$ctrl.spider.url}}\">spider image link</a>\n</div> -->\n\n<span ng-class=\"$ctrl.styles.spider\">\n  {{$ctrl.spider.name}} the {{$ctrl.spider.type}}\n  <button ng-click=\"$ctrl.delete()\">remove</button>\n</span>\n";
 
 /***/ },
 /* 20 */

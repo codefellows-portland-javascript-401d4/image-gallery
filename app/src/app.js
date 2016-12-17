@@ -1,5 +1,5 @@
 import angular from 'angular';
-import './css/main.css';
+import './scss/main.scss';
 
 //pick up index.js from components & services folder
 import components from './components';
@@ -10,13 +10,16 @@ const app = angular.module('myApp', [
   services
 ]);
 
-const dev = 'http://localhost:3000/api';
+app.value('apiUrl', 'http://localhost:3000/api');
+
+
+// const dev = 'http://localhost:3000/api';
 // const prod = '/api/';
 
 // .value gives service 'object' directly to angular
-app.value('apiUrl', dev);
+// app.value('apiUrl', dev);
 
 // above is same as ...
-app.factory('api.Url', function() {
-  return dev;
-});
+// app.factory('api.Url', function() {
+//   return dev;
+// });
