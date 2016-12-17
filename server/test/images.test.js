@@ -5,8 +5,39 @@ chai.use(chaiHttp);
 
 //to test validation
 const Image = require('../lib/models/image.js');
+const Album = require('../lib/models/album.js');
 
-describe('unit testing the image model', () => {
+describe('unit testing the album model', () => {
+
+  it('validates with name and url', (done) => {
+    const album = new Album({
+      name: 'test album',
+      description: 'http://www.someURL.mock'
+    });
+
+    album.validate((err) => {
+      if (!err) done();
+      else done(err);
+    });
+  });
+
+  it('requires a name to validate', (done) => {
+    const album = new Album({
+      name: '',
+      description: 'http://www.someURL.mock'
+    });
+
+    album.validate((err) => {
+      expect(err, 'name should have been required').to.be.ok;
+      done();
+    });
+  });
+
+
+
+});
+
+describe.skip('unit testing the image model', () => {
 
   it('validates with name and url', (done) => {
     const image = new Image({

@@ -4,17 +4,6 @@
     {{view}}
   </button>
 </div>
-<a ui-sref="images">Browse All Pix</a>
-<a ui-sref="welcome">Welcome</a>
-<a ui-sref="about">About</a>
-
-<image-add add-image="$albums.addImage"></image-add>
-<album-add add-album="$albums.addAlbum"></album-add>
-
-<h1>{{$albums.view}}</h1>
-<a ui-sref="list.names">Names</a>
-<ui-view></ui-view>
-
 
 <ul ng-if="$albums.view === 'list'">
   <li ng-repeat="album in $albums.albums">
@@ -22,8 +11,9 @@
       album="album"
       remove="$albums.remove"
       toggle-album="$albums.toggleAlbum">
-    </album-list>    
+    </album-list>   
   </li>
+    something 
 </ul>
 
 <ul ng-if="$albums.view === 'thumb'">
@@ -32,7 +22,9 @@
       album="albums"
       remove="$albums.remove"
       toggle-album="$albums.toggleAlbum">
-    </album-thumb>    
+    </album-thumb> 
   </li>
+    something else   
 </ul>
 
+<span>bottom of page</span>

@@ -4,17 +4,6 @@
     {{view}}
   </button>
 </div>
-<a ui-sref="albums">Albums</a>
-<a ui-sref="welcome">Welcome</a>
-<a ui-sref="about">About</a>
-
-<image-add add-image="$images.addImage"></image-add>
-<album-add add-album="$images.addAlbum"></album-add>
-
-<h1>{{$images.view}}</h1>
-<a ui-sref="list.names">Names</a>
-
-
 
 <ul ng-if="$images.view === 'list'">
   <li ng-repeat="image in $images.images">

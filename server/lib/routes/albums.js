@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser').json;
+const bodyParser = require('body-parser').json();
 
 const Album = require('../models/album');
 const Image = require('../models/image');
@@ -36,8 +36,9 @@ router
   })
 
   .post('/', bodyParser, (req, res, next) => {
+    console.log('we are here');
     new Album(req.body).save()
-      .then(data => res.send({data: data}))
+      .then(saved => res.send(saved))
       .catch(next);
   })
 

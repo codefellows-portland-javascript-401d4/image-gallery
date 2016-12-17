@@ -1,47 +1,31 @@
 import template from './albums.html';
 import styles from './albums.scss';
 
+//controller.$inject = ['albumService'];
+
 export default {
   template,
+  bindings: {
+    image: '=',
+    album: '=',
+    albums: '=',
+    getAll: '<',
+    removeAlbum: '<',
+    toggleAlbum: '<'
+  },
   controller,
   controllerAs: '$albums'
 };
 
-controller.$inject = ['albumService'];
-
-function controller(albums) {
+function controller(/*albumService*/) {
   this.styles = styles;
-  
+
+  // this.albums = albumService.getAll()
+  //   .then(albums => {
+  //     this.albums = albums;
+  //   })
+  //   .catch();
+
   this.view = 'list';
-
-  this.loading = true;
-
-  albums.getAll().then(albums => {
-    this.loading = false;
-    this.albums = albums;
-  });
-
-  this.addAlbum = album => {
-    this.loading = true;
-    albums.addAlbum(album)
-      .then(saved => {
-        this.loading = false;
-        this.albums.push(saved);
-      });
-  };
-
-  this.remove = album => {
-    this.loading = true;
-    albums.remove(album._id)
-      .then(() => {
-        this.loading = false;
-        const index = this.albums.indexOf(album);
-        if (index > -1) this.albums.splice(index, 1);
-      });
-  };
-
-  this.toggleAlbum = name => {
-    this.view = name;
-  };
 
 }

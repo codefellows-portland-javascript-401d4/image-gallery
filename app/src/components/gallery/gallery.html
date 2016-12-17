@@ -1,0 +1,15 @@
+<header>Gallery</header>
+
+<button ui-sref="gallery.albums({albums: $gallery.albums})">Albums</button>
+<button ui-sref="gallery.images({images: $gallery.images})">Browse All Pix</button>
+
+<button ui-sref="welcome">Welcome</button>
+<button ui-sref="about">About</button>
+
+<image-add add-image="$gallery.addImage"></image-add>
+<album-add add-album="$gallery.addAlbum"></album-add>
+
+<h1>{{$gallery.view}}</h1>
+<a ui-sref="list.names">Names</a>
+
+<ui-view></ui-view>
