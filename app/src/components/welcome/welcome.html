@@ -1,7 +1,8 @@
 <div>
   <h1>Welcome to pixShlef!<h1>
-  <a ui-sref="gallery">Gallery</a>
-  <a ui-sref="albums">Albums</a>
-  <a ui-sref="images">Browse All Pix</a>
-  <a ui-sref="about">About</a>
+  <button ui-sref="gallery">Gallery</button>
+  <!-- why do the albums & images buttons not pass their respective arrays? -->
+  <button ui-sref="gallery.albums({albums: $gallery.albums})">Albums</button>
+  <button ui-sref="gallery.images({images: $gallery.images})">Browse All Pix</button>
+  <button ui-sref="about">About</button>
 </div>

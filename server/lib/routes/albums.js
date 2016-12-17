@@ -36,7 +36,6 @@ router
   })
 
   .post('/', bodyParser, (req, res, next) => {
-    console.log('we are here');
     new Album(req.body).save()
       .then(saved => res.send(saved))
       .catch(next);
