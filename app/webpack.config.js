@@ -2,7 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',
+  target: 'web',
+  entry: './src/main.js',
   output: {
     path: '../server/public',
     filename: 'bundle.js'
@@ -25,6 +26,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
+        cacheDirectory: true
       }
     },
     {
@@ -32,8 +34,20 @@ module.exports = {
       loader: 'html-loader'
     },
     {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-    }]
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader?sourceMap!sass-loader?sourceMap'
+      )
+    }
+    // ,
+    // {
+    //   test: /\.css$/,
+    //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+    // }
+    ]
+  },
+  sassLoader: {
+    includePaths: ['./src/scss/partials']
   }
 };

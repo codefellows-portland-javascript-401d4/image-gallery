@@ -1,25 +1,70 @@
+button {
+  background: #FFC361;
+  color: #6DACFD;
+  -webkit-border-radius: 12%;
+  -moz-border-radius: 12%;
+  -ms-border-radius: 12%;
+  border-radius: 12%; }
+
+button:hover {
+  background: #FFE9C5;
+  color: #99C6FF; }
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans", "Candara", sans-serif; }
+
 body {
-  background-color: lightsteelblue;
-}
+  background-color: #CAE1FF; }
 
 ul {
-  padding: 0;
-}
+  padding: 0; }
 
 li {
-  list-style-type: none;
-}
-
-header {
-  font-size: 4rem;
-}
+  list-style-type: none; }
 
 button {
-  cursor: pointer;
-}.jQeF7Bty2Ytt91tUB5Jdq {
-  width: 10%;
-  background-color: purple;
-  border: 5px outset rosybrown;
-  border-radius: 4%;
-}
+  cursor: pointer; }
+._3E3xI2uYscvYeLMX1hlyBD {
+  width: 30%;
+  background-color: #D3CDFF;
+  border: 0.35rem inset #8675FD;
+  -webkit-border-radius: 2%;
+  -moz-border-radius: 2%;
+  -ms-border-radius: 2%;
+  border-radius: 2%;
+  margin: 1% 0;
+  padding: 0.5%; }
+  ._3E3xI2uYscvYeLMX1hlyBD button {
+    background: #6DACFD;
+    color: #FFE78F;
+    -webkit-border-radius: 12%;
+    -moz-border-radius: 12%;
+    -ms-border-radius: 12%;
+    border-radius: 12%; }
+  ._3E3xI2uYscvYeLMX1hlyBD button:hover {
+    background: #CAE1FF;
+    color: #FFC361; }
+._1fRcMng49Al4hQMkM7-tKf {
+  width: 35%;
+  border: 0.35rem outset #FFC361;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  border-radius: 5%; }
+._1TNe3qHxEq4Lh4-3-Lmjw7 {
+  width: 30%;
+  margin-left: 3%;
+  margin-top: 3%;
+  display: inline-block; }
+
+header {
+  font-size: 3.5rem;
+  font-family: "Dosis", "Futura", sans-serif; }
+
+h1 {
+  font-size: 2rem;
+  font-family: "Dosis", "Futura", sans-serif;
+  margin-top: 3rem; }
+
 /*# sourceMappingURL=main.css.map*/

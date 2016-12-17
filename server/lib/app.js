@@ -5,6 +5,14 @@ const morgan = require('morgan');
 
 const images = require('./routes/images');
 
+// //serves the front end to the server - have to skip the lib directory
+// const path = require('path');
+// console.log(path.resolve(__dirname, '../public'));
+// app.use(express.static(path.resolve(__dirname, '../public')));
+
+//this does the same as the code above - which is less brittle?
+app.use(express.static('./public'));
+
 //using morgan in production mode
 app.use(morgan('dev'));
 

@@ -12,7 +12,4 @@ export default {
 };
 
 function controller() {
-  this.delete = () => {
-    this.remove(this.image);
-  };
 }

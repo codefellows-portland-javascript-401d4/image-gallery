@@ -37,12 +37,14 @@ describe('in the image service', () => {
     $httpBackend.flush();
   });
 
+  const firstImage = {
+    name: 'first-image',
+    description: 'the first image',
+    url: 'http://www.first-image.mock',
+    _id: '123'
+  };
+
   it('adds an image', done => {
-    const firstImage = {
-      name: 'first-image',
-      description: 'the first image',
-      url: 'http://www.first-image.mock'
-    };
 
     $httpBackend
       .expectPOST('/api/images', firstImage)
@@ -51,6 +53,22 @@ describe('in the image service', () => {
     imageService.add(firstImage)
       .then(savedImage => {
         assert.deepEqual(savedImage, firstImage);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+  });
+
+  it('removes an image', done => {
+
+    $httpBackend
+      .expectDELETE('/api/images/123')
+      .respond(firstImage);
+
+    imageService.remove(firstImage._id)
+      .then(removedImage => {
+        assert.deepEqual(removedImage, firstImage);
         done();
       })
       .catch(done);
