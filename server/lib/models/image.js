@@ -14,6 +14,9 @@ const image = new Schema({
     type: String,
     required: true
   },
+  albumName: {
+    type: String
+  },
   album: {
     type: Schema.Types.ObjectId,
     ref: 'Album'

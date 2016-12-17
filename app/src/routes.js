@@ -21,10 +21,29 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'images',
-    url: '/images',
-    component: 'images'
+    name: 'albums',
+    url: '/albums',
+    component: 'albums'
   });
+
+  $stateProvider.state({
+    name: 'albums.single',
+    url: '/:id',
+    // params: {
+    //   viewType: {dynamic: true}
+    // },
+    resolve: {
+      id: ['$transition$', t => t.params().id]
+      // viewType: ['$transition$', t => t.params().viewType || 'all']
+    },
+    component: 'albumDetail'
+  });
+
+  // $stateProvider.state({
+  //   name: 'images',
+  //   url: '/images',
+  //   component: 'images'
+  // });
 
   $stateProvider.state({
     name: 'about',

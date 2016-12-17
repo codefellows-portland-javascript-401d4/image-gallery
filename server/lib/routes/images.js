@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jsonParser = require('body-parser').json();
 const Image = require('../models/image');
+const Album = require('../models/album');
 
 router
   .get('/', (req, res, next) => {
@@ -28,10 +29,46 @@ router
       .catch(next);
   })
 
+  // .post('/', jsonParser, (req, res, next) => {
+  //   new Image(req.body).save()
+  //     .then(saved => res.send(saved))
+  //     .catch(next);
+  // });
+
   .post('/', jsonParser, (req, res, next) => {
-    new Image(req.body).save()
-      .then(saved => res.send(saved))
-      .catch(next);
+    console.log('imagepost reqbody', req.body);
+    const newImg = new Image(req.body);
+    Album.find({name: req.body.albumName})
+      // .count()
+      .then(album => {
+        console.log('image post album', album);
+        if(album.length > 0) {
+          let existingAlbum = album;
+          newImg.save()
+          .then(savedImg => {
+            existingAlbum[0].images.push(savedImg);
+            console.log('existing album', existingAlbum);
+          })
+          .then(saved => res.send(saved))
+          .catch(next);
+        } else {
+          router.post('/albums', (req, res, next) => {
+            let newAlbum = new Album(req.body.albumName);
+            newAlbum.save()
+            .then(album => {
+              console.log('new album', album);
+              album.images.push(newImg)
+            .then(saved => res.send(saved))
+            .catch(next);
+            });
+          });
+          
+          
+        
+        }
+       
+      });
+  
   });
 
 module.exports = router;

@@ -31,28 +31,28 @@ describe('components', () => {
     };
 
     it('loads images', done => {
-      const component = $component('images', {imageService});
+      const component = $component('images', {imageService}, {images});
       setTimeout(() => {
-        assert.equal(component.imageArr, images);
+        assert.equal(component.images, images);
         done();
       });
     });
 
     it('adds an image', done => {
-      const component = $component('images', {imageService});
+      const component = $component('images', {imageService}, {images});
       component.addImage(image);
       setTimeout(() => {
-        assert.equal(images.length, 3);
-        assert.equal(images[2], image);
+        assert.equal(component.images.length, 3);
+        assert.equal(component.images[2], image);
         done();
       });
     });
 
     it('removes an image', done => {
-      const component = $component('images', {imageService});
+      const component = $component('images', {imageService}, {images});
       component.removeImage(image);
       setTimeout(() => {
-        assert.equal(images.length, 2);
+        assert.equal(component.images.length, 2);
         done();
       });
     });
@@ -86,10 +86,11 @@ describe('components', () => {
       });
     });
 
-    function addImage(title, description, url) {
+    function addImage(title, description, url, album) {
       this.title = title;
       this. description = description;
       this.url = url;
+      this.album = album;
     }
 
     it('calls add function', done => {
@@ -102,6 +103,7 @@ describe('components', () => {
         assert.equal(component.title, '');
         assert.equal(component.description, '');
         assert.equal(component.url, '');
+        assert.equal(component.album, '');
         done();
       });
     });

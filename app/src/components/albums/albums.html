@@ -1,0 +1,12 @@
+<section>
+  <a ui-sref="welcome">Home</a>
+  <a ui-sref="about">About</a>
+  <h2>Albums</h2>
+  <div ng-repeat="album in albumsCtrl.albumArr" ui-sref="albums.single({
+    id: album._id
+  })">
+    <!--<img ng-src="{{album.images[0].url}}">-->
+    <h4>{{album.name}}</h4>
+  </div>
+</section>
+<ui-view></ui-view>

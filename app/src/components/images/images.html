@@ -1,13 +1,11 @@
 <section>
-  <a ui-sref="welcome">Home</a>
-  <a ui-sref="about">About</a>
   <label>Choose A Format: </label>
     <select ng-model="imagesCtrl.imageType">
       <option ng-repeat="choice in imagesCtrl.choices">{{choice}}</option>
     </select>
   <new-image add-image="imagesCtrl.addImage"></new-image>
   <div ng-class="'img-div-container'">
-    <div ng-class="'img-div'" ng-repeat="image in imagesCtrl.imageArr">
+    <div ng-class="'img-div'" ng-repeat="image in imagesCtrl.images">
       <image-full ng-show="imagesCtrl.imageType === imagesCtrl.choices[0]" image="image"></image-full>
       <image-thumb ng-show="imagesCtrl.imageType === imagesCtrl.choices[1]" image="image"></image-thumb>
       <image-text ng-show="imagesCtrl.imageType === imagesCtrl.choices[2]" image="image"></image-text>
