@@ -6,15 +6,17 @@ export default {
   controller
 };
 
-controller.$inject = ['albumService','imageService'];
+controller.$inject = ['albumService','$state'];
 
-function controller(albums, imageService) {
+function controller(albums, $state) {
 
   this.styles = styles;
 
+  this.view = 'detail';
+
   this.loading = true;
 
-  albums.get().then(albums => {
+  albums.getAll().then(albums => {
     this.loading = false;
     this.albums = albums;
   });
@@ -26,22 +28,18 @@ function controller(albums, imageService) {
     });
   };
 
+  this.updateView = () => {
+    $state.go($state.current.name, { view: this.view });
+  };
 
-  imageService.get().then(images => {
-    this.images = images;
-  });
-
-
-  this.new = function() {
+  this.new = () => {
     this.viewNew = true;
     this.viewDetail = false;
   };
 
-  this.detail = function() {
+  this.detail = () => {
     this.viewDetail = true;
     this.viewNew = false;
   };
-
-
 
 }

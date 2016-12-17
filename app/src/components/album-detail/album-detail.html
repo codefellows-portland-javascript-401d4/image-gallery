@@ -1,3 +1,5 @@
-<p>Album title: {{$ctrl.album.name}}</p>
-<p>Images: {{$ctrl.images.imageTitle}}</p>
-<a href="{{$ctrl.images.url}}"/>Link to bunny image</a>
+<ul>
+  <li ng-repeat="image in $ctrl.album.images">{{$ctrl.album.name}}
+    <bunny-thumbnail image="image"></bunny-thumbnail>
+  </li>
+</ul>

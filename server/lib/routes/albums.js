@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser').json();
-// const Image = require('../models/image');
+const Image = require('../models/image');
 const Album = require('../models/album');
 
 router
@@ -14,11 +14,26 @@ router
       })
       .catch(next);
   })
+
   .get('/:id', (req, res, next) => {
-    Album.findById(req.params.id)
-      .then(album => res.send(album))
-      .catch(next);
+    const album = req.params.id;
+    Promise.all([
+      Album.findById(album).lean(),
+      Image.find({ album }).select('url imageTitle').lean()
+    ])
+    .then(([album, images]) => {
+      album.images = images;
+      res.send(album);
+    })
+    .catch(next);
   })
+
+  // .get('/:id', (req, res, next) => {
+  //   Album.findById(req.params.id)
+  //     .then(album => res.send(album))
+  //     .catch(next);
+  // })
+
   .post('/', bodyParser, (req, res, next) => {
     new Album(req.body).save()
       .then(saved => res.send(saved))

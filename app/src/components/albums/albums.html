@@ -3,13 +3,13 @@
 
 <div class="component" ng-show="$ctrl.viewDetail === true">
   <h2>Album details</h2>
-  <ul>
-    <li ng-repeat="album in $ctrl.albums">
-      <album-detail
-        album="album">
-      </album-detail>
-    </li>
-  </ul>
+    <a ng-repeat="album in $ctrl.albums"
+        ui-sref="albums.detail({
+            id: album._id
+        })">Album name: {{album.name}}
+    </a>
+  <ui-view>select an album to see detail</ui-view>
 </div>
+
 
 <new-album add="$ctrl.add" ng-show="$ctrl.viewNew === true"><new-album>
