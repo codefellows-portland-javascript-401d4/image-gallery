@@ -1,0 +1,21 @@
+@import 'mixins';
+
+:local(.container) {
+    @include clearfix;
+    @include grid-unit(12);
+    float: none;
+    margin: 0 auto;
+    outline: 1px dashed red;
+}
+
+:local(.section) {
+  @include grid-unit(8);
+  outline: 1px dotted blue;
+}
+
+:local(.sidebar) {
+  @include grid-unit(4);
+  float: right;
+  margin-right: 0;
+  outline: 1px solid green;
+}

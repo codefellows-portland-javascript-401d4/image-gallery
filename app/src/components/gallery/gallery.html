@@ -1,15 +1,20 @@
-<header>Gallery</header>
+<div ng-class="$gallery.styles.container">
+  <header>Gallery</header>
 
-<button ui-sref="gallery.albums({albums: $gallery.albums})">Albums</button>
-<button ui-sref="gallery.images({images: $gallery.images})">Browse All Pix</button>
+  <button ui-sref="gallery.albums({albums: $gallery.albums})">Albums</button>
+  <button ui-sref="gallery.images({images: $gallery.images})">Browse All Pix</button>
 
-<button ui-sref="welcome">Welcome</button>
-<button ui-sref="about">About</button>
+  <button ui-sref="welcome">Welcome</button>
+  <button ui-sref="about">About</button>
 
-<image-add add-image="$gallery.addImage"></image-add>
-<album-add add-album="$gallery.addAlbum"></album-add>
+  <h1>{{$gallery.view}}</h1>
 
-<h1>{{$gallery.view}}</h1>
-<a ui-sref="list.names">Names</a>
+  <section ng-class="$gallery.styles.section"> 
+    <ui-view></ui-view>
+  </section>
 
-<ui-view></ui-view>
+  <aside ng-class="$gallery.styles.sidebar">
+    <image-add add-image="$gallery.addImage"></image-add>
+    <album-add add-album="$gallery.addAlbum"></album-add>
+  </aside>
+</div>
