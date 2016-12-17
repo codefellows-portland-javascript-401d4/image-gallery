@@ -18,6 +18,42 @@ describe('image', () => {
 
     const request = chai.request(app);
 
-    const 
-    }
-})
+    const testImage = {
+        image_title: 'TestingImage',
+        description: 'Monkey image',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg'
+    };
+
+    it('Empty', done => {
+        request.get('/api/images')
+            .then(res => {
+                assert.deepEqual(res.body, []);
+                done();
+            })
+            .catch(done);
+    });
+
+    it('/POST', done => {
+        request
+            .post('/api/pirates')
+            .send(testImage)
+            .then(res => {
+                const newImage = res.body;
+                assert.ok(pirate._id);
+                testImage._id = newImage._id;
+                testImage.__v = newImage.__v;
+                done();
+            })
+            .catch(done);
+    });
+
+    it('/GET all', done => {
+        request.get('/api/images')
+            .then(res => {
+                assert.deepEqual(res.body[0], testImage);
+                done();
+            })
+            .catch(done);
+    });
+    
+});
