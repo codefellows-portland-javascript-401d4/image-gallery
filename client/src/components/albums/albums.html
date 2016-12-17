@@ -7,8 +7,10 @@
                     id: album._id,
                     view: $ctrl.view
                 })">
-                <h4>{{album.name}}</h4>
-                <img class="img-preview" ng-src="{{album.featured}}">
+                <p>{{album.name}}</p>
+                <div class="thumbnail">
+                    <img class="img-preview" ng-src="{{album.featured}}">
+                </div>
                 <p><button ng-click="$ctrl.deleteAlbum(album, $event)">Remove</button></p>
             </li>
         </ul>

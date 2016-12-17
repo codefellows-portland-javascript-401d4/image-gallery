@@ -5,7 +5,7 @@
 
 :local(.albums) {
 
-    margin: 2%;
+    margin: 10% 2% 0;
 
     button {
         @include button();
@@ -39,17 +39,48 @@
         padding-bottom: 0;
 
         li {
-            border: 1px solid black;
+            box-sizing: border-box;
+            // border: 1px solid black;
             border-radius: 15px;
             background-color: $grey;
-            padding: 0 2%;
+            padding: 0 10px;
+            width: 150px;
+            height: 231px;
+
+            p {
+                height: 36px;
+            }
         }
     }
 
-    .img-preview {
-        width: 150px;
-        height: 150px;
-    }
+    .thumbnail {
+        margin: 0 auto;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        }
+
+    .thumbnail img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+        }
+
+    .thumbnail img.portrait {
+        width: 100%;
+        height: auto;
+        }
+
+    // .img-preview {
+    //     width: 150px;
+    //     height: 150px;
+    // }
 
     .add-album {
         text-align: center;
@@ -76,6 +107,10 @@
     li {
         display: inline-block;
         margin: 0 2% 4%;
+
+        p {
+            overflow-wrap: normal;
+        }
     }
     
 }

@@ -1,62 +1,83 @@
 body {
   background-color: #adfcf9;
-  color: #341c1c; }
-._1YnBKp12AG3QJ19uUlXsXg .links {
-  text-align: center;
-  width: 25%;
-  color: white;
-  margin: 4% auto 0; }
-
-._1YnBKp12AG3QJ19uUlXsXg .content {
-  text-align: center;
-  color: white;
+  color: #341c1c;
+  margin: 0;
+  padding: 0; }
+._1YnBKp12AG3QJ19uUlXsXg {
+  margin: 2%; }
+  ._1YnBKp12AG3QJ19uUlXsXg .links {
+    text-align: center;
+    width: 25%;
+    color: white;
+    margin: 4% auto 0; }
+  ._1YnBKp12AG3QJ19uUlXsXg .content {
+    text-align: center;
+    color: white;
+    background-color: #584545;
+    border-radius: 15px;
+    min-height: 300px;
+    margin: 5% auto;
+    padding: 5%; }
+  ._1YnBKp12AG3QJ19uUlXsXg h2 {
+    background-color: #4b644a;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    width: 40%;
+    margin: 2% auto;
+    padding: 2%; }
+  ._1YnBKp12AG3QJ19uUlXsXg a {
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: #8b8182;
+    color: white;
+    margin: 1%;
+    padding: 2% 4%; }
+._3QoWNGrji8feIaFDENge38 {
+  border-radius: 15px;
+  margin: 2%;
   background-color: #584545;
-  border-radius: 15px;
-  width: 60%;
-  min-height: 300px;
-  margin: 5% auto;
-  padding: 5%; }
-
-._1YnBKp12AG3QJ19uUlXsXg h2 {
-  background-color: #4b644a;
-  color: white;
-  border-radius: 15px;
-  text-align: center;
-  width: 40%;
-  margin: 2% auto;
   padding: 2%; }
-
-._1YnBKp12AG3QJ19uUlXsXg a {
-  text-decoration: none;
-  border-radius: 15px;
-  background-color: #8b8182;
-  color: white;
-  margin: 1%;
-  padding: 2% 4%; }
-._3QoWNGrji8feIaFDENge38 ul {
-  text-align: center; }
-
-._3QoWNGrji8feIaFDENge38 .detail {
-  width: 25%; }
-
-._3QoWNGrji8feIaFDENge38 .thumbnail {
-  padding: 0;
-  box-sizing: border-box;
-  width: 120px; }
-
-._3QoWNGrji8feIaFDENge38 .gallery {
-  width: 80%; }
-
-._3QoWNGrji8feIaFDENge38 .add-image {
-  box-sizing: border-box;
-  text-align: center;
-  color: white;
-  background-color: #adb8ac;
-  border-radius: 15px;
-  width: 25%;
-  margin: 0 2% 2%;
-  clear: both; }
-  ._3QoWNGrji8feIaFDENge38 .add-image button {
+  ._3QoWNGrji8feIaFDENge38 ul {
+    text-align: center; }
+  ._3QoWNGrji8feIaFDENge38 .detail {
+    width: 25%;
+    margin-bottom: 1%; }
+  ._3QoWNGrji8feIaFDENge38 .thumbnail {
+    padding: 0;
+    box-sizing: border-box;
+    width: 120px; }
+  ._3QoWNGrji8feIaFDENge38 .gallery {
+    width: 80%; }
+  ._3QoWNGrji8feIaFDENge38 .add-image {
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    background-color: #adb8ac;
+    border-radius: 15px;
+    width: 25%;
+    padding: 1% 0 0;
+    margin: 0 auto; }
+    ._3QoWNGrji8feIaFDENge38 .add-image button {
+      padding: 1%;
+      text-align: center;
+      background-color: #8b8182;
+      width: 75px;
+      outline: none;
+      border: none;
+      border-radius: 15px;
+      margin-bottom: 5%;
+      margin-top: 2%;
+      transition: transform .5s; }
+    ._3QoWNGrji8feIaFDENge38 .add-image button:hover {
+      transform: scale(1.1); }
+    ._3QoWNGrji8feIaFDENge38 .add-image input {
+      display: block;
+      width: 80%;
+      margin: 0 auto; }
+.tOB100066YCkd8sj0ot9b {
+  margin: 2%; }
+  .tOB100066YCkd8sj0ot9b button {
     padding: 1%;
     text-align: center;
     background-color: #8b8182;
@@ -65,109 +86,82 @@ body {
     border: none;
     border-radius: 15px;
     margin-bottom: 5%;
-    margin-top: 2%;
-    transition: transform .5s; }
-  ._3QoWNGrji8feIaFDENge38 .add-image button:hover {
+    transition: transform .5s;
+    margin-top: 2%; }
+  .tOB100066YCkd8sj0ot9b button:hover {
     transform: scale(1.1); }
-  ._3QoWNGrji8feIaFDENge38 .add-image input {
-    display: block;
-    width: 80%;
-    margin: 0 auto; }
-.tOB100066YCkd8sj0ot9b button {
-  padding: 1%;
-  text-align: center;
-  background-color: #8b8182;
-  width: 75px;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  margin-bottom: 5%;
-  transition: transform .5s;
-  margin-top: 2%; }
-
-.tOB100066YCkd8sj0ot9b button:hover {
-  transform: scale(1.1); }
-
-.tOB100066YCkd8sj0ot9b h2 {
-  background-color: #4b644a;
-  color: white;
-  border-radius: 15px;
-  text-align: center;
-  width: 40%;
-  margin: 2% auto;
-  padding: 2%; }
-
-.tOB100066YCkd8sj0ot9b select {
-  display: block;
-  margin: 2% auto;
-  width: 175px;
-  border-radius: 15px; }
-
-.tOB100066YCkd8sj0ot9b .view {
-  text-align: center; }
-
-.tOB100066YCkd8sj0ot9b .preview {
-  text-align: center;
-  color: white;
-  background-color: #584545;
-  border-radius: 15px;
-  width: 60%;
-  min-height: 300px;
-  margin: 5% auto;
-  padding: 5%;
-  padding-top: 5px;
-  padding-bottom: 0; }
-  .tOB100066YCkd8sj0ot9b .preview li {
-    border: 1px solid black;
+  .tOB100066YCkd8sj0ot9b h2 {
+    background-color: #4b644a;
+    color: white;
     border-radius: 15px;
-    background-color: #adb8ac;
-    padding: 0 2%; }
-
-.tOB100066YCkd8sj0ot9b .img-preview {
-  width: 200px;
-  height: 200px; }
-
-.tOB100066YCkd8sj0ot9b .add-album {
-  text-align: center;
-  color: #341c1c;
-  background-color: #adb8ac;
-  border-radius: 15px;
-  margin: 0 auto 2%;
-  width: 30%;
-  padding-top: 1%; }
-  .tOB100066YCkd8sj0ot9b .add-album input {
+    text-align: center;
+    width: 40%;
+    margin: 2% auto;
+    padding: 2%; }
+  .tOB100066YCkd8sj0ot9b select {
     display: block;
-    width: 80%;
-    margin: 0 auto; }
-
-.tOB100066YCkd8sj0ot9b ul {
-  padding: 0;
-  list-style: none; }
-
-.tOB100066YCkd8sj0ot9b li {
-  display: inline-block;
-  margin: 0 2% 4%; }
-._2Pv07dcn44y_VQIbaBxzQ2 h1 {
+    margin: 2% auto;
+    width: 175px;
+    border-radius: 15px; }
+  .tOB100066YCkd8sj0ot9b .view {
+    text-align: center; }
+  .tOB100066YCkd8sj0ot9b .preview {
+    text-align: center;
+    color: white;
+    background-color: #584545;
+    border-radius: 15px;
+    min-height: 300px;
+    margin: 5% auto;
+    padding: 5%;
+    padding-top: 5px;
+    padding-bottom: 0; }
+    .tOB100066YCkd8sj0ot9b .preview li {
+      border: 1px solid black;
+      border-radius: 15px;
+      background-color: #adb8ac;
+      padding: 0 2%; }
+  .tOB100066YCkd8sj0ot9b .img-preview {
+    width: 150px;
+    height: 150px; }
+  .tOB100066YCkd8sj0ot9b .add-album {
+    text-align: center;
+    color: #341c1c;
+    background-color: #adb8ac;
+    border-radius: 15px;
+    margin: 0 auto 2%;
+    width: 30%;
+    padding-top: 1%; }
+    .tOB100066YCkd8sj0ot9b .add-album input {
+      display: block;
+      width: 80%;
+      margin: 0 auto; }
+  .tOB100066YCkd8sj0ot9b ul {
+    padding: 0;
+    list-style: none; }
+  .tOB100066YCkd8sj0ot9b li {
+    display: inline-block;
+    margin: 0 2% 4%; }
+._2Pv07dcn44y_VQIbaBxzQ2 {
   background-color: #89a894;
-  border-radius: 15px;
-  text-align: center;
-  width: 50%;
-  margin: 5% auto;
-  padding: 2%; }
-
-._2Pv07dcn44y_VQIbaBxzQ2 div {
-  text-align: center;
-  width: 25%;
-  color: white;
-  margin: 0 auto 4%; }
-
-._2Pv07dcn44y_VQIbaBxzQ2 a {
-  text-decoration: none;
-  border-radius: 15px;
-  background-color: #8b8182;
-  color: white;
-  margin: 1%;
-  padding: 2% 4%; }
+  margin: 0; }
+  ._2Pv07dcn44y_VQIbaBxzQ2 h1 {
+    text-align: center;
+    margin: 0;
+    padding: 2% 0; }
+  ._2Pv07dcn44y_VQIbaBxzQ2 div {
+    text-align: center;
+    width: 25%;
+    color: white;
+    margin: 0 auto;
+    padding-bottom: 2%; }
+  ._2Pv07dcn44y_VQIbaBxzQ2 a {
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: #8b8182;
+    color: white;
+    margin: 1%;
+    padding: 2% 4%;
+    display: inline-block; }
 ._1m1XnsIgrsMMUaT2LxoT_6 {
   text-align: center;
   color: white;
@@ -206,23 +200,23 @@ body {
     border-radius: 15px;
     width: 100px;
     height: 100px; }
-._23XnJNGIuxwbbctNa1oBpu div {
-  text-align: center;
-  color: white;
-  background-color: #584545;
-  border-radius: 15px;
-  width: 60%;
-  min-height: 300px;
-  margin: 5% auto;
-  padding: 5%; }
-
-._23XnJNGIuxwbbctNa1oBpu h2 {
-  background-color: #4b644a;
-  color: white;
-  border-radius: 15px;
-  text-align: center;
-  width: 40%;
-  margin: 2% auto;
-  padding: 2%; }
+._23XnJNGIuxwbbctNa1oBpu {
+  margin: 2%; }
+  ._23XnJNGIuxwbbctNa1oBpu div {
+    text-align: center;
+    color: white;
+    background-color: #584545;
+    border-radius: 15px;
+    min-height: 300px;
+    margin: 5% auto;
+    padding: 5%; }
+  ._23XnJNGIuxwbbctNa1oBpu h2 {
+    background-color: #4b644a;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    width: 40%;
+    margin: 2% auto;
+    padding: 2%; }
 
 /*# sourceMappingURL=main.css.map*/
