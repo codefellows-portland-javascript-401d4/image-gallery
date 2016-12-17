@@ -19,5 +19,8 @@
         <label>Thumbnail:</label>
         <input ng-model="app.thumbnail"></input>
     </div>
+    <select ng-model="app.selection" ng-options="album.title for album in app.albums">
+    </select>
+    
     <button ng-click="app.addNew()">add</button>
 </section>

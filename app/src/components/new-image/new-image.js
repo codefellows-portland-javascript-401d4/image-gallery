@@ -5,7 +5,7 @@ export default {
   template,
   bindings: {
     add: '<',
-    remove: '<'
+    albums: '='
   },
   controller,
   controllerAs: 'app'
@@ -21,22 +21,21 @@ function controller () {
     this.url = '';
     this.fullImage = '';
     this.thumbnail = '';
+    this.selection = '';
   };
 
   this.reset();
 
   this.addNew = () => {
+    console.log('albums1', this.selection._id);
     this.add({
       title: this.title,
       description: this.description,
       url: this.url,
       fullImage: this.fullImage,
-      thumbnail: this.thumbnail
+      thumbnail: this.thumbnail,
+      albumId: this.selection._id
     });
     this.reset();
-  };
-
-  this.delete = () => {
-    this.remove(this.image);
   };
 }

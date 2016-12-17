@@ -4,5 +4,30 @@
     <a ui-sref="parentComp" ui-sref-active="link">Gallery</a>
     <a ui-sref="about" ui-sref-active="link">About</a>
 </header>
-<div>
+
+<div ng-class="$ctrl.styles.albums">
+    <select ng-change="$ctrl.getAlbum()" ng-model="$ctrl.selection" ng-options="album.title for album in $ctrl.albums"></select>
+    <!--<h2>{{$ctrlalbum.title}} Album</h2>-->
+    <ul>
+        <li ng-repeat="image in $ctrl.images track by image.title" class="list">
+            <p>{{image.title}}</p>
+            <img ng-src="{{image.thumbnail}}">
+        </li>
+    </ul>
+
 </div>
+
+<hr></hr>
+<div ng-class="$ctrl.styles.albumsAdd"> 
+    <h2>Add an Album</h2>
+    <ul>
+        <li ng-repeat="album in $ctrl.albums track by album.title" remove="$ctrl.remove" class="albumList">
+            <p>{{album.title}}</p>
+            <p>{{album.description}}</p>
+            <button ng-click="$ctrl.remove(this.album)">remove</button>
+        </li>
+    </ul>
+<new-album add="$ctrl.add" class"add"></new-album>
+</div>
+
+

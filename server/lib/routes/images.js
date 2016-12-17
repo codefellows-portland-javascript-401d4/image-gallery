@@ -9,10 +9,23 @@ router
       if(req.query.title) query.title = req.query.title;
 
       Image.find(query)
-        .select('title description url fullImage thumbnail')
+        .select('title description url fullImage thumbnail albumId')
+        .populate('albumId', 'title')
         .lean()
-        .then(images => res.send(images))
+        .then(images => {
+          res.send(images);})
         .catch(next);
+    })
+
+    .get('/:albumId', (req, res, next) => {
+      const albumId = req.params.albumId;
+      console.log('albumId', albumId);
+      Image.find({albumId})
+      .then(image => {
+        res.send(image);
+        console.log('image', image);
+      })
+      .catch(next);
     })
 
     .delete('/:id', (req, res, next) => {
@@ -22,7 +35,6 @@ router
     })
 
     .post('/', bodyParser, (req, res, next) => {
-      console.log('req.body', req.body);
       new Image(req.body).save()
         .then(saved => {
           res.send(saved);

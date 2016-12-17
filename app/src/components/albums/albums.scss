@@ -1,0 +1,23 @@
+:local(.albums) {
+    .title {
+    font-size: 70px;
+    }
+    img {
+        height: 100px;
+        width: 100px;
+    }
+    .list {
+    display: inline-block;
+    padding: .5em;
+    }
+}
+
+:local(.albumsAdd){
+    .albumList {
+        display: inline-block;
+        padding: .5em;
+        border: 1px solid darkgray;
+        min-width: 8em;
+    }
+}
+

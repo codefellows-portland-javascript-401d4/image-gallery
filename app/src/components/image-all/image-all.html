@@ -6,6 +6,7 @@
             <li ng-repeat="all in app.all track by all.title">
                 <p>{{all.title}}</p>
                 <p>{{all.description}}</p>
+                <p>Album: {{all.albumId.title}}</p>
                 <p>Url: {{all.url}}</p>
                 <img ng-src="{{all.fullImage}}">
             </li>

@@ -8,7 +8,7 @@ router
       const query = {};
       if(req.query.title) query.title = req.query.title;
 
-      Image.find(query)
+      Album.find(query)
         .select('title description')
         .lean()
         .then(albums => res.send(albums))
@@ -16,7 +16,7 @@ router
     })
 
     .delete('/:id', (req, res, next) => {
-      Image.findByIdAndRemove(req.params.id)
+      Album.findByIdAndRemove(req.params.id)
         .then(deleted => res.send(deleted))
         .catch(next);
     })

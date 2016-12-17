@@ -7,12 +7,18 @@ export default {
   controllerAs: 'app'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller (images) {
+function controller (images, albums) {
 
   this.stylesParent = stylesParent;
   this.loading = true;
+
+  albums.get()
+    .then(albums => {
+      this.loading = false;
+      this.albums = albums;
+    });
 
   images.get()
     .then(images => {
