@@ -2,7 +2,7 @@
 @import 'mixins';
 
 :local(.addbox) {
-  width: 30%;
+  width: 90%;
   background-color: $ltpurple;
   border: 0.35rem inset $dkpurple;
   @include rounded-corners(10%);
