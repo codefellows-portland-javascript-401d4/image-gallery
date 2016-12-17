@@ -1,0 +1,44 @@
+h1 {
+  color: blue;
+}
+
+a {
+  color: blue;
+}
+
+button.action {
+  margin: 0;
+  margin-right: -5px;
+  background: lightgreen;
+  color: black;
+  border: 1px solid blue;
+}
+
+button.action:focus {
+  outline: 0;
+}
+
+ul.inventory {
+  padding: 0;
+  padding-left: 20px;
+}
+
+ul.moves {
+  list-styles: none;
+}
+._2CLaLYqrgeZGRPh19FZEP9 {
+  color: black;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+._2CLaLYqrgeZGRPh19FZEP9 button {
+  outline: 0;
+  color: lightgreen;
+}
+.loader {
+  position: absolute;
+  top: 0;
+  left: 40%;
+}
+
+/*# sourceMappingURL=main.css.map*/
