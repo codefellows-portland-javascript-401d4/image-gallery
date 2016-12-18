@@ -1,5 +1,5 @@
 <section>
-  <div ng-repeat="images in $ctrl.images" ng-model style="background-color:gray">
+  <div ng-repeat="images in $ctrl.images" ng-class="$ctrl.styles.bg">
     <img ng-src="{{images.src}}" ng-class="$ctrl.styles.img">
     <button ng-click="$ctrl.remove(images)">Delete</button>
   </div>

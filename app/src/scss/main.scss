@@ -1,4 +1,4 @@
-@import 'center-block';
+@import 'colors';
 
 body {
   margin: 0 auto;
@@ -8,7 +8,10 @@ body {
 
 header {
   padding: 1%;
-  background-color:#999;
+  background-color:$teal;
+  color: white;
+  border-bottom:2px solid $drop;
+  border-top: 2px solid $top;
 }
 
 section {
