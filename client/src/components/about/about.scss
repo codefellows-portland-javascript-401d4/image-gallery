@@ -8,16 +8,31 @@
     margin: 10% 2% 0;
 
     .links {
-        @include links-div();
+        text-align: center;
+        width: 25%;
+        color: $white;
         margin: 4% auto 0;
     }
 
     .content {
-        @include page-content();
+        text-align: center;
+        color: $white;
+        background-color: $content;
+        border-radius: 15px;
+        width: 77%;
+        // min-height: 300px;
+        margin: 5% auto;
+        padding: 2%;
     }
 
     h2 {
-        @include page-heading();
+        background-color: $item;
+        color: $white;
+        border-radius: 15px;
+        text-align: center;
+        width: 40%;
+        margin: 4% auto 2%;
+        padding: 2%;
     }
 
     a {

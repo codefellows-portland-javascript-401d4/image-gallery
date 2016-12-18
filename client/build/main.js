@@ -33241,7 +33241,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.albums\">\n    <h2>Choose an Album to View</h2>\n    <div class=\"preview\">\n        <ul>\n            <li ng-repeat=\"album in $ctrl.albums\"\n                ui-sref=\"albums.contents({ \n                    id: album._id,\n                    view: $ctrl.view\n                })\">\n                <h4>{{album.name}}</h4>\n                <img class=\"img-preview\" ng-src=\"{{album.featured}}\">\n                <p><button ng-click=\"$ctrl.deleteAlbum(album, $event)\">Remove</button></p>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"add-album\">\n        <div>\n            <h3>Add an Album</h3>\n            <label>Name:</label>\n            <input ng-model=\"$ctrl.name\">\n        </div>\n        <div>\n            <label>URL of an Image to Represent the Album:</label>\n            <input ng-model=\"$ctrl.featured\">\n        </div>\n        <button ng-click=\"$ctrl.addAlbum()\">Add</button>       \n    </div>\n\n    <div class=\"view\">\n        <span ng-repeat=\"view in ['detail', 'thumbnail', 'gallery']\">\n        <input \n            ng-model=\"$ctrl.view\" \n            ng-change=\"$ctrl.updateView()\" \n            name=\"view\" \n            ng-value=\"view\" \n            type=\"radio\"> \n            {{view}}\n        </span> \n    </div>\n    <ui-view></ui-view>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.albums\">\n    <h2>Choose an Album to View</h2>\n    <div class=\"preview\">\n        <ul>\n            <li ng-repeat=\"album in $ctrl.albums\"\n                ui-sref=\"albums.contents({ \n                    id: album._id,\n                    view: $ctrl.view\n                })\">\n                <p>{{album.name}}</p>\n                <div class=\"thumbnail\">\n                    <img class=\"img-preview\" ng-src=\"{{album.featured}}\">\n                </div>\n                <p><button ng-click=\"$ctrl.deleteAlbum(album, $event)\">Remove</button></p>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"add-album\">\n        <div>\n            <h3>Add an Album</h3>\n            <label>Name:</label>\n            <input ng-model=\"$ctrl.name\">\n        </div>\n        <div>\n            <label>URL of an Image to Represent the Album:</label>\n            <input ng-model=\"$ctrl.featured\">\n        </div>\n        <button ng-click=\"$ctrl.addAlbum()\">Add</button>       \n    </div>\n\n    <div class=\"view\">\n        <span ng-repeat=\"view in ['detail', 'thumbnail', 'gallery']\">\n        <input \n            ng-model=\"$ctrl.view\" \n            ng-change=\"$ctrl.updateView()\" \n            name=\"view\" \n            ng-value=\"view\" \n            type=\"radio\"> \n            {{view}}\n        </span> \n    </div>\n    <ui-view></ui-view>\n</section>\n";
 
 /***/ },
 /* 22 */
@@ -33285,7 +33285,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "    <header ng-class=\"$ctrl.styles.header\">\n        <h1>Image Gallery</h1>\n        <div>\n        <a ui-sref=\"welcome\" ui-sref-active=\"active\">Home</a>\n        <a ui-sref=\"albums\" ui-sref-active=\"active\">Albums</a>\n        <a ui-sref=\"about\" ui-sref-active=\"active\">About</a>\n        </div>\n    </header>\n\n    <main>\n        <ui-view></ui-view>\n    </main>\n";
+	module.exports = "    <header ng-class=\"$ctrl.styles.header\">\n        <h1>Image Gallery</h1>\n        <div>\n        <!--<a ui-sref=\"welcome\" ui-sref-active=\"active\">Home</a>-->\n        <a ui-sref=\"albums\" ui-sref-active=\"active\">Albums</a>\n        <a ui-sref=\"about\" ui-sref-active=\"active\">About</a>\n        </div>\n    </header>\n\n    <main>\n        <ui-view></ui-view>\n    </main>\n";
 
 /***/ },
 /* 26 */
@@ -33329,13 +33329,14 @@
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n    <p>Some info about the developer</p>\n</div>\n";
+	module.exports = "<div ng-class=\"$ctrl.styles.developer\">\n    <p>My name is Nathan Hugon, and I am a full-stack JavaScript developer with a\n    background in education as an English teacher and a love for sourdough baking.\n    Initially drawn to web development as a means to share my baking knowledge,\n    I strive to write code that is modular, flexible, and easy to read. An\n    accompanying passion for research drives my ability to find and create solutions\n    to complex problems.</p>\n</div>\n";
 
 /***/ },
 /* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"developer":"_3VZWKjyZs3F28aPCyDpFAc"};
 
 /***/ },
 /* 31 */,
@@ -33525,13 +33526,14 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n    <p>Some info about the project.</p>\n</div>\n";
+	module.exports = "<div ng-class=\"$ctrl.styles.project\">\n    <p>This is simple app in which you can organize images into albums. Albums\n    need to be created first, and then images can be added to them. Albums and\n    images can also be deleted.</p>\n    <p>The app was built using the MEAN stack (MongoDB, Express.js, Angular,\n    and Node.js), and is meant to serve as an exercise and template for a basic\n    full-stack JavaScript app, rather than provide novel funtionality.</p>\n</div>\n";
 
 /***/ },
 /* 46 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"project":"_3g-WjU2CDMsf5vAQccgqxu"};
 
 /***/ },
 /* 47 */,

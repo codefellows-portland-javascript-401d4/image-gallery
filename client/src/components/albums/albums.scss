@@ -5,55 +5,74 @@
 
 :local(.albums) {
 
-    margin: 10% 2% 0;
+    margin: 10%;
+    // border: 1px solid black;
+    padding: 1px;
+    background-color: $content;
+    border-radius: 15px;
 
-    button {
-        @include button();
+    .delete-button,
+    .add-button {
+        padding: 1%;
+        text-align: center;
+        background-color: $button;
+        width: 75px;
+        outline: none;
+        border: none;
+        border-radius: 15px;
         margin-bottom: 5%;
         transition: transform .5s;
         margin-top: 2%;
     }
 
-    button:hover {
+    .delete-button:hover,
+    .add-button:hover {
         transform: scale(1.1);
     }
 
     h2 {
-        @include page-heading();
-    }
-
-    select {
-        display: block;
-        margin: 2% auto;
-        width: 175px;
-        border-radius: 15px;
-    }
-
-    .view {
         text-align: center;
+        margin: 3% 0 0;
+        font-size: 2em;
+        color: $white;
+        // @include page-heading();
     }
+
+    // select {
+    //     display: block;
+    //     margin: 2% auto;
+    //     width: 175px;
+    //     border-radius: 15px;
+    // }
 
     .preview {
-        @include page-content();
-        padding-top: 5px;
-        padding-bottom: 0;
+        // @include page-content();
+        // border: 1px solid black;
+        text-align: center;
+        padding: 0 2%;
+        margin: 2% 0;
+        // padding-top: 5px;
+        // padding-bottom: 0;
 
         li {
+            display: inline-block;
+            margin: 2%;
             box-sizing: border-box;
             // border: 1px solid black;
             border-radius: 15px;
-            background-color: $grey;
+            background-color: $item;
             padding: 0 10px;
             width: 150px;
             height: 231px;
 
             p {
                 height: 36px;
+                overflow-wrap: normal;
             }
         }
     }
 
-    .thumbnail {
+    .album-thumbnail {
         margin: 0 auto;
         position: relative;
         width: 100px;
@@ -61,7 +80,7 @@
         overflow: hidden;
         }
 
-    .thumbnail img {
+    .album-thumbnail img {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -72,10 +91,10 @@
                 transform: translate(-50%,-50%);
         }
 
-    .thumbnail img.portrait {
-        width: 100%;
-        height: auto;
-        }
+    // .thumbnail img.portrait {
+    //     width: 100%;
+    //     height: auto;
+    //     }
 
     // .img-preview {
     //     width: 150px;
@@ -84,11 +103,11 @@
 
     .add-album {
         text-align: center;
-        color: $maroon-brown;
-        background-color: $grey;
+        color: $black;
+        background-color: $item;
         border-radius: 15px;
-        margin: 0 auto 2%;
-        width: 30%;
+        margin: 0 auto 4%;
+        width: 40%;
         padding-top: 1%;
 
         input {
@@ -102,15 +121,6 @@
     ul {
         padding: 0;
         list-style: none;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 2% 4%;
-
-        p {
-            overflow-wrap: normal;
-        }
     }
     
 }

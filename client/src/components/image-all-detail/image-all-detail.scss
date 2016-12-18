@@ -3,15 +3,19 @@
 
 :local(.detail) {
 
+    box-sizing: border-box;
     text-align: center;
     color: white;
     background-color: $grey;
     border-radius: 15px;
-    // width: 50%;
+    // width: 25%;
     // margin: 5% auto;
     padding: 5%;
     margin: 2%;
-    
+    // height: 100%;
+    // width: 220px;
+    // height: 220px;
+
     button {
         @include button();
         transition: transform .5s;

@@ -1,17 +1,20 @@
 <section ng-class="$ctrl.styles.albums">
+    <div  ng-hide="$state.includes('albums.contents')" class="album-list">
     <h2>Choose an Album to View</h2>
     <div class="preview">
         <ul>
             <li ng-repeat="album in $ctrl.albums"
+                ng-model="$ctrl.selected"
+                value="album.name"
                 ui-sref="albums.contents({ 
                     id: album._id,
                     view: $ctrl.view
                 })">
                 <p>{{album.name}}</p>
-                <div class="thumbnail">
+                <div class="album-thumbnail">
                     <img class="img-preview" ng-src="{{album.featured}}">
                 </div>
-                <p><button ng-click="$ctrl.deleteAlbum(album, $event)">Remove</button></p>
+                <p><button class="delete-button" ng-click="$ctrl.deleteAlbum(album, $event)">Remove</button></p>
             </li>
         </ul>
     </div>
@@ -26,19 +29,11 @@
             <label>URL of an Image to Represent the Album:</label>
             <input ng-model="$ctrl.featured">
         </div>
-        <button ng-click="$ctrl.addAlbum()">Add</button>       
+        <button class="add-button" ng-click="$ctrl.addAlbum()">Add</button>       
     </div>
 
-    <div class="view">
-        <span ng-repeat="view in ['detail', 'thumbnail', 'gallery']">
-        <input 
-            ng-model="$ctrl.view" 
-            ng-change="$ctrl.updateView()" 
-            name="view" 
-            ng-value="view" 
-            type="radio"> 
-            {{view}}
-        </span> 
     </div>
+
+
     <ui-view></ui-view>
 </section>

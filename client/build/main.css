@@ -1,10 +1,11 @@
 body {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   background-color: #adfcf9;
   color: #341c1c;
   margin: 0;
   padding: 0; }
 ._1YnBKp12AG3QJ19uUlXsXg {
-  margin: 2%; }
+  margin: 10% 2% 0; }
   ._1YnBKp12AG3QJ19uUlXsXg .links {
     text-align: center;
     width: 25%;
@@ -15,16 +16,16 @@ body {
     color: white;
     background-color: #584545;
     border-radius: 15px;
-    min-height: 300px;
+    width: 77%;
     margin: 5% auto;
-    padding: 5%; }
+    padding: 2%; }
   ._1YnBKp12AG3QJ19uUlXsXg h2 {
     background-color: #4b644a;
     color: white;
     border-radius: 15px;
     text-align: center;
     width: 40%;
-    margin: 2% auto;
+    margin: 4% auto 2%;
     padding: 2%; }
   ._1YnBKp12AG3QJ19uUlXsXg a {
     text-decoration: none;
@@ -76,7 +77,7 @@ body {
       width: 80%;
       margin: 0 auto; }
 .tOB100066YCkd8sj0ot9b {
-  margin: 2%; }
+  margin: 10% 2% 0; }
   .tOB100066YCkd8sj0ot9b button {
     padding: 1%;
     text-align: center;
@@ -96,7 +97,7 @@ body {
     border-radius: 15px;
     text-align: center;
     width: 40%;
-    margin: 2% auto;
+    margin: 4% auto 2%;
     padding: 2%; }
   .tOB100066YCkd8sj0ot9b select {
     display: block;
@@ -110,19 +111,38 @@ body {
     color: white;
     background-color: #584545;
     border-radius: 15px;
-    min-height: 300px;
+    width: 77%;
     margin: 5% auto;
-    padding: 5%;
+    padding: 2%;
     padding-top: 5px;
     padding-bottom: 0; }
     .tOB100066YCkd8sj0ot9b .preview li {
-      border: 1px solid black;
+      box-sizing: border-box;
       border-radius: 15px;
       background-color: #adb8ac;
-      padding: 0 2%; }
-  .tOB100066YCkd8sj0ot9b .img-preview {
-    width: 150px;
-    height: 150px; }
+      padding: 0 10px;
+      width: 150px;
+      height: 231px; }
+      .tOB100066YCkd8sj0ot9b .preview li p {
+        height: 36px; }
+  .tOB100066YCkd8sj0ot9b .thumbnail {
+    margin: 0 auto;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden; }
+  .tOB100066YCkd8sj0ot9b .thumbnail img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+  .tOB100066YCkd8sj0ot9b .thumbnail img.portrait {
+    width: 100%;
+    height: auto; }
   .tOB100066YCkd8sj0ot9b .add-album {
     text-align: center;
     color: #341c1c;
@@ -141,19 +161,28 @@ body {
   .tOB100066YCkd8sj0ot9b li {
     display: inline-block;
     margin: 0 2% 4%; }
+    .tOB100066YCkd8sj0ot9b li p {
+      overflow-wrap: normal; }
 ._2Pv07dcn44y_VQIbaBxzQ2 {
   background-color: #89a894;
-  margin: 0; }
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; }
   ._2Pv07dcn44y_VQIbaBxzQ2 h1 {
-    text-align: center;
-    margin: 0;
-    padding: 2% 0; }
+    font-size: 2.5em;
+    text-align: left;
+    width: 50%;
+    margin: 1% 0 1% 5%;
+    display: inline-block; }
   ._2Pv07dcn44y_VQIbaBxzQ2 div {
-    text-align: center;
-    width: 25%;
-    color: white;
-    margin: 0 auto;
-    padding-bottom: 2%; }
+    width: 40%;
+    display: inline-block;
+    text-align: right;
+    margin: 0;
+    position: relative;
+    top: -7px; }
   ._2Pv07dcn44y_VQIbaBxzQ2 a {
     text-decoration: none;
     border-radius: 15px;
@@ -162,6 +191,10 @@ body {
     margin: 1%;
     padding: 2% 4%;
     display: inline-block; }
+._3VZWKjyZs3F28aPCyDpFAc p {
+  font-size: 1.5em;
+  line-height: 2;
+  text-align: left; }
 ._1m1XnsIgrsMMUaT2LxoT_6 {
   text-align: center;
   color: white;
@@ -200,6 +233,10 @@ body {
     border-radius: 15px;
     width: 100px;
     height: 100px; }
+._3g-WjU2CDMsf5vAQccgqxu p {
+  font-size: 1.5em;
+  line-height: 2;
+  text-align: left; }
 ._23XnJNGIuxwbbctNa1oBpu {
   margin: 2%; }
   ._23XnJNGIuxwbbctNa1oBpu div {
@@ -207,16 +244,16 @@ body {
     color: white;
     background-color: #584545;
     border-radius: 15px;
-    min-height: 300px;
+    width: 77%;
     margin: 5% auto;
-    padding: 5%; }
+    padding: 2%; }
   ._23XnJNGIuxwbbctNa1oBpu h2 {
     background-color: #4b644a;
     color: white;
     border-radius: 15px;
     text-align: center;
     width: 40%;
-    margin: 2% auto;
+    margin: 4% auto 2%;
     padding: 2%; }
 
 /*# sourceMappingURL=main.css.map*/

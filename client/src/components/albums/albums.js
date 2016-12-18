@@ -6,9 +6,11 @@ export default {
     controller
 };
 
-controller.$inject = ['albumService', '$state'];
+controller.$inject = ['albumService', '$state', '$scope'];
 
-function controller(albums, $state) {
+function controller(albums, $state, $scope) {
+
+    $scope.$state = $state;
 
     this.styles = styles;
 

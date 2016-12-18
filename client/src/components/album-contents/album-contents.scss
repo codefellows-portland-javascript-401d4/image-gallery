@@ -4,8 +4,8 @@
 :local(.album) {
 
     border-radius: 15px;
-    margin: 2%;
-    background-color: $dark-greyish-red;
+    // margin: 2%;
+    background-color: $content;
     padding: 2%;
 
     ul {
@@ -13,17 +13,31 @@
     }
 
     .detail {
-        width: 25%;
-        margin-bottom: 1%;
+        box-sizing: border-box;
+        width: 220px;
+        height: 220px;
+        margin: 1%;
+        display: inline-block;
+    }
+
+    .view {
+        text-align: center;
+        border-radius: 15px;
+        background-color: $grey;
+        width: 40%;
+        margin: 2% auto 0;
     }
 
     .thumbnail {
+        margin: 1%;
         padding: 0;
         box-sizing: border-box;
         width: 120px;
+        display: inline-block;
     }
 
     .gallery {
+        margin: 0 auto;
         width: 80%;
 
     }
@@ -36,16 +50,16 @@
         border-radius: 15px;
         width: 25%;
         padding: 1% 0 0;
-        margin: 0 auto;
+        margin: 0 auto 4%;
         
-        button {
+        .add-button {
             @include button();
             margin-bottom: 5%;
             margin-top: 2%;
             transition: transform .5s;
         }
 
-        button:hover {
+        .add-button:hover {
             transform: scale(1.1);
         }
 
@@ -56,5 +70,17 @@
         }
 
     }
+    
+    .back-to-albums {
+        text-align: center;
+        background-color: $redish-grey;
+        border-radius: 15px;
+        width: 20%;
+        margin: 2% auto;
+        transition: transform .5s;
+    }
 
+    .back-to-albums:hover {
+        transform: scale(1.1);
+    }
 }

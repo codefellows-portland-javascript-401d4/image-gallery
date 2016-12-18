@@ -2,11 +2,11 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function routes($stateProvider, $urlRouterProvider) {
 
-    $stateProvider.state({
-        name: 'welcome',
-        url: '/',
-        component: 'welcome'
-    });
+    // $stateProvider.state({
+    //     name: 'welcome',
+    //     url: '/',
+    //     component: 'welcome'
+    // });
 
     $stateProvider.state({
         name: 'albums',
@@ -55,5 +55,5 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'developer'
     });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/albums');
 }
