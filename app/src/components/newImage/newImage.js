@@ -20,11 +20,10 @@ function controller() {
   this.reset();
 
   this.add = () => {
-    this.addImage({
+    this.addImage({name: this.albumName}, {
       title: this.title,
       description: this.description,
-      url: this.url,
-      albumName: this.albumName
+      url: this.url
     });
 
     this.reset();

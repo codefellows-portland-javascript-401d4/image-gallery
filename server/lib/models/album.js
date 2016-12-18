@@ -5,10 +5,10 @@ const album = new Schema({
   name: {
     type: String,
     required: true
-  },
+  }/*,
   images: {
     type: []
-  }
+  }*/
 });
 
 module.exports = mongoose.model('Album', album);

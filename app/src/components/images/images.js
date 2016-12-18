@@ -31,10 +31,24 @@ function controller(imageService) {
       });
   };
 
-  this.addImage = image => {
-    imageService.add(image)
-      .then(saved => {
-        this.images.push(saved);
+  // this.addImage = image => {
+  //   imageService.add(image)
+  //     .then(saved => {
+  //       this.images.push(saved);
+  //     });
+  // };
+
+  this.addImage = (album, image) => {
+    imageService.addAlbum(album)
+      .then(savedAlb => {
+        imageService.addImage(image)
+          .then(savedImg => {
+            console.log('savedImg', savedImg);
+            console.log('savedAlbumId', savedAlb._id);
+            savedImg.album = savedAlb._id;
+            // savedAlb.images.push(saved);
+            console.log('savedImg with album', savedImg);
+          });
       });
   };
 

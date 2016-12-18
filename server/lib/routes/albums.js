@@ -33,22 +33,28 @@ router
   })
 
   .post('/', jsonParser, (req, res, next) => {
-    const album = req.body;
-    Album.find(album)
-      .count()
-      .then(count => {
-        if(count > 0) {
-          return next({
-            code: 400,
-            error: 'album already exists'
-          });
-        } else {
-          new Album(req.body).save()
-          .then(saved => res.send(saved))
-          .catch(next);
-        }
-      });
+    new Album(req.body).save()
+      .then(saved => res.send(saved))
+      .catch(next);
   })
+
+  // .post('/', jsonParser, (req, res, next) => {
+  //   const album = req.body;
+  //   Album.find(album)
+  //     .count()
+  //     .then(count => {
+  //       if(count > 0) {
+  //         return next({
+  //           code: 400,
+  //           error: 'album already exists'
+  //         });
+  //       } else {
+  //         new Album(req.body).save()
+  //         .then(saved => res.send(saved))
+  //         .catch(next);
+  //       }
+  //     });
+  // })
 
   .put('/:id', jsonParser, (req, res, next) => {
     Album.findByIdAndUpdate(req.params.id, req.body)
