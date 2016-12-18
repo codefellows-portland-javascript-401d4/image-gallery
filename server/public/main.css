@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #efdddd;
   margin: 1em;
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
@@ -8,19 +8,24 @@ body {
 h1 {
   font-family: 'Lobster Two', cursive;
   font-size: 2.5em;
-  color: #964C7E; }
+  color: #574c7c; }
 
 main {
   width: 80%;
   margin: 0 auto;
-  background-color: #A0E0CA; }
+  background-color: #caa19e; }
 
 h2 {
   font-family: 'Raleway', sans-serif;
-  color: #964C7E; }
+  color: #574c7c; }
 
 ul {
   list-style: none; }
+._3xXg8bZLyyIlMB6PWRKgtz {
+  height: 500px;
+  width: 500px;
+  display: inline-block;
+  margin-right: 1%; }
 ._3xgNpRofYdA4D1XSDahY6k {
   height: 100px;
   width: 100px;

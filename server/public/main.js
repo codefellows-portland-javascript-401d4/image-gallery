@@ -33586,7 +33586,7 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['details-class']\">\n  <h2>{{ $ctrl.image.title }}</h2>\n    <p>{{ $ctrl.image.description }}</p>\n    <h3><a href=\"{{ $ctrl.image.url }}\">source</a></h3>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles['details-class']\">\n  <h2>{{ $ctrl.image.title }}</h2>\n    <p>{{ $ctrl.image.description }}</p>\n    <p><a href=\"{{ $ctrl.image.url }}\">source</a></p>\n</section>\n";
 
 /***/ },
 /* 16 */
@@ -33618,27 +33618,35 @@
 	exports.default = {
 	  template: _imageFull2.default,
 	  bindings: {
-	    image: '<'
+	    image: '=',
+	    remove: '<'
 	  },
 	  controller: controller
 	};
 	
 	
 	function controller() {
+	  var _this = this;
+	
 	  this.styles = _imageFull4.default;
+	
+	  this.delete = function () {
+	    _this.remove(_this.image);
+	  };
 	}
 
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <h2>{{ $ctrl.image.title }}</h2>\n    <img ng-class=\"$ctrl.styles['full-class']\" ng-src=\"{{ $ctrl.image.url }}\" alt=\"{{ $ctrl.image.title }}\">\n    <p>{{ $ctrl.image.description }}</p>\n    <p>source: {{ $ctrl.image.url }}</p>\n</section>\n";
+	module.exports = "<section>\n  <h2>{{ $ctrl.image.title }}</h2>\n    <img ng-class=\"$ctrl.styles['full-class']\" ng-src=\"{{ $ctrl.image.url }}\" alt=\"{{ $ctrl.image.title }}\">\n    <p>{{ $ctrl.image.description }}</p>\n    <p><a href=\"{{ $ctrl.image.url }}\">source</a></p>\n\n    <button ng-click=\"$ctrl.delete()\">remove</button>\n</section>\n  \n";
 
 /***/ },
 /* 20 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"full-class":"_3xXg8bZLyyIlMB6PWRKgtz"};
 
 /***/ },
 /* 21 */,
@@ -33784,20 +33792,14 @@
 	
 	
 	function controller() {
-	  var _this = this;
-	
 	  this.styles = _imageRemove4.default;
-	
-	  this.removeImage = function () {
-	    _this.remove(_this.image);
-	  };
 	}
 
 /***/ },
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"ctrl.styles['remove-class']\">\n  <button ng-click=\"$ctrl.removeImage()\">remove</button>\n</section>";
+	module.exports = "<section ng-class=\"ctrl.styles['remove-class']\">\n  \n</section>\n";
 
 /***/ },
 /* 32 */
@@ -33838,6 +33840,7 @@
 	  var _this = this;
 	
 	  this.styles = _images4.default;
+	
 	  this.views = ['preview', 'detail', 'full'];
 	  this.view = this.views[2];
 	
@@ -33863,7 +33866,7 @@
 /* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n  \n    <ul>\n      <li ng-class=\"$ctrl.styles['full-class']\" ng-repeat=\"image in $ctrl.images\">\n        <image-preview ng-if=\"$ctrl.view === 'preview'\" image=\"image\"></image-preview>\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n        <image-full ng-if=\"$ctrl.view === 'full' || $ctrl.view === undefined\" image=\"image\"></image-full>\n      </li>\n    </ul>\n\n    <image-new add=\"$ctrl.add\"></image-new>\n    <image-remove remove=\"$ctrl.remove\"></image-remove>\n</section>\n";
+	module.exports = "<section>\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n  \n    <image-new add=\"$ctrl.add\"></image-new>\n\n    <ul>\n      <li ng-class=\"$ctrl.styles['full-class']\" ng-repeat=\"image in $ctrl.images\">\n        <image-preview ng-if=\"$ctrl.view === 'preview'\" image=\"image\"></image-preview>\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n        <image-full ng-if=\"$ctrl.view === 'full' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-full>\n      </li>\n    </ul>\n</section>\n";
 
 /***/ },
 /* 36 */

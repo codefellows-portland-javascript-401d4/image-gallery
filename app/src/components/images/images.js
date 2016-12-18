@@ -10,6 +10,7 @@ controller.$inject = ['imageService'];
 
 function controller(images) {
   this.styles = styles;
+
   this.views = ['preview', 'detail', 'full'];
   this.view = this.views[2];
 
