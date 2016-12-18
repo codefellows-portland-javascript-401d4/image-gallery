@@ -1,9 +1,12 @@
 import template from './thumbnail-app.html';
-import styles from './thumbnail-app.css';
+import styles from './thumbnail-app.scss';
 
 export default {
   template,
-  controller
+  controller,
+  scope: {
+    imgs: '<'
+  }
 };
 
 controller.$inject = ['imageService'];

@@ -1,4 +1,5 @@
 import template from './gallery-views.html';
+import style from './gallery-views.scss';
 
 export default {
   template,
@@ -6,5 +7,5 @@ export default {
 };
 
 function controller() {
-  this.views = ['Thumbnail', 'Full Image', 'Link'];
+  this.style = style;
 }

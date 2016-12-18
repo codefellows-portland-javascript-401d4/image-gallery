@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "test": "karma start",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
@@ -18,7 +18,7 @@
     "url": "https://github.com/risafletcher/image-gallery/issues"
   },
   "homepage": "https://github.com/risafletcher/image-gallery#readme",
-    "devDependencies": {
+  "devDependencies": {
     "angular-mocks": "^1.5.9",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -39,6 +39,8 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.8.0",
     "mocha": "^3.0.2",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

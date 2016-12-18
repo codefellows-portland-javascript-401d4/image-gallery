@@ -1,0 +1,11 @@
+<section class="half inline">
+      <p>How would you like your images to be displayed?</p>
+      <select ng-model="viewMenu" ng-options="view for view in $ctrl.views">
+        <option value="">Select an option</option>
+      </select>
+</section>
+<section>
+  <thumbnail-app ng-if="viewMenu === 'Thumbnail'" ng-model="thumbnail"></thumbnail-app>
+  <title-img-desc ng-if="viewMenu === 'Full Image'"></title-img-desc>
+  <title-link-desc ng-if="viewMenu === 'Link'"></title-link-desc>
+</section>

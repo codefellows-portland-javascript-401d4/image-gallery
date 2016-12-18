@@ -1,0 +1,34 @@
+@import 'center-block';
+
+body {
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size:0.8em;
+}
+
+header {
+  padding: 1%;
+  background-color:#999;
+}
+
+section {
+  width:100%;
+  vertical-align:top;
+}
+
+h1 {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size:2em;
+}
+
+inputs-bar {
+  background-color:#666;
+}
+
+.half {
+  vertical-align:top;
+  float:left;
+  padding:1%;
+  margin-left:0.5%;
+  width:47.5%;
+}
