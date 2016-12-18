@@ -6,8 +6,8 @@ export default function imageService($http, apiUrl) {
       return $http.get(`${ apiUrl }/images`)
         .then(res => res.data);
     },
-    add(img) {
-      return $http.post(`${ apiUrl }/images`, img)
+    add(image) {
+      return $http.post(`${ apiUrl }/images`, image)
         .then(res => res.data);
     },
     remove(id) {

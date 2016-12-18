@@ -1,4 +1,4 @@
-import template from './gallery-app.html';
+import template from './image-app.html';
 
 export default {
   template,

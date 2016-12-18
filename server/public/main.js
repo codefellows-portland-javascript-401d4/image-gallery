@@ -33500,7 +33500,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./gallery-app/gallery-app.js": 12,
+		"./image-app/image-app.js": 12,
 		"./image-detail/image-detail.js": 14,
 		"./image-full/image-full.js": 18,
 		"./image-new/image-new.js": 22,
@@ -33532,14 +33532,14 @@
 	  value: true
 	});
 	
-	var _galleryApp = __webpack_require__(13);
+	var _imageApp = __webpack_require__(13);
 	
-	var _galleryApp2 = _interopRequireDefault(_galleryApp);
+	var _imageApp2 = _interopRequireDefault(_imageApp);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _galleryApp2.default,
+	  template: _imageApp2.default,
 	  controller: function controller() {}
 	};
 
@@ -33898,11 +33898,11 @@
 	
 	var context = __webpack_require__(39);
 	
-	var _module = _angular2.default.module('components', []);
+	var _module = _angular2.default.module('services', []);
 	
 	context.keys().forEach(function (key) {
 	  var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
-	  _module.component(name, context(key).default);
+	  _module.factory(name, context(key).default);
 	});
 	
 	exports.default = _module.name;
@@ -33947,8 +33947,8 @@
 	        return res.data;
 	      });
 	    },
-	    add: function add(img) {
-	      return $http.post(apiUrl + '/images', img).then(function (res) {
+	    add: function add(image) {
+	      return $http.post(apiUrl + '/images', image).then(function (res) {
 	        return res.data;
 	      });
 	    },
