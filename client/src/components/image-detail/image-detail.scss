@@ -1,0 +1,42 @@
+@import 'colors';
+@import 'buttons';
+
+:local(.detail) {
+    box-sizing: border-box;
+    text-align: center;
+    color: $white;
+    background-color: $item;
+    border-radius: 15px;
+    padding: 5%;
+    margin: 2%;
+
+    a {
+        text-decoration: none;
+        transition: .5s;
+    }
+
+    a:link,
+    a:visited {
+        color: $grey;
+    }
+
+    a:hover {
+        color: $content;
+    }
+
+    button {
+        padding: 1%;
+        text-align: center;
+        background-color: $button;
+        width: 75px;
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        transition: transform .5s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+} 

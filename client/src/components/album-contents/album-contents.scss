@@ -2,9 +2,7 @@
 @import 'colors';
 
 :local(.album) {
-
     border-radius: 15px;
-    // margin: 2%;
     background-color: $content;
     padding: 2%;
 
@@ -45,7 +43,7 @@
     .add-image {
         box-sizing: border-box;
         text-align: center;
-        color: white;
+        color: $text;
         background-color: $grey;
         border-radius: 15px;
         width: 25%;
@@ -53,10 +51,16 @@
         margin: 0 auto 4%;
         
         .add-button {
-            @include button();
-            margin-bottom: 5%;
-            margin-top: 2%;
+            color: $text;
+            padding: 1%;
+            text-align: center;
+            border: 1px solid $text;
+            background-color: $button;
             transition: transform .5s;
+            width: 75px;
+            border-radius: 15px;
+            margin-bottom: 5%;
+            margin-top: 2%;         
         }
 
         .add-button:hover {
@@ -73,9 +77,11 @@
     
     .back-to-albums {
         text-align: center;
-        background-color: $redish-grey;
+        background-color: $button;
         border-radius: 15px;
         width: 20%;
+        color: $text;
+        padding: 1%;
         margin: 2% auto;
         transition: transform .5s;
     }

@@ -1,5 +1,5 @@
-import template from './image-all-detail.html';
-import styles from './image-all-detail.scss';
+import template from './image-detail.html';
+import styles from './image-detail.scss';
 
 export default {
     bindings: {

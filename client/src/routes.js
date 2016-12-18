@@ -26,7 +26,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
             id: ['$transition$', t => t.params().id],
             // "view" is name of component binding, 
             // t.params().view is dependent on key above
-            view: ['$transition$', t => t.params().view || 'detail']
+            view: ['$transition$', t => t.params().view || 'gallery']
         },
         component: 'albumContents'
     });

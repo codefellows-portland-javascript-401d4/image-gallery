@@ -33017,7 +33017,7 @@
 		"./albums/albums.js": 20,
 		"./app/app.js": 24,
 		"./developer/developer.js": 28,
-		"./image-all-detail/image-all-detail.js": 32,
+		"./image-detail/image-detail.js": 32,
 		"./image-gallery/image-gallery.js": 36,
 		"./image-thumbnail/image-thumbnail.js": 40,
 		"./project/project.js": 44,
@@ -33160,7 +33160,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.album\">\n    <h2>{{$ctrl.album.name}}</h2>\n\n    <div ng-if=\"$ctrl.view === 'detail'\">\n        <ul>\n            <li class=\"detail\" ng-repeat=\"image in $ctrl.album.images\">\n                <image-all-detail remove=\"$ctrl.removeImage\" image=\"image\"></image-all-detail>\n            </li>\n        </ul>\n        <div class=\"add-image\">\n            <p>Add an Image</p>\n            <div>\n                <label>Title:</label>\n                <input ng-model=\"$ctrl.title\">\n            </div>\n            <div>\n                <label>URL:</label>\n                <input ng-model=\"$ctrl.url\">\n            </div>\n            <div>\n                <label>Description:</label>\n                <input ng-model=\"$ctrl.description\">\n            </div>\n            <button ng-click=\"$ctrl.addImage()\">Add</button>\n        </div>    \n    </div>\n\n    <ul ng-if=\"$ctrl.view === 'thumbnail'\">\n        <li class=\"thumbnail\" ng-repeat=\"image in $ctrl.album.images\">\n            <image-thumbnail image=\"image\"></image-thumbnail>\n        </li>\n    </ul>\n\n    <ul ng-if=\"$ctrl.view === 'gallery'\">\n        <li class=\"gallery\" ng-repeat=\"image in $ctrl.album.images\">\n            <image-gallery image=\"image\"></image-gallery>\n        </li>\n    </ul>\n\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.album\">\n    <h2>{{$ctrl.album.name}}</h2>\n\n    <div class=\"view\">\n        <span ng-repeat=\"view in ['detail', 'thumbnail', 'gallery']\">\n        <input \n            ng-model=\"$ctrl.view\" \n            ng-change=\"$ctrl.updateView()\" \n            name=\"view\" \n            ng-value=\"view\" \n            type=\"radio\"> \n            {{view}}\n        </span> \n    </div>\n\n    <div class=\"back-to-albums\" ui-sref=\"albums\" ui-sref-active=\"active\">Choose a Different Album</div>\n\n    <div ng-if=\"$ctrl.view === 'detail'\">\n        <ul>\n            <li class=\"detail\" ng-repeat=\"image in $ctrl.album.images\">\n                <image-detail remove=\"$ctrl.removeImage\" image=\"image\"></image-detail>\n            </li>\n        </ul>\n        <div class=\"add-image\">\n            <p>Add an Image</p>\n            <div>\n                <label>Title:</label>\n                <input ng-model=\"$ctrl.title\">\n            </div>\n            <div>\n                <label>URL:</label>\n                <input ng-model=\"$ctrl.url\">\n            </div>\n            <div>\n                <label>Description:</label>\n                <input ng-model=\"$ctrl.description\">\n            </div>\n            <button class=\"add-button\" ng-click=\"$ctrl.addImage()\">Add</button>\n        </div>    \n    </div>\n\n    <ul ng-if=\"$ctrl.view === 'thumbnail'\">\n        <li class=\"thumbnail\" ng-repeat=\"image in $ctrl.album.images\">\n            <image-thumbnail image=\"image\"></image-thumbnail>\n        </li>\n    </ul>\n\n    <ul ng-if=\"$ctrl.view === 'gallery'\">\n        <li class=\"gallery\" ng-repeat=\"image in $ctrl.album.images\">\n            <image-gallery image=\"image\"></image-gallery>\n        </li>\n    </ul>\n\n</section>\n";
 
 /***/ },
 /* 18 */
@@ -33196,10 +33196,12 @@
 	};
 	
 	
-	controller.$inject = ['albumService', '$state'];
+	controller.$inject = ['albumService', '$state', '$scope'];
 	
-	function controller(albums, $state) {
+	function controller(albums, $state, $scope) {
 	    var _this = this;
+	
+	    $scope.$state = $state;
 	
 	    this.styles = _albums4.default;
 	
@@ -33241,7 +33243,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.albums\">\n    <h2>Choose an Album to View</h2>\n    <div class=\"preview\">\n        <ul>\n            <li ng-repeat=\"album in $ctrl.albums\"\n                ui-sref=\"albums.contents({ \n                    id: album._id,\n                    view: $ctrl.view\n                })\">\n                <p>{{album.name}}</p>\n                <div class=\"thumbnail\">\n                    <img class=\"img-preview\" ng-src=\"{{album.featured}}\">\n                </div>\n                <p><button ng-click=\"$ctrl.deleteAlbum(album, $event)\">Remove</button></p>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"add-album\">\n        <div>\n            <h3>Add an Album</h3>\n            <label>Name:</label>\n            <input ng-model=\"$ctrl.name\">\n        </div>\n        <div>\n            <label>URL of an Image to Represent the Album:</label>\n            <input ng-model=\"$ctrl.featured\">\n        </div>\n        <button ng-click=\"$ctrl.addAlbum()\">Add</button>       \n    </div>\n\n    <div class=\"view\">\n        <span ng-repeat=\"view in ['detail', 'thumbnail', 'gallery']\">\n        <input \n            ng-model=\"$ctrl.view\" \n            ng-change=\"$ctrl.updateView()\" \n            name=\"view\" \n            ng-value=\"view\" \n            type=\"radio\"> \n            {{view}}\n        </span> \n    </div>\n    <ui-view></ui-view>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.albums\">\n    <div  ng-hide=\"$state.includes('albums.contents')\" class=\"album-list\">\n    <h2>Choose an Album to View</h2>\n    <div class=\"preview\">\n        <ul>\n            <li ng-repeat=\"album in $ctrl.albums\"\n                ng-model=\"$ctrl.selected\"\n                value=\"album.name\"\n                ui-sref=\"albums.contents({ \n                    id: album._id,\n                    view: $ctrl.view\n                })\">\n                <p>{{album.name}}</p>\n                <div class=\"album-thumbnail\">\n                    <img class=\"img-preview\" ng-src=\"{{album.featured}}\">\n                </div>\n                <p><button class=\"delete-button\" ng-click=\"$ctrl.deleteAlbum(album, $event)\">Remove</button></p>\n            </li>\n        </ul>\n    </div>\n\n    <div class=\"add-album\">\n        <div>\n            <h3>Add an Album</h3>\n            <label>Name:</label>\n            <input ng-model=\"$ctrl.name\">\n        </div>\n        <div>\n            <label>URL of an Image to Represent the Album:</label>\n            <input ng-model=\"$ctrl.featured\">\n        </div>\n        <button class=\"add-button\" ng-click=\"$ctrl.addAlbum()\">Add</button>       \n    </div>\n\n    </div>\n\n\n    <ui-view></ui-view>\n</section>\n";
 
 /***/ },
 /* 22 */
@@ -33349,13 +33351,13 @@
 	    value: true
 	});
 	
-	var _imageAllDetail = __webpack_require__(33);
+	var _imageDetail = __webpack_require__(33);
 	
-	var _imageAllDetail2 = _interopRequireDefault(_imageAllDetail);
+	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
-	var _imageAllDetail3 = __webpack_require__(34);
+	var _imageDetail3 = __webpack_require__(34);
 	
-	var _imageAllDetail4 = _interopRequireDefault(_imageAllDetail3);
+	var _imageDetail4 = _interopRequireDefault(_imageDetail3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33364,7 +33366,7 @@
 	        image: '=',
 	        remove: '<'
 	    },
-	    template: _imageAllDetail2.default,
+	    template: _imageDetail2.default,
 	    controller: controller
 	};
 	
@@ -33372,7 +33374,7 @@
 	function controller() {
 	    var _this = this;
 	
-	    this.styles = _imageAllDetail4.default;
+	    this.styles = _imageDetail4.default;
 	    this.delete = function () {
 	        _this.remove(_this.image);
 	    };
@@ -33389,7 +33391,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"detail":"_1m1XnsIgrsMMUaT2LxoT_6"};
+	module.exports = {"detail":"_1P8rGqG9AJOMZc6gOYxStU"};
 
 /***/ },
 /* 35 */,
@@ -33429,7 +33431,7 @@
 /* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.gallery\">\n    <p>{{$ctrl.image.title}}</p>\n    <p><img ng-src=\"{{$ctrl.image.url}}\"></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.gallery\">\n    <h2>{{$ctrl.image.title}}</h2>\n    <p><img ng-src=\"{{$ctrl.image.url}}\"></p>\n    <p>{{$ctrl.image.description}}</p>\n</section>\n";
 
 /***/ },
 /* 38 */
@@ -33482,7 +33484,7 @@
 /* 41 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.thumbnail\">\n    <img ng-src=\"{{$ctrl.image.url}}\">\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.thumbnail\">\n    <img class=\"thumb\" ng-src=\"{{$ctrl.image.url}}\">\n</section>\n";
 
 /***/ },
 /* 42 */
@@ -42082,11 +42084,11 @@
 	
 	function routes($stateProvider, $urlRouterProvider) {
 	
-	    $stateProvider.state({
-	        name: 'welcome',
-	        url: '/',
-	        component: 'welcome'
-	    });
+	    // $stateProvider.state({
+	    //     name: 'welcome',
+	    //     url: '/',
+	    //     component: 'welcome'
+	    // });
 	
 	    $stateProvider.state({
 	        name: 'albums',
@@ -42109,7 +42111,7 @@
 	            // "view" is name of component binding, 
 	            // t.params().view is dependent on key above
 	            view: ['$transition$', function (t) {
-	                return t.params().view || 'detail';
+	                return t.params().view || 'gallery';
 	            }]
 	        },
 	        component: 'albumContents'
@@ -42139,7 +42141,7 @@
 	        component: 'developer'
 	    });
 	
-	    $urlRouterProvider.otherwise('/');
+	    $urlRouterProvider.otherwise('/albums');
 	}
 
 /***/ }

@@ -18,7 +18,7 @@
     <div ng-if="$ctrl.view === 'detail'">
         <ul>
             <li class="detail" ng-repeat="image in $ctrl.album.images">
-                <image-all-detail remove="$ctrl.removeImage" image="image"></image-all-detail>
+                <image-detail remove="$ctrl.removeImage" image="image"></image-detail>
             </li>
         </ul>
         <div class="add-image">

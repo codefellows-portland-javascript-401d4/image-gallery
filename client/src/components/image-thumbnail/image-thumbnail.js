@@ -9,12 +9,6 @@ export default {
     controller,    
 };
 
-function controller() {
-    //if you needed to work on binding on top level,
-    //i.e. when it is loading, you need to use this.$onInit
-    //if updated to latest version of angular 1
-    //this.$onInit = () => {
-    //    this.image.title.toUpperCase();
-    //}   
+function controller() {   
     this.styles = styles;
 }

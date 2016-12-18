@@ -4,7 +4,6 @@
 @import 'links';
 
 :local(.about) {
-
     margin: 10% 2% 0;
 
     .links {
@@ -20,7 +19,6 @@
         background-color: $content;
         border-radius: 15px;
         width: 77%;
-        // min-height: 300px;
         margin: 5% auto;
         padding: 2%;
     }

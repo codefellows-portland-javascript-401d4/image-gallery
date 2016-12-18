@@ -1,16 +1,7 @@
 @mixin page-content() {
-    text-align: center;
-    color: white;
-    background-color: $dark-greyish-red;
-    border-radius: 15px;
-    width: 77%;
-    // min-height: 300px;
-    margin: 5% auto;
-    padding: 2%;
+
 }
 
 @mixin links-div() {
-    text-align: center;
-    width: 25%;
-    color: white;
+
 }

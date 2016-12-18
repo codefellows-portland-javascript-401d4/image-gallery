@@ -2,12 +2,19 @@
 
 :local(.gallery) {
     text-align: center;
-    color: white;
-    background-color: $dark-greyish-red;
+    color: $white;
+    background-color: $item;
     border-radius: 15px;
-    // width: 80%;
-    // margin: 5% auto;
-    padding: 5%;
+    padding: 4%;
+    margin: 4% 0;
+
+    h2 {
+        margin: 0 0 4%;
+    }
+
+    p {
+        margin: 4% 0 0;
+    }
 
     img {
         max-width: 100%;

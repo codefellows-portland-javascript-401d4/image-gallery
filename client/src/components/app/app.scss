@@ -3,7 +3,6 @@
 @import 'divs';
 
 :local(.header) {
-
     background-color: $header;
     margin: 0;
     position: fixed;
@@ -26,9 +25,6 @@
         margin: 0;
         position: relative;
         top: -7px;
-        // @include links-div();
-        // margin: 0 auto;
-        // padding-bottom: 2%;
     }
 
     a {
