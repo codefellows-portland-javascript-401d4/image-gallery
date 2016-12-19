@@ -46,11 +46,22 @@ describe('images component', () => {
       add(image) {
         return Promise.resolve(image);
       },
-      
+
       remove() {
         return Promise.resolve(image);
       }
     };
 
+    it.skip('loads images', done => {
+      const component = $component('images', { imageService });
+    });
+
+    it.skip('adds new image', done => {
+      const component = $component('images', { imageService });
+    });
+
+    it.skip('removes image', done => {
+      const component = $component('images', { imageService });
+    });
   })
 })
