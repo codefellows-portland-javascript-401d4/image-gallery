@@ -25,7 +25,7 @@ router
         Album.findById(albumId).lean(),
         Image
           .find({albumId})
-          .select('name description')
+          .select('name description _id')
           .lean()
       ])
       .then(([album, images]) => {

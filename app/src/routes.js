@@ -49,23 +49,31 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'gallery.albums.album',
-    url: '/album/:id',
+    url: '/:id?view',
+    params: {
+      view: {dynamic: true}
+    },
+    resolve: {
+      id: ['$transition$', t => t.params().id],
+      view: ['$transition$', t => t.params().view || 'thumb']
+    },
     component: 'albums'
   });
 
-  // $stateProvider.state({
-  //   name: 'list.all',
-  //   url: '/all',
-  //   component: 'listViewNames'
-  //   // views: {
-  //   //   urls: {
-  //   //     component: 'listViewUrls'
-  //   //   },
-  //   //   names: {
-  //   //     component: 'listViewNames'
-  //   //   }
-  //   // }
-  // });
+  $stateProvider.state({
+    name: 'gallery.images.list',
+    url: '/imagest-list',
+    component: 'images-list',
+    params: {
+      images: null
+    },
+    resolve: {
+      images: ['$transition$', t => {
+        return t.params().images;
+      }]
+    },
+
+  });
 
   // $stateProvider.state({
   //   name: 'list.names',
