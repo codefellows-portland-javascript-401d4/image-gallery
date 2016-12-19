@@ -1,4 +1,4 @@
-describe('images component', () => {
+describe('image app component', () => {
   const { assert } = chai;
 
   beforeEach(
@@ -11,7 +11,7 @@ describe('images component', () => {
     $component = $componentController;
   }));
 
-  describe('creation of component', () => {
+  describe('images component', () => {
     const images = [
       {
         title: 'Test 1',
@@ -38,6 +38,8 @@ describe('images component', () => {
       url: 'http://i.imgur.com/9oGI5Tz.jpg'
     };
 
+    const id = 1234;
+
     const imageService = {
       get() {
         return Promise.resolve(images); //eslint-disable-line
@@ -48,36 +50,38 @@ describe('images component', () => {
       },
 
       remove() {
+        image._id = id;
         return Promise.resolve(image); //eslint-disable-line
       }
     };
 
-    it('loads images in preview view', done => {
-      const component = $component('imagePreview', { imageService });
+    it('gets images', done => {
+      const component = $component('images', { imageService });
 
       setTimeout(() => {
         assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
         done();
       });
     });
 
-    it('loads images in detail view', done => {
-      const component = $component('imageDetail', { imageService });
+    it('adds a new image', done => {
+      const component = $component('images', { imageService });
+      component.add(image);
 
       setTimeout(() => {
-        assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
+        assert.equal(images.length, 4);
+        assert.deepEqual(images[3], image);
         done();
       });
     });
 
-    it('loads images in full view', done => {
-      const component = $component('imageFull', { imageService });
+    it('removes an image', done => {
+      const component = $component('images', { imageService });
+      component.remove(image);
 
       setTimeout(() => {
-        assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
+        assert.equal(images.length, 3);
+        assert.equal(images.indexOf(image), -1);
         done();
       });
     });
