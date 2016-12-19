@@ -4,8 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const cssExtract = new ExtractTextPlugin('main.css');
 
 module.exports = {
-  target: 'web', 
-  entry: './src/app.js',
+  entry: './src/main.js',
   output: {
     path: '../server/public',
     filename: 'main.js'
@@ -28,8 +27,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        cacheDirectory: true,
-        presets: ['es2015']
+        cacheDirectory: true
       }
     }, {
       test: /\.scss$/,

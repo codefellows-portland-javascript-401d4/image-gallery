@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(38);
+	var _services = __webpack_require__(34);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33505,8 +33505,7 @@
 		"./image-full/image-full.js": 18,
 		"./image-new/image-new.js": 22,
 		"./image-preview/image-preview.js": 26,
-		"./image-remove/image-remove.js": 30,
-		"./images/images.js": 34
+		"./images/images.js": 30
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33771,58 +33770,11 @@
 	  value: true
 	});
 	
-	var _imageRemove = __webpack_require__(31);
-	
-	var _imageRemove2 = _interopRequireDefault(_imageRemove);
-	
-	var _imageRemove3 = __webpack_require__(32);
-	
-	var _imageRemove4 = _interopRequireDefault(_imageRemove3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _imageRemove2.default,
-	  bindings: {
-	    image: '=',
-	    remove: '<'
-	  },
-	  controller: controller
-	};
-	
-	
-	function controller() {
-	  this.styles = _imageRemove4.default;
-	}
-
-/***/ },
-/* 31 */
-/***/ function(module, exports) {
-
-	module.exports = "<section ng-class=\"ctrl.styles['remove-class']\">\n  \n</section>\n";
-
-/***/ },
-/* 32 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 33 */,
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _images = __webpack_require__(35);
+	var _images = __webpack_require__(31);
 	
 	var _images2 = _interopRequireDefault(_images);
 	
-	var _images3 = __webpack_require__(36);
+	var _images3 = __webpack_require__(32);
 	
 	var _images4 = _interopRequireDefault(_images3);
 	
@@ -33863,20 +33815,20 @@
 	}
 
 /***/ },
-/* 35 */
+/* 31 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n  \n    <image-new add=\"$ctrl.add\"></image-new>\n\n    <ul>\n      <li ng-class=\"$ctrl.styles['full-class']\" ng-repeat=\"image in $ctrl.images\">\n        <image-preview ng-if=\"$ctrl.view === 'preview'\" image=\"image\"></image-preview>\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n        <image-full ng-if=\"$ctrl.view === 'full' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-full>\n      </li>\n    </ul>\n</section>\n";
 
 /***/ },
-/* 36 */
+/* 32 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 37 */,
-/* 38 */
+/* 33 */,
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33899,7 +33851,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(39);
+	var context = __webpack_require__(35);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33911,11 +33863,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 39 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 40
+		"./image-service.js": 36
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33928,11 +33880,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 39;
+	webpackContext.id = 35;
 
 
 /***/ },
-/* 40 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';

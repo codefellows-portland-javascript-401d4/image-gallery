@@ -8,6 +8,6 @@ const dev = 'http://localhost:3000/api';
 
 app.value('apiUrl', dev);
 
-app.factory('apiUrl', function () {
+app.factory('apiUrl', function() {
   return dev;
 });
