@@ -23,4 +23,4 @@ process.on('SIGINT', function () {
   });
 });
 
-mongoose.exports = mongoose.connection;
+module.exports = mongoose.connection;
