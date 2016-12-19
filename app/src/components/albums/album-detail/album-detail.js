@@ -30,7 +30,4 @@ function controller(albums) {
     this.deleteAlbum = () => {
         albums.remove(this.id);
     };
-
-    console.log(this.album);
-    console.log(this.image);
 }

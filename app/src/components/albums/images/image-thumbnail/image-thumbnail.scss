@@ -2,4 +2,10 @@
     img {
         width: 100px;
     }
+    img:focus {
+        width: 300px;
+    }
+    img:hover {
+        cursor: pointer;
+    }
 }
