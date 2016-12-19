@@ -56,15 +56,15 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(52);
+	var _services = __webpack_require__(48);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(56);
+	var _angularUiRouter = __webpack_require__(52);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(57);
+	var _routes = __webpack_require__(53);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
@@ -33020,8 +33020,7 @@
 		"./image-detail/image-detail.js": 32,
 		"./image-gallery/image-gallery.js": 36,
 		"./image-thumbnail/image-thumbnail.js": 40,
-		"./project/project.js": 44,
-		"./welcome/welcome.js": 48
+		"./project/project.js": 44
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33287,7 +33286,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "    <header ng-class=\"$ctrl.styles.header\">\n        <h1>Image Gallery</h1>\n        <div>\n        <!--<a ui-sref=\"welcome\" ui-sref-active=\"active\">Home</a>-->\n        <a ui-sref=\"albums\" ui-sref-active=\"active\">Albums</a>\n        <a ui-sref=\"about\" ui-sref-active=\"active\">About</a>\n        </div>\n    </header>\n\n    <main>\n        <ui-view></ui-view>\n    </main>\n";
+	module.exports = "    <header ng-class=\"$ctrl.styles.header\">\n        <h1>Image Gallery</h1>\n        <div>\n        <a ui-sref=\"albums\" ui-sref-active=\"active\">Albums</a>\n        <a ui-sref=\"about\" ui-sref-active=\"active\">About</a>\n        </div>\n    </header>\n\n    <main>\n        <ui-view></ui-view>\n    </main>\n";
 
 /***/ },
 /* 26 */
@@ -33384,7 +33383,7 @@
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.detail\">\n    <p>{{$ctrl.image.title}}</p>\n    <p><a href=\"{{$ctrl.image.url}}\">{{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n    <p><button ng-click=\"$ctrl.delete()\">Remove</button></p>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.detail\">\n    <p><a href=\"{{$ctrl.image.url}}\" target=\"_blank\">{{$ctrl.image.title}}</a></p>\n    <p>{{$ctrl.image.description}}</p>\n    <p><button ng-click=\"$ctrl.delete()\">Remove</button></p>\n</section>\n";
 
 /***/ },
 /* 34 */
@@ -33471,12 +33470,6 @@
 	
 	
 	function controller() {
-	    //if you needed to work on binding on top level,
-	    //i.e. when it is loading, you need to use this.$onInit
-	    //if updated to latest version of angular 1
-	    //this.$onInit = () => {
-	    //    this.image.title.toUpperCase();
-	    //}   
 	    this.styles = _imageThumbnail4.default;
 	}
 
@@ -33484,7 +33477,7 @@
 /* 41 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.thumbnail\">\n    <img class=\"thumb\" ng-src=\"{{$ctrl.image.url}}\">\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles.thumbnail\">\n    <a href=\"{{$ctrl.image.url}}\" target=\"_blank\"><img class=\"thumb\" ng-src=\"{{$ctrl.image.url}}\"></a>\n</section>\n";
 
 /***/ },
 /* 42 */
@@ -33548,50 +33541,6 @@
 	    value: true
 	});
 	
-	var _welcome = __webpack_require__(49);
-	
-	var _welcome2 = _interopRequireDefault(_welcome);
-	
-	var _welcome3 = __webpack_require__(50);
-	
-	var _welcome4 = _interopRequireDefault(_welcome3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	    template: _welcome2.default,
-	    controller: controller
-	};
-	
-	
-	function controller() {
-	    this.styles = _welcome4.default;
-	}
-
-/***/ },
-/* 49 */
-/***/ function(module, exports) {
-
-	module.exports = "<section ng-class=\"$ctrl.styles.welcome\">\n    <h2>Welcome to the Images Site!</h2>\n    <div>\n    <p>Please enjoy the site.</p>\n    </div>\n</section>\n";
-
-/***/ },
-/* 50 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"welcome":"_23XnJNGIuxwbbctNa1oBpu"};
-
-/***/ },
-/* 51 */,
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _angular = __webpack_require__(1);
 	
 	var _angular2 = _interopRequireDefault(_angular);
@@ -33607,7 +33556,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(53);
+	var context = __webpack_require__(49);
 	
 	// create the module to put the resources in,
 	// in this case services
@@ -33626,12 +33575,12 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 53 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./album-service.js": 54,
-		"./image-service.js": 55
+		"./album-service.js": 50,
+		"./image-service.js": 51
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33644,11 +33593,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 53;
+	webpackContext.id = 49;
 
 
 /***/ },
-/* 54 */
+/* 50 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33688,7 +33637,7 @@
 	}
 
 /***/ },
-/* 55 */
+/* 51 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33722,7 +33671,7 @@
 	}
 
 /***/ },
-/* 56 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -42071,7 +42020,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 57 */
+/* 53 */
 /***/ function(module, exports) {
 
 	'use strict';

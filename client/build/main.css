@@ -1,7 +1,7 @@
 body {
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-  background-color: #adfcf9;
-  color: #341c1c;
+  background-color: #70c1b3;
+  color: #090909;
   margin: 0;
   padding: 0; }
 ._1YnBKp12AG3QJ19uUlXsXg {
@@ -210,6 +210,14 @@ body {
   border-radius: 15px;
   padding: 5%;
   margin: 2%; }
+  ._1P8rGqG9AJOMZc6gOYxStU a {
+    text-decoration: none;
+    transition: .5s; }
+  ._1P8rGqG9AJOMZc6gOYxStU a:link,
+  ._1P8rGqG9AJOMZc6gOYxStU a:visited {
+    color: #d3d3d3; }
+  ._1P8rGqG9AJOMZc6gOYxStU a:hover {
+    color: #ff7a88; }
   ._1P8rGqG9AJOMZc6gOYxStU button {
     padding: 1%;
     text-align: center;
@@ -229,7 +237,9 @@ body {
   padding: 4%;
   margin: 4% 0; }
   ._146LvsNqbvBRK7XjE03R0_ h2 {
-    margin: 0 0 1%; }
+    margin: 0 0 4%; }
+  ._146LvsNqbvBRK7XjE03R0_ p {
+    margin: 4% 0 0; }
   ._146LvsNqbvBRK7XjE03R0_ img {
     max-width: 100%; }
 ._3w49sZuaJ8BbSDcbrRvIpi {
@@ -248,23 +258,5 @@ body {
   font-size: 1.5em;
   line-height: 2;
   text-align: left; }
-._23XnJNGIuxwbbctNa1oBpu {
-  margin: 2%; }
-  ._23XnJNGIuxwbbctNa1oBpu div {
-    text-align: center;
-    color: white;
-    background-color: #584545;
-    border-radius: 15px;
-    width: 77%;
-    margin: 5% auto;
-    padding: 2%; }
-  ._23XnJNGIuxwbbctNa1oBpu h2 {
-    background-color: #4b644a;
-    color: white;
-    border-radius: 15px;
-    text-align: center;
-    width: 40%;
-    margin: 4% auto 2%;
-    padding: 2%; }
 
 /*# sourceMappingURL=main.css.map*/
