@@ -26,9 +26,9 @@ describe('Gallery component', () => {
 
 
     it('Loads images', done => {
-      let component = $component('galleryApp', { imageService });
+      let component = $component('gallery', { imageService });
       setTimeout(() => {
-        assert.equal(component.img, images[0]);
+        assert.equal(component.img, images);
         done();
       });
     });

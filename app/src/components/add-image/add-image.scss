@@ -6,7 +6,7 @@ label {
 
 input {
   color: $pink;
-  background-color: lightgrey;
+  background-color: $input;
 
   &:focus {
     background-color: white;

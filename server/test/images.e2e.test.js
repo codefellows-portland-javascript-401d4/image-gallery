@@ -47,10 +47,30 @@ describe('Gallery API', () => {
       .catch(done);
   });
 
+  it('Gets image by id', done => {
+    request.get(`/api/images/${testImg._id}`)
+      .then(res => {
+        assert.deepEqual(res.body, testImg);
+        done();
+      })
+      .catch(done);
+  });
+
   it('/GET all', done => {
     request.get('/api/images')
       .then(res => {
+        assert.isArray(res.body);
+        assert.equal(res.body.length, 1);
         assert.deepEqual(res.body[0], testImg);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Deletes images', done => {
+    request.delete(`/api/images/${testImg._id}`)
+      .then(res => {
+        assert.deepEqual(res.body, testImg);
         done();
       })
       .catch(done);
