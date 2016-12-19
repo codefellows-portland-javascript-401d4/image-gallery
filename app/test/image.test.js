@@ -38,7 +38,7 @@ describe( 'images component', () => {
 
     let component = null;
     before(() => {
-      component = $component('app', { imageService });
+      component = $component('images', { imageService });
     });
 
     it( 'loads images', done => {
