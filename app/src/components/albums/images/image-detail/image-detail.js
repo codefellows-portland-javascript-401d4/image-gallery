@@ -31,4 +31,6 @@ function controller(albums, images) {
         this.remove(this.image);
     };
 
+    console.log('this.image', this.image);
+
 }

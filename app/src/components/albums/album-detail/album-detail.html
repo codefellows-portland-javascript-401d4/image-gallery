@@ -1,12 +1,12 @@
 <section ng-class="$ctrl.styles.album">
     <h3>{{$ctrl.album.name}}</h3>
     <div>
-        {{$ctrl.album.description}}
+        Album description: {{$ctrl.album.description}}
     </div>
 
     <ul ng-if="$ctrl.view === 'detail'">
         <li ng-repeat="image in $ctrl.album.images">
-            <image-detail image="image"></image-detail>
+            <image-thumbnail image="image"></image-thumbnail>
         </li>
     </ul>
 
