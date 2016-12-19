@@ -1,0 +1,11 @@
+<section ng-class="$ctrl.styles.albums">
+  <section>
+    <div>
+      <h1>+</h1>
+      <h4>Add Album</h4>
+    </div>
+    <div ng-repeat="album in $ctrl.albums">
+      <h4>{{album.name}}</h4>
+    </div>
+  </section>
+</section>

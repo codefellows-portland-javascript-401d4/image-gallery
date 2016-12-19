@@ -14,7 +14,7 @@ router
   .get('/:id', (req, res, next) => {
     Promise.all([
       Album.findById(req.params.id).lean(),
-      Image.find({ albumId: req.params.id }).lean()
+      Image.find({ albumId: req.params.id }).select('title description url').lean()
     ])
       .then(([album, images]) => {
         album.images = images;
