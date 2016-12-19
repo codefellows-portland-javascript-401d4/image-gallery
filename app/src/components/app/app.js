@@ -1,4 +1,5 @@
 import template from './app.html';
+import styles from './app.scss';
 
 export default {
   template,
@@ -11,6 +12,8 @@ controller.$inject = ['imageService'];
 function controller(images) {
 
   this.views = ['add new image', 'image view', 'remove image', 'text-only view', 'thumbnail view' ];
+
+  this.styles = styles;
 
   this.loading = true;
 

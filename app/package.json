@@ -1,10 +1,13 @@
 {
   "name": "image-gallery",
   "version": "1.0.0",
-  "description": "Angular Image Gallery assignment for Code Fellows 401",
-  "main": "karma.conf.js",
+  "description": "Image Gallery assignment #3 for Code Fellows 401",
+  "main": "main.js",
   "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "karma start --single-run",
+    "test:watch": "karma start",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
   },
@@ -20,7 +23,7 @@
     "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "css-loader": "^0.26.0",
-    "eslint": "^3.11.1",
+    "eslint": "^3.12.0",
     "eslint-loader": "^1.6.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-loader": "^0.4.4",
@@ -34,6 +37,8 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.8.0",
     "mocha": "^3.0.2",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
@@ -41,5 +46,10 @@
   "dependencies": {
     "angular": "^1.5.9",
     "camelcase": "^4.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }

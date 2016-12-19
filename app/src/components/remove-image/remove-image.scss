@@ -1,0 +1,12 @@
+@import 'buttons';
+
+:local(.image) {
+
+    button {
+        width: 30%;
+				&:hover {
+        color:$red;
+    	}
+    }
+
+}

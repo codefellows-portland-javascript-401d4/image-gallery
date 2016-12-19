@@ -1,5 +1,4 @@
-<div>
-<img src={{$ctrl.image.url}} height="100" width="100">
-	<p>{{$ctrl.image.title}}</p>
-	<button ng-click="$ctrl.delete()">remove</button>
+<div ng-class="$ctrl.styles.image">
+	<img src={{$ctrl.image.url}} height="100" width="100">
+	<button ng-click="$ctrl.delete()">remove {{$ctrl.image.title}}</button>
 </div>
