@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/images';
 
-mongoose.Promise = Promise;
+mongoose.Promise = require('bluebird');
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function () {

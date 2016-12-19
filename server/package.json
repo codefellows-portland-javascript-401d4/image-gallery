@@ -16,6 +16,7 @@
   "author": "Caitlin Araldi",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
