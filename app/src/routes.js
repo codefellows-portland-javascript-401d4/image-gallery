@@ -49,7 +49,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'albums.detail',
     // the url, plus implied params id and view
-    url: '/:id',
+    url: '/:id?name',
     params: {
       // "view" same key as above
       view: { dynamic: true }

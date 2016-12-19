@@ -4,8 +4,8 @@ export default {
   template,
   bindings: {
     album: '<',
-    id: '<'
-    // view:'<'
+    id: '<',
+    name: '<'
   },
   controller
 };
