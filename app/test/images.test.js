@@ -1,28 +1,29 @@
-describe('image app component', () => {
+describe('image app components', () => {
   const { assert } = chai;
 
-  beforeEach(
-    angular.mock.module('components')
-  );
+  angular.mock.module.sharedInjector();
+  before(angular.mock.module('components'));
 
   let $component = null;
 
-  beforeEach(angular.mock.inject($componentController => {
-    $component = $componentController;
-  }));
+  before(
+    angular.mock.inject($componentController => {
+      $component = $componentController;
+    })
+  );
 
-  describe('images component', () => {
+  const testImage = {
+    title: 'Test 1',
+    description: 'Test image 1',
+    url: 'http://i.imgur.com/4evAqkh.jpg'
+  };
+
+  describe('images parent component', () => {
     const images = [
-      {
-        title: 'Test 1',
-        description: 'Test image 1',
-        url: 'http://i.imgur.com/4evAqkh.jpg'
-      },
-
       {
         title: 'Test 2',
         description: 'Test image 2',
-        url: 'http://i.imgur.com/9oGI5Tz.jpg'
+        url: 'http://i.imgur.com/4evAqkh.jpg'
       },
 
       {
@@ -31,14 +32,6 @@ describe('image app component', () => {
         url: 'http://i.imgur.com/yqtLojN.jpg'
       },
     ];
-
-    const image = {
-      title: 'Test 2',
-      description: 'Test image 2',
-      url: 'http://i.imgur.com/9oGI5Tz.jpg'
-    };
-
-    const id = 1234;
 
     const imageService = {
       get() {
@@ -49,8 +42,7 @@ describe('image app component', () => {
         return Promise.resolve(image); //eslint-disable-line
       },
 
-      remove() {
-        image._id = id;
+      remove(image) {
         return Promise.resolve(image); //eslint-disable-line
       }
     };
@@ -65,25 +57,60 @@ describe('image app component', () => {
     });
 
     it('adds a new image', done => {
-      const component = $component('images', { imageService });
-      component.add(image);
+      let component = $component('images', { imageService });
+      
+      component.add(testImage);
 
       setTimeout(() => {
-        assert.equal(images.length, 4);
-        assert.deepEqual(images[3], image);
+        assert.equal(images.length, 3);
+        assert.equal(images[2], testImage);
         done();
       });
     });
 
     it('removes an image', done => {
-      const component = $component('images', { imageService });
-      component.remove(image);
+      let component = $component('images', { imageService });
+      
+      component.remove(testImage);
 
       setTimeout(() => {
-        assert.equal(images.length, 3);
-        assert.equal(images.indexOf(image), -1);
+        assert.equal(images.length, 2);
+        assert.equal(images.indexOf(testImage), -1);
         done();
       });
+    });
+  });
+
+  describe('image-new component', () => {
+    let newImage = null;
+    let addedImage = null;
+
+    it('adds new image', done => {
+      newImage = $component('imageNew', null, {
+        add(image) { addedImage = image; }
+      });
+
+      newImage.title = testImage.title;
+      newImage.description = testImage.description;
+      newImage.url = testImage.url;
+
+      newImage.addNew(testImage);
+      assert.deepEqual(addedImage, testImage);
+      done();
+    });
+  });
+
+  describe('image-full component', () => {
+    let removedImage = null;
+
+    it('removes an image', done => {
+      let component = $component('imageFull', null, {
+        remove(testImage) { removedImage = testImage; }
+      });
+
+      component.delete(testImage);
+      assert.deepEqual(removedImage, testImage);
+      done();
     });
   });
 });
