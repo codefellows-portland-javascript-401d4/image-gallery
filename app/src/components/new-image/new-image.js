@@ -3,32 +3,43 @@ import template from './new-image.html';
 export default {
 	template,
 	bindings: {
-		add: '<'
+		add: '<',
+		images: '<',
+		albums: '<'
 	},
 	controller,
 	controllerAs: 'newImage'  
 };
 
-function controller() {
+controller.$inject = ['imageService', 'albumService'];
+
+function controller(images, albums) {
 
 	this.reset = () => {
 		this.title = '';
 		this.url = '';
 		this.description ='';
+		this.albumId='';
+		this.albumTitle='';
+		this.albumDescription='';
 	};
-
 	this.reset();
 
-	this.addNew = () => {
-		console.log(this);
-		this.add({
+	this.addNewAlbum = () => {
+		albums.add({
+			title: this.albumTitle,
+			description: this.albumDescription,
+		});
+		this.reset();
+	};
+
+	this.addNewImage = () => {
+		images.add({
 			title: this.title,
 			url: this.url,
-			description: this.description
+			description: this.description,
+			albumId: this.album._id
 		});
-		console.log('image added');
-        // clear out controls so
-        // next image can be added
 		this.reset();
 	};
 }

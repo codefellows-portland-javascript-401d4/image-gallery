@@ -21,11 +21,11 @@ describe ( 'images component', () => {
 	describe('create component', () => {
 
 		const images = [
-            { title: 'a', url: 'a.com', description: 'aa' },
-            {title: 'b', url: 'b.com', description: 'bb' }
+            { title: 'a', url: 'a.com', description: 'aa' , albumId: 'aaa'},
+            {title: 'b', url: 'b.com', description: 'bb', albumId: 'bbb' }
 		];
 
-		const image = {title: 'c', url: 'c.com', description: 'cc'};
+		const image = {title: 'c', url: 'c.com', description: 'cc', albumId: 'ccc'};
 		// const badImage = {title: 'd', description: 'dd'};
 
 		const _id = 123;

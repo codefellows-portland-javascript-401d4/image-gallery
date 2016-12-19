@@ -1,6 +1,6 @@
 
 import template from './app.html';
-import styles from './app.css';
+import styles from './app.scss';
 
 export default {
 	template,
@@ -8,3 +8,9 @@ export default {
 		this.styles = styles;
 	}
 };
+
+controller.$inject = ['$state'];
+
+function controller($state) {
+	this.gotoImages = () => $state.go('images');
+}

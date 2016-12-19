@@ -1,0 +1,11 @@
+@import 'colors';
+
+button {
+    background-color: $blue;
+        color: black;
+    &:hover{
+        background-color: $gold;
+        color: black;
+        cursor: pointer;
+        }
+    }

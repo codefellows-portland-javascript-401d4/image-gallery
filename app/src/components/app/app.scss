@@ -1,0 +1,29 @@
+@import 'colors';
+
+.header {
+    background-color: black;
+    height: 24vh;
+}
+h1{
+   color: $blue;
+   font-size: 10vh;
+   margin: 1vh 5vh;
+}
+
+h4{
+   color: $blue;
+   font-size: 4vh;
+}
+em{
+    color: $grey;
+    float: right;
+}
+
+footer {
+      background-color: black;
+      height: 20vh; 
+}
+
+a.clicked {
+    color:$grey;
+}
