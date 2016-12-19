@@ -81,7 +81,7 @@ describe('image app components', () => {
     });
   });
 
-  describe('image-new component', () => {
+  describe('addNew method in image-new component', () => {
     let newImage = null;
     let addedImage = null;
 
@@ -100,15 +100,16 @@ describe('image app components', () => {
     });
   });
 
-  describe('image-full component', () => {
+  describe('remove method in image-full component', () => {
+    let fullImage = null;
     let removedImage = null;
 
     it('removes an image', done => {
-      let component = $component('imageFull', null, {
-        remove(testImage) { removedImage = testImage; }
+      fullImage = $component('imageFull', null, {
+        remove(image) { removedImage = image; }
       });
 
-      component.delete(testImage);
+      fullImage.remove(testImage);
       assert.deepEqual(removedImage, testImage);
       done();
     });
