@@ -1,35 +1,36 @@
 const express = require('express');
 const bodyParser = require('body-parser').json();
 const router = express.Router();
+const Album = require('../models/album');
 const Image = require('../models/image');
 
 router
   .get('/', (req, res, next) => {
-    Image.find()
-      .then(images => res.send(images))
+    Album.find()
+      .then(albums => res.send(albums))
       .catch(next);
   })
 
   .get('/:id', (req, res, next) => {
-    Image.findById(req.params.id)
-      .then(img => res.send(img))
+    Promise.all([
+      Album.findById(req.params.id).lean(),
+      Image.find({ albumId: req.params.id }).lean()
+    ])
+      .then(([album, images]) => {
+        album.images = images;
+        res.send(album);
+      })
       .catch(next);
   })
 
   .post('/', bodyParser, (req, res, next) => {
-    new Image(req.body).save()
-      .then(newImg => res.send(newImg))
-      .catch(next);
-  })
-
-  .put('/:id', bodyParser, (req, res, next) => {
-    Image.findByIdAndUpdate(req.params.id, req.body, {new: true})
-      .then(updated => res.send(updated))
+    new Album(req.body).save()
+      .then(newAlbum => res.send(newAlbum))
       .catch(next);
   })
 
   .delete('/:id', (req, res, next) => {
-    Image.findByIdAndRemove(req.params.id)
+    Album.findByIdAndRemove(req.params.id)
       .then(del => res.send(del))
       .catch(next);
   });
