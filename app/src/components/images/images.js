@@ -14,7 +14,7 @@ function controller(images, albums) {
  
 	this.styles = styles;
 	
-	this.displays = ['thumbnail', 'text', 'full', 'all'];
+	this.displays = ['thumbnail', 'text', 'full'];
 	
 	//find images that meet the filter selection
 	this.filter = function(){

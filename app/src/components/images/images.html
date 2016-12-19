@@ -16,8 +16,8 @@
     </form>
 
     <div>
-        <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="images.images" remove="images.remove"></image-detail>
-        <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images" remove="images.remove"></image-gallery>
-        <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images" remove="images.remove"></image-thumbnail>
+        <image-detail ng-if="displayChoice==='text'" images="images.images" remove="images.remove"></image-detail>
+        <image-gallery ng-if="displayChoice==='full'" images="images.images" remove="images.remove"></image-gallery>
+        <image-thumb ng-if="displayChoice==='thumbnail'" images="images.images" remove="images.remove"></image-thumbnail>
     </div>
 </section>
