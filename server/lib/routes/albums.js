@@ -12,14 +12,15 @@ router
   })
 
   .get('/:id', (req, res, next) => {
-    const album = req.params.id;
+    const albumId = req.params.id;
 
     Promise.all([
-      Album.findById(album).lean(),
-      Image.find({album}).select('url').lean()
+      Album.findById(albumId).lean(),
+      Image.find({album: albumId}).lean()
     ])
     .then(([album, image]) => {
       album.image = image;
+      console.log('what am i sending', album);
       res.send(album);
     })
     .catch(next);

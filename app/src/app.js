@@ -14,6 +14,6 @@ const app = angular.module('myApp', [
 
 app.config(routes);
 
-const dev = 'http://localhost:3000/images';
+const dev = 'http://localhost:3000/';
 
 app.value('apiUrl', dev);

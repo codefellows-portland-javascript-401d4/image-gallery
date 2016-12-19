@@ -10,6 +10,7 @@ describe('image api', () => {
   const request = chai.request(app);
   const img = {title: 'image', album: 'album', description: 'an image', url: 'http://image.com'};
   const album = {name: 'album'};
+  const noAlbumImg = {title: 'image', album: 'new album', description: 'an image', url: 'http://noalbum.com'};
 
   it('should post an album',done => {
     request
@@ -47,4 +48,5 @@ describe('image api', () => {
       })
       .catch(done);
   });
+  
 });

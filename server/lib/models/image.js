@@ -12,12 +12,8 @@ const schema = new Schema ({
     type: String,
     required: true
   },
-  album: {
-    type: String,
-    required: true
-  },
 
-  albumId: {
+  album: {
     type: Schema.Types.ObjectId,
     ref: 'Album'
   }

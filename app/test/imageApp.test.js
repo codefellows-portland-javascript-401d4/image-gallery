@@ -22,10 +22,19 @@ describe('imageApp component', () => {
       }
     };
 
+    const albumService = {
+      get() {
+        return Promise.resolve();
+      },
+      add() {
+        return Promise.resolve();
+      }
+    };
+
     let $component, component = null;
     beforeEach(angular.mock.inject($componentController => {
       $component = $componentController;
-      component = $component('imageApp', {imageService});
+      component = $component('imageApp', {imageService, albumService});
     }));
 
     it('gets images from database', done => {
@@ -36,7 +45,7 @@ describe('imageApp component', () => {
     });
 
     it('adds an image', done => {
-      component.add(newImg);
+      component.addImage(newImg);
       setTimeout(() => {
         assert.equal(imagesArray.length, 2);
         assert.deepEqual(imagesArray[1], newImg);

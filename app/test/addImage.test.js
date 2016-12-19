@@ -11,7 +11,7 @@ describe('component', () => {
     addImage = $componentController(
       'addImage',
       null,
-      {add(i) {newImg = i;}}
+      {addImage(i) {newImg = i;}}
     );
   });
   before(inject);
@@ -20,10 +20,13 @@ describe('component', () => {
     const title = 'title';
     const description = 'description';
     const url = 'http://url.com';
+    const album = {_id: '123id'};
     addImage.title = title;
     addImage.description = description;
     addImage.url = url;
+    addImage.album = album;
     addImage.addNew();
-    assert.deepEqual(newImg, {title, description, url});
+    console.log(newImg);
+    assert.deepEqual(newImg, {title, description, url, album:album._id});
   });
 });

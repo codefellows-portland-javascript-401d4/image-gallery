@@ -25,5 +25,23 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'addImage'
   });
 
+  $stateProvider.state({
+    name: 'albums',
+    url: '/albums',
+    component: 'albumView'
+  });
+
+  $stateProvider.state({
+    name: 'albums.thumbnail',
+    url: '/:id',
+    params: {
+      view: {dynamic: true}
+    },
+    resolve: {
+      id: ['$transition$', t => t.params().id]
+    },
+    component: 'albumThumbnail'
+  });
+
   $urlRouterProvider.otherwise('/');
 }

@@ -12,20 +12,8 @@ router
   })
 
   .post('/', bodyParser, (req, res, next) => {
-    let albumId;
-    Album.find({name: req.body.album})
-      .then(album => {
-        return albumId = album[0]._id;
-      })
-    .then(() => {
-      req.body.albumId = albumId;
-      console.log('what am i saving', req.body);
-      new Image(req.body).save()
-        .then(saved => {
-          console.log('what am I sending back', saved);
-          res.send(saved);
-        });
-    })
+    new Image(req.body).save()
+      .then(saved => res.send(saved))
       .catch(next);
   });
 
