@@ -2,7 +2,7 @@
     ng-click="$ctrl.view = 'add'"
     ng-if="$ctrl.view !== 'add'">
     Add Image
-</button>
+</button><br>
 <select 
     ng-if="$ctrl.view !== 'add'"
     ng-model="$ctrl.view">
@@ -10,7 +10,7 @@
     <option value="thumbnail">Thumbnail</option>
     <option value="full">Full</option>
 </select>
-<section id="gallery">
+<section>
     <add-image
         ng-if="$ctrl.view === 'add'"
         add="$ctrl.add"
