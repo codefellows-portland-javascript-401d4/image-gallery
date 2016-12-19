@@ -1,30 +1,36 @@
-<button ng-click="$ctrl.detail()">View Detail</button>
-<button ng-click="$ctrl.thumbnail()">View Thumbnail</button>
-<button ng-click="$ctrl.full()">View Full Size</button>
+<button class="viewButton" ng-click="$ctrl.detail()">View Detail</button>
+<button class="viewButton" ng-click="$ctrl.thumbnail()">View Thumbnail</button>
+<button class="viewButton" ng-click="$ctrl.full()">View Full Size</button>
 
 <div class="component" ng-show="$ctrl.viewDetail === true">
   <h2>Bunny details</h2>
-  <section ng-repeat="image in $ctrl.images">
-    <bunny-detail
-      image="image">
-    </bunny-detail>
-  </section>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <bunny-detail
+        image="image">
+      </bunny-detail>
+    </li>
+</ul>
 </div>
 
 <div class ="component" ng-show="$ctrl.viewThumbnail === true">
   <h2>Bunny thumbnails</h2>
-  <section ng-repeat="image in $ctrl.images">
-    <bunny-thumbnail
-      image="image">
-    </bunny-thumbnail>
-  </section>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <bunny-thumbnail
+        image="image">
+      </bunny-thumbnail>
+    </li>
+  <ul>
 </div>
 
 <div class ="component" ng-show="$ctrl.viewFull === true">
   <h2>Full size images of bunnies</h2>
-  <section ng-repeat="image in $ctrl.images">
-    <bunny-full-size class ="component"
-        image="image">
-    </bunny-full-size>
-  </section>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <bunny-full-size 
+          image="image">
+      </bunny-full-size>
+    </li>
+  </ul>
 </div>
