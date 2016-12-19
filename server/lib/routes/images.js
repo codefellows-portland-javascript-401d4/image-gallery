@@ -9,7 +9,7 @@ router
 
     Image.find(query)
       .populate({
-        path: 'gameId',
+        path: 'albumId',
         select: 'title'
       })
       .lean()

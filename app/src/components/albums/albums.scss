@@ -1,0 +1,14 @@
+:local(.albums) {
+
+  ul {
+    padding: 0;
+    margin: auto;
+    width: 78%;
+  }
+
+  li {
+    list-style: none;
+    border: 2px solid black;
+    display: inline-block;
+  }
+}

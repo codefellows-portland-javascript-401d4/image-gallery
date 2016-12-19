@@ -21,9 +21,9 @@ function controller(images) {
 
   this.add = image => {
     images.add(image)
-        .then(saved => {
-          this.images.push(saved);
-        });
+      .then(saved => {
+        this.images.push(saved);
+      });
   };
 
   this.remove = image => {
