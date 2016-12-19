@@ -6,11 +6,11 @@ const schema = new Schema({
     type: String,
     required: true
   },
-  url: {
+  description: {
     type: String,
     required: true
   },
-  description: {
+    url: {
     type: String,
     required: true
   }
