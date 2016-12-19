@@ -6,7 +6,7 @@ describe('image service', () => {
   );
 
   let $httpBackend = null;
-    imageService = null;
+  let imageService = null;
 
   beforeEach(angular.mock.inject((_imageService_, _$httpBackend_) => {
     imageService = _imageService_;
@@ -19,7 +19,7 @@ describe('image service', () => {
   });
 
   it('GETs all images', done => {
-    const images = [a, b, c];
+    const images = [1,2,3];
 
     $httpBackend
       .expectGET('/api/images')

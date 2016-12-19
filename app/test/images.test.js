@@ -11,7 +11,7 @@ describe('images component', () => {
     $component = $componentController;
   }));
 
-  describe('new component', () => {
+  describe('creation of component', () => {
     const images = [
       {
         title: 'Test 1',
@@ -40,28 +40,46 @@ describe('images component', () => {
 
     const imageService = {
       get() {
-        return Promise.resolve(images);
+        return Promise.resolve(images); //eslint-disable-line
       },
 
       add(image) {
-        return Promise.resolve(image);
+        return Promise.resolve(image); //eslint-disable-line
       },
 
       remove() {
-        return Promise.resolve(image);
+        return Promise.resolve(image); //eslint-disable-line
       }
     };
 
-    it.skip('loads images', done => {
-      const component = $component('images', { imageService });
+    it('loads images in preview view', done => {
+      const component = $component('imagePreview', { imageService });
+
+      setTimeout(() => {
+        assert.equal(component.images, images);
+        assert.isNotOk(component.loading);
+        done();
+      });
     });
 
-    it.skip('adds new image', done => {
-      const component = $component('images', { imageService });
+    it('loads images in detail view', done => {
+      const component = $component('imageDetail', { imageService });
+
+      setTimeout(() => {
+        assert.equal(component.images, images);
+        assert.isNotOk(component.loading);
+        done();
+      });
     });
 
-    it.skip('removes image', done => {
-      const component = $component('images', { imageService });
+    it('loads images in full view', done => {
+      const component = $component('imageFull', { imageService });
+
+      setTimeout(() => {
+        assert.equal(component.images, images);
+        assert.isNotOk(component.loading);
+        done();
+      });
     });
-  })
-})
+  });
+});
