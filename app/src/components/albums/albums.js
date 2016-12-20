@@ -4,7 +4,8 @@ import styles from './albums.scss';
 export default {
   template,
   bindings: {
-    album: '='
+    album: '=',
+    remove: '<'
   },
   controller
 };
@@ -32,5 +33,9 @@ function controller(albums) {
         const index = this.albums.indexOf(album);
         if(index > -1) this.albums.splice(index, 1);
       });
+  };
+
+  this.delete = () => {
+    this.remove(this.album);
   };
 };
