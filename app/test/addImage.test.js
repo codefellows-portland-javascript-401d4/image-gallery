@@ -26,7 +26,6 @@ describe('component', () => {
     addImage.url = url;
     addImage.album = album;
     addImage.addNew();
-    console.log(newImg);
     assert.deepEqual(newImg, {title, description, url, album:album._id});
   });
 });

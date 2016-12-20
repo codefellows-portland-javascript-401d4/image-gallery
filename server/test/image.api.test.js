@@ -8,7 +8,7 @@ const app = require('../lib/app');
 
 describe('image api', () => {
   const request = chai.request(app);
-  const img = {title: 'image', album: 'album', description: 'an image', url: 'http://image.com'};
+  const img = {title: 'image', description: 'an image', url: 'http://image.com'};
   const album = {name: 'album'};
   const noAlbumImg = {title: 'image', album: 'new album', description: 'an image', url: 'http://noalbum.com'};
 
@@ -30,8 +30,6 @@ describe('image api', () => {
       .then(res => {
         const image = res.body;
         assert.isOk(image._id);
-        assert.isOk(image.albumId);
-        img.albumId = image.albumId;
         img._id = image._id;
         img.__v = image.__v;
         done();

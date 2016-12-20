@@ -20,7 +20,6 @@ router
     ])
     .then(([album, image]) => {
       album.image = image;
-      console.log('what am i sending', album);
       res.send(album);
     })
     .catch(next);

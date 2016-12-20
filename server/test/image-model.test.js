@@ -2,12 +2,12 @@ const Image = require('../lib/models/image');
 const assert = require('chai').assert;
 
 describe('Image model', () => {
-  it ('validates with name and rank', done => {
+  it ('validates with title, description, url', done => {
     const image = new Image({
       title: 'title',
       description: 'description',
-      url: 'http://url.com',
-      album: 'album'
+      url: 'http://url.com'
+      // album: 'album'
     });
 
     image.validate(err => {
