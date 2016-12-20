@@ -13,7 +13,7 @@
         </span> 
     </div>
 
-    <div class="back-to-albums" ui-sref="albums" ui-sref-active="active">Choose a Different Album</div>
+    <div class="back-to-albums" ui-sref="albums">Choose a Different Album</div>
 
     <div ng-if="$ctrl.view === 'detail'">
         <ul>
@@ -22,7 +22,7 @@
             </li>
         </ul>
         <div class="add-image">
-            <p>Add an Image</p>
+            <h3>Add an Image</h3>
             <div>
                 <label>Title:</label>
                 <input ng-model="$ctrl.title">

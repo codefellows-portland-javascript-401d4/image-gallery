@@ -1,5 +1,6 @@
 @import 'buttons';
 @import 'colors';
+@import 'content';
 
 :local(.album) {
     border-radius: 15px;
@@ -41,26 +42,16 @@
     }
 
     .add-image {
-        box-sizing: border-box;
-        text-align: center;
-        color: $text;
-        background-color: $grey;
-        border-radius: 15px;
+        @include add();
         width: 25%;
-        padding: 1% 0 0;
-        margin: 0 auto 4%;
+        box-sizing: border-box;
         
         .add-button {
-            color: $text;
-            padding: 1%;
-            text-align: center;
+            @include button();
             border: 1px solid $text;
-            background-color: $button;
-            transition: transform .5s;
-            width: 75px;
-            border-radius: 15px;
             margin-bottom: 5%;
-            margin-top: 2%;         
+            margin-top: 2%;
+            transition: transform .5s; 
         }
 
         .add-button:hover {

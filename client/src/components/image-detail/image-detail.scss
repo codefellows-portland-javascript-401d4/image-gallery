@@ -25,13 +25,9 @@
     }
 
     button {
-        padding: 1%;
-        text-align: center;
-        background-color: $button;
-        width: 75px;
+        @include button();
         outline: none;
         border: none;
-        border-radius: 15px;
         transition: transform .5s;
     }
 

@@ -1,9 +1,9 @@
+@import 'content';
+
 :local(.developer) {
 
     p {
-        font-size: 1.5em;
-        line-height: 2;
-        text-align: left;
+        @include paragraph();
     }
 
 }

@@ -14,7 +14,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
         url: '/:id?view',
         params: {
             // "view" same key as above
-            view: { dynamic: true }
+            view: { dynamic: false}
         },
         resolve: {
             id: ['$transition$', t => t.params().id],

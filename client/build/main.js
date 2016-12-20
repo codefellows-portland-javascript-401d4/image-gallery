@@ -33125,6 +33125,8 @@
 	
 	    this.reset();
 	
+	    // this.$onInit ensures that on later versions    
+	    // of angular this.id is not undefined
 	    this.$onInit = function () {
 	        albums.get(_this.id).then(function (album) {
 	            _this.album = album;
@@ -33219,7 +33221,7 @@
 	
 	    this.reset();
 	
-	    this.addAlbum = function (album) {
+	    this.addAlbum = function () {
 	        albums.add({
 	            name: _this.name,
 	            featured: _this.featured
@@ -42032,12 +42034,6 @@
 	routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 	
 	function routes($stateProvider, $urlRouterProvider) {
-	
-	    // $stateProvider.state({
-	    //     name: 'welcome',
-	    //     url: '/',
-	    //     component: 'welcome'
-	    // });
 	
 	    $stateProvider.state({
 	        name: 'albums',

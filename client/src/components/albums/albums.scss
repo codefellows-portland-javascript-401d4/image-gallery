@@ -1,6 +1,5 @@
 @import 'colors';
-@import 'headings';
-@import 'divs';
+@import 'content';
 @import 'buttons';
 
 :local(.albums) {
@@ -11,16 +10,11 @@
 
     .delete-button,
     .add-button {
-        padding: 1%;
-        text-align: center;
-        background-color: $button;
+        @include button();
         border: 1px solid $text;
-        color: $text;
-        width: 75px;
-        border-radius: 15px;
         margin-bottom: 5%;
-        transition: transform .5s;
         margin-top: 2%;
+        transition: transform .5s;
     }
 
     .delete-button:hover,
@@ -78,13 +72,8 @@
         }
 
     .add-album {
-        text-align: center;
-        color: $text;
-        background-color: $grey;
-        border-radius: 15px;
-        margin: 0 auto 4%;
+        @include add();
         width: 40%;
-        padding-top: 1%;
 
         input {
             display: block;
