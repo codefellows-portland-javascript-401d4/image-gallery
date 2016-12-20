@@ -1,0 +1,11 @@
+@import 'fonts';
+
+:local(.newImage) {
+    margin-top: 1em;
+    border: .1em solid black;
+    background-color: $lightGrey;
+    div {
+        display: inline-block;
+        padding: .5em;
+    }
+}
