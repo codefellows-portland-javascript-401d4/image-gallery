@@ -7,7 +7,7 @@ import services from './services';
 import uirouter from 'angular-ui-router';
 import routes from './routes';
 
-const devServer = 'http://localhost:3000/api/';
+const devServer = 'http://localhost:3000/api';
 
 const app = angular.module('imageGallery',
   [components, services, uirouter]
