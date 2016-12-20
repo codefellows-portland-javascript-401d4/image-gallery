@@ -1,12 +1,12 @@
 <section ng-class="$ctrl.style.image">
     <div>
-        <button class="main" ng-click="$ctrl.view='gallery'">Gallery View</button>
-        <button class="main" ng-click="$ctrl.view='thumb'">Thumbnail View</button>
-        <button class="main" ng-click="$ctrl.view='detail'">Detail View</button>
+        <button class="main" ng-click="$ctrl.display='gallery'">Gallery View</button>
+        <button class="main" ng-click="$ctrl.display='thumb'">Thumbnail View</button>
+        <button class="main" ng-click="$ctrl.display='detail'">Detail View</button>
     </div>
     <!--Marty has a 'pirates="ctrl.pirates" as what happens if the if is true-->
-    <image-detail ng-if="$ctrl.view==='detail'" ng-repeat="image in $ctrl.images"></image-detail>
-    <image-thumb ng-if="$ctrl.view==='thumb'" ng-repeat="image in $ctrl.images"></image-thumb>
-    <image-gallery ng-if="$ctrl.view==='gallery'" ng-repeat="image in $ctrl.images"></image-gallery>
+    <image-detail ng-if="$ctrl.display==='detail'" ng-repeat="image in $ctrl.images"></image-detail>
+    <image-thumb ng-if="$ctrl.display==='thumb'" ng-repeat="image in $ctrl.images"></image-thumb>
+    <image-gallery ng-if="$ctrl.display==='gallery'" ng-repeat="image in $ctrl.images"></image-gallery>
 
 </section>

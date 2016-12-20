@@ -6,13 +6,10 @@ export default {
   controller,
   bindings: {
     albums: '<',
-    display: '=',
     id: '<'
   }
 };
 
 function controller() {
   this.styles = styles;
-  this.display = 'thumb';
-
 }
