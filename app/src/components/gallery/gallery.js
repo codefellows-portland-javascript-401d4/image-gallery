@@ -18,16 +18,6 @@ function controller(imageService, albumService) {
 
   this.loading = true;
 
-  // imageService.getAll().then(images => {
-  //   this.loading = false;
-  //   this.images = images;
-  // });
-
-  // albumService.getAll().then(albums => {
-  //   this.loading = false;
-  //   this.albums = albums;
-  // });
-
   this.addImage = image => {
     this.loading = true;
     imageService.addImage(image)
@@ -44,10 +34,6 @@ function controller(imageService, albumService) {
         this.loading = false;
         this.albums.push(saved);
       });
-  };
-
-  this.toggleAlbum = name => {
-    this.view = name;
   };
 
 }

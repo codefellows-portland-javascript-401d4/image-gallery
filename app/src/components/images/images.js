@@ -19,6 +19,8 @@ function controller(imageService) {
   this.styles = styles;
   
   this.view = 'list';
+  
+  this.myAlbum = '- pick one -';
 
   this.toggleView = name => {
     this.view = name;
@@ -34,6 +36,5 @@ function controller(imageService) {
       });
   };
 
-  this.myAlbum = '- pick one -';
 
 }

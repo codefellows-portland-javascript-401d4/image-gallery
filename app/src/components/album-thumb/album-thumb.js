@@ -5,8 +5,9 @@ export default {
   template,
   bindings: {
     album: '=',
-    removeAlbum: '<',
-    toggleAlbum: '<'
+    albums: '<',
+    remove: '<',
+    toggleView: '<'
   },
   controller,
   controllerAs: '$thumb'

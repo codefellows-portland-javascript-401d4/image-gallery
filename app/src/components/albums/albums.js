@@ -1,28 +1,27 @@
 import template from './albums.html';
 import styles from './albums.scss';
 
-//controller.$inject = ['albumService'];
+controller.$inject = ['albumService'];
 
 export default {
   template,
   bindings: {
     image: '=',
     album: '=',
-    albums: '=',
-    getAll: '<',
-    toggleAlbum: '<'
+    albums: '='
   },
   controller,
   controllerAs: '$albums'
 };
-
-controller.$inject = ['albumService'];
 
 function controller(albumService) {
   this.styles = styles;
 
   this.view = 'list';
 
+  this.toggleView = name => {
+    this.view = name;
+  };
 
   this.removeAlbum = album => {
     this.loading = true;

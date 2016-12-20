@@ -7,7 +7,7 @@ export default {
     album: '=',
     albums: '<',
     remove: '<',
-    toggleAlbum: '<'
+    toggleView: '<'
   },
   controller,
   controllerAs: '$list'
