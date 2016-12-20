@@ -29,9 +29,10 @@ describe('Image gallery component', () => {
     ];
 
     const image = {
-       url: 'image5url.com',
-       image_title: 'image5',
-       image_description: 'littlebunny' };
+    url: 'http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg',
+    image_title: 'Little bunny',
+    image_description: 'Young little bunny in the grass'
+    };
 
     const imageService = {
       get() {
@@ -46,15 +47,15 @@ describe('Image gallery component', () => {
     //  component = $component('images', {imageService});
     // });
 
-    it('Loads the images', done => {
-        const component = $component('imageApp', { imageService });
+    // it('Loads the images', done => {
+    //     const component = $component('imageApp', { imageService });
 
-      // assert.isOk(component.loading);
-      setTimeout(() => {
-        assert.equal(component.image, image);
-        // assert.isNotOk(component.loading);
-        done();
-      });
-    });
+    //   // assert.isOk(component.loading);
+    //   setTimeout(() => {
+    //     assert.equal(component.image, image);
+    //     // assert.isNotOk(component.loading);
+    //     done();
+    //   });
+    // });
   });
 });
