@@ -1,21 +1,24 @@
 @import 'colors';
 
-li {
-    border: 3px solid $grey;
-    text-decoration: none;
-    background-color: black;
-    color: $grey;
-}
+//This tag is telling the compiler to only apply these style rules to this specific component.
+:local(images){
+    li {
+        border: 3px solid $grey;
+        text-decoration: none;
+        background-color: black;
+        color: $grey;
+    }
 
-ul li {
+    ul li {
 
-    list-style-type: none;
-}
+        list-style-type: none;
+    }
 
-p {
-    color: $blue;
-}
+    p {
+        color: $blue;
+    }
 
-a{
-    color: $gold;
+    a{
+        color: $gold;
+    }
 }
