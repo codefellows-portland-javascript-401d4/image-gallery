@@ -11,10 +11,10 @@ export default {
 	controllerAs: 'newImage'  
 };
 
-controller.$inject = ['imageService', 'albumService'];
+controller.$inject = ['imageService', 'albumService', '$timeout'];
 
-function controller(images, albums) {
-
+function controller(images, albums, $timeout) {
+	
 	this.reset = () => {
 		this.title = '';
 		this.url = '';
@@ -22,6 +22,8 @@ function controller(images, albums) {
 		this.albumId='';
 		this.albumTitle='';
 		this.albumDescription='';
+		this.added=false;
+		this.albumAdded=false;
 	};
 	this.reset();
 
@@ -30,7 +32,11 @@ function controller(images, albums) {
 			title: this.albumTitle,
 			description: this.albumDescription,
 		});
-		this.reset();
+		this.albumAdded=true;
+		$timeout(()=>{
+			this.reset();
+		},3000);
+
 	};
 
 	this.addNewImage = () => {
@@ -40,6 +46,10 @@ function controller(images, albums) {
 			description: this.description,
 			albumId: this.album._id
 		});
-		this.reset();
+		this.added = true;
+
+		$timeout(()=>{
+			this.reset();
+		},3000);
 	};
 }

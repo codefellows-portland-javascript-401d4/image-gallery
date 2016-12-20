@@ -5,7 +5,7 @@
         <h3>Add more goat albums</h3>
         <form id="add-album-form">
             <div>
-                <label>New Ablum Title</label>
+                <label>New Album Title</label>
                 <input ng-model="newImage.albumTitle">
             </div>
             <div>
@@ -14,7 +14,7 @@
             </div>
             <button ng-click="newImage.addNewAlbum()">add</button>
         </form>
-
+        <h3 ng-show="newImage.albumAdded===true">New album: "{{newImage.albumTitle}}" was added to the collection.</h3>
     <div>
         <h3>Add more goat images</h3>
         <form id="add-image-form">
@@ -39,4 +39,5 @@
         <button ng-click="newImage.addNewImage()">add</button>
         </form>
     </div>
+    <h3 ng-show="newImage.added===true">New image: "{{newImage.title}}" was added to {{newImage.album.title}}.</h3>
 </section>

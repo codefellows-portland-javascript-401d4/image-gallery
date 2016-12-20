@@ -51,15 +51,4 @@ function controller(images, albums) {
 	if (index > -1) this.images.splice(index, 1);
 });
 	};
-
-    // add an image
-// 	this.add = image => {
-// 		this.loading = true;
-// 		images.add(image)
-//             .then(saved => {
-// 	this.loading = false;
-//                 // push to in-memory array
-// 	this.images.push(saved);
-// });
-// 	};
 }
