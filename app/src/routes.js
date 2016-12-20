@@ -14,7 +14,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'albums',
     url: '/albums',
-    component: 'albums'
+    component: 'albums',
+    resolve: {
+      albums: ['galleryService', g => {
+        return g.getAlbums();
+      }]
+    }
   });
 
   $stateProvider.state({
