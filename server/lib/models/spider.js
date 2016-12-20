@@ -9,6 +9,10 @@ const schema = new Schema({
   type: {
     type: String,
     default: 'jumping spider'
+  },
+  spidergang: {
+    type: Schema.Types.ObjectId,
+    ref: 'Spidergang'
   }
 });
 
