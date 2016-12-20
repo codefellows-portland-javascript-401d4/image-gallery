@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "pretest": "eslint .",
     "test": "karma start --single-run",
     "test:watch": "karma start",
@@ -16,7 +17,7 @@
   },
   "author": "Chris B.",
   "license": "MIT",
-    "devDependencies": {
+  "devDependencies": {
     "angular-mocks": "^1.5.9",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -37,6 +38,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.8.0",
     "mocha": "^3.0.2",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
@@ -48,5 +50,10 @@
   "bugs": {
     "url": "https://github.com/QuantumArchive/image-gallery/issues"
   },
-  "homepage": "https://github.com/QuantumArchive/image-gallery#readme"
+  "homepage": "https://github.com/QuantumArchive/image-gallery#readme",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
 }

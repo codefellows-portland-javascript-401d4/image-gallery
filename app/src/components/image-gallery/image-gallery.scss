@@ -1,0 +1,21 @@
+@import 'borders';
+@import 'corners';
+@import 'colors';
+@import 'paragraph';
+
+:local(.gallery) {
+    padding: 1em;
+    overflow: scroll;
+
+    border: $simpleborder;
+    background-color: $frontcolor;
+    @include rounded(4px);
+
+    h4 {
+        margin: 0px;
+    };
+
+    p {
+        @include sectionParagraph();
+    };
+}

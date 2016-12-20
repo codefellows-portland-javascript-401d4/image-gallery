@@ -33080,7 +33080,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"app":"EVkMhNwGhSymlzE6nptwl"};
+	module.exports = {"app":"_27q09CTezCOi4es8K1MuUP"};
 
 /***/ },
 /* 15 */,
@@ -33129,7 +33129,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"detail":"_3yCTas6A8zUCisoe9Boch6"};
+	module.exports = {"detail":"_1P8rGqG9AJOMZc6gOYxStU"};
 
 /***/ },
 /* 19 */,
@@ -33169,14 +33169,14 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"$ctrl.styles.gallery\">\n    <h4>{{$ctrl.image.title}}</h4>\n    <p>{{$ctrl.image.description}}</p>\n    <img src=\"{{$ctrl.image.url}}\">\n</div>";
+	module.exports = "<div ng-class=\"$ctrl.styles.gallery\">\n    <h4>{{$ctrl.image.title}}</h4>\n    <p>{{$ctrl.image.description}}</p>\n    <img ng-src=\"{{$ctrl.image.url}}\">\n</div>";
 
 /***/ },
 /* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"gallery":"_14OweBXFrqVUuBQ8dCXLk4"};
+	module.exports = {"gallery":"_146LvsNqbvBRK7XjE03R0_"};
 
 /***/ },
 /* 23 */,
@@ -33242,7 +33242,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"new":"kxQMeLqzl41_NzE9LRfZ3"};
+	module.exports = {"new":"_3-KQJIk2g0BbcNbhDep1BD"};
 
 /***/ },
 /* 27 */,
@@ -33297,7 +33297,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"option":"_2ge53jfvcYEx9sdJYDNowZ","boxing":"Ilp9cDrnK9reIB7Js3tTF"};
+	module.exports = {"option":"_245pZy20ofWoi4C2bNTZDl","boxing":"_27KwMae6YLDKxoOSsD-4ol"};
 
 /***/ },
 /* 31 */,
@@ -33337,14 +33337,14 @@
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"$ctrl.styles.thumbnail\">\n    <img src=\"{{$ctrl.image.url}}\">\n</div>";
+	module.exports = "<div ng-class=\"$ctrl.styles.thumbnail\">\n    <img ng-src=\"{{$ctrl.image.url}}\">\n</div>";
 
 /***/ },
 /* 34 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"thumbnail":"_11T7qyV23K_HJKWVsGU9lU"};
+	module.exports = {"thumbnail":"_3w49sZuaJ8BbSDcbrRvIpi"};
 
 /***/ },
 /* 35 */,

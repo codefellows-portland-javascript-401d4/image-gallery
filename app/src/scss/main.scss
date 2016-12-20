@@ -1,3 +1,7 @@
+@import 'colors';
+@import 'corners';
+$boxwidth: 60%;
+
 h1, h2 {
     text-align: center;
 }
@@ -8,7 +12,7 @@ h4 {
 
 p {
     margin: 1em auto;
-    width: 60%;
+    width: $boxwidth;
     text-align: justify;
     text-indent: 3em;
 }
@@ -18,7 +22,7 @@ nav {
     flex-direction: row;
     justify-content: center;
     margin: 1em auto;
-    width: 60%;
+    width: $boxwidth;
 }
 
 nav select {
@@ -28,18 +32,18 @@ nav select {
 }
 
 body {
-    background-color: #00BCD4;
+    background-color: $backgroundblue;
 }
 
 section {
-    width: 60%;
+    width: $boxwidth;
     margin: 1em auto;
-    background-color: #B2EBF2;
-    border-radius: 4px;
+    background-color: $foregroundblue;
+    @include rounded(4px);
 }
 
 footer {
-    width: 60%;
+    width: $boxwidth;
     margin: 1em auto;
-    background-color: #B2EBF2;
+    background-color: $foregroundblue;
 }
