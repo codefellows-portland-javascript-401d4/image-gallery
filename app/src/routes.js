@@ -14,17 +14,49 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'albumApp'
     });
 
+    // $stateProvider.state({
+    //     name: 'albums.options',
+    //     url: '/:name?view',
+    //     params: {
+    //         view: { dynamic: true }
+    //     },
+    //     resolve: {
+    //         name: ['$transition$', t => t.params().name],
+    //         view: ['$transition$', t => t.params().view || 'detail']
+    //     },
+    //     component: 'albumOptions'
+    // });
+
     $stateProvider.state({
-        name: 'albums.options',
-        url: '/:name?view',
-        params: {
-            view: { dynamic: true }
-        },
+        name: 'album',
+        abstract: true,
+        default: '.detail',
+        url: '/albums/:name',
         resolve: {
-            name: ['$transition$', t => t.params().name],
-            view: ['$transition$', t => t.params().view || 'detail']
+            album: ['albumService', '$transition$', (albums, t) => {
+                return albums.getAlbum(t.params().name);
+            }],
+            images: ['album', album => album.images]
         },
-        component: 'albumOptions'
+        component: 'album'
+    });
+
+    $stateProvider.state({
+        name: 'album.detail',
+        url: '/detail',
+        compoent: 'imageDetail'
+    });
+
+    $stateProvider.state({
+        name: 'album.thumbnail',
+        url: '/thumbnail',
+        component: 'imageThumbnail'
+    });
+
+    $stateProvider.state({
+        name: 'album.gallery',
+        url: '/gallery',
+        component: 'imageGallery'
     });
 
     $stateProvider.state({

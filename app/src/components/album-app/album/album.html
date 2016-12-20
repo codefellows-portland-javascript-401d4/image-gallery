@@ -1,0 +1,10 @@
+<!--<h2>You are viewing the images in the {{$ctrl.album.name}} album</h2>
+<section ng-repeat="image in $ctrl.album.images" ng-class="$ctrl.styles.section">-->
+<h2>You are viewing the images in the {{$ctrl.album.name}} album</h2>
+<section ng-repeat="image in $ctrl.images" ng-class="$ctrl.styles.section">
+    <div ng-class="$ctrl.styles.option">
+        <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
+        <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="image"></image-thumbnail>
+        <image-gallery ng-if="$ctrl.view === 'gallery'" image="image"></image-gallery>
+    </div>
+</section>

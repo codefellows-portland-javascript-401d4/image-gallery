@@ -11,14 +11,19 @@
     <div>
         <h4>Album Choice:</h4>
         <ul ng-class="app.styles.list">
-            <li ng-repeat="album in app.albums"
+            <!--<li ng-repeat="album in app.albums"
                 ui-sref="albums.options({
                     name: album.name,
                     view: app.view})">{{album.name}}
+            </li>-->
+            <li ng-repeat="album in app.albums"
+                ui-sref="album({
+                    name: album.name
+                })">{{album.name}}
             </li>
         </ul>
     </div>
 </div>
 <hr>
 <ui-view></ui-view>
-<album-new add="app.add" loading="app.loading"></album-new>
+<album-new addalbum="app.addAlbum" loading="app.loading"></album-new>
