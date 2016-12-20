@@ -1,0 +1,13 @@
+<section>
+  <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-detail
+        spider="spider"
+        remove="$ctrl.remove">
+      </spider-detail>
+    </li>
+  </ul>
+
+  <new-spider add="$ctrl.add"></new-spider>
+</section>
