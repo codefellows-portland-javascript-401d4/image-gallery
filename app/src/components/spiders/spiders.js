@@ -14,6 +14,31 @@ function controller(spiders) {
 
   this.loading = true;
 
+  // get all images
+  spiders.get()
+    .then (spiders => {
+      this.loading = false;
+      this.spiders = spiders;
+    });
+
+  this.detail = function() {
+    this.viewDetail = true;
+    this.viewThumbnail = false;
+    this.viewImage = false;
+  };
+
+  this.thumbnail = function() {
+    this.viewDetail = false;
+    this.viewThumbnail = true;
+    this.viewImage = false;
+  };
+
+  this.image = function() {
+    this.viewDetail = false;
+    this.viewThumbnail = false;
+    this.viewImage = true;
+  };
+
   // call the GET to load all spiders
   spiders.get().then(spiders => {
     this.loading = false;

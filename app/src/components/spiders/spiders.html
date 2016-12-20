@@ -1,13 +1,42 @@
 <section>
   <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+
+  <button ng-click="$ctrl.detail()">Detail View</button>
+  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>
+  <button ng-click="$ctrl.image()">Image View</button>
+
+<div ng-show="$ctrl.viewDetail === true">
   <ul>
     <li ng-repeat="spider in $ctrl.spiders">
       <spider-detail
-        spider="spider"
-        remove="$ctrl.remove">
+        spider="spider">
+        <!-- remove="$ctrl.remove"> -->
       </spider-detail>
     </li>
   </ul>
+</div>
+
+<div ng-show="$ctrl.viewThumbnail === true">
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-thumbnail
+        spider="spider">
+        <!-- remove="$ctrl.remove"> -->
+      </spider-thumbnail>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.viewImage === true">
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-image
+        spider="spider">
+        <!-- remove="$ctrl.remove"> -->
+      </spider-image>
+    </li>
+  </ul>
+</div>
 
   <new-spider add="$ctrl.add"></new-spider>
 </section>

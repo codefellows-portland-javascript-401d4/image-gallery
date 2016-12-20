@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(28);
+	var _services = __webpack_require__(30);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33515,12 +33515,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./new-spider/new-spider.js": 12,
-		"./spider-app/spider-app.js": 16,
-		"./spider-detail/spider-detail.js": 18,
-		"./spider-image/spider-image.js": 20,
-		"./spider-thumbnail/spider-thumbnail.js": 22,
-		"./spiders/spiders.js": 24
+		"./app/app.js": 12,
+		"./new-spider/new-spider.js": 14,
+		"./spiders/spider-detail/spider-detail.js": 18,
+		"./spiders/spider-image/spider-image.js": 20,
+		"./spiders/spider-thumbnail/spider-thumbnail.js": 22,
+		"./spiders/spiders.js": 24,
+		"./views/views.js": 28
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33546,11 +33547,38 @@
 	  value: true
 	});
 	
-	var _newSpider = __webpack_require__(13);
+	var _app = __webpack_require__(13);
+	
+	var _app2 = _interopRequireDefault(_app);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _app2.default,
+	  controllerAs: 'app'
+	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<!-- all spider views -->\n\n<header>\n  <h1>Spiders!</h1>\n</header>\n\n<main>\n  <spiders></spiders>\n</main>\n";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _newSpider = __webpack_require__(15);
 	
 	var _newSpider2 = _interopRequireDefault(_newSpider);
 	
-	var _newSpider3 = __webpack_require__(14);
+	var _newSpider3 = __webpack_require__(16);
 	
 	var _newSpider4 = _interopRequireDefault(_newSpider3);
 	
@@ -33588,59 +33616,20 @@
 	}
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['spider-class']\">\n  <div>\n    <label>name:</label>\n    <input ng-model=\"$ctrl.name\">\n  </div>\n  <div>\n    <label>type:</label>\n    <input ng-model=\"$ctrl.type\">\n  </div>\n  <button ng-click=\"$ctrl.addNew()\">add</button>\n</section>\n";
+	module.exports = "<!-- button to add new spider name & type on app page -->\n\n<section ng-class=\"$ctrl.styles['spider-class']\">\n  <div>\n    <label>name:</label>\n    <input ng-model=\"$ctrl.name\">\n  </div>\n  <div>\n    <label>type:</label>\n    <input ng-model=\"$ctrl.type\">\n  </div>\n  <button ng-click=\"$ctrl.addNew()\">add</button>\n</section>\n";
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"spider":"_2IeunUQZ5MxNCBku3hz4ZB"};
 
 /***/ },
-/* 15 */,
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _spiderApp = __webpack_require__(17);
-	
-	var _spiderApp2 = _interopRequireDefault(_spiderApp);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _spiderApp2.default,
-	  controller: controller,
-	  controllerAs: 'app'
-	};
-	
-	
-	function controller() {
-	  this.spider = {
-	    title: 'Igor the Dapper Spider',
-	    url: 'http://1.bp.blogspot.com/_LbccUVbSRd8/SWZpdbbXG2I/AAAAAAAAD7Y/X1-TwL_E8f0/s400/jumping+spider+eyes+10.jpg',
-	    description: 'Jumping Spider',
-	    thumbnail: 'src/images/spiderthumbnail.png',
-	    image: 'src/images/jumping spider eyes 10.jpg'
-	  };
-	}
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	module.exports = "<!-- all spider views -->\n\n<div>\n  <spider-detail\n    spider=\"app.spider\">\n  </spider-detail>\n</div>\n<br/><br/><br/>\n<div>\n  <spider-thumbnail\n    spider=\"app.spider\">\n  </spider-thumbnail>\n</div>\n<br/>\n<br/>\n<div>\n  <spider-image\n    spider=\"app.spider\">\n  </spider-image>\n</div>\n";
-
-/***/ },
+/* 17 */,
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33667,7 +33656,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- detail view for spider -->\n\n<!-- <div>\n  <p>Title:  {{$ctrl.spider.title}}</p>\n  <p>Description:  {{$ctrl.spider.description}}</p>\n  <a href=\"{{$ctrl.spider.url}}\">spider image link</a>\n</div> -->\n\n<span ng-class=\"$ctrl.styles.spider\">\n  {{$ctrl.spider.name}} the {{$ctrl.spider.type}}\n  <button ng-click=\"$ctrl.delete()\">remove</button>\n</span>\n";
+	module.exports = "<!-- detail view for spider on app page -->\n\n<div>\n  <p>Name:  {{$ctrl.spider.name}}</p>\n  <p>Type:  {{$ctrl.spider.type}}</p>\n  <a href=\"{{$ctrl.spider.url}}\">spider image link</a>\n</div>\n";
 
 /***/ },
 /* 20 */
@@ -33696,7 +33685,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- image view for spider -->\n\n<div>\n  <p>Title:  {{$ctrl.spider.title}}</p>\n  <p>Description:  {{$ctrl.spider.description}}</p>\n  <img ng-src=\"{{$ctrl.spider.image}}\"/>\n</div>\n";
+	module.exports = "<!-- full image view for spider -->\n\n<div>\n  <img ng-src=\"{{$ctrl.spider.url}}\"/>\n</div>\n";
 
 /***/ },
 /* 22 */
@@ -33725,7 +33714,7 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- thumbnail view for spider -->\n\n<div>\n  <img ng-src=\"{{$ctrl.spider.thumbnail}}\"/>\n</div>\n";
+	module.exports = "<!-- thumbnail view for spider -->\n\n<div>\n  <img ng-src=\"{{$ctrl.spider.url}}\"/>\n</div>\n";
 
 /***/ },
 /* 24 */
@@ -33762,6 +33751,30 @@
 	
 	  this.loading = true;
 	
+	  // get all images
+	  spiders.get().then(function (spiders) {
+	    _this.loading = false;
+	    _this.spiders = spiders;
+	  });
+	
+	  this.detail = function () {
+	    this.viewDetail = true;
+	    this.viewThumbnail = false;
+	    this.viewImage = false;
+	  };
+	
+	  this.thumbnail = function () {
+	    this.viewDetail = false;
+	    this.viewThumbnail = true;
+	    this.viewImage = false;
+	  };
+	
+	  this.image = function () {
+	    this.viewDetail = false;
+	    this.viewThumbnail = false;
+	    this.viewImage = true;
+	  };
+	
 	  // call the GET to load all spiders
 	  spiders.get().then(function (spiders) {
 	    _this.loading = false;
@@ -33794,7 +33807,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <div class=\"loader\" ng-if=\"$ctrl.loading\">loading ...</div>\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-detail\n        spider=\"spider\"\n        remove=\"$ctrl.remove\">\n      </spider-detail>\n    </li>\n  </ul>\n\n  <new-spider add=\"$ctrl.add\"></new-spider>\n</section>\n";
+	module.exports = "<section>\n  <div class=\"loader\" ng-if=\"$ctrl.loading\">loading ...</div>\n\n  <button ng-click=\"$ctrl.detail()\">Detail View</button>\n  <button ng-click=\"$ctrl.thumbnail()\">Thumbnail View</button>\n  <button ng-click=\"$ctrl.image()\">Image View</button>\n\n<div ng-show=\"$ctrl.viewDetail === true\">\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-detail\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-detail>\n    </li>\n  </ul>\n</div>\n\n<div ng-show=\"$ctrl.viewThumbnail === true\">\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-thumbnail\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-thumbnail>\n    </li>\n  </ul>\n</div>\n\n<div ng-show=\"$ctrl.viewImage === true\">\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-image\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-image>\n    </li>\n  </ul>\n</div>\n\n  <new-spider add=\"$ctrl.add\"></new-spider>\n</section>\n";
 
 /***/ },
 /* 26 */
@@ -33805,6 +33818,66 @@
 /***/ },
 /* 27 */,
 /* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _views = __webpack_require__(29);
+	
+	var _views2 = _interopRequireDefault(_views);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _views2.default,
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['spiderService'];
+	
+	function controller(spiders) {
+	  //
+	  this.loading = true;
+	
+	  // get all images
+	  // spiders.get()
+	  //   .then (spiders => {
+	  //     this.loading = false;
+	  //     this.spiders = spiders;
+	  //   });
+	
+	  // this.detail = function() {
+	  //   this.viewDetail = true;
+	  //   this.viewThumbnail = false;
+	  //   this.viewImage = false;
+	  // };
+	
+	  // this.thumbnail = function() {
+	  //   this.viewDetail = false;
+	  //   this.viewThumbnail = true;
+	  //   this.viewImage = false;
+	  // };
+	
+	  // this.image = function() {
+	  //   this.viewDetail = false;
+	  //   this.viewThumbnail = false;
+	  //   this.viewImage = true;
+	  // };
+	}
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	module.exports = "<!-- images view with toggle buttons ... -->\n<!--\n<button ng-click=\"$ctrl.detail()\">Detail View</button>\n<button ng-click=\"$ctrl.thumbnail()\">Thumbnail View</button>\n<button ng-click=\"$ctrl.image()\">Image View</button>\n\n<div ng-show=\"$ctrl.viewDetail === true\">\n  <h2>Spider Details</h2>\n  <section ng-repeat=\"image in $ctrl.images\">\n      <spider-detail\n        image=\"image\">\n      </spider-detail>\n  </section>\n</div>\n\n<div ng-show=\"$ctrl.viewThumbnail === true\">\n  <h2>Spider Thumbnails</h2>\n  <section ng-repeat=\"image in $ctrl.images\">\n    <spider-thumbnail\n      image=\"image\">\n    </spider-thumbnail>\n  </section>\n</div>\n\n<div ng-show=\"$ctrl.viewImage === true\">\n  <h2>Spider Images</h2>\n  <section ng-repeat=\"image in $ctrl.images\">\n    <spider-image\n      image=\"image\">\n    </spider-image>\n  </section>\n</div>\n-->\n";
+
+/***/ },
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33828,7 +33901,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require
-	var context = __webpack_require__(29);
+	var context = __webpack_require__(31);
 	
 	// create the module to put the resources in,
 	// in this case, services
@@ -33847,11 +33920,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./spider-service.js": 30
+		"./spider-service.js": 32
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33864,11 +33937,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 29;
+	webpackContext.id = 31;
 
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33885,7 +33958,7 @@
 	  return {
 	    get: function get() {
 	      return $http.get(apiUrl + '/spiders')
-	      // our 'data' is on data property of response
+	      // our 'data' is on data property of response ... asynchronous callback
 	      .then(function (res) {
 	        return res.data;
 	      });
