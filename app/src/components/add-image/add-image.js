@@ -26,6 +26,6 @@ function controller() {
       url: this.url
     });
     this.reset();
-    this.view = 'info';
+    this.view = 'thumbnail';
   };
 }

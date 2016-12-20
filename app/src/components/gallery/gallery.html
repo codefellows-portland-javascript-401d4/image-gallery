@@ -18,15 +18,15 @@
     </add-image>
     <image-info 
         ng-if="$ctrl.view === 'info'"
-        img="$ctrl.img"
+        img="$ctrl.album.images"
         remove="$ctrl.remove">
     </image-info>
     <image-thumb
         ng-if="$ctrl.view === 'thumbnail'"
-        img="$ctrl.img">
+        img="$ctrl.album.images">
     </image-thumb>
     <image-full
         ng-if="$ctrl.view === 'full'"
-        img="$ctrl.img">
+        img="$ctrl.album.images">
     </image-full>
 </section>

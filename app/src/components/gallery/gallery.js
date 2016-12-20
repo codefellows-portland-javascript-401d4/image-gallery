@@ -13,19 +13,12 @@ controller.$inject = ['imageService'];
 
 function controller(imageService) {
   this.styles = styles;
-  this.view = 'info';
-
-  // imageService.get()
-  //   .then(images => {
-  //     this.img = images;
-  //   })
-  //   .catch(err => {
-  //     console.log('Initial get all catch', err);
-  //   });
+  this.view = 'thumbnail';
 
   this.add = image => {
+    image._id = this.album._id;
     imageService.add(image)
-      .then(saved => this.img.push(saved))
+      .then(saved => this.album.images.push(saved))
       .catch(err => {
         console.log('Add img catch', err);
       });
@@ -34,8 +27,8 @@ function controller(imageService) {
   this.remove = image => {
     imageService.remove(image._id)
       .then(() => {
-        const index = this.img.indexOf(image);
-        if (index > -1) this.img.splice(index, 1);
+        const index = this.album.images.indexOf(image);
+        if (index > -1) this.album.images.splice(index, 1);
       })
       .catch(err => {
         console.log('Gallery remove catch', err);
