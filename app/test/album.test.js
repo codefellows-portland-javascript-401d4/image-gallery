@@ -41,7 +41,7 @@ describe( 'albums component', () => {
     });
 
     it( 'loads albums', done => {
-      // assert.isOk(component.loading);   failing on Travis?
+      assert.isOk(component.loading);
 
       setTimeout(() => {
         assert.equal(component.albums, albums);
