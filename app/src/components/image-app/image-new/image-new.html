@@ -15,11 +15,12 @@
             <input type="text" ng-model="$ctrl.url" required>
         </div>
         <div>
-            <h4>Album:</h4> 
-            <select ng-options="album.name for album in $ctrl.albumoptions" 
+            <h4>Album:</h4>
+            {{$ctrl.album}} 
+            <!--<select ng-options="album.name for album in $ctrl.albumoptions" 
                     ng-model="$ctrl.category" 
                     required>
-            </select>
+            </select>-->
         </div>
     </form>
     <button ng-click="$ctrl.addNew()">Add</button>

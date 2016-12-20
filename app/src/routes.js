@@ -31,7 +31,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
         name: 'album',
         abstract: true,
         default: '.detail',
-        url: '/albums/:name',
+        url: '/album/:name',
         resolve: {
             album: ['albumService', '$transition$', (albums, t) => {
                 return albums.getAlbum(t.params().name);

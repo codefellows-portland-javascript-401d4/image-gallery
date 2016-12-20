@@ -1,5 +1,5 @@
 <div ng-class="app.styles.top">
-    <div>
+    <!--<div>
         <h4>View Filter:</h4>
         <select ng-options="option for option in ['detail', 'thumbnail', 'gallery']" 
                 ng-model="app.view"
@@ -7,7 +7,7 @@
             <option value=""></option>
         </select>
     </div>
-    <br>
+    <br>-->
     <div>
         <h4>Album Choice:</h4>
         <ul ng-class="app.styles.list">
@@ -25,5 +25,5 @@
     </div>
 </div>
 <hr>
-<ui-view></ui-view>
+<!--<ui-view></ui-view>-->
 <album-new addalbum="app.addAlbum" loading="app.loading"></album-new>

@@ -1,4 +1,4 @@
-<nav>
+<nav ng-class="app.styles.navigator">
     <div>
         <a ng-click="app.setDisplay('detail')">Detail</a>
     </div>
@@ -48,4 +48,4 @@
                 del="app.remove">
     </image-options>-->
 </section>
-<image-new add="app.add" albumoptions="app.albums"></image-new>
+<image-new add="app.add" album="app.albumName"></image-new>
