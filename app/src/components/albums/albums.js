@@ -20,12 +20,6 @@ export default {
 function controller(/*albumService*/) {
   this.styles = styles;
 
-  // this.albums = albumService.getAll()
-  //   .then(albums => {
-  //     this.albums = albums;
-  //   })
-  //   .catch();
-
   this.view = 'list';
 
 }

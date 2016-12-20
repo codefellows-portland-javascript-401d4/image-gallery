@@ -9,8 +9,7 @@ export default {
     albums: '=',
     album: '=',
     getAll: '<',
-    removeImage: '<',
-    toggleView: '<'
+    removeImage: '<'
   },
   controller,
   controllerAs: '$images'
@@ -20,5 +19,9 @@ function controller() {
   this.styles = styles;
   
   this.view = 'list';
+
+  this.toggleView = name => {
+    this.view = name;
+  };
 
 }

@@ -4,7 +4,8 @@ import styles from './album-add.scss';
 export default {
   template,
   bindings: {
-    addAlbum: '<'
+    addAlbum: '<',
+    albums: '<'
   },
   controller,
   controllerAs: '$addAlbum'

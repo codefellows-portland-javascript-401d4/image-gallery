@@ -3,6 +3,10 @@ import styles from './gallery.scss';
 
 export default {
   template,
+  bindings: {
+    images: '<',
+    albums: '<'
+  },
   controller,
   controllerAs: '$gallery'
 };
@@ -14,15 +18,15 @@ function controller(imageService, albumService) {
 
   this.loading = true;
 
-  imageService.getAll().then(images => {
-    this.loading = false;
-    this.images = images;
-  });
+  // imageService.getAll().then(images => {
+  //   this.loading = false;
+  //   this.images = images;
+  // });
 
-  albumService.getAll().then(albums => {
-    this.loading = false;
-    this.albums = albums;
-  });
+  // albumService.getAll().then(albums => {
+  //   this.loading = false;
+  //   this.albums = albums;
+  // });
 
   this.addImage = image => {
     this.loading = true;
@@ -35,7 +39,7 @@ function controller(imageService, albumService) {
 
   this.addAlbum = album => {
     this.loading = true;
-    albumService.addImage(album)
+    albumService.addAlbum(album)
       .then(saved => {
         this.loading = false;
         this.albums.push(saved);
@@ -60,10 +64,6 @@ function controller(imageService, albumService) {
         const index = this.albums.indexOf(album);
         if (index > -1) this.albums.splice(index, 1);
       });
-  };
-
-  this.toggleView = name => {
-    this.view = name;
   };
 
   this.toggleAlbum = name => {
