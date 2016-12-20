@@ -29,7 +29,7 @@ function controller(albums, $state, $scope) {
 
     this.reset();
 
-    this.addAlbum = album => {
+    this.addAlbum = () => {
         albums.add({
             name: this.name,
             featured: this.featured

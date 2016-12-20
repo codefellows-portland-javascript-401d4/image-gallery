@@ -19,7 +19,11 @@ export default function albumService($http, apiUrl) {
         },
         add(album) {
             return $http.post(`${apiUrl}/albums`, album)
-                .then(res => res.data);
+                .then(res => {
+                    return res.data;
+                });
+
         }
+               
     };
 }

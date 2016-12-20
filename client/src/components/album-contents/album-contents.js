@@ -23,7 +23,9 @@ function controller(albums, images) {
     };
 
     this.reset();
-
+    
+    // this.$onInit ensures that on later versions    
+    // of angular this.id is not undefined
     this.$onInit = () => {
         albums.get(this.id).then(album => {
             this.album = album;
