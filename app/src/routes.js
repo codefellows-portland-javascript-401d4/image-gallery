@@ -28,24 +28,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
     url: '/images',
     component: 'images'
   });
-
-  // $stateProvider.state({
-  //   name: 'gallery.images.list',
-  //   url: '/list',
-  //   component: 'image-list'
-  // });
-
-  // $stateProvider.state({
-  //   name: 'gallery.images.thumb',
-  //   url: '/thumb',
-  //   component: 'images-thumb'
-  // });
-
-  // $stateProvider.state({
-  //   name: 'gallery.images.full',
-  //   url: '/full',
-  //   component: 'images-list'
-  // });
   
   $stateProvider.state({
     name: 'gallery.albums',

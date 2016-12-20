@@ -4,7 +4,8 @@ import styles from './image-add.scss';
 export default {
   template,
   bindings: {
-    addImage: '<'
+    addImage: '<',
+    albums: '<'
   },
   controller,
   controllerAs: '$addImage'
@@ -23,12 +24,22 @@ function controller() {
   this.reset();
 
   this.addOneImage = () => {
-    this.addImage({
-      name: this.name,
-      description: this.description,
-      url: this.url,
-      album: this.album
-    });
+    // console.log('ablums', this.albums, 'album', this.album);
+    // const test = this.albums.findIndex(elem => {
+    //   elem.name === this.album.name;
+    // });
+    // if (test !== -1) {
+    this.addImage(
+      {
+        name: this.name,
+        description: this.description,
+        url: this.url,
+        albumId: this.myAlbum
+      }
+        );
+    // }else {
+    //   alert('pick a valid album name!');
+    // }
 
     this.reset();
   };

@@ -46,26 +46,6 @@ function controller(imageService, albumService) {
       });
   };
 
-  this.removeImage = image => {
-    this.loading = true;
-    imageService.remove(image._id)
-      .then(() => {
-        this.loading = false;
-        const index = this.images.indexOf(image);
-        if (index > -1) this.images.splice(index, 1);
-      });
-  };
-
-  this.removeAlbum = album => {
-    this.loading = true;
-    albumService.remove(album._id)
-      .then(() => {
-        this.loading = false;
-        const index = this.albums.indexOf(album);
-        if (index > -1) this.albums.splice(index, 1);
-      });
-  };
-
   this.toggleAlbum = name => {
     this.view = name;
   };

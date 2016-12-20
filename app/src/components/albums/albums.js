@@ -10,16 +10,28 @@ export default {
     album: '=',
     albums: '=',
     getAll: '<',
-    removeAlbum: '<',
     toggleAlbum: '<'
   },
   controller,
   controllerAs: '$albums'
 };
 
-function controller(/*albumService*/) {
+controller.$inject = ['albumService'];
+
+function controller(albumService) {
   this.styles = styles;
 
   this.view = 'list';
+
+
+  this.removeAlbum = album => {
+    this.loading = true;
+    albumService.remove(album._id)
+      .then(() => {
+        this.loading = false;
+        const index = this.albums.indexOf(album);
+        if (index > -1) this.albums.splice(index, 1);
+      });
+  };
 
 }

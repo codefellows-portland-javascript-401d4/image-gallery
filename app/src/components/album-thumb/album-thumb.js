@@ -5,7 +5,7 @@ export default {
   template,
   bindings: {
     album: '=',
-    remove: '<',
+    removeAlbum: '<',
     toggleAlbum: '<'
   },
   controller,

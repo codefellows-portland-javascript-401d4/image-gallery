@@ -12,7 +12,7 @@
   <li ng-repeat="album in $albums.albums">
     <album-list
       album="album"
-      remove="$albums.remove"
+      remove="$albums.removeAlbum"
       toggle-album="$albums.toggleAlbum">
     </album-list>   
   </li>
@@ -22,7 +22,7 @@
   <li ng-class="$albums.styles.column4" ng-repeat="album in $albums.albums">
     <album-thumb
       album="albums"
-      remove="$albums.remove"
+      remove="$albums.removeAlbum"
       toggle-album="$albums.toggleAlbum">
     </album-thumb> 
   </li>  

@@ -9,7 +9,7 @@
   <li ng-repeat="image in $images.images">
     <image-list
       image="image"
-      remove="$images.remove"
+      remove="$images.removeImage"
       toggle-view="$images.toggleView">
     </image-list>    
   </li>
@@ -19,7 +19,7 @@
   <li ng-class="$images.styles.column4" ng-repeat="image in $images.images">
     <image-thumb
       image="image"
-      remove="$images.remove"
+      remove="$images.removeImage"
       toggle-view="$images.toggleView">
     </image-thumb>    
   </li>
@@ -29,7 +29,7 @@
   <li ng-repeat="image in $images.images">
      <image-full
       image="image"
-      remove="$images.remove"
+      remove="$images.removeImage"
       toggle-view="$images.toggleView">
     </image-full>   
   </li>
