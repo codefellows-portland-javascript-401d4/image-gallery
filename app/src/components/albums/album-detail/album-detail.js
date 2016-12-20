@@ -29,7 +29,6 @@ function controller(albums, images) {
     images.add(image)
             .then(saved => {
               this.loading = false;
-                // push to in-memory array
               this.images.push(saved);
             });
   };
