@@ -1,0 +1,11 @@
+<section ng-class="$ctrl.styles">
+
+    <div>
+        <ui-view></ui-view>
+        <span ng-repeat="image in $ctrl.images">
+            <img ng-src="$ctrl.image.url">
+            {{image.title}}
+        </span>
+    </div>
+
+</section>
