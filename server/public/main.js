@@ -33549,8 +33549,8 @@
 	function controller() {
 	  this.image = {
 	    url: 'http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg',
-	    image_title: 'Little bunny',
-	    image_description: 'Young little bunny in the grass'
+	    title: 'Little bunny',
+	    description: 'Young little bunny in the grass'
 	  };
 	}
 
@@ -33587,7 +33587,7 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<h3>Image detail</h3>\r\n<p>{{$ctrl.image.image_title}}</p>\r\n<a href=\"{{$ctrl.image.url}}\">Link to image</a>\r\n<p>{{$ctrl.image.image_description}}</p>";
+	module.exports = "<h3>Image detail</h3>\r\n<p>{{$ctrl.image.title}}</p>\r\n<a href=\"{{$ctrl.image.url}}\">Link to image</a>\r\n<p>{{$ctrl.image.description}}</p>";
 
 /***/ },
 /* 16 */
@@ -33616,7 +33616,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>Large image view</h2>\r\n<img ng-src=\"{{$ctrl.image.url}}\"/>\r\n<p>{{$ctrl.image.image_description}}</p>";
+	module.exports = "<h2>Large image view</h2>\r\n<img ng-src=\"{{$ctrl.image.url}}\"/>\r\n<p>{{$ctrl.image.description}}</p>";
 
 /***/ },
 /* 18 */
@@ -33707,7 +33707,7 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<h4>Thumbnail image view</h4>\r\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.image.url}}\"/>\r\n<p>{{$ctrl.image.image_description}}</p>\r\n";
+	module.exports = "<h4>Thumbnail image view</h4>\r\n<img class=\"thumbnail\" ng-src=\"{{$ctrl.image.url}}\"/>\r\n<p>{{$ctrl.image.description}}</p>\r\n";
 
 /***/ },
 /* 24 */

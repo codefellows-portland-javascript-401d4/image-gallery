@@ -19,7 +19,7 @@ describe('image', () => {
     const request = chai.request(app);
 
     const testImage = {
-        image_title: 'TestingImage',
+        title: 'TestingImage',
         description: 'Monkey image',
         url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg'
     };
