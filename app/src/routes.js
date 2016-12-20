@@ -34,7 +34,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
       id: ['$transition$', t => t.params().id],
       display: ['$transition$', t => t.params().display || 'thumb']
     },
-    component: 'albums'
+    component: 'album'
   });
 
   $stateProvider.state({
