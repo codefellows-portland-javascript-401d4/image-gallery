@@ -1,0 +1,19 @@
+@import 'borders';
+
+:local(.imageFull) {
+  img {
+    width: 100%;
+  }
+
+  p {
+    display: none;
+  }
+
+  // img:hover {
+
+  // }
+
+  @include border(solid, 5px);
+  @include rounded(5px);
+
+}
