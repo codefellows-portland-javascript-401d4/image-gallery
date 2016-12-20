@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const errorHandler = require('./error-handler');
 const images = require('./routes/images');
+const albums = require('./routes/albums');
 const path = require('path');
 const buildPath = path.resolve( __dirname + '/../build' );
 
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 
 app.use(express.static(buildPath));
 app.use('/api/images', images);
+app.use('/api/albums', albums);
 app.use(errorHandler);
 
 module.exports = app;

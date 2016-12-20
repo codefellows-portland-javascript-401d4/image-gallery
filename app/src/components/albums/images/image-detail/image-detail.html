@@ -1,0 +1,12 @@
+<div>
+    <ul>
+        <li>Title: {{$ctrl.image.title}}</li>
+        <li>Url: <a href="{{$ctrl.image.url}}">{{$ctrl.image.url | limitTo: 20}}...</a></li>
+        <li>Description: {{$ctrl.image.description}}</li>
+        <li>In Album: {{$ctrl.image.album.name}}</li>
+    Add to Album: <select ng-model="selection" ng-options="album._id as album.name for album in $ctrl.albums"></select>
+    <button ng-click="$ctrl.chosen(selection, $ctrl.image._id)">Add</button>
+    </ul> 
+    <button ng-click="$ctrl.delete()">Delete Image</button>
+    
+</div>
