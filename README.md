@@ -7,16 +7,19 @@
 
 ### Project Functionality
   - This is a Code Fellows Project to create an image gallery that uses Angular.
-  - List component - renders title, url, description
-  - Thumb component - renders thumbnail image
-  - Image component - renders image, title, description
-  - Add component - adds one new image to the database
+  - Browse All Pix - displays all the images
+    - List view - gives image title, url, description
+    - Thumb view - gives image thumbnail image
+    - Full view - gives image title, full-size image, description
+  - Albums - displays the Albums
+    - List view - gives title and description
+    - Thumb view - give title and thumbnail image
 
-  - under the gallery header: list, thumb and view buttons toggle between component views
-  - under the toggle view buttons: a set of input fields and an add button allow for adding new images
+  - Add image component - adds one new image to the database
+  - Add album component - adds one new album to the database
 
-  - in each component the remove button deletes image from the gallery
-  - list, view or thumb buttons with each list, thumb or view item go to the specific component view
+  - When in albums, remove button deletes album from the gallery
+  - When in iamges, remove button deletes images from the gallery
 
 
 ### Technologies used for front end side
