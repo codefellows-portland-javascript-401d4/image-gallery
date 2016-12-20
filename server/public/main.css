@@ -43,6 +43,12 @@ p {
   padding: 5px;
   margin-left: 5px; }
 
+select {
+  font-family: 'Cabin', sans-serif;
+  padding: 5px;
+  margin-left: 5px;
+  background-color: white; }
+
 .add {
   background-color: #006a91;
   border-radius: 10px;
@@ -62,7 +68,20 @@ p {
   border-radius: 10px;
   box-shadow: 3px 3px 5px #888888;
   background-color: #f1da76; }
-._3Pe6ieEL30iKQ2jjHP_Tsw {
+span {
+  display: inline-block;
+  width: 100px;
+  min-height: 60px;
+  padding-top: 40px;
+  outline: 1px solid grey;
+  outline-offset: -10px;
+  border: 15px solid white;
+  margin: 10px;
+  text-align: center; }
+  span a {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700; }
+._1zJWBTwua-DOzOPHLlzQ9X {
   margin: 0 auto;
   width: 100%; }
 
