@@ -1,10 +1,11 @@
 import template from './thumbnail.html';
-import styles from './thumbnail.css';
+import styles from './thumbnail.scss';
 
 export default {
     template,
     bindings: {
-        image: '='
+        images: '=',
+        remove: '<'
     },
     controller
     
@@ -12,4 +13,9 @@ export default {
 
 function controller() {
     this.styles = styles;
+
+    this.removeImage = function(image) {
+
+        this.remove(image);
+    };
 }

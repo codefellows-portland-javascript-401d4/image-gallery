@@ -1,0 +1,25 @@
+<section>
+    <!--View Selection-->
+
+    <select ng-model="$ctrl.view">
+        <option value="">--Select View--</option>
+        <option ng-repeat="view in ['thumbnail', 'information', 'detail']" ng-value="view">{{view}}</option>
+    </select>
+
+
+    <!--Album Selection-->
+
+    <select ng-model="$ctrl.albumId" ng-change="$ctrl.updateAlbum()">
+        <option value="">--Select View--</option>
+        <option ng-repeat="album in $ctrl.albums" ng-value="album._id">{{album.name}}</option>
+    </select>
+    <!--<input type="checkbox" ng-model="$ctrl.information" name="view" id="information">
+    <label for="information">Information</label>
+    <input type="checkbox" ng-model="$ctrl.detail" name="view" id="detail">
+    <label for="detail">Detail</label>
+    <input type="checkbox" ng-model="$ctrl.thumbnail" name="view" id="thumbnail">
+    <label for="thumbnail">Thumbnail</label>    -->
+        <information ng-if="$ctrl.view==='information'" images="$ctrl.images"></information>
+        <detail ng-if="$ctrl.view==='detail'" images="$ctrl.images"></detail>
+        <thumbnail ng-if="$ctrl.view==='thumbnail'"  images="$ctrl.images" remove="$ctrl.remove" ></thumbnail>
+</section>

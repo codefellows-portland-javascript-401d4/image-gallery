@@ -1,0 +1,13 @@
+<section>
+    <label>Name: </label>
+    <input ng-model="$ctrl.name" required>
+    <label>Description: </label>
+    <input ng-model="$ctrl.description" required>
+    <label >Url: </label>
+    <input ng-model="$ctrl.link" required>
+    <select name="" ng-model="$ctrl.albumId">
+        <option value="">--select album--</option>
+        <option ng-repeat="album in $ctrl.albums" ng-value="album._id">{{album.name}}</option>
+    </select>
+    <button ng-click="$ctrl.addImage()">Add Image</button>
+</section>

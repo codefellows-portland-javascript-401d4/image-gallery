@@ -1,0 +1,11 @@
+
+<ul>
+    <li ng-repeat="image in $ctrl.images">
+        <h1>IMAGE INFO</h1>
+        <div ng-class="$ctrl.styles.information">
+            <h2>Title: {{image.name}}</h2>
+            <a href="{{image.link}}">{{image.link}}</a>
+            <p>Description: {{image.description}}</p>   
+        </div>
+    </li>
+</ul>
