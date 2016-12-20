@@ -1,19 +1,9 @@
 {
-  "name": "image-gallery",
+  "name": "pirate app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/martypdx/image-gallery.git"
-  },
   "author": "Marty Nelson <marty@martypdx.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/martypdx/image-gallery/issues"
-  },
-  "homepage": "https://github.com/martypdx/image-gallery#readme"
+  "license": "ISC"
 }

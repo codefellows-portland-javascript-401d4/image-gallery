@@ -1,0 +1,14 @@
+<section>
+    <header>
+        <h3>{{$ctrl.album.name}}</h3>
+    </header>
+
+    <section>
+        <ui-view></ui-view>
+    </section>
+
+    <footer>
+        <h3>Add an image to "{{$ctrl.album.name}}" album</h3>
+        <add-new fields="title, url" add="$ctrl.add"></add-new>
+    </footer>
+</section>

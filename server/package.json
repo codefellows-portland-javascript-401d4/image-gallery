@@ -1,13 +1,15 @@
 {
-  "name": "july_25_express_basics",
+  "name": "server",
   "version": "1.0.0",
-  "description": "![cf](http://i.imgur.com/7v5ASc8.png)  Intro to ExpressJS ===",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "pretest": "eslint .",
-    "test": "MONGODB_URI=mongodb://localhost/pirates-test mocha",
-    "test:watch": "MONGODB_URI=mongodb://localhost/pirates-test nodemon --exec mocha"
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "MONGODB_URI=mongodb://localhost/image-gallery-test mocha",
+    "test:debug": "MONGODB_URI=mongodb://localhost/image-gallery-test mocha --debug-brk",
+    "test:watch": "MONGODB_URI=mongodb://localhost/image-gallery-test nodemon --exec mocha"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "ISC",

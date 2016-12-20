@@ -1,9 +1,13 @@
 import template from './app.html';
-import styles from './app.css';
+import './app.scss';
 
 export default {
     template,
-    controller() {
-        this.styles = styles;
-    }
+    controller
 };
+
+controller.$inject = ['$state'];
+
+function controller($state) {
+    this.gotoPirates = () => $state.go('pirates');
+}
