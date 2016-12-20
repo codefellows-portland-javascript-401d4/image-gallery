@@ -1,0 +1,9 @@
+@import 'colors';
+
+body {
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    background-color: $background;
+    color: $black;
+    margin: 0;
+    padding: 0;
+}

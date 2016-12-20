@@ -6,7 +6,6 @@ export default function imageService($http, apiUrl) {
     return {
         get() {
             return $http.get(`${apiUrl}/images`)
-                // our "data" is on the data prop of res
                 .then(res => res.data);
         },
         remove(id) {

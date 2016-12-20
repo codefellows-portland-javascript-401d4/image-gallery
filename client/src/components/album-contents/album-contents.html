@@ -1,0 +1,54 @@
+<section ng-class="$ctrl.styles.album">
+    <h2>{{$ctrl.album.name}}</h2>
+
+    <div class="view">
+        <span ng-repeat="view in ['detail', 'thumbnail', 'gallery']">
+        <input 
+            ng-model="$ctrl.view" 
+            ng-change="$ctrl.updateView()" 
+            name="view" 
+            ng-value="view" 
+            type="radio"> 
+            {{view}}
+        </span> 
+    </div>
+
+    <div class="back-to-albums" ui-sref="albums">Choose a Different Album</div>
+
+    <div ng-if="$ctrl.view === 'detail'">
+        <ul>
+            <li class="detail" ng-repeat="image in $ctrl.album.images">
+                <image-detail remove="$ctrl.removeImage" image="image"></image-detail>
+            </li>
+        </ul>
+        <div class="add-image">
+            <h3>Add an Image</h3>
+            <div>
+                <label>Title:</label>
+                <input ng-model="$ctrl.title">
+            </div>
+            <div>
+                <label>URL:</label>
+                <input ng-model="$ctrl.url">
+            </div>
+            <div>
+                <label>Description:</label>
+                <input ng-model="$ctrl.description">
+            </div>
+            <button class="add-button" ng-click="$ctrl.addImage()">Add</button>
+        </div>    
+    </div>
+
+    <ul ng-if="$ctrl.view === 'thumbnail'">
+        <li class="thumbnail" ng-repeat="image in $ctrl.album.images">
+            <image-thumbnail image="image"></image-thumbnail>
+        </li>
+    </ul>
+
+    <ul ng-if="$ctrl.view === 'gallery'">
+        <li class="gallery" ng-repeat="image in $ctrl.album.images">
+            <image-gallery image="image"></image-gallery>
+        </li>
+    </ul>
+
+</section>

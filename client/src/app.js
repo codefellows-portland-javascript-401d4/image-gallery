@@ -1,14 +1,20 @@
 import angular from 'angular';
-import './css/main.css';
+import './scss/main.scss';
 //gets index.js from components directory
 import components from './components';
+//gets index.js from services directory
 import services from './services';
+import uiRouter from 'angular-ui-router';
+import routes from './routes';
 
 
 const app = angular.module('myApp', [
     components,
-    services
+    services,
+    uiRouter
 ]);
+
+app.config(routes);
 
 const dev = 'http://localhost:3000/api';
 

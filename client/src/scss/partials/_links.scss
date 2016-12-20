@@ -1,0 +1,8 @@
+@mixin nav-links() {
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: $nav;
+    color: $white;
+    margin: 1%;
+    padding: 2% 4%;
+}
