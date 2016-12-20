@@ -6,8 +6,10 @@
 </header>
 
 <div ng-class="$ctrl.styles.albums">
-    <select ng-change="$ctrl.getAlbum()" ng-model="$ctrl.selection" ng-options="album.title for album in $ctrl.albums"></select>
-    <!--<h2>{{$ctrlalbum.title}} Album</h2>-->
+    <select ng-change="$ctrl.getAlbum()" ng-model="$ctrl.selection" ng-options="album.title for album in $ctrl.albums">
+        <option value="">please select</option>
+    </select>
+    <h2>{{$ctrl.selection.title}} Album</h2>
     <ul>
         <li ng-repeat="image in $ctrl.images track by image.title" class="list">
             <p>{{image.title}}</p>
@@ -22,7 +24,7 @@
     <h2>Add an Album</h2>
     <ul>
         <li ng-repeat="album in $ctrl.albums track by album.title" remove="$ctrl.remove" class="albumList">
-            <p>{{album.title}}</p>
+            <p>Title: {{album.title}}</p>
             <p>{{album.description}}</p>
             <button ng-click="$ctrl.remove(this.album)">remove</button>
         </li>

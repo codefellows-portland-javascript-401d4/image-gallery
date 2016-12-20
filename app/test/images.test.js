@@ -29,14 +29,17 @@ describe( 'images component', () => {
       }
     };
 
-    let component = null;
-    // before(() => {
-    // });
+    const albumService = {
+      get() {
+        return Promise.resolve();
+      }
+    };
 
+    let component = null;
 
     it('loads images', done => {
 
-      component = $component('parentComp', {imageService});
+      component = $component('parentComp', {imageService, albumService});
       assert.isOk(component.loading);
 
       setTimeout(() => {
@@ -47,7 +50,7 @@ describe( 'images component', () => {
     });
 
     it('add an images', done => {
-      component = $component('parentComp', {imageService});
+      component = $component('parentComp', {imageService, albumService});
       component.add(image);
 
       setTimeout(() => {
