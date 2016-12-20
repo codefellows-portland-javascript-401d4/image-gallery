@@ -1,8 +1,8 @@
 {
-  "name": "july_25_express_basics",
+  "name": "serverimagegallery",
   "version": "1.0.0",
   "description": "![cf](http://i.imgur.com/7v5ASc8.png)  Intro to ExpressJS ===",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "DEBUG=myapp.* nodemon server.js",
     "test": "MONGODB_URI=mongodb://localhost/images-test mocha",

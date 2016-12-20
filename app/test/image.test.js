@@ -1,9 +1,9 @@
 describe('Image gallery component', () => {
-  const {assert} = chai;
+  const { assert } = chai;
 
-  beforeEach(
-    angular.mock.module('components')
-  );
+  angular.mock.module.sharedInjector();  
+
+  beforeEach(angular.mock.module('components'));
 
   let $component = null;
 
@@ -12,24 +12,44 @@ describe('Image gallery component', () => {
   }));
 
   describe('Create component', () => {
+
     const images = [
-      { url: 'imageurl.com', image_title: 'image3', image_description: 'tinylittlebunny' }
+      { url: 'imageurl.com',
+        image_title: 'image3',
+        image_description: 'tinylittlebunny' },
+       { url: 'image2url.com',
+         image_title: 'image8',
+         image_description: 'smallbunny' }
     ];
 
-    const imageService = {
-      get() {
-        return Promise.resolve(images);
-      }
-    };
+    // const image = {
+    //    url: 'image5url.com',
+    //    image_title: 'image5',
+    //    image_description: 'littlebunny' };
 
-    // const component = $component('images', { imageService });
+    // const imageService = {
+    //   get() {
+    //     return Promise.resolve(images);
+    //   },
+    // };
 
-    it('Loads the images', done => {
-      let component = $component('imageApp', {imageService });
-      setTimeout(() => {
-        assert.equal(component.image, images[0]);
-        done();
-      });
-    });
+    // console.log($component);
+
+    // let component = null;
+    // before(() => {
+    //  component = $component('images', {imageService});
+    // });
+
+    // it('Loads the images', done => {
+
+    //   assert.isOk(component.loading);
+
+    //   // let component = $component('imageApp', {imageService });
+    //   setTimeout(() => {
+    //     assert.equal(component.images, images);
+    //     assert.isNotOk(component.loading);
+    //     done();
+    //   });
+    // });
   });
 });

@@ -35,11 +35,11 @@ describe('image', () => {
 
     it('/POST', done => {
         request
-            .post('/api/pirates')
+            .post('/api/images')
             .send(testImage)
             .then(res => {
                 const newImage = res.body;
-                assert.ok(pirate._id);
+                assert.ok(newImage._id);
                 testImage._id = newImage._id;
                 testImage.__v = newImage.__v;
                 done();

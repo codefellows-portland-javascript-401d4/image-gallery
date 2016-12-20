@@ -41,8 +41,8 @@ describe( 'image service', () => {
     it('add image', done => {
         const image = {
             image_title: 'very small bunny',
-            url: 'imageurl.com',
-            image_description: 'a small bunny eats a carrot'
+            url: 'http://2.bp.blogspot.com/-9zGBe_NutEA/TkzFaY2He1I/AAAAAAAAA_M/FYXoFdKWCeE/s640/cute+bunny+010.jpg',
+            image_description: 'a small bunny'
         };
 
         $httpBackend
@@ -53,12 +53,12 @@ describe( 'image service', () => {
             .then(newImage => {
                 assert.deepEqual(newImage, image);
                 done();
-    })
-    .catch(done);
+                })
+                .catch(done);
 
-    $httpBackend.flush();
+        $httpBackend.flush();
 
 
-});
+    });
 
 });
