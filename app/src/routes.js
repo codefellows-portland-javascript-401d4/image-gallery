@@ -23,8 +23,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'albums.album',
-    url: '/:id?display',
+    name: 'album',
+    url: '/albums/:id?display',
     params: {
       display: {
         dynamic: true
