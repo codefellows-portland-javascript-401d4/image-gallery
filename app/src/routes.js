@@ -31,8 +31,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
       }
     },
     resolve: {
-      id: ['$transitions$', t => t.params().id],
-      display: ['$transitions$', t => t.params().display || 'thumb']
+      id: ['$transition$', t => t.params().id],
+      display: ['$transition$', t => t.params().display || 'thumb']
     },
     component: 'albums'
   });
