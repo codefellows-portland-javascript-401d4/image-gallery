@@ -3,7 +3,7 @@
     <div>
         <!--The ui-sref invokes the album state with the id set as a param-->
         <span ng-repeat="album in $ctrl.albums"
-              ui-sref="album({id: album._id, display: 'thumb'})">
+              ui-sref="album({id: album._id})">
             {{album.title}}
         </span>
     </div>
