@@ -6,7 +6,13 @@ describe('image component test', () => {
         angular.mock.module('components')
     );
 
-    let $component = null;
+    let $component = null; 
+    let $state = {
+        current: {
+            name: 'component.state'
+        },
+        go: (state) => {return state;}
+    };
 
     beforeEach(angular.mock.inject($componentController => {
         $component = $componentController;
@@ -49,32 +55,9 @@ describe('image component test', () => {
             }
         };
 
-        it('loads images', done => {
-            const component = $component('imageApp', {imageService, albumService});
-            assert.isOk(component.loading);
-
-            setTimeout(() => {
-                assert.equal(component.images, images);
-                assert.isNotOk(component.loading);
-                done();
-            });
-        });
-
-        it('loads albums', done => {
-            const component = $component('imageApp', {imageService, albumService});
-            assert.isOk(component.loading);
-
-            setTimeout(() => {
-                assert.equal(component.albums, albums);
-                assert.isNotOk(component.loading);
-                done();
-            });
-
-            done();
-        });
-
         it('add new image', done => {
-            const component = $component('imageApp', {imageService, albumService});
+            const component = $component('imageApp', {imageService, albumService, $state});
+            component.images = images;
             component.add(image);
 
             setTimeout(() => {
@@ -85,14 +68,36 @@ describe('image component test', () => {
         });
 
         it('deletes an image', done => {
-            const component = $component('imageApp', {imageService, albumService});
+            const component = $component('imageApp', {imageService, albumService, $state});
             assert.isOk(component.loading);
+            component.images = images;
             component.remove(image);
 
             setTimeout(() => {
                 assert.equal(component.images.length, 2);
                 done();
             });
+        });
+
+        it('gets all albums if no albumName present', done => {
+            const component = $component('imageApp', {imageService, albumService, $state});
+            assert.isOk(component.loading);
+
+            setTimeout(() => {
+                assert.equal(component.albums.length, 2);
+                done();
+            });
+        });
+
+        it('ensures setDisplay can be called with new state', done => {
+            const component = $component('imageApp', {imageService, albumService, $state});
+            assert.isOk(component.loading);
+            component.setDisplay('imageDisplay');
+
+            setTimeout(() => {
+                assert.equal(component.state, 'component.imageDisplay');
+                done();
+            }); 
         });
     });
 });

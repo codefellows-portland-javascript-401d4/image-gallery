@@ -5,7 +5,11 @@ export default {
     template,
     bindings: {
         add: '<',
-        album: '<'
+        album: '<',
+        albums: '<'
+    },
+    require: {
+        parent: '^imageApp'
     },
     controller
 };

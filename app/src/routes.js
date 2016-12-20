@@ -14,19 +14,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'albumApp'
     });
 
-    // $stateProvider.state({
-    //     name: 'albums.options',
-    //     url: '/:name?view',
-    //     params: {
-    //         view: { dynamic: true }
-    //     },
-    //     resolve: {
-    //         name: ['$transition$', t => t.params().name],
-    //         view: ['$transition$', t => t.params().view || 'detail']
-    //     },
-    //     component: 'albumOptions'
-    // });
-
     $stateProvider.state({
         name: 'album',
         abstract: true,

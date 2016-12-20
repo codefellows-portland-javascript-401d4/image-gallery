@@ -3,13 +3,6 @@
     <h3>This album contains {{$ctrl.album.images.length}} image(s)</h3>
     <p>Select how you would like to view the images below!</p>
 </div>
-<!--<section ng-repeat="image in $ctrl.images" ng-class="$ctrl.styles.section">
-    <div ng-class="$ctrl.styles.option">
-        <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
-        <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="image"></image-thumbnail>
-        <image-gallery ng-if="$ctrl.view === 'gallery'" image="image"></image-gallery>
-    </div>
-</section>-->
 <image-app images="$ctrl.album.images"
             album-name="$ctrl.album.name">
 </image-app>

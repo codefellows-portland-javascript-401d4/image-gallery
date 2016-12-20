@@ -4,9 +4,12 @@ import styles from './image-detail.scss';
 export default {
     template,
     bindings: {
-        images: '='
-        // images: '=' ,
+        images: '=',
         // view: '@',
+        remove: '<'
+    },
+    require: {
+        parent: '^imageApp'
     },
     controller
 };
