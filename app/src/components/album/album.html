@@ -1,9 +1,12 @@
-<section>
+<section ng-class="$ctrl.styles.album">
     <header>
         <h3>{{$ctrl.album.name}}</h3>
     </header>
 
     <section>
+        <a ng-click="$ctrl.setDisplay('detail')">detail</a>
+        <a ng-click="$ctrl.setDisplay('thumbnail')">thumbnail</a>
+        <hr>
         <ui-view></ui-view>
     </section>
 

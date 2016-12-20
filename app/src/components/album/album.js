@@ -9,18 +9,17 @@ export default {
     controller   
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', '$state'];
 
-function controller(imageService) {
+function controller(imageService, $state) {
 
     this.styles = styles;
 
-    // this.setDisplay = name => {
-    //     const parts = $state.current.name.split('.');
-    //     parts[parts.length-1] = name;
-    //     const newState  = parts.join('.');
-    //     $state.go(newState, { foo: name });
-    // };
+    this.setDisplay = name => {
+        const parts = $state.current.name.split('.');
+        parts[parts.length-1] = name;
+        $state.go(parts.join('.'));
+    };
 
     this.add = image => {
         const album = this.album;
