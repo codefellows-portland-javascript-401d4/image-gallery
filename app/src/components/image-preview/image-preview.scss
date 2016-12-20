@@ -1,6 +1,11 @@
 :local(.preview-class) {
+  display: flex;
+  padding: 1%;
+}
+
+:local(.thumbnail-class) {
+  display: inline-block;
   height: 100px;
   width: 100px;
-  display: inline-block;
-  margin-right: 1%;
+  border: 1px solid white;
 }

@@ -1,23 +1,23 @@
 body {
-  background-color: #efdddd;
-  margin: 1em;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1em;
-  color: #ffffff; }
+  width: 80%;
+  margin: 30px auto;
+  font-family: "Raleway", sans-serif;
+  font-size: 1em; }
 
 h1 {
-  font-family: 'Lobster Two', cursive;
+  font-family: "Playfair Display", serif;
   font-size: 2.5em;
-  color: #574c7c; }
+  color: #721D46; }
 
 main {
-  width: 80%;
   margin: 0 auto;
-  background-color: #caa19e; }
+  padding: 1.5em;
+  background-color: #B5A835;
+  border-radius: 5px; }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
-  color: #574c7c; }
+  font-family: "Playfair Display", serif;
+  color: #721D46; }
 
 ul {
   list-style: none; }
@@ -27,9 +27,13 @@ ul {
   display: inline-block;
   margin-right: 1%; }
 ._3xgNpRofYdA4D1XSDahY6k {
+  display: flex;
+  padding: 1%; }
+
+.R4zt97UVjDLcQibpS-rhC {
+  display: inline-block;
   height: 100px;
   width: 100px;
-  display: inline-block;
-  margin-right: 1%; }
+  border: 1px solid white; }
 
 /*# sourceMappingURL=main.css.map*/

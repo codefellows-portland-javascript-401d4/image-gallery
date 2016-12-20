@@ -33750,14 +33750,14 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <a href=\"{{ $ctrl.image.url }}\"><img ng-class=\"$ctrl.styles['preview-class']\" ng-src=\"{{ $ctrl.image.url }}\" alt=\"{{ $ctrl.image.title }}\"/></a>\n</section>\n";
+	module.exports = "<section ng-class=\"$ctrl.styles['preview-class']\">\n  <a href=\"{{ $ctrl.image.url }}\"><img ng-src=\"{{ $ctrl.image.url }}\" ng-class=\"$ctrl.styles['thumbnail-class']\" alt=\"{{ $ctrl.image.title }}\"/></a>\n</section>\n";
 
 /***/ },
 /* 28 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"preview-class":"_3xgNpRofYdA4D1XSDahY6k"};
+	module.exports = {"preview-class":"_3xgNpRofYdA4D1XSDahY6k","thumbnail-class":"R4zt97UVjDLcQibpS-rhC"};
 
 /***/ },
 /* 29 */,

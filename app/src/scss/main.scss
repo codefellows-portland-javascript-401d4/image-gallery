@@ -1,26 +1,29 @@
+@import 'colors';
+@import 'fonts';
+
 body {
-  background-color: #efdddd;
-  margin: 1em;
-  font-family: 'Raleway', sans-serif;
+  width: 80%;
+  margin: 30px auto;
+  font-family: $body;
   font-size: 1em;
-  color: #ffffff; 
 }
 
 h1 {
-  font-family: 'Lobster Two', cursive;
+  font-family: $header;
   font-size: 2.5em;
-  color: #574c7c;
+  color: $purple;
 }
 
 main {
-  width: 80%;
   margin: 0 auto;
-  background-color: #caa19e;
+  padding: 1.5em;
+  background-color: $green;
+  border-radius: 5px;
 }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
-  color: #574c7c;
+  font-family: $header;
+  color: $purple;
 }
 
 ul {
