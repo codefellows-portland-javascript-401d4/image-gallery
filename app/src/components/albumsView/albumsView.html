@@ -2,7 +2,7 @@
 <div class="{{$ctrl.styles.view}}">
     <ul>
         <li ng-repeat="album in $ctrl.albums">
-            <p>Title: {{album.title}}</p>
+            <p><a ui-sref="album({id: album._id})">Title: {{album.title}}</a></p>
             <p>Description: {{album.description}}</p>
             <button class="basic" ng-click="$ctrl.trash(album)">Remove Album</button>
         </li>
