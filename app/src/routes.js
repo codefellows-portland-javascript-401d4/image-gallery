@@ -23,6 +23,21 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
+    name: 'albums.album',
+    url: '/:id?display',
+    params: {
+      display: {
+        dynamic: true
+      }
+    },
+    resolve: {
+      id: ['$transitions$', t => t.params().id],
+      display: ['$transitions$', t => t.params().display || 'thumb']
+    },
+    component: 'albums'
+  });
+
+  $stateProvider.state({
     name: 'about',
     abstract: true,
     url: '/about',
