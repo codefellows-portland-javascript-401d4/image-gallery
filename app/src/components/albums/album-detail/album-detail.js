@@ -17,12 +17,10 @@ function controller(albums, images) {
     albums.get(this.id).then(album => {
       this.album = album;
       this.images = album.images;
-      console.log(album);
     });
   };	
 
   this.uiOnParamsChanged = params => {
-    console.log(params);
     this.view = params.view;
   };
 
