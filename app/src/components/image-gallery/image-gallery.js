@@ -3,7 +3,8 @@ import style from './image-gallery.scss';
 
 export default {
   bindings: {
-    image: '='
+    image: '=',
+    display: '<'
   },
   controller,
   template

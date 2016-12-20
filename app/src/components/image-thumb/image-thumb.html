@@ -1,3 +1,7 @@
-<span ng-class="$ctrl.style.thumb">
-    <img ng-src="{{$parent.image.url}}">
-</span>
+<section ng-class="$ctrl.style.thumb">
+    <p>In the image-thumb</p>
+    <span ng-repeat="image in $ctrl.images">
+        <img ng-src="{{image.url}}">
+        {{$ctrl.image}}
+    </span>
+</section>

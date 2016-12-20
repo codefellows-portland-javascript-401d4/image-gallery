@@ -1,16 +1,20 @@
-import template from './image-app.html';
-import style from './image-app.scss';
+import template from './buttons.html';
+import style from './buttons.scss';
 
 export default {
   template,
-  controller
+  controller,
+  bindings: {
+    display: '<',
+    images: '='
+  }
 };
 
 controller.$inject = ['galleryService'];
 
 function controller(galleryService) {
   this.style = style;
-  this.view = '';
+  this.display = 'thumb';
 
   galleryService
     .getAlbums()

@@ -18,10 +18,15 @@ function controller(galleryService) {
   this.display = 'thumb';
 
   this.$onInit = () => {
+    console.log('id is ', this.id);
     galleryService.getAlbum(this.id)
       .then(images => {
         this.images = images;
       });
+  };
+
+  this.uiOnParamsChanged = (params) => {
+    this.display = params.display;
   };
 
 }
