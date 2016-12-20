@@ -4,14 +4,15 @@
   "description": "![cf](http://i.imgur.com/7v5ASc8.png)  Intro to ExpressJS ===",
   "main": "server.js",
   "scripts": {
-    "start": "DEBUG=myapp.* nodemon server.js",
+    "start": "nodemon server.js",
     "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
     "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
   },
-  "author": "Marty Nelson <marty@martypdx.com>",
+  "author": "Nathan Pickard",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bluebird": "^3.4.6",
     "cors": "^2.8.1",
     "debug": "^2.2.0",
     "express": "^4.14.0",
