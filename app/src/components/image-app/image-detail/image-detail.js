@@ -4,13 +4,13 @@ import styles from './image-detail.scss';
 export default {
     template,
     bindings: {
-        image: '=',
-        view: '@',
+        images: '='
+        // images: '=' ,
+        // view: '@',
     },
     controller
 };
 
 function controller() {
     this.styles = styles;
-    this.view = '';
 }

@@ -44,7 +44,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'album.detail',
         url: '/detail',
-        compoent: 'imageDetail'
+        component: 'imageDetail'
     });
 
     $stateProvider.state({
@@ -62,7 +62,32 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'images',
         url: '/images',
+        abstract: true,
+        default: '.detail',
+        resolve: {
+            images: ['imageService', images => {
+                return images.get();
+            }]
+        },
         component: 'imageApp'
+    });
+
+    $stateProvider.state({
+        name: 'images.detail',
+        url: '/detail',
+        component: 'imageDetail'
+    });
+
+    $stateProvider.state({
+        name: 'images.thumbnail',
+        url: '/thumbnail',
+        component: 'imageThumbnail'
+    });
+
+    $stateProvider.state({
+        name: 'images.gallery',
+        url: '/gallery',
+        component: 'imageGallery'
     });
 
     $stateProvider.state({

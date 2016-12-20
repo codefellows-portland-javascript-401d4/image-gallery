@@ -1,5 +1,5 @@
-<div ng-class="$ctrl.styles.detail">
-    <h4>Title: {{$ctrl.image.title}}</h4>
-    <p>Link: {{$ctrl.image.url}}</p>
-    <p>Desc.: {{$ctrl.image.description}}</p>
+<div ng-class="$ctrl.styles.detail" ng-repeat="image in $ctrl.images">
+    <h4>Title: {{image.title}}</h4>
+    <p>Link: {{image.url}}</p>
+    <p>Desc.: {{image.description}}</p>
 </div>

@@ -1,5 +1,14 @@
 <nav>
     <div>
+        <a ng-click="app.setDisplay('detail')">Detail</a>
+    </div>
+    <div>
+        <a ng-click="app.setDisplay('thumbnail')">Thumbnail</a>
+    </div>
+    <div>
+        <a ng-click="app.setDisplay('gallery')">Gallery</a>
+    </div>
+    <!--<div>
         <h4>View Option:</h4>
         <select ng-options="option for option in app.viewOptions" ng-model="app.view">
         </select>
@@ -19,10 +28,11 @@
                 ng-change="app.nullAlbum()">
             <option value="">View All</option>
         </select>
-    </div>
+    </div>-->
 </nav>
 <hr>
-<section ng-if="!app.image" ng-repeat="image in app.images | filter:app.album.name" ng-class="app.styles.app">
+<ui-view></ui-view>
+<!--<section ng-if="!app.image" ng-repeat="image in app.images | filter:app.album.name" ng-class="app.styles.app">
     <image-options 
                 image="image" 
                 viewoptions="app.viewOptions" 
@@ -36,6 +46,6 @@
                 viewoptions="app.viewOptions" 
                 view="app.view" 
                 del="app.remove">
-    </image-options>
+    </image-options>-->
 </section>
 <image-new add="app.add" albumoptions="app.albums"></image-new>

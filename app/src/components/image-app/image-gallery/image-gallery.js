@@ -4,7 +4,7 @@ import styles from './image-gallery.scss';
 export default {
     template,
     bindings: {
-        image: '='
+        images: '='
     },
     controller
 };
