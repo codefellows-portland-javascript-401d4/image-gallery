@@ -30,50 +30,21 @@ router
   })
 
   .post('/', jsonParser, (req, res, next) => {
-    new Image(req.body).save()
-      .then(saved => res.send(saved))
+    const newAlbum = new Album(req.body);
+    const newImg = new Image(req.body);
+    Album.findOne({name: req.body.name})
+      .then(album => {
+        if(album) {
+          return album;
+        }
+        return newAlbum.save();
+      })
+      .then(album => {
+        newImg.album = album._id;
+        return newImg.save();
+      })
+      .then(image => res.send(image))
       .catch(next);
   });
-
-  // .post('/', jsonParser, (req, res, next) => {
-  //   console.log('imagepost reqbody', req.body);
-  //   const newImg = new Image(req.body);
-  //   Album.find({name: req.body.albumName})
-  //     // .count()
-  //     .then(album => {
-  //       console.log('image post album', album);
-  //       if(album) {
-  //         let existingAlbum = album;
-  //         newImg.save()
-  //         // .then(savedImg => {
-  //         //   existingAlbum[0].images.push(savedImg);
-  //         //   console.log('existing album', existingAlbum);
-  //         // })
-  //         .then(savedImg => {
-  //           console.log('savedImg', savedImg);
-  //           existingAlbum[0].images = savedImg;
-  //           console.log('existalb', existingAlbum[0]);
-  //         })
-  //         .then(saved => res.send(saved))
-  //         .catch(next);
-  //       } else {
-  //         router.post('/albums', (req, res, next) => {
-  //           let newAlbum = new Album(req.body.albumName);
-  //           newAlbum.save()
-  //           .then(album => {
-  //             console.log('new album', album);
-  //             album.images.push(newImg)
-  //           .then(saved => res.send(saved))
-  //           .catch(next);
-  //           });
-  //         });
-          
-          
-        
-  //       }
-       
-  //     });
-  
-  // });
-
+ 
 module.exports = router;

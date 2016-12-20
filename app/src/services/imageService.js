@@ -13,10 +13,6 @@ export default function imageService($http, apiUrl) {
     addImage(image) {
       return $http.post(`${apiUrl}/images`, image)
         .then(res => res.data);
-    },
-    addAlbum(album) {
-      return $http.post(`${apiUrl}/albums`, album)
-        .then(res => res.data);
     }
   };
 }

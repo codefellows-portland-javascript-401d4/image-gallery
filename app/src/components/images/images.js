@@ -1,4 +1,5 @@
 import template from './images.html';
+import styles from './images.scss';
 
 export default {
   template,
@@ -12,6 +13,7 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(imageService) {
+  this.styles = styles;
 
   // imageService.getAll()
   //   .then(images => {
@@ -31,30 +33,19 @@ function controller(imageService) {
       });
   };
 
-  // this.addImage = image => {
-  //   imageService.add(image)
-  //     .then(saved => {
-  //       this.images.push(saved);
-  //     });
-  // };
-
-  this.addImage = (album, image) => {
-    imageService.addAlbum(album)
-      .then(savedAlb => {
-        imageService.addImage(image)
-          .then(savedImg => {
-            console.log('savedImg', savedImg);
-            console.log('savedAlbumId', savedAlb._id);
-            savedImg.album = savedAlb._id;
-            // savedAlb.images.push(saved);
-            console.log('savedImg with album', savedImg);
-          });
+  this.addImage = image => {
+    imageService.addImage(image)
+      .then(saved => {
+        this.images.push(saved);
       });
   };
+
+  this.imageType = 'text';
+  // this.choice = this.imageType;
 
   this.imageChoice = this.imageArr;
 
   this.choices = ['full', 'thumbnail', 'text'];
 
-  this.imageType = this.choices[2];
+  // this.imageType = this.choices[2];
 }
