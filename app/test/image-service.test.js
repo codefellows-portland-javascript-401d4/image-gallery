@@ -36,4 +36,22 @@ describe('image service', () => {
     $httpBackend.flush();
   });
 
+  it('add image', done => {
+
+    const image = {url: 'http://www.publicdomainpictures.net/pictures/90000/velka/cute-bunny-rabbit.jpg', imageTitle: 'Funny hair bunny', imageDescription: 'This is a bunny with funny hair'};
+
+    $httpBackend
+      .expectPOST('/api/images', image)
+      .respond(image);
+
+    imageService.add(image)
+      .then(savedImage => {
+        assert.deepEqual(savedImage, image);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+  });
+
 });

@@ -6,13 +6,11 @@ export default {
   controller
 };
 
-controller.$inject = ['albumService','$state'];
+controller.$inject = ['albumService'];
 
-function controller(albums, $state) {
+function controller(albums) {
 
   this.styles = styles;
-
-  this.view = 'detail';
 
   this.loading = true;
 
@@ -26,10 +24,6 @@ function controller(albums, $state) {
     .then(saved => {
       this.albums.push(saved);
     });
-  };
-
-  this.updateView = () => {
-    $state.go($state.current.name, { view: this.view });
   };
 
   this.new = () => {
