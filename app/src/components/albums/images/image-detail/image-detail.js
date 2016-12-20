@@ -3,11 +3,12 @@ import template from './image-detail.html';
 export default {
     template,
     bindings: {
+        // id: '<',
         image: '=',
         album: '=',
+        view: '<',
         remove: '<',
-        put: '<',
-        getAll: '<'
+        put: '<'
     },
     controller
 };
@@ -17,9 +18,12 @@ controller.$inject = ['albumService', 'imageService'];
 function controller(albums, images) {
 
     this.chosen = (albumid, imageid) => {
-        console.log('albumid, imageid', albumid, imageid);
         images.put(albumid, imageid).then(saved => {
             console.log('saved', saved);
+            images.getById(imageid).then(saved => {
+                console.log('saved getById', saved);
+                this.image.album = saved.album;
+            });
         });
     };
 
@@ -31,6 +35,7 @@ function controller(albums, images) {
         this.remove(this.image);
     };
 
-    console.log('this.image', this.image);
-
+    this.uiOnParamsChanged = params => {
+        this.view = params.view;
+    };
 }

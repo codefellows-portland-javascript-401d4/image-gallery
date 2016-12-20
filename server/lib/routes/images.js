@@ -18,7 +18,8 @@ router
 
     .get('/:id', (req, res, next) => {
         Image.findById(req.params.id)
-            .select('title description url')
+            .select('title description url album')
+            .populate('album', 'name')
             .lean()
             .then(image => res.send(image))
             .catch(err => {

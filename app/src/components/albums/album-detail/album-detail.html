@@ -1,6 +1,6 @@
 <section ng-class="$ctrl.styles.album">
     <h3>{{$ctrl.album.name}}</h3>
-    <div>
+    <div class="description">
         Album description: {{$ctrl.album.description}}
     </div>
 
@@ -10,7 +10,7 @@
         </li>
     </ul>
 
-    <div ng-if="$ctrl.view !== 'detail'">
+    <div class="description" ng-if="$ctrl.view !== 'detail'">
         There are {{$ctrl.album.images.length}} images in this album.
     </div>
     <button ng-click="$ctrl.deleteAlbum()">Delete Album</button>

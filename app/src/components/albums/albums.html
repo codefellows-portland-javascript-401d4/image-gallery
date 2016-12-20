@@ -1,16 +1,5 @@
 <section ng-class="$ctrl.styles.albums">
-    <h3>Albums</h3>
-    <div>
-        <span ng-repeat="view in ['detail', 'summary']">
-            <input 
-                ng-model="$ctrl.view"
-                ng-change="$ctrl.updateView()"
-                name="view"
-                ng-value="view"
-                type="radio">
-                {{view}}
-        </span>
-    </div>
+    <h3>Albums:</h3>
     <ul>
         <li ng-repeat="album in $ctrl.albums"
             ui-sref="albums.detail({
@@ -21,6 +10,17 @@
             <h4>{{album.name}}</h4>
         </li>
     </ul>
+    <div class="inputs">
+        <span ng-repeat="view in ['detail', 'summary']">
+            <input 
+                ng-model="$ctrl.view"
+                ng-change="$ctrl.updateView()"
+                name="view"
+                ng-value="view"
+                type="radio">
+                {{view}}
+        </span>
+    </div>
     <ui-view>Select an album to view details</ui-view>
 </section>
 <section>
