@@ -6,8 +6,20 @@ const Image = require('../models/image');
 
 router
   .get('/', (req, res, next) => {
+    let result;
     Album.find(req.query).lean()
-      .then(albums => res.send(albums))
+      .then(albums => {
+        result = albums;
+        Promise.all(albums.map((item, idx) => {
+          return Image.find({album: item._id})
+            .then(images => {
+              result[idx].images = images;
+            });
+        }))
+        .then(() => {
+          res.send(result);
+        });
+      })
       .catch(next);
   })
 

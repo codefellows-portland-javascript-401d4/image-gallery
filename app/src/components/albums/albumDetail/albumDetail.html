@@ -1,12 +1,9 @@
 <section>
-  <div>
-  <div>
-    <!--<div ng-repeat="image in albumDetailCtrl.album.images">-->
-      <images images="albumDetailCtrl.album.images"></images>
-    <!--</div>-->
-  </div>
-  <!--<div ng-if="albumDetailCtrl.viewType !== 'single'">
-    
-  </div>-->
+  <h2>Albums</h2>
+  <div ng-repeat="album in albumDetailCtrl.albums" ui-sref="album({
+    id: album._id
+  })">
+    <h4>{{album.name}}</h4>
+    <span ng-repeat="image in album.images">{{image.title}}</span>
   </div>
 </section>

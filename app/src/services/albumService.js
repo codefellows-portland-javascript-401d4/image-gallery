@@ -3,8 +3,9 @@ albumService.$inject = ['$http', 'apiUrl'];
 export default function albumService($http, apiUrl) {
   return {
     getAll() {
+      console.log('get all fires');
       return $http.get(`${apiUrl}/albums`)
-        .then(res => res.data);
+        .then(res => {console.log('resdata', res.data); return res.data;});
     },
     get(id) {
       if(!id) return this.getAll();

@@ -6,18 +6,18 @@ export default {
   controllerAs: 'albumsCtrl'
 };
 
-controller.$inject = ['albumService', '$state'];
+controller.$inject = ['albumService'];
 
-function controller(albumService, $state) {
-  this.viewType = 'single';
+function controller() {
+  // this.viewType = 'single';
 
-  this.changeViewType = () => {
-    $state.go($state.current.name, {viewType: this.viewType});
-  };
+  // this.changeViewType = () => {
+  //   $state.go($state.current.name, {viewType: this.viewType});
+  // };
 
-  albumService.get().then(albumArr => {
-    console.log('get hello');
-    this.albumArr = albumArr;
-    console.log(this.albumArr);
-  });
+  // albumService.get().then(albumArr => {
+  //   console.log('get hello');
+  //   this.albumArr = albumArr;
+  //   console.log(this.albumArr);
+  // });
 }

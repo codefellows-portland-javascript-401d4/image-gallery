@@ -3,8 +3,7 @@ import template from './albumDetail.html';
 export default {
   template,
   bindings: {
-    id: '<',
-    viewType: '<'
+    albums: '<'
   },
   controller,
   controllerAs: 'albumDetailCtrl'
@@ -12,14 +11,14 @@ export default {
 
 controller.$inject = ['albumService'];
 
-function controller(albumService) {
+function controller() {
 
-  this.$onInit = () => {
-    albumService.get(this.id).then(album => {
-      console.log('albServGet', album);
-      this.album = album;
-    });
-  };
+  // this.$onInit = () => {
+  //   albumService.get(this.id).then(album => {
+  //     console.log('albServGet', album);
+  //     this.album = album;
+  //   });
+  // };
 
   // this.uiOnParamsChanged = params => {
   //   this.viewType = params.viewType;
