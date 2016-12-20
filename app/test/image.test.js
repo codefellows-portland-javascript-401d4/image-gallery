@@ -50,18 +50,18 @@ describe('Image gallery component', () => {
 
     // let component = null;
     // before(() => {
-    //  component = $component('images', {imageService});
+    //  component = $component('imageApp', {imageService});
     // });
 
-    // it('Loads the images', done => {
-    //     const component = $component('imageApp', { imageService });
+    it('Loads the images', done => {
+        let component = $component('app', { imageService });
 
-    //   // assert.isOk(component.loading);
-    //   setTimeout(() => {
-    //     assert.equal(component.image, image);
-    //     // assert.isNotOk(component.loading);
-    //     done();
-    //   });
-    // });
+      // assert.isOk(component.loading);
+      setTimeout(() => {
+        assert.equal(component.image, image);
+        // assert.isNotOk(component.loading);
+        done();
+      });
+    });
   });
 });
