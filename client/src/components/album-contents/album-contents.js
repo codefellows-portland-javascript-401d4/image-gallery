@@ -26,6 +26,7 @@ function controller(albums, images) {
     
     // this.$onInit ensures that on later versions    
     // of angular this.id is not undefined
+
     this.$onInit = () => {
         albums.get(this.id).then(album => {
             this.album = album;
@@ -36,7 +37,7 @@ function controller(albums, images) {
         this.view = params.view;
     };
 
-    this.addImage = album => {
+    this.addImage = () => {
         images.add({
             title: this.title,
             url: this.url,

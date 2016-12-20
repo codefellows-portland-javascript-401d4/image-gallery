@@ -23,7 +23,7 @@ describe('album service', () => {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('get albumss', done => {
+    it('gets albums', done => {
         // mock return data from image get
         const albums = [1, 2, 3];
         
@@ -51,7 +51,7 @@ describe('album service', () => {
         $httpBackend.flush();
     });
 
-    it('add album', done => {
+    it('adds an album', done => {
 
         const album = {
             name: 'Big Bunnies',
