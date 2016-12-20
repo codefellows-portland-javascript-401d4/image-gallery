@@ -10,6 +10,7 @@ controller.$inject = ['albumService'];
 
 function controller(albumService) {
   this.styles = styles;
+  this.view = 'albums';
 
   albumService.getAll()
     .then(albums => {
@@ -18,5 +19,13 @@ function controller(albumService) {
     .catch(err => {
       console.log('Album controller getAll catch', err);
     });
+
+  this.add = album => {
+    albumService.add(album)
+      .then(saved => this.albums.push(saved))
+      .catch(err => {
+        console.log('Album service add catch', err);
+      });
+  };
 
 }

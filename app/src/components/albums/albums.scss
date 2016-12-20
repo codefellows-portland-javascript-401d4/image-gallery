@@ -1,7 +1,11 @@
 :local(.albums) {
   @import 'colors';
 
-  section {
+  a {
+    text-decoration: none;
+  }
+  
+  article {
     width: 80%;
     display: flex;
     flex-wrap: wrap;

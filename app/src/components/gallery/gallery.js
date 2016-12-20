@@ -3,6 +3,9 @@ import styles from './gallery.scss';
 
 export default {
   template,
+  bindings: {
+    album: '<'
+  },
   controller
 };
 
@@ -12,13 +15,13 @@ function controller(imageService) {
   this.styles = styles;
   this.view = 'info';
 
-  imageService.get()
-    .then(images => {
-      this.img = images;
-    })
-    .catch(err => {
-      console.log('Initial get all catch', err);
-    });
+  // imageService.get()
+  //   .then(images => {
+  //     this.img = images;
+  //   })
+  //   .catch(err => {
+  //     console.log('Initial get all catch', err);
+  //   });
 
   this.add = image => {
     imageService.add(image)
