@@ -14,7 +14,7 @@ mongoose.connection.on('error', function(err) {
 });
 
 mongoose.connection.on('disconnected', function() {
-  console.log('Mongoose default connection disconnected.')
+  console.log('Mongoose default connection disconnected.');
 });
 
 process.on('SIGINT', function() {
