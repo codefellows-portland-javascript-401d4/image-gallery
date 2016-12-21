@@ -1,11 +1,7 @@
 <section>
-  <h2>{{$album.album.name}}</h2>
   <div>
     <img ng-src="{{$album.album.flag}}">
   </div>
-
-  <h3>Images</h3>
-
   <images images="$album.albumImages"
           album="$album.album">
   </images>
