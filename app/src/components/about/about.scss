@@ -24,3 +24,7 @@
         border: 1px solid $frontcolor;
     }
 }
+
+:local(.section) {
+    padding: 0;
+}

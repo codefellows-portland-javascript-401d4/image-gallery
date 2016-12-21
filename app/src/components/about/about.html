@@ -3,9 +3,9 @@
     <a ui-sref="about.me" ui-sref-active="hot">Myself</a>
     <a ui-sref="about.gallery" ui-sref-active="hot">This Image Gallery</a>
 </nav>
-<section>
+<section ng-class="$ctrl.styles.section">
     <ui-view name="header"></ui-view>
 </section>
-<section>
+<section ng-class="$ctrl.styles.section">
     <ui-view name="main"></ui-view>
 </section>
