@@ -1,11 +1,13 @@
+<!-- button to add new spider name & url on app page -->
+
 <section ng-class="$ctrl.styles['spider-class']">
   <div>
-    <label>name:</label>
+    <label>image name:</label>
     <input ng-model="$ctrl.name">
   </div>
   <div>
-    <label>type:</label>
-    <input ng-model="$ctrl.type">
+    <label>image url:</label>
+    <input ng-model="$ctrl.url">
   </div>
   <button ng-click="$ctrl.addNew()">add</button>
 </section>

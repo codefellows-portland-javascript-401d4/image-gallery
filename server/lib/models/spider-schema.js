@@ -8,7 +8,11 @@ const schema = new Schema({
   },
   type: {
     type: String,
-    default: 'jumping spider'
+    default: 'spider'
+  },
+  url: {
+    type: String,
+    required: true
   }
 });
 
