@@ -7,28 +7,22 @@ export default {
     controllerAs: 'app'
 };
 
-controller.$inject = ['imageService', 'albumService', '$state'];
+controller.$inject = ['albumService'];
 
-function controller(imageService, albumService, $state) {
+function controller(albumService) {
     this.styles = styles;
     this.loading = true;
     this.albums = [];
-    this.view = '';
+    this.view = 'detail';
 
-    // this.$onInit = () => { // testing doesn't seem to like this
     albumService
         .getAll()
         .then(albums => {
             this.albums = albums;
             this.loading = false;
         });
-    // };
 
-    this.updateView = () => {
-        $state.go($state.current.name, { view: this.view });
-    };
-
-    this.add = album => {
+    this.addAlbum = album => {
         this.loading = true;
         albumService
             .add(album)

@@ -1,41 +1,10 @@
-<nav>
-    <div>
-        <h4>View Option:</h4>
-        <select ng-options="option for option in app.viewOptions" ng-model="app.view">
-        </select>
-    </div>
-    <div>
-        <h4>Album Filter:</h4>
-        <select ng-options="album.name for album in app.albums" 
-                ng-model="app.album" 
-                ng-change="app.nullImage()">
-            <option value=""></option>
-        </select>
-    </div>
-    <div>
-        <h4>Image Select:</h4>
-        <select ng-options="image.title for image in app.images" 
-                ng-model="app.image"
-                ng-change="app.nullAlbum()">
-            <option value="">View All</option>
-        </select>
-    </div>
-</nav>
+<ul ng-class="app.styles.navigator">
+    <li ng-click="app.setDisplay('detail')">Detail</li>
+    <li ng-click="app.setDisplay('thumbnail')">Thumbnail</li>
+    <li ng-click="app.setDisplay('gallery')">Gallery</li>
+</ul>
 <hr>
-<section ng-if="!app.image" ng-repeat="image in app.images | filter:app.album.name" ng-class="app.styles.app">
-    <image-options 
-                image="image" 
-                viewoptions="app.viewOptions" 
-                view="app.view" 
-                del="app.remove">
-    </image-options>
+<section>
+    <ui-view></ui-view>
 </section>
-<section ng-if="app.image" ng-class="app.styles.app">
-    <image-options 
-                image="app.image" 
-                viewoptions="app.viewOptions" 
-                view="app.view" 
-                del="app.remove">
-    </image-options>
-</section>
-<image-new add="app.add" albumoptions="app.albums"></image-new>
+<image-new add="app.add" album="app.albumName" albums="app.albums"></image-new>

@@ -38,6 +38,7 @@ body {
 section {
     width: $boxwidth;
     margin: 1em auto;
+    padding: 5px;
     background-color: $foregroundblue;
     @include rounded(4px);
 }

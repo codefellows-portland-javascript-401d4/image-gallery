@@ -68,7 +68,7 @@ describe('album component test', () => {
 
         it('adds albums', done => {
             const component = $component('albumApp', {imageService, albumService, $state});
-            component.add(album);
+            component.addAlbum(album);
 
             setTimeout(() => {
                 assert.equal(component.albums.length, 3);

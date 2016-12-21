@@ -1,0 +1,8 @@
+<div ng-class="$ctrl.styles.header">
+    <h2>You are viewing the images in the {{$ctrl.album.name}} album</h2>
+    <h3>This album contains {{$ctrl.album.images.length}} image(s)</h3>
+    <p>Select how you would like to view the images below!</p>
+</div>
+<image-app images="$ctrl.album.images"
+            album-name="$ctrl.album.name">
+</image-app>

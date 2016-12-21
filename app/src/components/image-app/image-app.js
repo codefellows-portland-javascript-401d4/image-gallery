@@ -3,34 +3,26 @@ import styles from './image-app.scss';
 
 export default {
     template,
+    bindings: {
+        images: '<',
+        albumName: '<'
+    },
     controller,
     controllerAs: 'app'
 };
 
-controller.$inject = ['imageService', 'albumService'];
+controller.$inject = ['imageService', 'albumService', '$state'];
 
-function controller(imageService, albumService) {
+function controller(imageService, albumService, $state) {
     this.styles = styles;
-    this.loading = true;
-    this.image = '';
-    this.album = '';
 
-    // this.$onInit = () => { //for whatever reason images.test.js doesn't like this'
-    imageService
-        .get()
-        .then(images => {
-            this.images = images;
-            this.loading = false;
-        });
-    albumService
-        .getAll()
-        .then(albums => {
-            this.albums = albums;
-        });
-    // };
-
-    this.viewOptions = ['', 'detail','thumbnail','gallery'];
-    this.view = '';
+    this.setDisplay = name => {
+        const parts = $state.current.name.split('.');
+        parts[parts.length-1] = name;
+        const newState  = parts.join('.');
+        this.state = newState;
+        $state.go(newState);
+    };
 
     this.remove = image => {
         this.loading = true;
@@ -53,11 +45,13 @@ function controller(imageService, albumService) {
             });
     };
 
-    this.nullImage = () => {
-        this.image = '';
-    };
-
-    this.nullAlbum = () => {
-        this.album = '';
+    if (!(this.albumName)) {
+        this.loading = true;
+        albumService
+            .getAll()
+            .then(albums => {
+                this.loading = false;
+                this.albums = albums;
+            });
     };
 };

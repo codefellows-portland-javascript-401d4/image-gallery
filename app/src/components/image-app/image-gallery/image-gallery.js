@@ -4,7 +4,11 @@ import styles from './image-gallery.scss';
 export default {
     template,
     bindings: {
-        image: '='
+        images: '=',
+        remove: '<'
+    },
+    require: {
+        parent: '^imageApp'
     },
     controller
 };
