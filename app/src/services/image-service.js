@@ -9,6 +9,12 @@ export default function imageService($http, apiUrl) {
                 // our "data" is on the data prop of res
                 .then(res => res.data);
 		},
+
+		getByAlbum(albumId) {
+			return $http.get(`${apiUrl}/images/albumId/${albumId}`)
+                .then(res => res.data);
+		},
+
 		remove(id) {
 			return $http.delete(`${apiUrl}/images/${id}`)
                 .then(res => res.data);

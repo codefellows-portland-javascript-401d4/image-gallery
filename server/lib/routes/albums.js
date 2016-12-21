@@ -1,47 +1,39 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser').json();
-const Image = require('../models/image');
+const Album= require('../models/album');
 
 router
     .get('/', (req, res, next) => {
 	const query = {};
-	Image.find(query)
+	Album.find(query)
             .lean()
-            .then(images => res.send(images ))
+            .then(albums => res.send(albums ))
             .catch(next);
 })
 
     .get('/:id', (req, res, next) => {
-	Image.findById(req.params.id)
-            .select('title url description')
+	Album.findById(req.params.id)
+            .select('title description')
             .lean()
-            .then(image => res.send(image ))
+            .then(album => res.send(album ))
             .catch(next);
 })
-
-//find by album id
-    .get('/albumId/:albumId', function (req, res, next) {
-	    Image.find({albumId: req.params.albumId})
-            .then(image => res.send(image ))
-            .catch(next);
-})
-
 
     .delete('/:id', (req, res, next) => {
-	Image.findByIdAndRemove(req.params.id)
+	Album.findByIdAndRemove(req.params.id)
             .then(deleted => res.send(deleted ))
             .catch(next);
 })
 
     .post('/', bodyParser, (req, res, next) => {
-	new Image(req.body).save()
+	new Album(req.body).save()
             .then(saved => res.send(saved ))
             .catch(next);
 })
 
     .put('/:id', bodyParser, (req, res, next) => {
-	Image.findByIdAndUpdate(req.params.id, req.body)
+	Album.findByIdAndUpdate(req.params.id, req.body)
             .then(saved => res.send(saved))
             .catch(next);
 });

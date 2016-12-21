@@ -4,7 +4,9 @@ export default {
 	template,
 	bindings: {
 		remove: '<',
-		images: '='
+		images: '=',
+		deleted: '=',
+		imagename: '<'
 	},
 	controller,
 	controllerAs: 'imageDetail'  

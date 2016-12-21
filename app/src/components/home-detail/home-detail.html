@@ -1,0 +1,7 @@
+<div>
+    <form> What animal would you like to see images of?<br>
+        <input type="text" ng-model="animalChoice"><br>
+        <input type="submit" ng-click="homeDetail.checkAnimal()">
+    </form>
+    <div>{{responseText}}<div>
+    <button ng-show="picturesButton" ui-sref="images">See Goat Images!</button>

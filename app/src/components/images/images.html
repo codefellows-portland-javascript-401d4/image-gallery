@@ -1,15 +1,23 @@
 <section>
     <div class="loader" ng-if="images.loading">Loading...</div>
-    <form id="diplay-form">
-        Select an image display.
-        <select ng-model="displayChoice" ng-options="x for x in images.displays">
+
+    <form id="album-select-form">
+        <h3>Select an album.</h3>
+        <select ng-model="images.albumChoice" ng-options="x.title for x in images.albums" ng-change = 'images.filter()'>
+        <option value="">select an album</option>
         </select>
     </form>
-    <div>
-        <image-detail ng-if="displayChoice==='text' || displayChoice==='all'" images="images.images" remove="images.remove"></image-detail>
-        <image-gallery ng-if="displayChoice==='full' || displayChoice==='all'" images="images.images" remove="images.remove"></image-gallery>
-        <image-thumb ng-if="displayChoice==='thumbnail' || displayChoice==='all'" images="images.images" remove="images.remove"></image-thumbnail>
-    </div>
 
-    <new-image add="images.add"></new-image>
+    <form id="diplay-select-form">
+        <h3>Select an image display.</h3>
+        <select ng-model="displayChoice" ng-options="x for x in images.displays">
+        <option value="">select a display</option>
+        </select>
+    </form>
+
+    <div>
+        <image-detail ng-if="displayChoice==='text'" images="images.images" remove="images.remove" deleted = "images.deleted" imagename="images.imagename"></image-detail>
+        <image-gallery ng-if="displayChoice==='full'" images="images.images" remove="images.remove" deleted="images.deleted" imagename="images.imagename"></image-gallery>
+        <image-thumb ng-if="displayChoice==='thumbnail'" images="images.images" remove="images.remove" deleted="images.deleted" imagename="images.imagename"></image-thumbnail>
+    </div>
 </section>

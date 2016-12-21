@@ -1,10 +1,18 @@
 
-    <!-------------------------Header---------------------------------->
-    <header>
+    <!--========================Header===========================-->
+    <div class='header'>
         <h1>Goat Images</h1>
         <h2><em>Images of goats.  That's it.</em></h2>
-    </header>
-    <!-------------------------Image Gallery------------------------------>
+    <a ui-sref="home" ui-sref-active="clicked">Home</a>
+    <a ui-sref="images" ui-sref-active="clicked">Images</a>
+    <a ui-sref="add" ui-sref-active="clicked">Add Images</a>
+    <a ui-sref="about" ui-sref-active="clicked">About</a>
+
+    </div>
+    <!--==================Dynamic Page Content========================-->
 <main>
-    <images></images>
+    <ui-view></ui-view>
 </main>
+<footer>
+    <h4>Mugsy Carter &copy 2016</h4>
+    </footer>

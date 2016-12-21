@@ -1,9 +1,11 @@
 <section>
+    <h3 ng-show="imageThumb.deleted===true">Image: {{imageThumb.imagename}} was removed from the collection.</h3>
     <ul>
         <li ng-repeat ='image in imageThumb.images'> 
             <h3>Image Title: {{image.title}}<h3>
             <img ng-src="{{image.url}}" alt={{image.title}} height="100px" width="100px"> 
             <button ng-click="imageThumb.removeImage(image)">remove</button>
         </li>
+     
     </ul>
 </section>
