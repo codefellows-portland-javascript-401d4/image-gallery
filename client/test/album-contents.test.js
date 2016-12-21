@@ -1,4 +1,3 @@
-
 describe( 'album-contents component', () => {
     const { assert } = chai;
 
@@ -18,7 +17,6 @@ describe( 'album-contents component', () => {
     }));
 
     describe('create component', () => {
-
         const image = {
             title: 'Really Super Tiny Bunny',
             url: 'http://www.fakepictureurl3.com',
@@ -79,7 +77,6 @@ describe( 'album-contents component', () => {
         });
 
         it('loads albums', done => {
-
             component.$onInit();
 
             setTimeout(() => {
@@ -89,7 +86,6 @@ describe( 'album-contents component', () => {
         });
 
         it('adds an image', done => {
-
             component.title = 'Really Super Tiny Bunny';
             component.url =  'http://www.fakepictureurl3.com';
             component.description = 'A picture of a really super tiny bunny';   
@@ -107,7 +103,6 @@ describe( 'album-contents component', () => {
         });
 
         it('removes an image', done => {
-
             component.removeImage(component.album.images[2]);
 
             setTimeout(() => {
@@ -116,7 +111,6 @@ describe( 'album-contents component', () => {
                 done();
             });
         });
-
 
     });
 

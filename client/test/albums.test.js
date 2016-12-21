@@ -18,7 +18,6 @@ describe( 'albums component', () => {
     }));
 
     describe('create component', () => {
-
         const albums = [
             {
                 name: 'Big Bunnies',
@@ -63,7 +62,6 @@ describe( 'albums component', () => {
 
 
         it('loads albums', done => {
-
             setTimeout(() => {
                 assert.equal(component.albums, albums);
                 done();
@@ -72,7 +70,6 @@ describe( 'albums component', () => {
 
 
         it('adds an album', done => {
-
             component.name = 'Tiny Bunnies';
             component.featured =  'http://www.fakepictureurl3.com';
 
@@ -87,7 +84,6 @@ describe( 'albums component', () => {
         });
 
         it('removes an album', done => {
-
             const event = {};
 
             event.stopPropagation = () => ''; 

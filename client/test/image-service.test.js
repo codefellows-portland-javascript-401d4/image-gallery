@@ -52,7 +52,6 @@ describe('image service', () => {
     });
 
     it('adds an image', done => {
-
         const image = {
             title: 'Big Bunny',
             url: 'http://www.fakepictureurl.com',
@@ -74,7 +73,6 @@ describe('image service', () => {
     });
 
     it('deletes an image', done => {
-
         const image = {
             title: 'Big Bunny',
             url: 'http://www.fakepictureurl.com',

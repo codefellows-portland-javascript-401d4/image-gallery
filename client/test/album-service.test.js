@@ -1,9 +1,7 @@
-
 describe('album service', () => {
     const { assert } = chai;
 
     angular.mock.module.sharedInjector();
-
 
     // we need to mock the services module, that's were
     // image service lives
@@ -52,7 +50,6 @@ describe('album service', () => {
     });
 
     it('adds an album', done => {
-
         const album = {
             name: 'Big Bunnies',
             featured: 'http://www.fakepictureurl.com'
@@ -73,7 +70,6 @@ describe('album service', () => {
     });
 
     it('deletes an album', done => {
-
         const album = {
             name: 'Big Bunnies',
             featured: 'http://www.fakepictureurl.com',
