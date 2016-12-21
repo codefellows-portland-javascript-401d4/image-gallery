@@ -33182,7 +33182,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-class=\"app.styles.top\">\n    <div>\n        <h4>Album Choice:</h4>\n        <ul ng-class=\"app.styles.list\">\n            <li ng-repeat=\"album in app.albums\"\n                ui-sref=\"album({\n                    name: album.name\n                })\">{{album.name}}\n            </li>\n        </ul>\n    </div>\n</div>\n<hr>\n<album-new addalbum=\"app.addAlbum\" loading=\"app.loading\"></album-new>";
+	module.exports = "<div ng-class=\"app.styles.top\">\n    <div>\n        <h4>Album Choice:</h4>\n        <ul ng-class=\"app.styles.list\">\n            <li ng-repeat=\"album in app.albums\"\n                ui-sref=\"album({\n                    name: album.name\n                })\">{{album.name}}\n            </li>\n        </ul>\n    </div>\n</div>\n<hr>\n<album-new add-album=\"app.addAlbum\" loading=\"app.loading\"></album-new>";
 
 /***/ },
 /* 22 */
@@ -33232,7 +33232,7 @@
 	    };
 	
 	    this.addNewAlbum = function () {
-	        _this.addalbum({
+	        _this.addAlbum({
 	            name: _this.name
 	        });
 	        _this.reset();
@@ -33699,7 +33699,7 @@
 /* 57 */
 /***/ function(module, exports) {
 
-	module.exports = "<header ng-class=\"$ctrl.styles.root\">\n    <h1>Fun Image Viewer!</h1>\n    <page-root-header>\n        <header-links>\n            <ui-view name=\"links\"></ui-view>\n        </header-links>\n    </page-root-header>\n</header>\n<hr>\n<main>\n    <ui-view name=\"main\"></ui-view>\n</main>";
+	module.exports = "<header ng-class=\"$ctrl.styles.root\">\n    <h1>Fun Image Viewer!</h1>\n    <page-root-header>\n        <header-links>\n            <ui-view name=\"links\"></ui-view>\n        </header-links>\n    </page-root-header>\n</header>\n<hr>\n<main>\n    <ui-view name=\"main\"></ui-view>\n    <ui-view name=\"submain\"></ui-view>\n</main>";
 
 /***/ },
 /* 58 */
@@ -42262,6 +42262,9 @@
 	        },
 	        views: {
 	            main: {
+	                component: 'albumApp'
+	            },
+	            submain: {
 	                component: 'album'
 	            }
 	        }
