@@ -1,7 +1,11 @@
 @import 'colors';
 
 //This tag is telling the compiler to only apply these style rules to this specific component.
-:local(images){
+:local(){
+    .delete-message {
+        color: $blue;
+    }
+
     li {
         border: 3px solid $grey;
         text-decoration: none;
@@ -10,7 +14,6 @@
     }
 
     ul li {
-
         list-style-type: none;
     }
 

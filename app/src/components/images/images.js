@@ -7,13 +7,12 @@ export default {
 	controllerAs: 'images'   
 };
 
-controller.$inject = ['imageService', 'albumService'];
+controller.$inject = ['imageService', 'albumService', '$timeout'];
 
-function controller(images, albums) {
+function controller(images, albums, $timeout) {
 	this.loading = true;
- 
+	this.deleted = false;
 	this.styles = styles;
-	
 	this.displays = ['thumbnail', 'text', 'full'];
 	
 	//find images that meet the filter selection
@@ -43,12 +42,18 @@ function controller(images, albums) {
     // remove this image
 	this.remove = image => {
 		this.loading = true;
-		images.remove(image._id)
+		this.imagename = image.title;
+		this.deleted = true;
+		$timeout(()=>{
+			this.deleted=false;
+			images.remove(image._id)
             .then(() => {
 	this.loading = false;
                 // after server has updated data, modify in-memory array
 	const index = this.images.indexOf(image);
 	if (index > -1) this.images.splice(index, 1);
 });
+		},1800);
+
 	};
 }

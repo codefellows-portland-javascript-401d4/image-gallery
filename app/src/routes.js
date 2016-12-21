@@ -11,7 +11,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
 	$stateProvider.state({
 		name: 'images', 
 		url: '/images', 
-		component: 'images' 
+		resolve: {
+			images: ['imageService', images => {
+				return images.get();
+			}]
+		},
+		component: 'images'
 	});
 
 	$stateProvider.state({

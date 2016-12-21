@@ -35,7 +35,7 @@ function controller(images, albums, $timeout) {
 		this.albumAdded=true;
 		$timeout(()=>{
 			this.reset();
-		},3000);
+		},1800);
 
 	};
 
@@ -50,6 +50,6 @@ function controller(images, albums, $timeout) {
 
 		$timeout(()=>{
 			this.reset();
-		},3000);
+		},1800);
 	};
 }
