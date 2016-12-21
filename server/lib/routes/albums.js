@@ -18,7 +18,6 @@ router
       .all([
         Album.findById(req.params.id).lean(),
         Image.find({ albumId: req.params.id })
-          .select('title')
           .lean()
       ])
       .then(([album, images]) => {

@@ -7,8 +7,7 @@ router
   .get('/', (req, res, next) => {
     Image.find()
       .populate({
-        path: 'albumId',
-        select: 'title'
+        path: 'albumId'
       })
       .lean()
       .then(images => res.send(images))
