@@ -6,6 +6,11 @@ const Image = require('../models/image');
 router
   .get('/', (req, res, next) => {
     Image.find()
+      .populate({
+        path: 'albumId',
+        select: 'title'
+      })
+      .lean()
       .then(images => res.send(images))
       .catch(next);
   })

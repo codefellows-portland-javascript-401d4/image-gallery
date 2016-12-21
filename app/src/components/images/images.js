@@ -4,7 +4,8 @@ import styles from './images.scss';
 export default {
   template,
   bindings: {
-    album: '<'
+    album: '<',
+    images: '='
   },
   controller
 };
@@ -12,15 +13,18 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(imageService) {
+  this.$onInit = () => {
+    console.log('id', this.album);
+  };
   this.styles = styles;
 
   this.views = ['Details', 'Thumbnail', 'Full Size'];
   this.view = this.views[0];
 
   this.add = image => {
-    image._id = this.album._id;
+    image.albumId = this.album._id;
     imageService.add(image)
-      .then(saved => this.album.image.push(saved))
+      .then(saved => this.album.images.push(saved))
       .catch(err => console.error(err));
   };
 

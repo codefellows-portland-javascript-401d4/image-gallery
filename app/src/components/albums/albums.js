@@ -29,7 +29,7 @@ function controller(albumService, $state) {
 
 // remove function not yet working
   // this.remove = album => {
-  //   albums.remove(album._id)
+  //   albums.+remove(album._id)
   //     .then(() => {
   //       const index = this.albums.indexOf(album);
   //       if(index > -1) this.albums.splice(index, 1);

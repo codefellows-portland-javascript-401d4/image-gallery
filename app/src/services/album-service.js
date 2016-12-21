@@ -8,6 +8,7 @@ export default function albumService($http, apiUrl) {
     },
 
     get(albumId) {
+      console.log('album id', albumId);
       return $http.get(`${apiUrl}/albums/${albumId}`)
         .then(res => res.data);
     },

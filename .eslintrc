@@ -17,6 +17,8 @@
     "node": true,
     "mocha": true,
     "es6": true
+    // "protractor": true,
+    // "jasmine": true
   },
   "globals": {
     "angular": false,

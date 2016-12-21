@@ -22,8 +22,9 @@ router
           .lean()
       ])
       .then(([album, images]) => {
+        console.log('album', album);
         album.images = images;
-        res.send(album.images);
+        res.send(album);
       })
       .catch(next);
   })
