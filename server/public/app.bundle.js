@@ -33081,6 +33081,7 @@
 	    this.reset();
 	
 	    this.addAlbum = function () {
+	        console.log('adding new album');
 	        _this.add({
 	            title: _this.title,
 	            description: _this.description
@@ -33335,21 +33336,27 @@
 	
 	    this.myChoice = this.choices[0];
 	
+	    this.album = {};
+	
 	    // this.updateView = () => {
 	    //     $state.go($state.current.name, {view: this.myChoice});
 	    // };
 	
-	    // set this to onInit
-	    this.getOne(this.albumId);
+	    this.$onInit = function () {
+	        _this.getOne(_this.albumId);
+	    };
 	
 	    this.getOne = function (albumId) {
-	        albumService.getOne(albumId).then(function (album) {
+	        console.log('getOne called with:', albumId);
+	        // const album = {};
+	        _this.album._id = albumId;
+	        albumService.getOne(_this.album).then(function (album) {
 	            _this.album = album;
 	        });
 	    };
 	
 	    this.add = function (image) {
-	        image.albumId = album._id;
+	        image.albumId = _this.album._id;
 	        imageService.add(image).then(function (saved) {
 	            return _this.album.images.push(saved);
 	        });
@@ -33553,7 +33560,7 @@
 /* 47 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <hr>\n    <a ui-sref=\"welcome\" ui-sref-active=\"\">Home</a>\n    <a ui-sref=\"about\" ui-sref-active=\"\">About</a>\n    <a ui-sref=\"albums\" ui-sref-active=\"\">Albums</a>\n    <a ui-sref=\"images\" ui-sref-active=\"\">Images</a>\n    <hr>\n    <main>\n        <ui-view></ui-view>\n    </main>\n</section>";
+	module.exports = "<section>\n    <hr>\n    <a ui-sref=\"welcome\" ui-sref-active=\"\">Home</a>\n    <a ui-sref=\"about\" ui-sref-active=\"\">About</a>\n    <a ui-sref=\"albums\" ui-sref-active=\"\">Albums</a>\n    <!--<a ui-sref=\"images\" ui-sref-active=\"\">Images</a>-->\n    <hr>\n    <main>\n        <ui-view></ui-view>\n    </main>\n</section>";
 
 /***/ },
 /* 48 */
@@ -42128,11 +42135,11 @@
 	        }
 	    });
 	
-	    $stateProvider.state({
-	        name: 'images',
-	        url: '/images',
-	        component: 'imageChoice'
-	    });
+	    // $stateProvider.state({
+	    //     name: 'images',
+	    //     url: '/images',
+	    //     component: 'imageChoice'
+	    // });
 	
 	    $urlRouterProvider.otherwise('/');
 	};

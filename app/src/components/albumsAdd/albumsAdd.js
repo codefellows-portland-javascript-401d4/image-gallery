@@ -23,7 +23,6 @@ function controller() {
     this.reset();
 
     this.addAlbum = () => {
-        console.log('adding new album');
         this.add({
             title: this.title,
             description: this.description
