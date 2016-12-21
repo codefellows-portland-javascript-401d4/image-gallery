@@ -1,3 +1,23 @@
 <section ng-class="$ctrl.styles[image-class']">
   <div>
-    <label>name:</label>
+    <h3>Add a new image:</h3><br>
+
+    <div>
+      <label>Image title:</label>
+      <input ng-model="$ctrl.title">
+    </div>
+
+    <div>
+      <label>Image URL:</label>
+      <input ng-model="$ctrl.url">
+    </div>
+
+    <div>
+      <label>Image description:</label>
+      <input ng-model="$ctrl.description">
+    </div>
+
+  </div>
+  <button ng-click="$ctrl.addNew()">Add Image</button>
+  
+</section>

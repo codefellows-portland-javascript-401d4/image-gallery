@@ -53,15 +53,15 @@ describe('Image gallery component', () => {
     //  component = $component('imageApp', {imageService});
     // });
 
-    // it('Loads the images', done => {
-    //     let component = $component('imageApp', { imageService });
+    it('Loads the images', done => {
+        let component = $component('imageApp', { imageService });
 
-    //   // assert.isOk(component.loading);
-    //   setTimeout(() => {
-    //     assert.equal(component.image, image);
-    //     // assert.isNotOk(component.loading);
-    //     done();
-    //   });
-    // });
+      // assert.isOk(component.loading);
+      setTimeout(() => {
+        assert.equal(component.image, image);
+        // assert.isNotOk(component.loading);
+        done();
+      });
+    });
   });
 });

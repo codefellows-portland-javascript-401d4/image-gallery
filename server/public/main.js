@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(24);
+	var _services = __webpack_require__(26);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33505,7 +33505,8 @@
 		"./image-detail/image-detail.js": 14,
 		"./image-large/image-large.js": 16,
 		"./image-new/image-new.js": 18,
-		"./image-thumbnail/image-thumbnail.js": 22
+		"./image-thumbnail/image-thumbnail.js": 22,
+		"./images/images.js": 24
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33539,20 +33540,42 @@
 	
 	exports.default = {
 	  template: _imageApp2.default,
-	  controller: controller,
-	  controllerAs: 'app'
-	};
+	  controller: function controller() {}
+	}; // import template from './image-app.html';
 	
+	// export default {
+	//   template,
+	//   controller,
+	//   controllerAs: 'app'
+	// };
 	
-	controller.$inject = ['imageService'];
+	// controller.$inject = ['imageService'];
 	
-	function controller() {
-	  this.image = {
-	    url: 'http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg',
-	    title: 'Little bunny',
-	    description: 'Young little bunny in the grass'
-	  };
-	}
+	// function controller() {
+	//   this.image = {
+	//     url: 'http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg',
+	//     title: 'Little bunny',
+	//     description: 'Young little bunny in the grass'
+	//   };
+	// }
+	
+	// import template from './image-app.html';
+	
+	// export default {
+	//   template,
+	//   controller
+	// };
+	
+	// controller.$inject = ['imageService'];
+	
+	// function controller(images) {
+	//   this.loading = true;
+	
+	//   images.get().then(images => {
+	//     this.loading = false;
+	//     this.images = images;
+	//   });
+	// }
 
 /***/ },
 /* 13 */
@@ -33653,14 +33676,18 @@
 	  this.styles = _imageNew4.default;
 	
 	  this.reset = function () {
-	    _this.name = '';
+	    _this.title = '';
+	    _this.url = '';
+	    _this.description = '';
 	  };
 	
 	  this.reset();
 	
 	  this.addNew = function () {
 	    _this.add({
-	      name: _this.name
+	      title: _this.title,
+	      url: _this.url,
+	      description: _this.description
 	    });
 	    _this.reset();
 	  };
@@ -33670,7 +33697,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles[image-class']\">\r\n  <div>\r\n    <label>name:</label>";
+	module.exports = "<section ng-class=\"$ctrl.styles[image-class']\">\r\n  <div>\r\n    <h3>Add a new image:</h3><br>\r\n\r\n    <div>\r\n      <label>Image title:</label>\r\n      <input ng-model=\"$ctrl.title\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image URL:</label>\r\n      <input ng-model=\"$ctrl.url\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image description:</label>\r\n      <input ng-model=\"$ctrl.description\">\r\n    </div>\r\n\r\n  </div>\r\n  <button ng-click=\"$ctrl.addNew()\">Add Image</button>\r\n  \r\n</section>\r\n";
 
 /***/ },
 /* 20 */
@@ -33719,6 +33746,64 @@
 	  value: true
 	});
 	
+	var _images = __webpack_require__(25);
+	
+	var _images2 = _interopRequireDefault(_images);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _images2.default,
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['imageService'];
+	
+	function controller(images) {
+	  var _this = this;
+	
+	  this.loading = true;
+	
+	  images.get().then(function (images) {
+	    _this.loading = false;
+	    _this.images = images;
+	  });
+	
+	  this.remove = function (image) {
+	    _this.loading = true;
+	    images.remove(image._id).then(function () {
+	      _this.loading = false;
+	      var index = _this.images.indexOf(index);
+	      if (index > -1) _this.images.splice(index, 1);
+	    });
+	  };
+	
+	  this.add = function (image) {
+	    _this.loading = true;
+	    images.add(image).then(function (saved) {
+	      _this.loading = false;
+	      _this.images.push(saved);
+	    });
+	  };
+	}
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	module.exports = "<!--<select ng-model=\"$ctrl.view\">\r\n  <option value=\"Detail\">Detail</option>\r\n  <option value=\"Thumbnail\">Thumbnail</option>\r\n  <option value=\"Large\">Large</option>\r\n</select>-->\r\n\r\n<section>\r\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\r\n    <image-new add=\"$ctrl.add\"></image-new>\r\n\r\n</section>\r\n\r\n<section>\r\n    <image-detail ng-if=\"$ctrl.view === 'Detail'\" image=\"app.image\"></image-detail>\r\n    <image-thumbnail ng-if=\"$ctrl.view === 'Thumbnail'\" image=\"app.image\"></image-thumbnail>\r\n    <image-large ng-if=\"$ctrl.view === 'Large'\" image=\"app.image\"></image-large>\r\n</section>\r\n\r\n<hr>\r\n\r\n<div class=\"component\">\r\n  <image-detail\r\n    image=\"app.image\">\r\n  </image-detail>\r\n</div>\r\n\r\n<div class=\"component\">\r\n  <image-large class=\"component\"\r\n    image=\"app.image\">\r\n  </image-large>\r\n</div>\r\n\r\n<div class=\"component\">\r\n  <image-thumbnail class=\"component\"\r\n    image=\"app.image\">\r\n  </image-thumbnail>\r\n</div>";
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _angular = __webpack_require__(1);
 	
 	var _angular2 = _interopRequireDefault(_angular);
@@ -33733,7 +33818,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(25);
+	var context = __webpack_require__(27);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33745,11 +33830,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 26
+		"./image-service.js": 28
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33762,11 +33847,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 25;
+	webpackContext.id = 27;
 
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports) {
 
 	'use strict';

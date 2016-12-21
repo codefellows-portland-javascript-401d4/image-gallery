@@ -4,6 +4,7 @@ import styles from './image-new.css'
 export default {
   template,
   bindings: {
+    image: '=',
     add: '<'
   },
   controller
@@ -13,14 +14,18 @@ function controller() {
   this.styles = styles;
 
   this.reset = () => {
-    this.name = '';
+    this.title = '';
+    this.url = '';
+    this.description = '';
   };
 
   this.reset();
 
   this.addNew = () => {
     this.add({
-      name: this.name
+      title: this.title,
+      url: this.url,
+      description: this.description
     });
     this.reset();
   };

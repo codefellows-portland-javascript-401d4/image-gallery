@@ -1,0 +1,37 @@
+<!--<select ng-model="$ctrl.view">
+  <option value="Detail">Detail</option>
+  <option value="Thumbnail">Thumbnail</option>
+  <option value="Large">Large</option>
+</select>-->
+
+<section>
+  <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
+    <image-new add="$ctrl.add"></image-new>
+
+</section>
+
+<section>
+    <image-detail ng-if="$ctrl.view === 'Detail'" image="app.image"></image-detail>
+    <image-thumbnail ng-if="$ctrl.view === 'Thumbnail'" image="app.image"></image-thumbnail>
+    <image-large ng-if="$ctrl.view === 'Large'" image="app.image"></image-large>
+</section>
+
+<hr>
+
+<div class="component">
+  <image-detail
+    image="app.image">
+  </image-detail>
+</div>
+
+<div class="component">
+  <image-large class="component"
+    image="app.image">
+  </image-large>
+</div>
+
+<div class="component">
+  <image-thumbnail class="component"
+    image="app.image">
+  </image-thumbnail>
+</div>
