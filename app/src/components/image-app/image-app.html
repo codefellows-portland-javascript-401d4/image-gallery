@@ -1,4 +1,3 @@
-<p>Below is my image gallery which is brought to you via Angular.js and served using an Express server with a Mongo DB backend. You can view/add/delete images to this gallery and the changes will persist through your selections. To switch between views and specific images, use the two select dropdown menus below. Enjoy and have fun!</p>
 <nav>
     <div>
         <h4>View Option:</h4>
@@ -13,7 +12,6 @@
     </div>
 </nav>
 <hr>
-
 <section ng-if="!app.image" ng-repeat="image in app.images track by $index" ng-class="app.styles.app">
     <image-options image="image" viewoptions="app.viewOptions" view="app.view" del="app.remove"></image-options>
 </section>
