@@ -5,15 +5,14 @@ const Image = require('../models/image');
 
 router
   .get('/', (req, res, next) => {
-    const query = {};
-
-    Image.find(query)
-      .populate({
-        path: 'albumId',
-        select: 'title'
-      })
-      .lean()
+    Image.find()
       .then(images => res.send(images))
+      .catch(next);
+  })
+
+  .get('/:id', (req, res, next) => {
+    Image.findById(req.params.id)
+      .then(image = res.send(image))
       .catch(next);
   })
 

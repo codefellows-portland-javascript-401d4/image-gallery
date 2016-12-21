@@ -2,8 +2,13 @@ albumService.$inject = ['$http', 'apiUrl'];
 
 export default function albumService($http, apiUrl) {
   return {
-    get() {
+    getAll() {
       return $http.get(`${apiUrl}/albums`)
+      .then(res => res.data);
+    },
+
+    get(albumId) {
+      return $http.get(`${apiUrl}/albums/${albumId}`)
         .then(res => res.data);
     },
 
@@ -12,8 +17,8 @@ export default function albumService($http, apiUrl) {
         .then(res => res.data);
     },
 
-    remove(id) {
-      return $http.delete(`${apiUrl}/albums/${id}`)
+    remove(albumId) {
+      return $http.delete(`${apiUrl}/albums/${albumId}`)
         .then(res => res.data);
     }
   };

@@ -5,8 +5,8 @@
       <li ng-repeat="album in $ctrl.albums">
         <div album="album" remove="$ctrl.remove">
           <h2>{{album.name}}</h2>
-          <h4>{{album.category}}</h4>
-          <button ng-click="$ctrl.delete()">remove</button>
+          <h4>{{album._id}}</h4>
+          <button ng-click="$ctrl.viewAlbum(this.album._id)">View Album</button>
         </div>
       </li>
     </ul>

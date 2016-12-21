@@ -14,13 +14,11 @@ function controller() {
 
   this.resetFields = () => {
     this.name = '';
-    this.category = '';
   };
 
   this.addNew = () => {
     this.add({
       name: this.name,
-      category: this.category
     });
     this.resetFields();
   };

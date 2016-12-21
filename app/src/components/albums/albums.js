@@ -3,39 +3,36 @@ import styles from './albums.scss';
 
 export default {
   template,
-  bindings: {
-    album: '=',
-    remove: '<'
-  },
   controller
 };
 
-controller.$inject = ['albumService'];
+controller.$inject = ['albumService', '$state'];
 
-function controller(albums) {
+function controller(albumService, $state) {
   this.styles = styles;
 
-  albums.get()
+  albumService.getAll()
     .then(albums => {
       this.albums = albums;
-    });
+    })
+    .catch();
 
   this.add = album => {
-    albums.add(album)
-      .then(saved => {
-        this.albums.push(saved);
-      });
+    albumService.add(album)
+      .then(saved => this.albums.push(saved))
+      .catch();
   };
 
-  this.remove = album => {
-    albums.remove(album._id)
-      .then(() => {
-        const index = this.albums.indexOf(album);
-        if(index > -1) this.albums.splice(index, 1);
-      });
+  this.viewAlbum = (albumId) => {
+    $state.go('images', { id: albumId });
   };
 
-  this.delete = () => {
-    this.remove(this.album);
-  };
+// remove function not yet working
+  // this.remove = album => {
+  //   albums.remove(album._id)
+  //     .then(() => {
+  //       const index = this.albums.indexOf(album);
+  //       if(index > -1) this.albums.splice(index, 1);
+  //     });
+  // };
 };

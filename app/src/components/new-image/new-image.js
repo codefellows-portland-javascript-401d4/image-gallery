@@ -4,7 +4,8 @@ import styles from './new-image.scss';
 export default {
   template,
   bindings: {
-    add: '<'
+    add: '<',
+    view: '='
   },
   controller
 };
