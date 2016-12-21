@@ -12,6 +12,14 @@ const imageSchema = new Schema({
     url: {
         type: String
     },
+    albumId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Albums'
+    },
+    category: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Images', imageSchema);

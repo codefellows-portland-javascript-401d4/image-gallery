@@ -6,38 +6,41 @@ const Album = require('../models/album');
 
 router
     .get('/', bodyParser, (req, res, next) => {
-        Image
+        Album
             .find({})
-            .populate('albumId')
-            .then(images => {
-                res.send(images);
+            .then(albums => {
+                res.send(albums);
+            })
+            .catch(next);
+    })
+    .get('/:name', bodyParser, (req, res, next) => {
+        const name = req.params.name;
+        Promise
+            .all([
+                Album
+                    .findOne({name}),
+                Image
+                    .find({category: name})
+            ])
+            .then(([album, images]) => {
+                album.images = images;
+                res.send(album);
             })
             .catch(next);
     })
     .post('/', bodyParser, (req, res, next) => {
-        const {title, description, url, category} = req.body;
-        if (!title || !description || !url || !category) {
-            return next({
-                code: 400,
-                error: 'One of the following fields are missing title/description/url/category' 
-            });
-        };
-
-        Album
-            .findOne({name: category})
+        req.body.name = req.body.name.toLowerCase();
+        let newAlbum = new Album(req.body);
+        newAlbum
+            .save()
             .then(album => {
-                req.body.albumId = album._id;
-                let importImage = new Image(req.body);
-                return importImage.save();
-            })
-            .then(image => {
-                res.send(image);
+                res.send(album);
             })
             .catch(next);
     })
     .delete('/:id', bodyParser, (req, res, next) => {
         const _id = req.params.id;
-        Image
+        Album
             .findByIdAndRemove({_id})
             .then(image => {
                 res.send(image);

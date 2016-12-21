@@ -7,19 +7,27 @@ export default {
     controllerAs: 'app'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller(imageService) {
+function controller(imageService, albumService) {
     this.styles = styles;
     this.loading = true;
     this.image = '';
+    this.album = '';
 
+    // this.$onInit = () => { //for whatever reason images.test.js doesn't like this'
     imageService
         .get()
         .then(images => {
             this.images = images;
             this.loading = false;
         });
+    albumService
+        .getAll()
+        .then(albums => {
+            this.albums = albums;
+        });
+    // };
 
     this.viewOptions = ['', 'detail','thumbnail','gallery'];
     this.view = '';
@@ -43,5 +51,13 @@ function controller(imageService) {
                 this.loading = false;
                 this.images.push(saved);
             });
+    };
+
+    this.nullImage = () => {
+        this.image = '';
+    };
+
+    this.nullAlbum = () => {
+        this.album = '';
     };
 };

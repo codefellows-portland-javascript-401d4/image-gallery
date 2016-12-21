@@ -1,0 +1,24 @@
+<div ng-class="app.styles.top">
+    <div>
+        <h4>View Filter:</h4>
+        <select ng-options="option for option in ['detail', 'thumbnail', 'gallery']" 
+                ng-model="app.view"
+                ng-change="app.updateView()">
+            <option value=""></option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <h4>Album Choice:</h4>
+        <ul ng-class="app.styles.list">
+            <li ng-repeat="album in app.albums"
+                ui-sref="albums.options({
+                    name: album.name,
+                    view: app.view})">{{album.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+<hr>
+<ui-view></ui-view>
+<album-new add="app.add" loading="app.loading"></album-new>
