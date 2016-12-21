@@ -15,5 +15,7 @@
   "bugs": {
     "url": "https://github.com/willnickerson/image-gallery/issues"
   },
-  "homepage": "https://github.com/willnickerson/image-gallery#readme"
+  "homepage": "https://github.com/willnickerson/image-gallery#readme",
+  "devDependencies": {
+  }
 }

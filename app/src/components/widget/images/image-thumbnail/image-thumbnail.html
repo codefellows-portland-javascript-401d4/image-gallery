@@ -1,0 +1,4 @@
+<div ng-repeat="image in $ctrl.images">
+    <img src="{{image.url}}" ng-class="$ctrl.styles.thumbnail">
+    <button ng-if="$ctrl.remove" ng-click="$ctrl.delete()">Remove</button>
+</div>

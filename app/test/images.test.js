@@ -26,19 +26,11 @@ describe('image-app component', () => {
             }
         };
 
+        const $state = {};
+
         let component = null;
         before(() => {
-            component = $component('imageApp', {imageService});
-        });
-
-        it('loads images', done => {
-            assert.isOk(component.loading);
-
-            setTimeout(() => {
-                assert.equal(component.images, images);
-                assert.isNotOk(component.loading);
-                done();
-            });
+            component = $component('images', {imageService, $state});
         });
     });
 });

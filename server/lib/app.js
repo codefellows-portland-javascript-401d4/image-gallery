@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const images = require('./routes/images');
+const albums = require('./routes/albums');
 const errorHandler = require('./error-handler');
 
 app.use(morgan('dev'));
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 app.use(express.static('./public'));
 
 app.use('/api/images', images);
+app.use('/api/albums', albums);
 
 app.use(errorHandler);
 
