@@ -1,5 +1,5 @@
 /* globals angular chai*/
-describe ( 'images component', () => {
+describe ( 'albums component', () => {
 	const { assert } = chai;
 
      // to use before, instead of beforeEach, this is required:
@@ -21,71 +21,71 @@ describe ( 'images component', () => {
     // of tests, in order, against that component
 	describe('create component', () => {
 
-		const images = [
-            { title: 'a', url: 'a.com', description: 'aa' , albumId: 'aaa'},
-            {title: 'b', url: 'b.com', description: 'bb', albumId: 'bbb' }
+		const albums = [
+            { title: 'a', description: 'aa'},
+            {title: 'b', description: 'bb'}
 		];
 
-		const image = {title: 'c', url: 'c.com', description: 'cc', albumId: 'ccc'};
-		// const badImage = {title: 'd', description: 'dd'};
+		const album = {title: 'c', description: 'cc'};
+		// const badalbum = {title: 'd', description: 'dd'};
 
 		const _id = 123;
         
-		const imageService = {
+		const albumService = {
 			get() {
-				return Promise.resolve(images);
+				return Promise.resolve(albums);
 			},
-			add(image) {
-				image._id = _id;
-				return Promise.resolve(image);
+			add(album) {
+				album._id = _id;
+				return Promise.resolve(album);
 			},
-			remove(imageId) {
-				assert.equal(imageId, _id);
+			remove(albumId) {
+				assert.equal(albumId, _id);
 				return Promise.resolve(true);
 			}
 		};
 		let component = null;
 		before(() => {
-			component = $component('images', { imageService });
+			component = $component('albums', { albumService });
 		});
 
-		it( 'loads images', done => {
+		it( 'loads albums', done => {
 			assert.isOk(component.loading);
 
 			setTimeout(() => {
-				assert.equal(component.images, images);
+				assert.equal(component.albums, albums);
 				assert.isNotOk(component.loading);
 				done();
 			});
 		});
 
 
-		it( 'add an image', done => {
+		it( 'add an album', done => {
 
-			component.add(image);
+			component.add(album);
 
 			setTimeout(() => {
-				assert.equal(images.length, 3);
-				assert.equal(images[2], image);
+				assert.equal(albums.length, 3);
+				assert.deepEqual(albums[2], album);
 				done();
 			});
 		});
 
-		it('removes image', done => {
-			component.remove(image);
+		it('removes album', done => {
+			component.remove(album);
 
 			setTimeout(() => {
-				assert.equal(images.length, 2);
-				assert.notInclude(images, image);
+				assert.equal(albums.length, 2);
+				assert.notInclude(albums, album);
 				done();
 			});
 		});
-		// it('requires image url', done => {
-		// 	component.add(badImage);
+		// it('requires album url', done => {
+		// 	component.add(badalbum);
 
 		// 	setTimeout(() => {
-		// 		assert.equal(images.length, 2);
-		// 		assert.notInclude(images, image);
+		// 		assert.equal(albums.length, 2);
+		// 		assert.notInclude(albums, album);
 		// 		done();
 		// 	});
 		// });
