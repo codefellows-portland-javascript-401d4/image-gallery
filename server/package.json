@@ -3,18 +3,19 @@
   "version": "1.0.0",
   "description": "server for image-gallery lab 3",
   "main": "index.js",
-	"scripts": {
+  "scripts": {
     "start": "nodemon server.js",
     "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
+		"pretest": "npm run lint",
+    "test": "mocha",
     "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
   },
   "author": "Greg Katchmar <gunk55@msn.com> (www.gkatchmar.com)",
   "license": "ISC",
-	 "dependencies": {
+  "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0"

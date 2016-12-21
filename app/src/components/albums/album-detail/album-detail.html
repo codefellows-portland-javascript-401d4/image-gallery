@@ -1,5 +1,5 @@
 <section>
-    <h2>{{$ctrl.album.name}} Album:</h2>
+		<h2>{{$ctrl.album.name}} Album:</h2>
     <ul>
 			<li ng-repeat="image in $ctrl.album.images">
 				<text-only ng-if="$ctrl.view ==='text view'"
@@ -13,6 +13,5 @@
 				</thumbnail>
 			</li>
     </ul>
-			    <new-image album-id="$ctrl.album._id" add="$ctrl.add"></new-image>
-    </pirates>
+		<new-image album-id="$ctrl.album._id" add="$ctrl.add"></new-image>
 </section>
