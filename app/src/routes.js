@@ -5,13 +5,24 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'welcome',
         url: '/',
-        component: 'welcome'
+        views: {
+            links: {
+                template: '<a ui-sref="lolz" ui-sref-active="current">LOLZ</a>'
+            },
+            main: {
+                component: 'welcome'
+            }
+        }
     });
 
     $stateProvider.state({
         name: 'albums',
         url: '/albums',
-        component: 'albumApp'
+        views: {
+            main: {
+                component: 'albumApp'
+            }
+        }
     });
 
     $stateProvider.state({
@@ -25,7 +36,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
             }],
             images: ['album', album => album.images]
         },
-        component: 'album'
+        views: {
+            main: {
+                component: 'album'
+            }
+        }
     });
 
     $stateProvider.state({
@@ -56,7 +71,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
                 return images.get();
             }]
         },
-        component: 'imageApp'
+        views: {
+            main: {
+                component: 'imageApp'
+            }
+        }
     });
 
     $stateProvider.state({
@@ -80,7 +99,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'about',
         url: '/about',
-        component: 'about'
+        views: {
+            main: {
+                component: 'about'
+            }
+        }
     });
 
     $stateProvider.state({

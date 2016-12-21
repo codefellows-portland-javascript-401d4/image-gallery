@@ -20,6 +20,7 @@ function controller(imageService, albumService, $state) {
         const parts = $state.current.name.split('.');
         parts[parts.length-1] = name;
         const newState  = parts.join('.');
+        console.log(newState);
         this.state = newState;
         $state.go(newState);
     };

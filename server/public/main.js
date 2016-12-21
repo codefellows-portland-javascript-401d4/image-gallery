@@ -56,19 +56,19 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(58);
+	var _services = __webpack_require__(62);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(62);
+	var _angularUiRouter = __webpack_require__(66);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(63);
+	var _routes = __webpack_require__(67);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _angularUiRouterDefault = __webpack_require__(64);
+	var _angularUiRouterDefault = __webpack_require__(68);
 	
 	var _angularUiRouterDefault2 = _interopRequireDefault(_angularUiRouterDefault);
 	
@@ -33013,8 +33013,9 @@
 		"./image-app/image-gallery/image-gallery.js": 40,
 		"./image-app/image-new/image-new.js": 44,
 		"./image-app/image-thumbnail/image-thumbnail.js": 48,
-		"./page-root/page-root.js": 52,
-		"./welcome/welcome.js": 56
+		"./page-root/page-root-header/page-root-header.js": 52,
+		"./page-root/page-root.js": 56,
+		"./welcome/welcome.js": 60
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33116,14 +33117,14 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<h2>About Me And Things...</h2>\n<nav ng-class=\"$ctrl.styles.aboutpage\">\n    <a ui-sref=\"about.me\" ui-sref-active=\"hot\">Myself</a>\n    <a ui-sref=\"about.gallery\" ui-sref-active=\"hot\">This Image Gallery</a>\n</nav>\n<section>\n    <ui-view name=\"header\"></ui-view>\n</section>\n<section>\n    <ui-view name=\"main\"></ui-view>\n</section>";
+	module.exports = "<h2>About Me And Things...</h2>\n<nav ng-class=\"$ctrl.styles.aboutpage\">\n    <a ui-sref=\"about.me\" ui-sref-active=\"hot\">Myself</a>\n    <a ui-sref=\"about.gallery\" ui-sref-active=\"hot\">This Image Gallery</a>\n</nav>\n<section ng-class=\"$ctrl.styles.section\">\n    <ui-view name=\"header\"></ui-view>\n</section>\n<section ng-class=\"$ctrl.styles.section\">\n    <ui-view name=\"main\"></ui-view>\n</section>";
 
 /***/ },
 /* 18 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"aboutpage":"_1KeCVmmTcuXcrsVM57Zmdz"};
+	module.exports = {"aboutpage":"_1KeCVmmTcuXcrsVM57Zmdz","section":"PfDUqMI9jSM5BYzW4piqR"};
 
 /***/ },
 /* 19 */,
@@ -33347,6 +33348,8 @@
 	        var parts = $state.current.name.split('.');
 	        parts[parts.length - 1] = name;
 	        var newState = parts.join('.');
+	        console.log(newState);
+	        _this.state = newState;
 	        $state.go(newState);
 	    };
 	
@@ -33626,11 +33629,57 @@
 	    value: true
 	});
 	
-	var _pageRoot = __webpack_require__(53);
+	var _pageRootHeader = __webpack_require__(53);
+	
+	var _pageRootHeader2 = _interopRequireDefault(_pageRootHeader);
+	
+	var _pageRootHeader3 = __webpack_require__(54);
+	
+	var _pageRootHeader4 = _interopRequireDefault(_pageRootHeader3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _pageRootHeader2.default,
+	    transclude: {
+	        links: '?headerLinks'
+	    },
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _pageRootHeader4.default;
+	};
+
+/***/ },
+/* 53 */
+/***/ function(module, exports) {
+
+	module.exports = "<nav>\n    <a ui-sref=\"welcome\" ui-sref-active=\"current\">Intro</a>\n    <a ui-sref=\"albums\" ui-sref-active=\"current\">Albums</a>\n    <a ui-sref=\"images\" ui-sref-active=\"current\">Images</a>\n    <a ui-sref=\"about\" ui-sref-active=\"current\">About</a>\n    <span ng-transclude=\"links\"></span>\n</nav>";
+
+/***/ },
+/* 54 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 55 */,
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _pageRoot = __webpack_require__(57);
 	
 	var _pageRoot2 = _interopRequireDefault(_pageRoot);
 	
-	var _pageRoot3 = __webpack_require__(54);
+	var _pageRoot3 = __webpack_require__(58);
 	
 	var _pageRoot4 = _interopRequireDefault(_pageRoot3);
 	
@@ -33647,21 +33696,21 @@
 	};
 
 /***/ },
-/* 53 */
+/* 57 */
 /***/ function(module, exports) {
 
-	module.exports = "<header ng-class=\"$ctrl.styles.root\">\n    <h1>Fun Image Viewer!</h1>\n    <nav>\n        <a ui-sref=\"welcome\" ui-sref-active=\"current\">Intro</a>\n        <a ui-sref=\"albums\" ui-sref-active=\"current\">Albums</a>\n        <a ui-sref=\"images\" ui-sref-active=\"current\">Images</a>\n        <a ui-sref=\"about\" ui-sref-active=\"current\">About</a>\n    </nav>\n</header>\n<hr>\n<main>\n    <ui-view></ui-view>\n</main>";
+	module.exports = "<header ng-class=\"$ctrl.styles.root\">\n    <h1>Fun Image Viewer!</h1>\n    <page-root-header>\n        <header-links>\n            <ui-view name=\"links\"></ui-view>\n        </header-links>\n    </page-root-header>\n</header>\n<hr>\n<main>\n    <ui-view name=\"main\"></ui-view>\n</main>";
 
 /***/ },
-/* 54 */
+/* 58 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"root":"_2Stccj97TbmD4_pxNhaGru"};
 
 /***/ },
-/* 55 */,
-/* 56 */
+/* 59 */,
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33670,7 +33719,7 @@
 	    value: true
 	});
 	
-	var _welcome = __webpack_require__(57);
+	var _welcome = __webpack_require__(61);
 	
 	var _welcome2 = _interopRequireDefault(_welcome);
 	
@@ -33681,13 +33730,13 @@
 	};
 
 /***/ },
-/* 57 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = "<h2>Welcome to My Image Gallery!</h2>\n<p>If you click on the Images tab, you can view my gallery which is brought to you via Angular.js and served using an Express server with a Mongo DB backend. You can view/add/delete images to this gallery and the changes will persist through your selections. To switch between views and specific images, use the two select dropdown menus below. Enjoy and have fun!</p>";
 
 /***/ },
-/* 58 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33710,7 +33759,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(59);
+	var context = __webpack_require__(63);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33722,12 +33771,12 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 59 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./album-service.js": 60,
-		"./image-service.js": 61
+		"./album-service.js": 64,
+		"./image-service.js": 65
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33740,11 +33789,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 59;
+	webpackContext.id = 63;
 
 
 /***/ },
-/* 60 */
+/* 64 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33781,7 +33830,7 @@
 	}
 
 /***/ },
-/* 61 */
+/* 65 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33813,7 +33862,7 @@
 	}
 
 /***/ },
-/* 62 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -42162,7 +42211,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 63 */
+/* 67 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42178,13 +42227,24 @@
 	    $stateProvider.state({
 	        name: 'welcome',
 	        url: '/',
-	        component: 'welcome'
+	        views: {
+	            links: {
+	                template: '<a ui-sref="lolz" ui-sref-active="current">LOLZ</a>'
+	            },
+	            main: {
+	                component: 'welcome'
+	            }
+	        }
 	    });
 	
 	    $stateProvider.state({
 	        name: 'albums',
 	        url: '/albums',
-	        component: 'albumApp'
+	        views: {
+	            main: {
+	                component: 'albumApp'
+	            }
+	        }
 	    });
 	
 	    $stateProvider.state({
@@ -42200,7 +42260,11 @@
 	                return album.images;
 	            }]
 	        },
-	        component: 'album'
+	        views: {
+	            main: {
+	                component: 'album'
+	            }
+	        }
 	    });
 	
 	    $stateProvider.state({
@@ -42231,7 +42295,11 @@
 	                return images.get();
 	            }]
 	        },
-	        component: 'imageApp'
+	        views: {
+	            main: {
+	                component: 'imageApp'
+	            }
+	        }
 	    });
 	
 	    $stateProvider.state({
@@ -42255,7 +42323,11 @@
 	    $stateProvider.state({
 	        name: 'about',
 	        url: '/about',
-	        component: 'about'
+	        views: {
+	            main: {
+	                component: 'about'
+	            }
+	        }
 	    });
 	
 	    $stateProvider.state({
@@ -42288,7 +42360,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 68 */
 /***/ function(module, exports) {
 
 	/**
