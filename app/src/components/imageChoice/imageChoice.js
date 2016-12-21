@@ -25,22 +25,28 @@ function controller(imageService, albumService) {
 
     this.myChoice = this.choices[0];
 
+    this.album = {};
+
     // this.updateView = () => {
     //     $state.go($state.current.name, {view: this.myChoice});
     // };
 
-    // set this to onInit
-    this.getOne(this.albumId);
+    this.$onInit = () => {
+        this.getOne(this.albumId);
+    };
 
     this.getOne = albumId => {
-        albumService.getOne(albumId)
+        console.log('getOne called with:', albumId);
+        // const album = {};
+        this.album._id = albumId;
+        albumService.getOne(this.album)
             .then(album => {
                 this.album = album;
             });
     };
 
     this.add = image => {
-        image.albumId = album._id;
+        image.albumId = this.album._id;
         imageService.add(image)
             .then(saved => this.album.images.push(saved));
     };
