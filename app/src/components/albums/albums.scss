@@ -1,19 +1,5 @@
 @import 'fonts';
 
-:local(.column3) {
-  width: 30%;
-  margin-left: 3%;
-  margin-top: 3%;
-  display: inline-block;
-}
-
-:local(.column4) {
-  width: 22%;
-  margin-left: 2%;
-  margin-top: 3%;
-  display: inline-block;
-}
-
 header {
   font-size: 3.5rem;
   font-family: $header-font;
@@ -23,12 +9,4 @@ h1 {
   font-size: 2rem;
   font-family: $header-font;
   margin-top: 3rem;
-}
-
-a.shut {
-  visibility: hidden;
-}
-
-a.open {
-  visibility: visible; 
 }

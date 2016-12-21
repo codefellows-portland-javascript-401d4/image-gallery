@@ -1,4 +1,4 @@
-<header>Browse All Pix</header>
+<header>Browse {{$images.album.name || 'All Pix'}}</header>
 <div ng-init="views = ['list', 'thumb', 'full']">
   <button ng-repeat="view in views" name="view" ng-click="$images.toggleView(view)">
     {{view}}

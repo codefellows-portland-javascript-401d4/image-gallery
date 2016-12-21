@@ -1,20 +1,22 @@
 <header>Albums</header>
-  <div ng-init="views = ['list', 'thumb']">
-  <button ng-repeat="view in views" name="view" ng-click="$albums.toggleView(view)">
-    {{view}}
-  </button>
-  </div>
 
   <div >
-    <button ng-repeat="album in $albums.albums" ng-model="$albums.view" name="album.name" ng-click="$albums.switchAlbum(album.name)">
+    <button ui-sref="gallery.albums.album({id: album._id})" ng-repeat="album in $albums.albums" ng-model="$albums.view" name="album.name">
       {{album.name}}
     </button>
   </div>
 
+  <div ng-init="views = ['list', 'thumb']">
+    <button ng-repeat="view in views" name="view" ng-click="$albums.toggleView(view)">
+      {{view}}
+    </button>
+  </div>
+
+<ui-view></ui-view>
 <!--how to dynamically populate ui-sreef ng-click="$albums.switchAlbum(album.name)"-->
 <!--<a ng-repeat="step in steps" ui-sref="{{step.state}}(step.param)"></a>-->
 
-<ul ng-if="$albums.view === 'list'">
+<!--<ul ng-if="$albums.view === 'list'">
   <li ng-repeat="album in $albums.albums">
     <album-list
       album="album"
@@ -32,4 +34,4 @@
       toggle-view="$albums.toggleView">
     </album-thumb> 
   </li>  
-</ul>
+</ul>-->
