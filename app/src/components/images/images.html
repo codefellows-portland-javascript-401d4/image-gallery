@@ -11,9 +11,9 @@
 <section>
   <div ng-class="'img-div-container'">
     <div ng-class="'img-div'" ng-repeat="image in imagesCtrl.images">
-      <image-text class="image-cont" ng-show="imagesCtrl.imageType === 'text'" image="image"></image-text>
-      <image-thumb class="image-cont" ng-show="imagesCtrl.imageType === 'thumb'" image="image"></image-thumb>
-       <image-full class="image-cont" ng-show="imagesCtrl.imageType === 'full'" image="image"></image-full>
+      <image-text class="image-cont" ng-show="imagesCtrl.imageType === 'text'" image="image" remove-image="imagesCtrl.removeImage"></image-text>
+      <image-thumb class="image-cont" ng-show="imagesCtrl.imageType === 'thumb'" image="image" remove-image="imagesCtrl.removeImage"></image-thumb>
+       <image-full class="image-cont" ng-show="imagesCtrl.imageType === 'full'" image="image" remove-image="imagesCtrl.removeImage"></image-full>
       
       <!--<delete-image ng-class="delete" image="image" remove-image="imagesCtrl.removeImage"></delete-image>-->
     </div>
@@ -21,6 +21,6 @@
   </section>
   <hr>
   <footer>
-    <new-image parent-comp-add-image="imagesCtrl.addImage"></new-image>
+    <new-image add-image="imagesCtrl.addImage"></new-image>
   </footer>
 </section>

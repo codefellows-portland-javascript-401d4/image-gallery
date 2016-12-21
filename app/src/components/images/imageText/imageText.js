@@ -4,7 +4,8 @@ import styles from './imageText.scss';
 export default {
   template,
   bindings: {
-    image: '<'
+    image: '<',
+    removeImage: '<'
   },
   controller,
   controllerAs: 'textCtrl'

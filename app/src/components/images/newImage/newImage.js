@@ -3,7 +3,7 @@ import template from './newImage.html';
 export default {
   template,
   bindings: {
-    parentCompAddImage: '<'
+    addImage: '<'
   },
   controller,
   controllerAs: 'newImgCtrl'
@@ -20,7 +20,7 @@ function controller() {
   this.reset();
 
   this.add = () => {
-    this.parentCompAddImage({
+    this.addImage({
       title: this.title,
       description: this.description,
       url: this.url,

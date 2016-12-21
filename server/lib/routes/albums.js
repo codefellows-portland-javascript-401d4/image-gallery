@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const jsonParser = require('body-parser').json();
 const Album = require('../models/album');
 const Image = require('../models/image');
 
@@ -39,12 +38,6 @@ router
   .delete('/:id', (req, res, next) => {
     Album.findByIdAndRemove(req.params.id)
       .then(deleted => res.send(deleted))
-      .catch(next);
-  })
-
-  .put('/:id', jsonParser, (req, res, next) => {
-    Album.findByIdAndUpdate(req.params.id, req.body)
-      .then(saved => res.send(saved))
       .catch(next);
   });
 

@@ -22,7 +22,7 @@ describe('components', () => {
       getAll() {
         return Promise.resolve(images);
       },
-      add(image) {
+      addImage(image) {
         return Promise.resolve(image);
       },
       remove(image) {
@@ -86,24 +86,25 @@ describe('components', () => {
       });
     });
 
-    function addImage(title, description, url, album) {
-      this.title = title;
-      this. description = description;
-      this.url = url;
-      this.album = album;
+    let imageObj;
+
+    function addImage(obj) {
+      imageObj = obj;
     }
 
     it('calls add function', done => {
+      const title = 'person';
+      const description = 'a person';
+      const url = 'http://www.person.com';
       const component = $component('newImage', null, {addImage: addImage});
-      component.title = 'person';
-      component.description = 'a person';
-      component.url = 'http://www.person.com';
+      component.title = title;
+      component.description = description;
+      component.url = url;
       component.add();
       setTimeout(() => {
-        assert.equal(component.title, '');
-        assert.equal(component.description, '');
-        assert.equal(component.url, '');
-        assert.equal(component.album, '');
+        assert.equal(title, imageObj.title);
+        assert.equal(description, imageObj.description);
+        assert.equal(url, imageObj.url);
         done();
       });
     });

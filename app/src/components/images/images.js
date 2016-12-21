@@ -4,7 +4,7 @@ import styles from './images.scss';
 export default {
   template,
   bindings: {
-    images: '<'
+    album: '<'
   },
   controller,
   controllerAs: 'imagesCtrl'
@@ -15,15 +15,9 @@ controller.$inject = ['imageService'];
 function controller(imageService) {
   this.styles = styles;
 
-  // imageService.getAll()
-  //   .then(images => {
-  //     this.imageArr = images;
-  //   });
-
-  // imageService.getOne()
-  //   .then(image => {
-
-  //   })
+  this.$onInit = () => {
+    this.images = this.album.images;
+  };
 
   this.removeImage = image => {
     imageService.remove(image._id)
@@ -41,11 +35,4 @@ function controller(imageService) {
   };
 
   this.imageType = 'text';
-  // this.choice = this.imageType;
-
-  this.imageChoice = this.imageArr;
-
-  this.choices = ['full', 'thumbnail', 'text'];
-
-  // this.imageType = this.choices[2];
 }

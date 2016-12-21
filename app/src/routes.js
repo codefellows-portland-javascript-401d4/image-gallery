@@ -20,12 +20,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
     template: '<p>Welcome back. You know what to do.</p>'
   });
 
-  // $stateProvider.state({
-  //   name: 'albums',
-  //   url: '/albums',
-  //   component: 'albums'
-  // });
-
   $stateProvider.state({
     name: 'albums',
     abstract: true,
@@ -50,24 +44,17 @@ export default function routes($stateProvider, $urlRouterProvider) {
     url: '/detail',
     component: 'albumDetail'
   });
-  // $stateProvider.state({
-  //   name: 'albums.single',
-  //   url: '/:id',
-  //   // params: {
-  //   //   viewType: {dynamic: true}
-  //   // },
-  //   resolve: {
-  //     id: ['$transition$', t => t.params().id]
-  //     // viewType: ['$transition$', t => t.params().viewType || 'all']
-  //   },
-  //   component: 'albumDetail'
-  // });
 
-  // $stateProvider.state({
-  //   name: 'images',
-  //   url: '/images',
-  //   component: 'images'
-  // });
+  $stateProvider.state({
+    name: 'albums.images',
+    url: '/:id',
+    resolve: {
+      album: ['albumService', '$transition$', (albumService, t) => {
+        return albumService.get(t.params().id);
+      }]
+    },
+    component: 'images'
+  });
 
   $stateProvider.state({
     name: 'about',

@@ -8,16 +8,18 @@ export default {
 
 controller.$inject = ['albumService'];
 
-function controller() {
-  // this.viewType = 'single';
+function controller(albumService) {
 
-  // this.changeViewType = () => {
-  //   $state.go($state.current.name, {viewType: this.viewType});
+  // this.$onInit = () => {
+  //   console.log()
   // };
 
-  // albumService.get().then(albumArr => {
-  //   console.log('get hello');
-  //   this.albumArr = albumArr;
-  //   console.log(this.albumArr);
-  // });
+  this.removeAlbum = album => {
+    albumService.remove(album._id)
+      .then(() => {
+        console.log('album', album);
+        const idx = this.albums.indexOf(album);
+        if(idx > -1) this.albums.splice(idx, 1);
+      });
+  };
 }

@@ -1,9 +1,8 @@
 <section>
   <h2>Albums</h2>
-  <div ng-repeat="album in albumDetailCtrl.albums" ui-sref="album({
-    id: album._id
-  })">
-    <h4>{{album.name}}</h4>
+  <div ng-repeat="album in albumDetailCtrl.albums">
+    <h4><a ui-sref="albums.images({id: album._id})">{{album.name}}</a></h4>
     <span ng-repeat="image in album.images">{{image.title}}</span>
+    <delete-album ng-class="delete" album="album" remove-album="albumsCtrl.removeAlbum"></delete-album>
   </div>
 </section>
