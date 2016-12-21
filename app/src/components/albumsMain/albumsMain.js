@@ -7,7 +7,7 @@ export default {
     controller
 };
 
-controller.$inject['albumService'];
+controller.$inject = ['albumService'];
 
 function controller(albumService) {
     this.styles = styles;

@@ -30,11 +30,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
         }
     });
 
-    // $stateProvider.state({
-    //     name: 'images',
-    //     url: '/images',
-    //     component: 'imageChoice'
-    // });
+    $stateProvider.state({
+        name: 'images',
+        url: '/images',
+        component: 'imageChoice'
+    });
 
     $urlRouterProvider.otherwise('/');
 };

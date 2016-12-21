@@ -32974,7 +32974,7 @@
 		"./imageGallery/imageGallery.js": 34,
 		"./imageThumbnail/imageThumbnail.js": 38,
 		"./imageView/imageView.js": 42,
-		"./mainapp/mainapp.js": 46,
+		"./mainApp/mainApp.js": 46,
 		"./welcome/welcome.js": 50
 	};
 	function webpackContext(req) {
@@ -33125,15 +33125,11 @@
 	
 	exports.default = {
 	    template: _albumsMain2.default,
-	    bindings: {
-	        add: '<',
-	        remove: '<'
-	    },
 	    controller: controller
 	};
 	
 	
-	controller.$inject['albumService'];
+	controller.$inject = ['albumService'];
 	
 	function controller(albumService) {
 	    var _this = this;
@@ -33169,7 +33165,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section ng-class=\"$ctrl.styles.albums\">\n    <div>\n        <albums-add></albums-add>\n    </div>\n    <hr>\n    <div>\n        <albums-view></albums-view>\n    </div>\n</section>\n";
+	module.exports = "\n<section ng-class=\"$ctrl.styles.albums\">\n    <div>\n        <albums-add></albums-add>\n    </div>\n    <hr>\n    <div>\n        <albums-view albums=\"$ctrl.albums\"></albums-view>\n    </div>\n</section>\n";
 
 /***/ },
 /* 20 */
@@ -33201,12 +33197,16 @@
 	
 	exports.default = {
 	    template: _albumsView2.default,
+	    bindings: {
+	        albums: '<'
+	    },
 	    controller: controller
 	};
 	
 	
 	function controller() {
 	    this.styles = _albumsView4.default;
+	    this.albums = this.albums;
 	};
 
 /***/ },
@@ -33545,8 +33545,6 @@
 	};
 	
 	
-	controller.$inject = ['$state'];
-	
 	function controller() {
 	    this.styles = _main2.default;
 	};
@@ -33555,7 +33553,7 @@
 /* 47 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <hr>\n    <a ui-sref=\"welcome\" ui-sref-active=\"\">Home</a>\n    <a ui-sref=\"about\" ui-sref-active=\"\">About</a>\n    <a ui-sref=\"albums\" ui-sref-active=\"\">Albums</a>\n    <!--<a ui-sref=\"images\" ui-sref-active=\"\">Images</a>-->\n    <hr>\n    <main>\n        <ui-view></ui-view>\n    </main>\n</section>";
+	module.exports = "<section>\n    <hr>\n    <a ui-sref=\"welcome\" ui-sref-active=\"\">Home</a>\n    <a ui-sref=\"about\" ui-sref-active=\"\">About</a>\n    <a ui-sref=\"albums\" ui-sref-active=\"\">Albums</a>\n    <a ui-sref=\"images\" ui-sref-active=\"\">Images</a>\n    <hr>\n    <main>\n        <ui-view></ui-view>\n    </main>\n</section>";
 
 /***/ },
 /* 48 */
@@ -33634,14 +33632,15 @@
 	
 	var context = __webpack_require__(55);
 	
-	var _module = _angular2.default.module('services', []);
+	// something is not working here....
+	var services = _angular2.default.module('services', []);
 	
 	context.keys().forEach(function (key) {
 	    var name = (0, _camelcase2.default)(_path2.default.basename(key, '.js'));
-	    _module.factory(name, context(key).default);
+	    services.factory(name, context(key).default);
 	});
 	
-	exports.default = _module.name;
+	exports.default = services.name;
 
 /***/ },
 /* 55 */
@@ -42129,11 +42128,11 @@
 	        }
 	    });
 	
-	    // $stateProvider.state({
-	    //     name: 'images',
-	    //     url: '/images',
-	    //     component: 'imageChoice'
-	    // });
+	    $stateProvider.state({
+	        name: 'images',
+	        url: '/images',
+	        component: 'imageChoice'
+	    });
 	
 	    $urlRouterProvider.otherwise('/');
 	};
