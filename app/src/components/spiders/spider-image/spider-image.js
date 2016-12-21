@@ -1,4 +1,5 @@
 import template from './spider-image.html';
+import styles from './spider-image.scss';
 
 export default {
   template,
@@ -10,7 +11,7 @@ export default {
 };
 
 function controller() {
-  // this.styles = styles;
+  this.styles = styles;
 
   this.delete = () => {
     this.remove(this.spider);
