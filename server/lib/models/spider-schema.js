@@ -8,7 +8,7 @@ const schema = new Schema({
   },
   type: {
     type: String,
-    default: 'jumping spider'
+    default: 'spider'
   },
   url: {
     type: String,
@@ -17,14 +17,3 @@ const schema = new Schema({
 });
 
 module.exports = mongoose.model('Spider', schema);
-
-
-// function controller() {
-//   this.spider = {
-//     title: 'Igor the Dapper Spider',
-//     url: 'http://1.bp.blogspot.com/_LbccUVbSRd8/SWZpdbbXG2I/AAAAAAAAD7Y/X1-TwL_E8f0/s400/jumping+spider+eyes+10.jpg',
-//     description: 'Jumping Spider',
-//     thumbnail: 'src/images/spiderthumbnail.png',
-//     image: 'src/images/jumping spider eyes 10.jpg'
-//   };
-// }

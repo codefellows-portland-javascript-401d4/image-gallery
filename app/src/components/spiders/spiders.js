@@ -21,22 +21,22 @@ function controller(spiders) {
       this.spiders = spiders;
     });
 
-  this.detail = function() {
-    this.viewDetail = true;
-    this.viewThumbnail = false;
-    this.viewImage = false;
+  this.detail = function() { // detail view
+    this.spiderDetail = true;
+    this.spiderThumbnail = false;
+    this.spiderImage = false;
   };
 
-  this.thumbnail = function() {
-    this.viewDetail = false;
-    this.viewThumbnail = true;
-    this.viewImage = false;
+  this.thumbnail = function() { // thumbnail view
+    this.spiderDetail = false;
+    this.spiderThumbnail = true;
+    this.spiderImage = false;
   };
 
-  this.image = function() {
-    this.viewDetail = false;
-    this.viewThumbnail = false;
-    this.viewImage = true;
+  this.image = function() { // image view
+    this.spiderDetail = false;
+    this.spiderThumbnail = false;
+    this.spiderImage = true;
   };
 
   // call the GET to load all spiders

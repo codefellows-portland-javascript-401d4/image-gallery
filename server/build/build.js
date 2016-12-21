@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(30);
+	var _services = __webpack_require__(29);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33736,13 +33736,19 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	console.log('is this spiders-ville???'); // GOT HERE
+	
 	exports.default = {
 	  template: _spiders2.default,
 	  controller: controller
 	};
 	
 	
+	console.log('are we in spiders-ville?'); // GOT HERE
+	
 	controller.$inject = ['spiderService'];
+	
+	console.log('wahoo!!! ... spiders.js'); // GOT HERE
 	
 	function controller(spiders) {
 	  var _this = this;
@@ -33751,6 +33757,8 @@
 	
 	  this.loading = true;
 	
+	  console.log('are we at spider gate?'); // DID NOT GET HERE!!!
+	
 	  // get all images
 	  spiders.get().then(function (spiders) {
 	    _this.loading = false;
@@ -33758,22 +33766,24 @@
 	  });
 	
 	  this.detail = function () {
-	    this.viewDetail = true;
-	    this.viewThumbnail = false;
-	    this.viewImage = false;
+	    this.spiderDetail = true;
+	    this.spiderThumbnail = false;
+	    this.spiderImage = false;
 	  };
 	
 	  this.thumbnail = function () {
-	    this.viewDetail = false;
-	    this.viewThumbnail = true;
-	    this.viewImage = false;
+	    this.spiderDetail = false;
+	    this.spiderThumbnail = true;
+	    this.spiderImage = false;
 	  };
 	
 	  this.image = function () {
-	    this.viewDetail = false;
-	    this.viewThumbnail = false;
-	    this.viewImage = true;
+	    this.spiderDetail = false;
+	    this.spiderThumbnail = false;
+	    this.spiderImage = true;
 	  };
+	
+	  console.log('are we STILL here in spiders-ville?'); // DID NOT GET HERE!!!
 	
 	  // call the GET to load all spiders
 	  spiders.get().then(function (spiders) {
@@ -33807,7 +33817,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <div class=\"loader\" ng-if=\"$ctrl.loading\">loading ...</div>\n\n  <button ng-click=\"$ctrl.detail()\">Detail View</button>\n  <button ng-click=\"$ctrl.thumbnail()\">Thumbnail View</button>\n  <button ng-click=\"$ctrl.image()\">Image View</button>\n\n<div ng-show=\"$ctrl.viewDetail === true\">\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-detail\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-detail>\n    </li>\n  </ul>\n</div>\n\n<div ng-show=\"$ctrl.viewThumbnail === true\">\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-thumbnail\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-thumbnail>\n    </li>\n  </ul>\n</div>\n\n<div ng-show=\"$ctrl.viewImage === true\">\n  <ul>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-image\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-image>\n    </li>\n  </ul>\n</div>\n\n  <new-spider add=\"$ctrl.add\"></new-spider>\n</section>\n";
+	module.exports = "<section>\n  <div class=\"loader\" ng-if=\"$ctrl.loading\">loading ...</div>\n\n  <button ng-click=\"$ctrl.detail()\">Detail View</button>\n  <button ng-click=\"$ctrl.thumbnail()\">Thumbnail View</button>\n  <button ng-click=\"$ctrl.image()\">Image View</button>\n\n<div ng-show=\"$ctrl.spiderDetail === true\">\n  <ul>\n      <h2>Spider Details from spiders.html</h2>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-detail\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-detail>\n    </li>\n  </ul>\n</div>\n\n<div ng-show=\"$ctrl.spiderThumbnail === true\">\n  <ul>\n          <h2>Spider Thumbnails from spiders.html</h2>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-thumbnail\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-thumbnail>\n    </li>\n  </ul>\n</div>\n\n<div ng-show=\"$ctrl.spiderImage === true\">\n  <ul>\n          <h2>Spider Images from spiders.html</h2>\n    <li ng-repeat=\"spider in $ctrl.spiders\">\n      <spider-image\n        spider=\"spider\">\n        <!-- remove=\"$ctrl.remove\"> -->\n      </spider-image>\n    </li>\n  </ul>\n</div>\n\n  <new-spider add=\"$ctrl.add\"></new-spider>\n</section>\n";
 
 /***/ },
 /* 26 */
@@ -33818,66 +33828,61 @@
 /***/ },
 /* 27 */,
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	// import template from './views.html';
+	//
+	console.log('is this bummer-ville???'); // GOT HERE
 	
-	var _views = __webpack_require__(29);
+	// export default {
+	//   template,
+	//   controller // eslint-disable-line
+	// };
 	
-	var _views2 = _interopRequireDefault(_views);
+	console.log('are we in bummer-ville?'); // GOT HERE
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	// controller.$inject = ['spiderService'];
 	
-	exports.default = {
-	  template: _views2.default,
-	  controller: controller
-	};
+	console.log('bummer ... views.js'); // GOT HERE
+	// // //
+	// function controller(spiders) { // eslint-disable-line no-unused-vars
 	
+	console.log('or are we still in bummer-ville?'); // DID NOT GET HERE
+	// //
+	//   console.log('yahoo!!!');
+	// this.loading = true;
 	
-	controller.$inject = ['spiderService'];
+	// get all images
+	// spiders.get()
+	//   .then (spiders => {
+	//     this.loading = false;
+	//     this.spiders = spiders;
+	//   });
 	
-	function controller(spiders) {
-	  //
-	  this.loading = true;
+	// this.detail = function() {
+	//   this.viewDetail = true;
+	//   this.viewThumbnail = false;
+	//   this.viewImage = false;
+	// };
 	
-	  // get all images
-	  // spiders.get()
-	  //   .then (spiders => {
-	  //     this.loading = false;
-	  //     this.spiders = spiders;
-	  //   });
+	// this.thumbnail = function() {
+	//   this.viewDetail = false;
+	//   this.viewThumbnail = true;
+	//   this.viewImage = false;
+	// };
 	
-	  // this.detail = function() {
-	  //   this.viewDetail = true;
-	  //   this.viewThumbnail = false;
-	  //   this.viewImage = false;
-	  // };
+	// this.image = function() {
+	//   this.viewDetail = false;
+	//   this.viewThumbnail = false;
+	//   this.viewImage = true;
+	// };
 	
-	  // this.thumbnail = function() {
-	  //   this.viewDetail = false;
-	  //   this.viewThumbnail = true;
-	  //   this.viewImage = false;
-	  // };
-	
-	  // this.image = function() {
-	  //   this.viewDetail = false;
-	  //   this.viewThumbnail = false;
-	  //   this.viewImage = true;
-	  // };
-	}
+	// }
 
 /***/ },
 /* 29 */
-/***/ function(module, exports) {
-
-	module.exports = "<!-- images view with toggle buttons ... -->\n<!--\n<button ng-click=\"$ctrl.detail()\">Detail View</button>\n<button ng-click=\"$ctrl.thumbnail()\">Thumbnail View</button>\n<button ng-click=\"$ctrl.image()\">Image View</button>\n\n<div ng-show=\"$ctrl.viewDetail === true\">\n  <h2>Spider Details</h2>\n  <section ng-repeat=\"image in $ctrl.images\">\n      <spider-detail\n        image=\"image\">\n      </spider-detail>\n  </section>\n</div>\n\n<div ng-show=\"$ctrl.viewThumbnail === true\">\n  <h2>Spider Thumbnails</h2>\n  <section ng-repeat=\"image in $ctrl.images\">\n    <spider-thumbnail\n      image=\"image\">\n    </spider-thumbnail>\n  </section>\n</div>\n\n<div ng-show=\"$ctrl.viewImage === true\">\n  <h2>Spider Images</h2>\n  <section ng-repeat=\"image in $ctrl.images\">\n    <spider-image\n      image=\"image\">\n    </spider-image>\n  </section>\n</div>\n-->\n";
-
-/***/ },
-/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33901,7 +33906,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require
-	var context = __webpack_require__(31);
+	var context = __webpack_require__(30);
 	
 	// create the module to put the resources in,
 	// in this case, services
@@ -33920,11 +33925,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 31 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./spider-service.js": 32
+		"./spider-service.js": 31
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33937,11 +33942,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 31;
+	webpackContext.id = 30;
 
 
 /***/ },
-/* 32 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
