@@ -1,17 +1,20 @@
-@import 'colors';
+:local(.gallery) {
+  @import 'colors';
+  
+  .thumb {
+    max-height: 100px;
+    max-width: 100px;
+  }
 
-.thumb {
-  max-height: 100px;
-  max-width: 100px;
-}
+  select {
+    margin: 1em;
+  }
 
-select {
-  margin: 1em;
-}
+  .image {
+    background-color: $image;
+    border-radius: 5px;
+    padding: .5em;
+    margin: .5em;
+  }
 
-.image {
-  background-color: $image;
-  border-radius: 5px;
-  padding: .5em;
-  margin: .5em;
 }

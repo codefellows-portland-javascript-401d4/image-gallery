@@ -4,7 +4,7 @@ import styles from './gallery.scss';
 export default {
   template,
   bindings: {
-    album: '<'
+    album: '='
   },
   controller
 };
