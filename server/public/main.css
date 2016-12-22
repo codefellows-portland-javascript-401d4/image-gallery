@@ -1,15 +1,32 @@
-body { 
-  background-color: bisque;
-}
+button.primary {
+  background: gold;
+  color: deepskyblue; }
+
+h2 {
+  color: lightgreen; }
+
+body {
+  background-color: bisque; }
 
 .thumbnail {
   width: 100px;
+  height: 100px; }
+._3vHmVNAM5IygX5lm66HDqt {
+  height: 200px;
+  border: 2px solid #acc;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  border-radius: 7px; }
+  ._3vHmVNAM5IygX5lm66HDqt div {
+    height: 70px; }
+  ._3vHmVNAM5IygX5lm66HDqt button {
+    height: -35px; }
+  ._3vHmVNAM5IygX5lm66HDqt label {
+    color: firebrick;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+._23I3RSECl4BH8LOT0pexoq {
   height: 100px;
-}._2JK05K7DjgNWEQr1h4loHg button {
-  outline: 0;
-  color: blue;
-}._1BHKnzNIt2bj-5FrmUVGQe {
-  height: 100px;
-  width: 100px;
-}
+  width: 100px; }
+
 /*# sourceMappingURL=main.css.map*/

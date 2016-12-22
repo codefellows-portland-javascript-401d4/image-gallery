@@ -1,7 +1,7 @@
 {
   "name": "image-gallery-lab",
   "version": "1.0.0",
-  "description": "bunny image gallery lab part-2",
+  "description": "bunny image gallery lab part-3",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline",
@@ -40,6 +40,8 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.8.0",
     "mocha": "^3.2.0",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
