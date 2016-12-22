@@ -40,6 +40,7 @@ describe( 'albums component', () => {
       component = $component('albums', { albumService, $state });
     });
 
+		//this one fails on Travis now? 12/21 10:30 pm
     it( 'loads albums', done => {
       assert.isOk(component.loading);
 
