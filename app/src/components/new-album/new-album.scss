@@ -1,0 +1,10 @@
+@import 'fonts';
+
+:local(.newAlbum) {
+    border: .1em solid black;
+    background-color: $lightGrey;
+    div {
+        display: inline-block;
+        padding: .5em;
+    }
+}

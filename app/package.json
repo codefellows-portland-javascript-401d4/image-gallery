@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "pretest": "eslint .",
+    "update-webdriver": "webdriver-manager update",
+    "e2e": "protractor",
     "test": "karma start --single-run",
     "start": "webpack-dev-server --inline",
     "build": "webpack"
@@ -39,14 +41,21 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.8.0",
     "mocha": "^3.0.2",
+    "node-sass": "^4.0.0",
+    "protractor": "^4.0.13",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "angular": "^1.5.9",
+    "angular-ui-router": "^1.0.0-beta.3",
     "camelcase": "^4.0.0",
     "path": "^0.12.7"
+  },
+  "directories": {
+    "test": "test"
   },
   "description": ""
 }

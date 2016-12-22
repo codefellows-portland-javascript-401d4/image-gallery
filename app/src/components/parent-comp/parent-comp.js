@@ -1,5 +1,5 @@
 import template from './parent-comp.html';
-import styles from '../../main.css';
+import stylesParent from './parent-comp.scss';
 
 export default {
   template,
@@ -7,19 +7,34 @@ export default {
   controllerAs: 'app'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller (images) {
+function controller (images, albums) {
 
-  this.styles = styles;
+  this.stylesParent = stylesParent;
   this.loading = true;
+
+  albums.get()
+    .then(albums => {
+      this.loading = false;
+      this.albums = albums;
+    });
 
   images.get()
     .then(images => {
-      console.log(images);
       this.loading = false;
       this.images = images;
     });
+
+  this.remove = image => {
+    this.loading = true;
+    images.remove(image._id)
+      .then(() => {
+        this.loading = false;
+        const index = this.images.indexOf(image);
+        if (index > -1) this.images.splice(index, 1);
+      });
+  };
 
   this.add = image => {
     this.loading = true;
@@ -30,11 +45,3 @@ function controller (images) {
       });
   };
 }
-
-  // this.data = [
-  //   {title: 'Bunny Photo',
-  //     description: 'Picture of a cute bunny!',
-  //     url: 'f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-  //     fullImage: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
-  //     thumbnail: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'}
-  // ];

@@ -1,0 +1,35 @@
+<header>
+    <h1>Albums Page</h1>
+    <a ui-sref="welcome" ui-sref-active="link">Home</a>
+    <a ui-sref="parentComp" ui-sref-active="link">Gallery</a>
+    <a ui-sref="about" ui-sref-active="link">About</a>
+</header>
+
+<div ng-class="$ctrl.styles.albums">
+    <select ng-change="$ctrl.getAlbum()" ng-model="$ctrl.selection" ng-options="album.title for album in $ctrl.albums">
+        <option value="">please select</option>
+    </select>
+    <h2>{{$ctrl.selection.title}} Album</h2>
+    <ul>
+        <li ng-repeat="image in $ctrl.images track by image.title" class="list">
+            <p>{{image.title}}</p>
+            <img ng-src="{{image.thumbnail}}">
+        </li>
+    </ul>
+
+</div>
+
+<hr></hr>
+<div ng-class="$ctrl.styles.albumsAdd"> 
+    <h2>Add an Album</h2>
+    <ul>
+        <li ng-repeat="album in $ctrl.albums track by album.title" remove="$ctrl.remove" class="albumList">
+            <p>Title: {{album.title}}</p>
+            <p>{{album.description}}</p>
+            <button ng-click="$ctrl.remove(this.album)">remove</button>
+        </li>
+    </ul>
+<new-album add2="$ctrl.add3" class"add"></new-album>
+</div>
+
+
