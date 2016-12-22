@@ -1,0 +1,91 @@
+@import 'colors';
+@import 'content';
+@import 'buttons';
+
+:local(.albums) {
+    margin: 10%;
+    padding: 1px;
+    background-color: $content;
+    border-radius: 15px;
+
+    .delete-button,
+    .add-button {
+        @include button();
+        border: 1px solid $text;
+        margin-bottom: 5%;
+        margin-top: 2%;
+        transition: transform .5s;
+    }
+
+    .delete-button:hover,
+    .add-button:hover {
+        transform: scale(1.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin: 3% 0 0;
+        font-size: 2em;
+        color: $white;
+    }
+
+    .preview {
+        text-align: center;
+        padding: 0 2%;
+        margin: 2% 0;
+
+        li {
+            color: $white;
+            display: inline-block;
+            margin: 2%;
+            box-sizing: border-box;
+            border-radius: 15px;
+            background-color: $item;
+            padding: 0 10px;
+            width: 150px;
+            height: 231px;
+
+            p {
+                height: 36px;
+                overflow-wrap: normal;
+            }
+        }
+    }
+
+    .album-thumbnail {
+        margin: 0 auto;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        }
+
+    .album-thumbnail img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+        }
+
+    .add-album {
+        @include add();
+        width: 40%;
+
+        input {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+    
+}

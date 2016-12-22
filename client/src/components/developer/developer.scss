@@ -1,0 +1,9 @@
+@import 'content';
+
+:local(.developer) {
+
+    p {
+        @include paragraph();
+    }
+
+}

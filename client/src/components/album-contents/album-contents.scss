@@ -1,0 +1,83 @@
+@import 'buttons';
+@import 'colors';
+@import 'content';
+
+:local(.album) {
+    border-radius: 15px;
+    background-color: $content;
+    padding: 2%;
+
+    ul {
+        text-align: center;
+    }
+
+    .detail {
+        box-sizing: border-box;
+        width: 220px;
+        height: 220px;
+        margin: 1%;
+        display: inline-block;
+    }
+
+    .view {
+        text-align: center;
+        border-radius: 15px;
+        background-color: $grey;
+        width: 40%;
+        margin: 2% auto 0;
+    }
+
+    .thumbnail {
+        margin: 1%;
+        padding: 0;
+        box-sizing: border-box;
+        width: 120px;
+        display: inline-block;
+    }
+
+    .gallery {
+        margin: 0 auto;
+        width: 80%;
+
+    }
+
+    .add-image {
+        @include add();
+        width: 25%;
+        box-sizing: border-box;
+        
+        .add-button {
+            @include button();
+            border: 1px solid $text;
+            margin-bottom: 5%;
+            margin-top: 2%;
+            transition: transform .5s; 
+        }
+
+        .add-button:hover {
+            transform: scale(1.1);
+        }
+
+        input {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+    }
+    
+    .back-to-albums {
+        text-align: center;
+        background-color: $button;
+        border-radius: 15px;
+        width: 20%;
+        color: $text;
+        padding: 1%;
+        margin: 2% auto;
+        transition: transform .5s;
+    }
+
+    .back-to-albums:hover {
+        transform: scale(1.1);
+    }
+}

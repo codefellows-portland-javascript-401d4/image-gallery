@@ -1,35 +1,9 @@
 {
-    "parserOptions": {
-		"ecmaVersion": 6,
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"modules": true,
-			"experimentalObjectRestSpread": true,
-			"impliedStrict": true
-		}
-	},
-    "env": {
-        "node": true,
-        "mocha": true,
-        "es6": true
-    },
     "globals": {
         "angular": false,
-        "chai": false
-    },
-    "rules": {
-        "no-console": "off",
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "chai": false,
+        "protractor": false,
+        "jasmine": false
+
     }
 }

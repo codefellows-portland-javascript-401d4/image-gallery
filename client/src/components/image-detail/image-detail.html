@@ -1,6 +1,5 @@
 <section ng-class="$ctrl.styles.detail">
-    <p>Title: {{$ctrl.image.title}}</p>
-    <p><a href="{{$ctrl.image.url}}">{{$ctrl.image.title}}</a></p>
-    <p>Description: {{$ctrl.image.description}}</p>
+    <p><a href="{{$ctrl.image.url}}" target="_blank">{{$ctrl.image.title}}</a></p>
+    <p>{{$ctrl.image.description}}</p>
+    <p><button ng-click="$ctrl.delete()">Remove</button></p>
 </section>
-

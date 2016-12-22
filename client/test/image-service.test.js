@@ -23,7 +23,7 @@ describe('image service', () => {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('get images', done => {
+    it('gets images', done => {
         // mock return data from image get
         const images = [1, 2, 3];
         
@@ -51,8 +51,7 @@ describe('image service', () => {
         $httpBackend.flush();
     });
 
-    it('add image', done => {
-
+    it('adds an image', done => {
         const image = {
             title: 'Big Bunny',
             url: 'http://www.fakepictureurl.com',
@@ -74,7 +73,6 @@ describe('image service', () => {
     });
 
     it('deletes an image', done => {
-
         const image = {
             title: 'Big Bunny',
             url: 'http://www.fakepictureurl.com',

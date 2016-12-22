@@ -1,0 +1,9 @@
+@import 'content';
+
+:local(.project) {
+
+    p {
+        @include paragraph();
+    }
+
+}
