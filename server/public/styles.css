@@ -8,12 +8,14 @@ button.basic {
   color: black;
   background-color: white; }
   button.basic:hover {
-    background-color: palegreen; }
+    background-color: palegreen;
+    font-weight: bold; }
 
 ._2deI_nM0Zfc9x5v-lrUG0L section {
   width: 85%;
   border: 0.1em solid darkblue;
-  border-radius: .5em .5em .5em 0em; }
+  border-radius: .5em .5em .5em 0em;
+  background-color: lightyellow; }
 
 ._2deI_nM0Zfc9x5v-lrUG0L div {
   padding: .12em; }
@@ -25,26 +27,29 @@ button.basic {
   color: black;
   background-color: white; }
   button.basic:hover {
-    background-color: palegreen; }
+    background-color: palegreen;
+    font-weight: bold; }
 
 .h1gsI_lr5fw0K26YvWwug div {
   padding: .12em; }
-button.basic {
-  color: black;
-  background-color: white; }
-  button.basic:hover {
-    background-color: palegreen; }
 
-._36n3NrLzhqheXfrV5Xd75C ul {
+.h1gsI_lr5fw0K26YvWwug ul {
   padding: 0; }
 
-._36n3NrLzhqheXfrV5Xd75C li {
+.h1gsI_lr5fw0K26YvWwug li {
   display: inline-block;
   padding: .3em;
   width: 300px; }
 
-._36n3NrLzhqheXfrV5Xd75C p {
-  margin: 0 auto; }
+.h1gsI_lr5fw0K26YvWwug p {
+  margin: 0 auto;
+  padding: .2em; }
+button.basic {
+  color: black;
+  background-color: white; }
+  button.basic:hover {
+    background-color: palegreen;
+    font-weight: bold; }
 
 ._36n3NrLzhqheXfrV5Xd75C button {
   border-radius: 6px; }
@@ -52,7 +57,8 @@ button.basic {
   color: black;
   background-color: white; }
   button.basic:hover {
-    background-color: palegreen; }
+    background-color: palegreen;
+    font-weight: bold; }
 
 .LVBOpzCDPAza16saRH3bp {
   width: 30%;
@@ -87,7 +93,8 @@ button.basic {
   color: black;
   background-color: white; }
   button.basic:hover {
-    background-color: palegreen; }
+    background-color: palegreen;
+    font-weight: bold; }
 
 .tKv564lckBLOz7IjnkmAa ul {
   padding: 0; }
@@ -103,10 +110,14 @@ button.basic {
 .tKv564lckBLOz7IjnkmAa button {
   border-radius: 6px; }
 header, h1, h2, h3, label {
-  color: darkgreen; }
+  color: darkgreen;
+  margin: auto; }
 
 header, body {
   background-color: lightblue; }
+
+ul {
+  margin: auto; }
 
 li {
   list-style-type: none; }

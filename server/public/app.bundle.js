@@ -33165,7 +33165,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section ng-class=\"$ctrl.styles.albums\">\n    <div>\n        <albums-add add=\"$ctrl.add\"></albums-add>\n    </div>\n    <hr>\n    <div>\n        <albums-view albums=\"$ctrl.albums\"></albums-view>\n    </div>\n</section>\n";
+	module.exports = "\n<section ng-class=\"$ctrl.styles.albums\">\n    <div>\n        <albums-add add=\"$ctrl.add\"></albums-add>\n    </div>\n    <hr>\n    <div>\n\n        <h3>Albums</h3>\n        <ul>\n            <li ng-repeat=\"album in $ctrl.albums\">\n                <p><a ui-sref=\"albums.images({id: album._id})\">{{album.title}}</a></p>\n                <button class=\"basic\" ng-click=\"$ctrl.remove(album)\">Remove Album</button>\n            </li>\n        </ul>\n        <hr>\n\n        <!--<albums-view albums=\"$ctrl.albums\"></albums-view>-->\n        <ui-view name=\"myimages\" ></ui-view>\n    </div>\n</section>\n";
 
 /***/ },
 /* 20 */
@@ -33207,13 +33207,14 @@
 	function controller() {
 	    this.styles = _albumsView4.default;
 	    this.albums = this.albums;
+	    console.log('albumViews controller is here!');
 	};
 
 /***/ },
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"album in $ctrl.albums\">\n            <p><a ui-sref=\"album({id: album._id})\">Title: {{album.title}}</a></p>\n            <p>Description: {{album.description}}</p>\n            <button class=\"basic\" ng-click=\"$ctrl.trash(album)\">Remove Album</button>\n        </li>\n    </ul>\n    <hr>\n    <section>\n        <image-choice></image-choice>\n    </section>\n</div>\n";
+	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <!--<h3>Albums</h3>\n    <ul>\n        <li ng-repeat=\"album in $ctrl.albums\">\n            <p><a ui-sref=\"album({id: album._id})\">{{album.title}}</a></p>\n            <button class=\"basic\" ng-click=\"$ctrl.trash(album)\">Remove Album</button>\n        </li>\n    </ul>\n    <hr>-->\n    <section ng-if=\"album._id\">\n        <!--<ui-view name=\"myalbums\" ></ui-view>-->\n        <ui-view name=\"myimages\" ></ui-view>\n    </section>\n</div>\n";
 
 /***/ },
 /* 24 */
@@ -33342,15 +33343,23 @@
 	    // };
 	
 	    this.$onInit = function () {
-	        if (_this.albumId) _this.getOne(_this.albumId);
+	        if (_this.albumId) {
+	            _this.getOne(_this.albumId);
+	        } else {
+	            _this.getAll();
+	        }
 	    };
 	
 	    this.getOne = function (albumId) {
-	        console.log('getOne called with:', albumId);
-	        // const album = {};
 	        _this.album._id = albumId;
 	        albumService.getOne(_this.album).then(function (album) {
 	            _this.album = album;
+	        });
+	    };
+	
+	    this.getAll = function () {
+	        imageService.get().then(function (images) {
+	            _this.album.images = images;
 	        });
 	    };
 	
@@ -33373,7 +33382,7 @@
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section>\n    <div ng-class=\"$ctrl.styles.choices\">\n        <label>View Choices:</label>\n        <select ng-model=\"$ctrl.myChoice\" ng-options=\"choice.name for choice in $ctrl.choices\"></select>\n        <!--<span ng-repeat=\"choice in $ctrl.choices\">{{choice.name}}\n        <input type=\"radio\" ng-model=\"$ctrl.myChoice\" ng-change=\"$ctrl.updateView\"\n                name=\"choice\" ng-value=\"choice.value\" checked=\"$ctrl.myChoice.value === choice.value\" >\n        </span>-->\n    </div>\n    <hr>\n    <h3>Album: {{$ctrl.album.title}} - {{$ctrl.album.description}}</h3>\n    <image-view ng-if=\"$ctrl.myChoice.value === 'view'\" images=\"$ctrl.album.images\" remove=\"$ctrl.remove\"></image-view>\n    <image-gallery ng-if=\"$ctrl.myChoice.value === 'gallery'\" images=\"$ctrl.album.images\"></image-gallery>\n    <image-thumbnail ng-if=\"$ctrl.myChoice.value === 'thumbnail'\" images=\"$ctrl.album.images\"></image-thumbnail>\n\n    <div ng-class=\"$ctrl.styles.choices\">\n        <p ng-class=\"$ctrl.styles.choices\" ng-if=\"$ctrl.album.images.length === 0\">No Images to display. Please add images.</p>\n    </div>\n\n    <hr>\n    <image-add add=\"$ctrl.add\"></image-add>\n</section>\n";
+	module.exports = "\n<section>\n    <div ng-class=\"$ctrl.styles.choices\">\n        <label>View Choices:</label>\n        <select ng-model=\"$ctrl.myChoice\" ng-options=\"choice.name for choice in $ctrl.choices\"></select>\n        <!--<span ng-repeat=\"choice in $ctrl.choices\">{{choice.name}}\n        <input type=\"radio\" ng-model=\"$ctrl.myChoice\" ng-change=\"$ctrl.updateView\"\n                name=\"choice\" ng-value=\"choice.value\" checked=\"$ctrl.myChoice.value === choice.value\" >\n        </span>-->\n    </div>\n    <hr>\n    <h3 ng-if=\"$ctrl.album._id\">Album: {{$ctrl.album.title}} - {{$ctrl.album.description}}</h3>\n    <image-view ng-if=\"$ctrl.myChoice.value === 'view'\" images=\"$ctrl.album.images\" remove=\"$ctrl.remove\"></image-view>\n    <image-gallery ng-if=\"$ctrl.myChoice.value === 'gallery'\" images=\"$ctrl.album.images\"></image-gallery>\n    <image-thumbnail ng-if=\"$ctrl.myChoice.value === 'thumbnail'\" images=\"$ctrl.album.images\"></image-thumbnail>\n\n    <div ng-class=\"$ctrl.styles.choices\">\n        <p ng-class=\"$ctrl.styles.choices\" ng-if=\"$ctrl.album.images.length === 0\">No Images to display. Please add images.</p>\n    </div>\n\n    <hr>\n    <image-add add=\"$ctrl.add\" ng-if=\"$ctrl.album._id\"></image-add>\n</section>\n";
 
 /***/ },
 /* 32 */
@@ -33559,7 +33568,7 @@
 /* 47 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n    <hr>\n    <a ui-sref=\"welcome\" ui-sref-active=\"\">Home</a>\n    <a ui-sref=\"about\" ui-sref-active=\"\">About</a>\n    <a ui-sref=\"albums\" ui-sref-active=\"\">Albums</a>\n    <!--<a ui-sref=\"images\" ui-sref-active=\"\">Images</a>-->\n    <hr>\n    <main>\n        <ui-view></ui-view>\n    </main>\n</section>";
+	module.exports = "<section>\n    <hr>\n    <a ui-sref=\"welcome\">Home</a>\n    <a ui-sref=\"about\">About</a>\n    <a ui-sref=\"albums\">Albums</a>\n    <a ui-sref=\"images\">Images</a>\n    <hr>\n    <main>\n        <ui-view></ui-view>\n    </main>\n</section>";
 
 /***/ },
 /* 48 */
@@ -42124,21 +42133,23 @@
 	    });
 	
 	    $stateProvider.state({
-	        name: 'album',
-	        url: '/albums/:id',
-	        component: 'imageChoice',
+	        name: 'albums.images',
+	        url: '/:id/images',
 	        resolve: {
 	            albumId: ['$transition$', function (t) {
 	                return t.params().id;
 	            }]
+	        },
+	        views: {
+	            myimages: 'imageChoice'
 	        }
 	    });
 	
-	    // $stateProvider.state({
-	    //     name: 'images',
-	    //     url: '/images',
-	    //     component: 'imageChoice'
-	    // });
+	    $stateProvider.state({
+	        name: 'images',
+	        url: '/images',
+	        component: 'imageChoice'
+	    });
 	
 	    $urlRouterProvider.otherwise('/');
 	};
