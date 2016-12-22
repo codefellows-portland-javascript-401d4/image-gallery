@@ -21,12 +21,10 @@ function controller (albums, images) {
     });
 
   this.getAlbum = () => {  
-    console.log('selection', this.selection);
     images.getone(this.selection._id)
       .then(images => {
         this.loading = false;
         this.images = images;
-        console.log('images', this.images);
       });
   };
 
@@ -40,9 +38,9 @@ function controller (albums, images) {
       });
   };
 
-  this.add = album => {
+  this.add3 = album => {
     this.loading = true;
-    albums.add(album)
+    albums.add1(album)
       .then(saved => {
         this.loading = false;
         this.albums.push(saved);

@@ -4,8 +4,7 @@ import styles from './new-album.scss';
 export default {
   template,
   bindings: {
-    add: '<',
-    remove: '<'
+    add2: '<'
   },
   controller,
 };
@@ -22,7 +21,7 @@ function controller () {
   this.reset();
 
   this.addNew = () => {
-    this.add({
+    this.add2({
       title: this.title,
       description: this.description
     });

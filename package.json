@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TomTimmel/image-gallery/issues"
   },
-  "homepage": "https://github.com/TomTimmel/image-gallery#readme"
+  "homepage": "https://github.com/TomTimmel/image-gallery#readme",
+  "devDependencies": {
+    "protractor": "^4.0.13"
+  }
 }

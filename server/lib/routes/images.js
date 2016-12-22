@@ -19,11 +19,9 @@ router
 
     .get('/:albumId', (req, res, next) => {
       const albumId = req.params.albumId;
-      console.log('albumId', albumId);
       Image.find({albumId})
       .then(image => {
         res.send(image);
-        console.log('image', image);
       })
       .catch(next);
     })
