@@ -1,3 +1,14 @@
-<h2>Large image view</h2>
+<!--<h2>Large image view</h2>
 <img ng-src="{{$ctrl.image.url}}"/>
 <p>{{$ctrl.image.description}}</p>
+<br>
+<button ng-click="$ctrl.delete()">Remove image</button>-->
+
+<section>
+  <h2>{{ $ctrl.image.title }}</h2>
+  <img ng-class="$ctrl.styles['large-class']" ng-src="{{ $ctrl.image.url }}">
+  <p>{{ $ctrl.image.description }}</p>
+  <p><a href="{{ $ctrl.image.url }}">Source</a></p>
+
+  <button ng-click="$ctrl.delete()">Remove image</button>
+</section>

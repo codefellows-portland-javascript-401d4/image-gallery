@@ -3,6 +3,14 @@ import template from './image-large.html';
 export default {
   template,
   bindings: {
-    image: '<'
-  }
+    image: '=',
+    remove: '<'
+  },
+  controller
 };
+
+function controller() {
+  this.delete = () => {
+    this.remove(this.image);
+  };
+}

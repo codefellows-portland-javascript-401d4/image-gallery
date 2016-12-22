@@ -8,17 +8,24 @@
   <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
     <image-new add="$ctrl.add"></image-new>
 
+    <ul>
+      <li ng-class="$ctrl.styles['large-class']" ng-repeat="image in $ctrl.images">
+        <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="image"></image-thumbnail>
+        <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
+        <image-large ng-if="$ctrl.view === 'large' || $ctrl.view === undefined" image="image" remove="$ctrl.remove"></image-large>
+      </li>
+    </ul>
 </section>
 
-<section>
+<!--<section>
     <image-detail ng-if="$ctrl.view === 'Detail'" image="app.image"></image-detail>
     <image-thumbnail ng-if="$ctrl.view === 'Thumbnail'" image="app.image"></image-thumbnail>
     <image-large ng-if="$ctrl.view === 'Large'" image="app.image"></image-large>
-</section>
+</section>-->
 
 <hr>
 
-<div class="component">
+<!--<div class="component">
   <image-detail
     image="app.image">
   </image-detail>
@@ -34,4 +41,4 @@
   <image-thumbnail class="component"
     image="app.image">
   </image-thumbnail>
-</div>
+</div>-->

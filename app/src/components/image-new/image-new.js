@@ -19,8 +19,6 @@ function controller() {
     this.description = '';
   };
 
-  this.reset();
-
   this.addNew = () => {
     this.add({
       title: this.title,

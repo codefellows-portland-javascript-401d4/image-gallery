@@ -1,4 +1,12 @@
-<h3>Image detail</h3>
+<!--<h3>Image detail</h3>
 <p>{{$ctrl.image.title}}</p>
 <a href="{{$ctrl.image.url}}">Link to image</a>
 <p>{{$ctrl.image.description}}</p>
+<br>
+<button ng-click="$ctrl.delete()">Remove image</button>-->
+
+<section ng-class="$ctrl.styles['detail-class']">
+  <h2>{{ $ctrl.image.title }}</h2>
+  <p>{{ $ctrl.image.description }}</p>
+  <p><a href="{{ $ctrl.image.url }}">Source</a></p>
+</section>

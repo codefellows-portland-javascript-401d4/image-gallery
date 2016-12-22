@@ -1,3 +1,10 @@
+import template from './image-app.html';
+
+export default {
+  template,
+  controller(){}
+};
+
 // import template from './image-app.html';
 
 // export default {
@@ -34,9 +41,3 @@
 //   });
 // }
 
-import template from './image-app.html';
-
-export default {
-  template,
-  controller(){}
-};
