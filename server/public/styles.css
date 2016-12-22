@@ -1,7 +1,13 @@
+._1YnBKp12AG3QJ19uUlXsXg h1, ._1YnBKp12AG3QJ19uUlXsXg h2 {
+  text-align: center; }
+
+._1YnBKp12AG3QJ19uUlXsXg p {
+  max-width: 50%;
+  text-align: left; }
 button.basic {
   color: black;
   background-color: white; }
-  button.basic button.basic:hover {
+  button.basic:hover {
     background-color: palegreen; }
 
 .LVBOpzCDPAza16saRH3bp {
@@ -12,6 +18,8 @@ button.basic {
   .LVBOpzCDPAza16saRH3bp p {
     margin: .1em auto;
     color: darkgreen; }
+._1f5oTCAS6Tv79g4NhGizd8 {
+  border: 0.2em solid darkgreen; }
 ._2pD5v6zDdUi2jX4alb2yhf img {
   max-width: 100%;
   max-height: 100%;
@@ -30,7 +38,7 @@ button.basic {
 button.basic {
   color: black;
   background-color: white; }
-  button.basic button.basic:hover {
+  button.basic:hover {
     background-color: palegreen; }
 
 .tKv564lckBLOz7IjnkmAa ul {
@@ -54,5 +62,7 @@ header, body {
 
 li {
   list-style-type: none; }
+._2ycxEXY3ri-FbN8pqxtzLe h1, ._2ycxEXY3ri-FbN8pqxtzLe h2 {
+  text-align: center; }
 
 /*# sourceMappingURL=styles.css.map*/

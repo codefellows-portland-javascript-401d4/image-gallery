@@ -1,7 +1,14 @@
 
 <section>
-    <label>Viewing Choices:</label>
-    <select ng-model="$ctrl.myChoice" ng-options="choice.name for choice in $ctrl.choices"></select>
+    <div class="choices">
+        <h3>Choose your image display</h3>
+        <label>Viewing Choices:</label>
+        <select ng-model="$ctrl.myChoice" ng-options="choice.name for choice in $ctrl.choices"></select>
+        <!--<span ng-repeat="choice in ['gallery', 'thumbnail', 'view']">
+        <input type="radio" ng-model="$ctrl.myChoice" ng-change=""
+                name="choice" ng-value="choice" >
+        </span-->
+    </div>
     <hr>
 
     <image-view ng-if="$ctrl.myChoice.value === 'view'" images="$ctrl.images" remove="$ctrl.remove"></image-view>
