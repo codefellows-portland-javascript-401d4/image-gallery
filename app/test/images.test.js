@@ -23,6 +23,7 @@ describe('components', () => {
         return Promise.resolve(images);
       },
       addImage(image) {
+        image.album = '123abc';
         return Promise.resolve(image);
       },
       remove(image) {
@@ -30,8 +31,32 @@ describe('components', () => {
       }
     };
 
+    const albums = [
+      {_id: 'id1', name: 'flies'},
+      {_id: 'id2', name: 'bananas'}
+    ];
+
+    const album = {
+      _id: '123abc',
+      name: 'planets',
+      images: images
+    };
+
+    const albumService = {
+      get(id) {
+        assert.isOk(id);
+        return Promise.resolve(album);
+      }
+    };
+
+    let component = null;
+
+    beforeEach(() => {
+      component = $component('images', {imageService, albumService}, {album, albums});
+      component.$onInit();
+    });
+
     it('loads images', done => {
-      const component = $component('images', {imageService}, {images});
       setTimeout(() => {
         assert.equal(component.images, images);
         done();
@@ -39,7 +64,6 @@ describe('components', () => {
     });
 
     it('adds an image', done => {
-      const component = $component('images', {imageService}, {images});
       component.addImage(image);
       setTimeout(() => {
         assert.equal(component.images.length, 3);
@@ -49,7 +73,6 @@ describe('components', () => {
     });
 
     it('removes an image', done => {
-      const component = $component('images', {imageService}, {images});
       component.removeImage(image);
       setTimeout(() => {
         assert.equal(component.images.length, 2);
