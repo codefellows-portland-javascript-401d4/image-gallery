@@ -19,6 +19,8 @@ function controller(albumService) {
 
   this.view = 'list';
 
+  this.loading = true;
+
   this.toggleView = name => {
     this.view = name;
   };

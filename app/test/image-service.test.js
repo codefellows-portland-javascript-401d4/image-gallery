@@ -26,7 +26,7 @@ describe('in the image service', () => {
       .expectGET('/api/images')
       .respond(images);
 
-    imageService.get()
+    imageService.getAll()
       .then(allImages => {
         assert.deepEqual(allImages, images);
         done();

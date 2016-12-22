@@ -1,6 +1,6 @@
-//testing images components
+//testing images component
 
-describe('in the images component', () => {
+describe('in the albums component', () => {
   const {assert} = chai;
 
   angular.mock.module.sharedInjector(); //use before instead of beforeEach
@@ -14,25 +14,25 @@ describe('in the images component', () => {
   }));
 
   
-  describe('create an image component to test against', () => {
+  describe('create a album component to test against', () => {
 
-    const images = [
+    const albums = [
       {
-        name: 'first-image',
-        description: 'the first image',
-        url: 'http://www.first-image.mock',
+        name: 'first-album',
+        description: 'the first album',
+        url: 'http://www.first-album.mock',
         _id: 1111
       },
       {
-        name: 'second-image',
-        description: 'the second image',
-        url: 'http://www.second-image.mock',
+        name: 'second-album',
+        description: 'the second album',
+        url: 'http://www.second-album.mock',
         _id: 2222
       },
       {
-        name: 'third-image',
-        description: 'the third image',
-        url: 'http://www.third-image.mock',
+        name: 'third-album',
+        description: 'the third album',
+        url: 'http://www.third-album.mock',
         _id: 3333
       }
     ];
@@ -40,36 +40,36 @@ describe('in the images component', () => {
     //making mocks cuz unit-testing
     //hard-coding an id cuz mock
     //only giving the specific method to test cuz mock
-    const imageService = {
-      remove(imageId) {
+    const albumService = {
+      remove(albumId) {
         const _id = 3333;
-        assert.equal(imageId, _id);
+        assert.equal(albumId, _id);
         return Promise.resolve(true);
       }
     };
 
     let component = null;
     before(() => {
-      component = $component('images', { imageService });
-      component.images = images;
+      component = $component('albums', {albumService});
+      component.albums = albums;
     });
 
-    it('loads images', done => {
+    it('loads albums', done => {
       assert.isOk(component.loading);
 
       setTimeout(() => {
-        assert.equal(component.images, images);
+        assert.equal(component.albums, albums);
         done();
       });
     });
 
-    it('removes an image', done => {
-      let thirdImage = component.images[2];
-      component.removeImage(thirdImage);
+    it('removes an album', done => {
+      let thirdAlbum = component.albums[2];
+      component.removeAlbum(thirdAlbum);
 
       setTimeout(() => {
-        assert.equal(images.length, 2);
-        assert.notInclude(images, thirdImage);
+        assert.equal(albums.length, 2);
+        assert.notInclude(albums, thirdAlbum);
         assert.isNotOk(component.loading);
         done();
       });

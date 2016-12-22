@@ -1,6 +1,6 @@
-// testing image-add components
+// testing image-add component
 
-describe('in the image-add component', () => {
+describe('in the album-add component', () => {
   const {assert} = chai;
 
   angular.mock.module.sharedInjector();
@@ -12,35 +12,34 @@ describe('in the image-add component', () => {
     $component = $componentController;
   }));
 
-  describe('create a component to test against', () => {
+  describe('create an album-add component to test against', () => {
 
-    const fakeImage = {
-      name: 'fake-image',
-      description: 'the fake image',
-      url: 'http://www.fake-image.mock',
-      albumId: 'fake-album'
+    const fakeAlbum = {
+      name: 'fake-album',
+      description: 'the fake album',
+      url: 'http://www.fake-album.mock',
     };
 
     let component = null;
 
     before(() => {
-      component = $component('imageAdd', {});
+      component = $component('albumAdd', {});
 
-      component.name = fakeImage.name;
-      component.description = fakeImage.description;
-      component.url = fakeImage.url;
+      component.name = fakeAlbum.name;
+      component.description = fakeAlbum.description;
+      component.url = fakeAlbum.url;
 
-      component.addImage = function(image) {
-        return image;
+      component.addAlbum = function(album) {
+        return album;
       };
     });
 
 
-    it('adds an image and resets input fields', done => {
-      component.addOneImage();
+    it('adds an album and resets input fields', done => {
+      component.addOneAlbum(fakeAlbum);
+
       assert.equal(component.name, '');
       assert.equal(component.description, '');
-      assert.equal(component.url, '');
       done();
     });
 
@@ -53,7 +52,6 @@ describe('in the image-add component', () => {
 
       assert.equal(component.name, '');
       assert.equal(component.description, '');
-      assert.equal(component.url, '');
       done();
     });
 
