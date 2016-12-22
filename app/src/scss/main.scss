@@ -2,10 +2,10 @@
 @import 'fonts';
 
 body {
-  width: 80%;
-  margin: 30px auto;
+  margin: 1em;
   font-family: $body;
   font-size: 1em;
+  color: $blue;
 }
 
 h1 {
@@ -14,18 +14,12 @@ h1 {
   color: $purple;
 }
 
-main {
-  margin: 0 auto;
-  padding: 1.5em;
-  background-color: $green;
-  border-radius: 5px;
-}
-
 h2 {
   font-family: $header;
-  color: $purple;
+  color: $green;
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }

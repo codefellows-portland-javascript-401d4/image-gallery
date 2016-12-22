@@ -1,13 +1,16 @@
 <section>
-  <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
-  
-    <image-new add="$ctrl.add"></image-new>
+  <header>
+    <h1>gallery</h1>
+    <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
+  </header>
 
-    <ul>
-      <li ng-class="$ctrl.styles['full-class']" ng-repeat="image in $ctrl.images">
-        <image-preview ng-if="$ctrl.view === 'preview'" image="image"></image-preview>
-        <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
-        <image-full ng-if="$ctrl.view === 'full' || $ctrl.view === undefined" image="image" remove="$ctrl.remove"></image-full>
-      </li>
-    </ul>
+  <image-new add="$ctrl.add"></image-new>
+  
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <image-preview ng-if="$ctrl.view === 'preview'" image="image"></image-preview>
+      <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
+      <image-full ng-if="$ctrl.view === 'full' || $ctrl.view === undefined" image="image" remove="$ctrl.remove"></image-full>
+    </li>
+  </ul>
 </section>

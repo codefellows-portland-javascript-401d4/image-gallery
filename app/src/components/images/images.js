@@ -1,5 +1,4 @@
 import template from './images.html';
-import styles from './images.scss';
 
 export default {
   template,
@@ -9,7 +8,7 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(images) {
-  this.styles = styles;
+  // this.styles = styles;
 
   this.views = ['preview', 'detail', 'full'];
   this.view = this.views[2];

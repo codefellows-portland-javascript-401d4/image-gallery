@@ -1,39 +1,26 @@
 body {
-  width: 80%;
-  margin: 30px auto;
+  margin: 1em;
   font-family: "Raleway", sans-serif;
-  font-size: 1em; }
+  font-size: 1em;
+  color: #027878; }
 
 h1 {
   font-family: "Playfair Display", serif;
   font-size: 2.5em;
   color: #721D46; }
 
-main {
-  margin: 0 auto;
-  padding: 1.5em;
-  background-color: #B5A835;
-  border-radius: 5px; }
-
 h2 {
   font-family: "Playfair Display", serif;
-  color: #721D46; }
+  color: #B5A835; }
 
 ul {
+  padding: 0;
   list-style: none; }
 ._3xXg8bZLyyIlMB6PWRKgtz {
-  height: 500px;
-  width: 500px;
-  display: inline-block;
-  margin-right: 1%; }
+  height: 400px;
+  width: 400px; }
 ._3xgNpRofYdA4D1XSDahY6k {
-  display: flex;
-  padding: 1%; }
-
-.R4zt97UVjDLcQibpS-rhC {
-  display: inline-block;
   height: 100px;
-  width: 100px;
-  border: 1px solid white; }
+  width: 100px; }
 
 /*# sourceMappingURL=main.css.map*/
