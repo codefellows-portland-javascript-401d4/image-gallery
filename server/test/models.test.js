@@ -3,7 +3,7 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-//to test validation
+//to test schema validation
 const Image = require('../lib/models/image.js');
 const Album = require('../lib/models/album.js');
 
@@ -33,16 +33,22 @@ describe('unit testing the album model', () => {
     });
   });
 
-
-
 });
 
-describe.skip('unit testing the image model', () => {
+describe('unit testing the image model', () => {
+
+  const anAlbum = new Album({
+    name: 'test album2',
+    description: 'http://www.someURL2.mock'
+  });
+
+  let _id = anAlbum._id;
 
   it('validates with name and url', (done) => {
     const image = new Image({
       name: 'test image',
-      url: 'http://www.someURL.mock'
+      url: 'http://www.someURL.mock',
+      albumId: _id
     });
 
     image.validate((err) => {
@@ -67,6 +73,19 @@ describe.skip('unit testing the image model', () => {
     const image = new Image({
       name: 'this image',
       url: ''
+    });
+
+    image.validate((err) => {
+      expect(err, 'url should have been required').to.be.ok;
+      done();
+    });
+  });
+
+  it('requires a albumId to validate', (done) => {
+    const image = new Image({
+      name: 'this image',
+      url: 'http://www.someURL.mock',
+      albumId: ''
     });
 
     image.validate((err) => {
