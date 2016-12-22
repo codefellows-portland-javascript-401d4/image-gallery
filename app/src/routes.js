@@ -32,9 +32,51 @@ export default function routes($stateProvider, $urlRouterProvider) {
     },
     resolve: {
       id: ['$transition$', t => t.params().id],
-      display: ['$transition$', t => t.params().display || 'thumb']
+      display: ['$transition$', t => t.params().display || 'gallery']
     },
     component: 'album'
+  });
+
+  $stateProvider.state({
+    name: 'album.gallery',
+    url: '?display',
+    params: {
+      display: {
+        dynamic: true
+      }
+    },
+    resolve: {
+      display: 'gallery'
+    },
+    component: 'image-gallery'
+  });
+
+  $stateProvider.state({
+    name: 'album.thumbnail',
+    url: '?display',
+    params: {
+      display: {
+        dynamic: true
+      }
+    },
+    resolve: {
+      display: 'thumb'
+    },
+    component: 'image-thumb'
+  });
+
+  $stateProvider.state({
+    name: 'album.detail',
+    url: '?display',
+    params: {
+      display: {
+        dynamic: true
+      }
+    },
+    resolve: {
+      display: 'detail'
+    },
+    component: 'image-detail'
   });
 
   $stateProvider.state({
