@@ -32,7 +32,7 @@ function controller(images) {
     images.remove(image._id)
       .then(() => {
         this.loading = false;
-        const index = this.images.indexOf(index);
+        const index = this.images.indexOf(image);
         if (index > -1) this.images.splice(index, 1);
       });
   };
