@@ -26,10 +26,12 @@ describe('images component', () => {
       }
     ];
 
+
     const image = {
       title: 'Image 3',
       url: 'www.test.com/image3.jpg',
-      description: 'Test image 3'
+      description: 'Test image 3',
+      albumId: ''
     };
 
     const imageService = {
@@ -43,19 +45,14 @@ describe('images component', () => {
         return Promise.resolve(image);
       }
     };
-    
-
-    it('loads images', done => {
-      const component = $component('images', { imageService });
-
-      setTimeout(() => {
-        assert.equal(component.images, images);
-        done();
-      });
-    });
 
     it('adds image', done => {
       const component = $component('images', { imageService });
+      component.album = {
+        name: 'test',
+        _id: '123',
+        images: images
+      };
       
       component.add(image);
 
@@ -68,10 +65,13 @@ describe('images component', () => {
 
     it('removes image', done => {
       const component = $component('images', { imageService });
+      component.album = {
+        images: images
+      };
 
       component.remove(image);
       setTimeout(() => {
-        assert.equal(component.images.length, 2);
+        assert.equal(component.album.images.length, 2);
         done();
       });
     });
