@@ -8,10 +8,11 @@
     "pretest": "npm run lint",
     "test": "karma start --single-run",
     "test:watch": "karma start",
+		"start": "webpack-dev-server --inline",
+    "build": "webpack",
 		"update-webdriver": "webdriver-manager update",
    	"e2e": "protractor",
-    "start": "webpack-dev-server --inline",
-    "build": "webpack"
+		"e2e-explore": "protractor --elementExplorer"
   },
   "repository": {
     "type": "git",

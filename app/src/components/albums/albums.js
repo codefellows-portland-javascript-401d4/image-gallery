@@ -11,7 +11,7 @@ function controller(albums, $state) {
   this.view = 'text view';
   this.styles = styles;
 
-  this.loading = true;
+  // this.loading = true;
 
   this.updateView = () => {
     $state.go($state.current.name, { view: this.view });
