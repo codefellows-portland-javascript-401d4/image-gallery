@@ -1,16 +1,16 @@
 describe('Gallery component', () => {
-  const { assert } = chai;
+  // const { assert } = chai;
 
-  angular.mock.module.sharedInjector();
-  const mockModule = angular.mock.module('components');
-  before(mockModule);
+  // angular.mock.module.sharedInjector();
+  // const mockModule = angular.mock.module('components');
+  // before(mockModule);
 
-  const add = 
-  const images = [{title: 'test', description: 'testing', url: 'test.com', albumId: '124ft'}];
+  // const add = 
+  // const images = [{title: 'test', description: 'testing', url: 'test.com', albumId: '124ft'}];
   
-  before(angular.mock.inject($componentController => {
+  // before(angular.mock.inject($componentController => {
     
-  }))
+  // }))
 
   describe('Create component', () => {
 
