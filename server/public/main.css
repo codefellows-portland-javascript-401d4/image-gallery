@@ -1,20 +1,5 @@
 body {
   background-color: rgba(95, 158, 160, 0.9); }
-h1 {
-  background-color: rgba(127, 255, 212, 0.9);
-  font-weight: bolder;
-  padding: 25px;
-  margin: 20px;
-  border-radius: 10px; }
-
-.container {
-  font-family: "Raleway", sans-serif;
-  width: 80%;
-  margin: auto;
-  text-align: center;
-  font-size: 1.25rem; }
-.thumbnail {
-  width: 100px; }
 .viewButton {
   width: 200px;
   height: 50px;
@@ -29,7 +14,7 @@ h1 {
 
 .viewButton:hover {
   background-color: #fff;
-  transition: .5s; }
+  transition: 1s; }
 
 .component {
   background-color: rgba(255, 235, 205, 0.9);
@@ -40,5 +25,99 @@ h1 {
 .component ul {
   list-style-type: none;
   padding: 0; }
+
+label {
+  display: block; }
+
+input {
+  display: inline; }
+
+.album-detail a:hover {
+  width: 40%;
+  margin: auto; }
+h1 {
+  background-color: rgba(127, 255, 212, 0.9);
+  font-weight: bolder;
+  padding: 25px;
+  margin: 20px;
+  border-radius: 10px; }
+
+header {
+  padding: 20px; }
+
+.container {
+  font-family: "Raleway", sans-serif;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.25rem; }
+
+.container a {
+  display: block;
+  padding: 5px;
+  margin: 20px;
+  border-radius: 10px;
+  text-decoration: underline;
+  color: #000; }
+
+.container a:hover {
+  font-weight: bolder;
+  background-color: #fff;
+  text-decoration: none;
+  transition: 1s; }
+
+.container a:visited {
+  color: inherit; }
+
+.component {
+  background-color: rgba(255, 235, 205, 0.9);
+  padding: 25px;
+  margin: 20px;
+  border-radius: 10px; }
+
+.about {
+  padding: 25px; }
+
+.about section {
+  margin: 20px;
+  border-radius: 10px;
+  background-color: aliceblue; }
+
+.about h3 {
+  padding-top: 25px;
+  padding-bottom: 10px;
+  margin: 5px; }
+
+.about p {
+  padding-top: 10px;
+  padding-bottom: 25px;
+  margin: 5px; }
+
+img {
+  padding: 10px;
+  max-width: 90%; }
+
+.main-nav a {
+  display: inline; }
+
+.component.detail a {
+  width: 25%;
+  margin: 10px auto; }
+
+.detail section {
+  margin: 20px;
+  border-radius: 10px;
+  background-color: aliceblue; }
+
+.detail ul {
+  padding: 25px;
+  font-size: 2rem;
+  font-weight: bolder; }
+
+.detail li {
+  list-style-type: none;
+  padding-top: 10px; }
+.thumbnail {
+  width: 100px; }
 
 /*# sourceMappingURL=main.css.map*/
