@@ -16,4 +16,14 @@ exports.config = {
 
   framework: 'jasmine',
 
+  onPrepare: function() {
+    var SpecReporter = require('jasmine-spec-reporter');
+      // add jasmine spec reporter
+    jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'all'}));
+  },
+
+  jasmineNodeOpts: {
+    print: function() {}
+  }
+  
 };
