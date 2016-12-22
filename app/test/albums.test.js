@@ -23,7 +23,7 @@ describe( 'albums component', () => {
       get() {
         return Promise.resolve(albums);
       },
-      add(album){
+      add1(album){
         album._id = _id;
         return Promise.resolve(album);
       }
@@ -51,7 +51,7 @@ describe( 'albums component', () => {
 
     it('add an album', done => {
       component = $component('albums', {albumService, imageService});
-      component.add(album);
+      component.add3(album);
 
       setTimeout(() => {
         assert.equal(albums.length, 3);

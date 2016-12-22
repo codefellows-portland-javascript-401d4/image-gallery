@@ -45,7 +45,7 @@ describe('album service', () => {
         .expectPOST('/albums', album)
         .respond(album);
     
-    albumService.add(album)
+    albumService.add1(album)
         .then(savedAlbum => {
           assert.deepEqual(savedAlbum, album);
           done();
