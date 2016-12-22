@@ -9,6 +9,7 @@
     "build": "webpack",
     "update-webdriver": "webdriver-manager update",
     "e2e": "protractor",
+    "e2e-explore": "protractor --elementExplorer",
     "start": "webpack-dev-server --inline"
   },
   "repository": {
