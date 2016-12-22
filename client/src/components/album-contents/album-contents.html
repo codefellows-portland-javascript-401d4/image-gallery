@@ -10,14 +10,17 @@
             ng-value="view" 
             type="radio"> 
             {{view}}
-        </span> 
+        </span>
+        <div ng-if="$ctrl.view === 'detail'"> 
+            search by title: <input ng-model="$ctrl.search.title">
+        </div>
     </div>
 
     <div class="back-to-albums" ui-sref="albums">Choose a Different Album</div>
 
     <div ng-if="$ctrl.view === 'detail'">
         <ul>
-            <li class="detail" ng-repeat="image in $ctrl.album.images">
+            <li class="detail" ng-repeat="image in $ctrl.album.images | filter: $ctrl.search">
                 <image-detail remove="$ctrl.removeImage" image="image"></image-detail>
             </li>
         </ul>
