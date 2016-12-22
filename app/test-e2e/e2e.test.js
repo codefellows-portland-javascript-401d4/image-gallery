@@ -7,7 +7,7 @@ describe('Welcome Page', function() {
     
   describe('navigation', function() {
 
-    it('default to /', function() {
+    it('defaults to /, navigates to Albums, to About, to About/Long', function() {
             
       const uiView = element(by.css('main ui-view'));
 
@@ -29,10 +29,21 @@ describe('Welcome Page', function() {
 
       testState('/albums', 'albums');
 
+      const hdg = element(by.css('h2'));
+    	expect(hdg.getText()).toEqual('Image Albums');
+
       aAbout.click();
 
       testState('/about', 'about');
 
+      const navAbout = element.all(by.css('main a'));
+      const aAboutLong = navAbout.get(1);
+
+      aAboutLong.click();
+
+      testState('/about/long', 'about');
+
     });
   });
 });
+
