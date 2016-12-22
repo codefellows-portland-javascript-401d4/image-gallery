@@ -8,18 +8,13 @@ export default {
 
 controller.$inject = ['albumService'];
 
-function controller(albumService) {
-
-  // this.$onInit = () => {
-  //   console.log()
+function controller() {
+  // this.removeAlbum = album => {
+  //   albumService.remove(album._id)
+  //     .then(() => {
+  //       console.log('album', album);
+  //       const idx = this.albums.indexOf(album);
+  //       if(idx > -1) this.albums.splice(idx, 1);
+  //     });
   // };
-
-  this.removeAlbum = album => {
-    albumService.remove(album._id)
-      .then(() => {
-        console.log('album', album);
-        const idx = this.albums.indexOf(album);
-        if(idx > -1) this.albums.splice(idx, 1);
-      });
-  };
 }

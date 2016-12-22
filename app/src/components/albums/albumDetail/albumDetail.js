@@ -12,15 +12,4 @@ export default {
 controller.$inject = ['albumService'];
 
 function controller() {
-
-  // this.$onInit = () => {
-  //   albumService.get(this.id).then(album => {
-  //     console.log('albServGet', album);
-  //     this.album = album;
-  //   });
-  // };
-
-  // this.uiOnParamsChanged = params => {
-  //   this.viewType = params.viewType;
-  // };
 }

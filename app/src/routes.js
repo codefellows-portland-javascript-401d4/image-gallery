@@ -48,6 +48,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'albums.images',
     url: '/:id',
+    params: {albums: null},
     resolve: {
       album: ['albumService', '$transition$', (albumService, t) => {
         return albumService.get(t.params().id);

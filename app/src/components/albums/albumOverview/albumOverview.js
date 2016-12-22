@@ -11,4 +11,5 @@ export default {
 
 controller.$inject = ['albumService'];
 
-function controller() {}
+function controller() {
+}

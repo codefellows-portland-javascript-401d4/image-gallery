@@ -4,15 +4,16 @@ import styles from './images.scss';
 export default {
   template,
   bindings: {
-    album: '<'
+    album: '<',
+    albums: '<'
   },
   controller,
   controllerAs: 'imagesCtrl'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller(imageService) {
+function controller(imageService, albumService) {
   this.styles = styles;
 
   this.$onInit = () => {
@@ -30,7 +31,22 @@ function controller(imageService) {
   this.addImage = image => {
     imageService.addImage(image)
       .then(saved => {
-        this.images.push(saved);
+        const albumId = saved.album;
+        if(albumId === this.album._id) {
+          this.images.push(saved);
+        } else {
+          const foundAlbum = this.albums.find(album => album._id === albumId);
+          if(foundAlbum) {
+            foundAlbum.images.push(saved);
+          } else {
+            albumService.get(albumId)
+              .then(saved => {
+                this.albums.push(saved);
+              });
+          }
+        }
+
+      
       });
   };
 
