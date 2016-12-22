@@ -11,13 +11,13 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'welcome.new',
     url: 'new',
-    template: '<p>Hello New Person</p>'
+    template: '<p>Hello my new friend!</p>'
   });
 
   $stateProvider.state({
     name: 'welcome.returning',
     url: 'returning',
-    template: '<p>Welcome Back</p>'
+    template: '<p>Welcome back!</p>'
   });
 
   $stateProvider.state({
