@@ -7,7 +7,12 @@
     "pretest": "eslint .",
     "test": "karma start --single-run",
     "start": "webpack-dev-server --inline",
-    "build": "webpack"
+    "build": "webpack",
+    "update-webdriver": "webdriver-manager update",
+    "initiate-webdriver": "webdriver-manager start",
+    "pree2e": "babel test-e2e-src --out-dir test-e2e",
+    "e2e": "protractor",
+    "e2e-explore": "protractor --elementExplorer"
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "angular-mocks": "^1.5.9",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
@@ -37,6 +43,7 @@
     "karma-webpack": "^1.8.0",
     "mocha": "^3.0.2",
     "node-sass": "^4.0.0",
+    "protractor": "^4.0.13",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
@@ -46,6 +53,11 @@
     "angular": "^1.5.9",
     "angular-ui-router": "^1.0.0-beta.3",
     "camelcase": "^4.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   },
   "bugs": {
     "url": "https://github.com/DrewStock/image-gallery/issues"
