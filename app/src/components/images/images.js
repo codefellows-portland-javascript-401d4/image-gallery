@@ -17,6 +17,8 @@ export default {
 
 function controller(imageService) {
   this.styles = styles;
+
+  this.loading = true;
   
   this.view = 'list';
   
