@@ -1,35 +1,26 @@
 body {
-  background-color: #efdddd;
   margin: 1em;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1em;
-  color: #ffffff; }
+  color: #027878; }
 
 h1 {
-  font-family: 'Lobster Two', cursive;
+  font-family: "Playfair Display", serif;
   font-size: 2.5em;
-  color: #574c7c; }
-
-main {
-  width: 80%;
-  margin: 0 auto;
-  background-color: #caa19e; }
+  color: #721D46; }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
-  color: #574c7c; }
+  font-family: "Playfair Display", serif;
+  color: #B5A835; }
 
 ul {
+  padding: 0;
   list-style: none; }
 ._3xXg8bZLyyIlMB6PWRKgtz {
-  height: 500px;
-  width: 500px;
-  display: inline-block;
-  margin-right: 1%; }
+  height: 400px;
+  width: 400px; }
 ._3xgNpRofYdA4D1XSDahY6k {
   height: 100px;
-  width: 100px;
-  display: inline-block;
-  margin-right: 1%; }
+  width: 100px; }
 
 /*# sourceMappingURL=main.css.map*/

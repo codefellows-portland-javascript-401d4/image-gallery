@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(34);
+	var _services = __webpack_require__(28);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33502,10 +33502,10 @@
 	var map = {
 		"./image-app/image-app.js": 12,
 		"./image-detail/image-detail.js": 14,
-		"./image-full/image-full.js": 18,
-		"./image-new/image-new.js": 22,
-		"./image-preview/image-preview.js": 26,
-		"./images/images.js": 30
+		"./image-full/image-full.js": 16,
+		"./image-new/image-new.js": 20,
+		"./image-preview/image-preview.js": 22,
+		"./images/images.js": 26
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33562,40 +33562,23 @@
 	
 	var _imageDetail2 = _interopRequireDefault(_imageDetail);
 	
-	var _imageDetail3 = __webpack_require__(16);
-	
-	var _imageDetail4 = _interopRequireDefault(_imageDetail3);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	  template: _imageDetail2.default,
 	  bindings: {
 	    image: '='
-	  },
-	  controller: controller
+	  }
 	};
-	
-	
-	function controller() {
-	  this.styles = _imageDetail4.default;
-	}
 
 /***/ },
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['details-class']\">\n  <h2>{{ $ctrl.image.title }}</h2>\n    <p>{{ $ctrl.image.description }}</p>\n    <p><a href=\"{{ $ctrl.image.url }}\">source</a></p>\n</section>\n";
+	module.exports = "<section>\n  <h2>{{ $ctrl.image.title }}</h2>\n    <p>{{ $ctrl.image.description }}</p>\n    <p><a href=\"{{ $ctrl.image.url }}\">source</a></p>\n</section>\n";
 
 /***/ },
 /* 16 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 17 */,
-/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33604,11 +33587,11 @@
 	  value: true
 	});
 	
-	var _imageFull = __webpack_require__(19);
+	var _imageFull = __webpack_require__(17);
 	
 	var _imageFull2 = _interopRequireDefault(_imageFull);
 	
-	var _imageFull3 = __webpack_require__(20);
+	var _imageFull3 = __webpack_require__(18);
 	
 	var _imageFull4 = _interopRequireDefault(_imageFull3);
 	
@@ -33635,21 +33618,21 @@
 	}
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <h2>{{ $ctrl.image.title }}</h2>\n    <img ng-class=\"$ctrl.styles['full-class']\" ng-src=\"{{ $ctrl.image.url }}\" alt=\"{{ $ctrl.image.title }}\">\n    <p>{{ $ctrl.image.description }}</p>\n    <p><a href=\"{{ $ctrl.image.url }}\">source</a></p>\n\n    <button ng-click=\"$ctrl.delete()\">remove</button>\n</section>\n  \n";
+	module.exports = "<section>\n  <h2>{{ $ctrl.image.title }}</h2>\n    <img ng-class=\"$ctrl.styles['full-class']\" ng-src=\"{{ $ctrl.image.url }}\" alt=\"{{ $ctrl.image.title }}\">\n    <p>{{ $ctrl.image.description }}</p>\n    <p><a href=\"{{ $ctrl.image.url }}\">source</a></p>\n\n    <button ng-click=\"$ctrl.delete()\">remove</button>\n</section>\n";
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"full-class":"_3xXg8bZLyyIlMB6PWRKgtz"};
 
 /***/ },
-/* 21 */,
-/* 22 */
+/* 19 */,
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33658,13 +33641,9 @@
 	  value: true
 	});
 	
-	var _imageNew = __webpack_require__(23);
+	var _imageNew = __webpack_require__(21);
 	
 	var _imageNew2 = _interopRequireDefault(_imageNew);
-	
-	var _imageNew3 = __webpack_require__(24);
-	
-	var _imageNew4 = _interopRequireDefault(_imageNew3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33681,7 +33660,7 @@
 	function controller() {
 	  var _this = this;
 	
-	  this.styles = _imageNew4.default;
+	  // this.styles = styles;
 	
 	  this.reset = function () {
 	    _this.title = '';
@@ -33701,20 +33680,13 @@
 	}
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"ctrl.styles['add-class']\">\n  <label>title:</label>\n  <input ng-model=\"$ctrl.title\" placeholder=\"image title\">\n  <label>description:</label>\n  <input ng-model=\"$ctrl.description\" placeholder=\"image description\">\n  <label>url:</label>\n  <input ng-model=\"$ctrl.url\" placeholder=\"image url\">\n  \n  <button ng-click=\"$ctrl.addNew()\">add new</button>\n</section>\n";
+	module.exports = "<section>\n    <label>title:</label>\n    <input ng-model=\"$ctrl.title\" placeholder=\"image title\">\n    <label>description:</label>\n    <input ng-model=\"$ctrl.description\" placeholder=\"image description\">\n    <label>url:</label>\n    <input ng-model=\"$ctrl.url\" placeholder=\"image url\">\n  \n  <button ng-click=\"$ctrl.addNew()\">+</button>\n</section>\n";
 
 /***/ },
-/* 24 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 25 */,
-/* 26 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33723,11 +33695,11 @@
 	  value: true
 	});
 	
-	var _imagePreview = __webpack_require__(27);
+	var _imagePreview = __webpack_require__(23);
 	
 	var _imagePreview2 = _interopRequireDefault(_imagePreview);
 	
-	var _imagePreview3 = __webpack_require__(28);
+	var _imagePreview3 = __webpack_require__(24);
 	
 	var _imagePreview4 = _interopRequireDefault(_imagePreview3);
 	
@@ -33747,21 +33719,21 @@
 	}
 
 /***/ },
-/* 27 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n  <a href=\"{{ $ctrl.image.url }}\"><img ng-class=\"$ctrl.styles['preview-class']\" ng-src=\"{{ $ctrl.image.url }}\" alt=\"{{ $ctrl.image.title }}\"/></a>\n</section>\n";
 
 /***/ },
-/* 28 */
+/* 24 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"preview-class":"_3xgNpRofYdA4D1XSDahY6k"};
 
 /***/ },
-/* 29 */,
-/* 30 */
+/* 25 */,
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33770,13 +33742,9 @@
 	  value: true
 	});
 	
-	var _images = __webpack_require__(31);
+	var _images = __webpack_require__(27);
 	
 	var _images2 = _interopRequireDefault(_images);
-	
-	var _images3 = __webpack_require__(32);
-	
-	var _images4 = _interopRequireDefault(_images3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33791,7 +33759,7 @@
 	function controller(images) {
 	  var _this = this;
 	
-	  this.styles = _images4.default;
+	  // this.styles = styles;
 	
 	  this.views = ['preview', 'detail', 'full'];
 	  this.view = this.views[2];
@@ -33815,20 +33783,13 @@
 	}
 
 /***/ },
-/* 31 */
+/* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n  \n    <image-new add=\"$ctrl.add\"></image-new>\n\n    <ul>\n      <li ng-class=\"$ctrl.styles['full-class']\" ng-repeat=\"image in $ctrl.images\">\n        <image-preview ng-if=\"$ctrl.view === 'preview'\" image=\"image\"></image-preview>\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n        <image-full ng-if=\"$ctrl.view === 'full' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-full>\n      </li>\n    </ul>\n</section>\n";
+	module.exports = "<section>\n  <header>\n    <h1>gallery</h1>\n    <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\n  </header>\n\n  <image-new add=\"$ctrl.add\"></image-new>\n  \n  <ul>\n    <li ng-repeat=\"image in $ctrl.images\">\n      <image-preview ng-if=\"$ctrl.view === 'preview'\" image=\"image\"></image-preview>\n      <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\n      <image-full ng-if=\"$ctrl.view === 'full' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-full>\n    </li>\n  </ul>\n</section>\n";
 
 /***/ },
-/* 32 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 33 */,
-/* 34 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33851,7 +33812,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(35);
+	var context = __webpack_require__(29);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33863,11 +33824,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 35 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 36
+		"./image-service.js": 30
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33880,11 +33841,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 35;
+	webpackContext.id = 29;
 
 
 /***/ },
-/* 36 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
