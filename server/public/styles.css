@@ -51,15 +51,6 @@ button.basic {
     background-color: palegreen;
     font-weight: bold; }
 
-._36n3NrLzhqheXfrV5Xd75C button {
-  border-radius: 6px; }
-button.basic {
-  color: black;
-  background-color: white; }
-  button.basic:hover {
-    background-color: palegreen;
-    font-weight: bold; }
-
 .LVBOpzCDPAza16saRH3bp {
   width: 30%;
   border: 0.1em solid darkblue;
@@ -78,13 +69,25 @@ button.basic {
   max-width: 100%;
   max-height: 100%;
   border: 2px solid darkgreen; }
+button.basic {
+  color: black;
+  background-color: white; }
+  button.basic:hover {
+    background-color: palegreen;
+    font-weight: bold; }
+
 ._2OjRt6lK6ahqvZN_vhmdY1 ul {
   padding: 0;
   margin: .2em 0; }
 
 ._2OjRt6lK6ahqvZN_vhmdY1 li {
   display: inline-block;
-  padding-right: .2em; }
+  padding-right: .2em;
+  max-width: 125px;
+  max-height: 125px; }
+
+._2OjRt6lK6ahqvZN_vhmdY1 div {
+  border: 0.12em solid darkblue; }
 
 ._2OjRt6lK6ahqvZN_vhmdY1 img {
   max-width: 100px;
@@ -106,6 +109,10 @@ button.basic {
 
 .tKv564lckBLOz7IjnkmAa p {
   margin: 0 auto; }
+
+.tKv564lckBLOz7IjnkmAa td {
+  border: 0.2em solid darkblue;
+  padding: 1.3em; }
 
 .tKv564lckBLOz7IjnkmAa button {
   border-radius: 6px; }
