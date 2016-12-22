@@ -28,19 +28,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
-        name: 'images.detail',
-        url: '/:id/?view',
-        params: {
-            view: {dynamic: true}
-        },
-        resolve: {
-            id: ['$transition$', t => t.params().id],
-            view: ['$transition$', t => t.params().view || 'detail']
-        },
-        component: 'imageDetail'
-    });
-
-    $stateProvider.state({
         name: 'images',
         url: '/images',
         component: 'images',

@@ -8,7 +8,6 @@ describe('image gallery navigation', function () {
 
     it('defaults to welcome route', function () {
         var uiView = element(by.css('ui-view'));
-        // console.log('*********uiView************', uiView);
 
         function testState(url, componentName) {
             expect(browser.getLocationAbsUrl()).toBe(url);
@@ -24,6 +23,6 @@ describe('image gallery navigation', function () {
 
         aGallery.click();
 
-        testState('/images', 'images');
+        testState('/imagess', 'images');
     });
 });
