@@ -1,0 +1,5 @@
+<div ng-repeat="album in $ctrl.albums" ui-sref="albums.thumbnail({id:album._id})">
+  {{album.name}}
+</div>
+
+<ui-view>select an album to see the collection</ui-view>

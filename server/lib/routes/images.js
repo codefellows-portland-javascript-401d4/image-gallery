@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Image = require('../models/image');
+const Album = require('../models/album');
 const bodyParser = require('body-parser').json();
 
 router
@@ -15,5 +16,6 @@ router
       .then(saved => res.send(saved))
       .catch(next);
   });
+
 
 module.exports = router;

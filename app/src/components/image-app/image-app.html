@@ -10,4 +10,7 @@
   <image-detail ng-if="$ctrl.view==='detail'" img="$ctrl.img"></image-detail>
   <image-thumbnail ng-if="$ctrl.view==='thumbnail'" img="$ctrl.img"></image-thumbnail>
   <image-gallery ng-if="$ctrl.view==='gallery'" img="$ctrl.img"></image-gallery>
+  <add-image albums="$ctrl.albums" add-image="$ctrl.addImage"></add-image>
+  <add-album albums="$ctrl.albums" add-album="$ctrl.addAlbum"></add-album>
+
 </section>
