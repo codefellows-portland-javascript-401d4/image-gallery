@@ -33283,13 +33283,11 @@
 	
 	
 	function controller() {
-	    var _this = this;
-	
 	    this.styles = _album4.default;
 	
-	    this.uiOnParamsChanged = function (params) {
-	        _this.view = params.view;
-	    };
+	    // this.uiOnParamsChanged = params => {
+	    //     this.view = params.view;
+	    // };
 	};
 
 /***/ },
