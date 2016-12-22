@@ -1,0 +1,10 @@
+@import 'font', 'colors', 'list', 'layout';
+
+body {
+    font-family: $primary-font;
+    color: $primary-color;
+}
+
+a:visited {
+    color: $secondary-color;
+}

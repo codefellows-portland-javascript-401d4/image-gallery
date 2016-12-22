@@ -2,7 +2,8 @@ const webpackConfig = require('./webpack.config');
 webpackConfig.entry = {};
 
 module.exports = function(config) {
-    config.set({
+
+    const options = {
         basePath: '',
         frameworks: ['mocha', 'chai'],
         files: [
@@ -15,7 +16,7 @@ module.exports = function(config) {
             './src/app.js': ['webpack'],
             './test/**/*.js': ['babel']
         },
-        browsers: ['Chrome'],
+        browsers: ['Chrome', 'Safari'],
         reporters: ['spec'],
         port: 9876,
         colors: true,
@@ -23,5 +24,18 @@ module.exports = function(config) {
         autoWatch: true,
         singleRun: false,
         concurrency: Infinity
-    });
+    };
+
+    if (process.env.TRAVIS) {
+        options.customLaunchers = {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+                }
+            };
+        options.browsers = ['Chrome_travis_ci'];
+        options.singleRun = true;
+        }
+    
+    config.set(options);
 };

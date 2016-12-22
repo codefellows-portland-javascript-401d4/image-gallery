@@ -1,0 +1,19 @@
+<section ng-class="$ctrl.styles.album">
+    <h3>{{$ctrl.album.name}}</h3>
+    <div class="description">
+        Album description: {{$ctrl.album.description}}
+    </div>
+
+    <ul ng-if="$ctrl.view === 'detail'">
+        <li ng-repeat="image in $ctrl.album.images">
+            <image-thumbnail image="image"></image-thumbnail>
+        </li>
+    </ul>
+
+    <div class="description" ng-if="$ctrl.view !== 'detail'">
+        There are {{$ctrl.album.images.length}} images in this album.
+    </div>
+    <button ng-click="$ctrl.deleteAlbum()">Delete Album</button>
+</section>
+
+    
