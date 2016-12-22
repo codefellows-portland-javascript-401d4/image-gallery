@@ -10,27 +10,25 @@ button.basic {
   button.basic:hover {
     background-color: palegreen; }
 
-._1Js4X_l9FDszaz_S61HFnH {
-  width: 50%;
+._2deI_nM0Zfc9x5v-lrUG0L section {
+  width: 85%;
   border: 0.1em solid darkblue;
   border-radius: .5em .5em .5em 0em; }
-  ._1Js4X_l9FDszaz_S61HFnH div {
-    padding: .12em; }
-  ._1Js4X_l9FDszaz_S61HFnH p {
-    margin: .1em auto;
-    color: darkgreen; }
+
+._2deI_nM0Zfc9x5v-lrUG0L div {
+  padding: .12em; }
+
+._2deI_nM0Zfc9x5v-lrUG0L p {
+  margin: .1em auto;
+  color: darkgreen; }
 button.basic {
   color: black;
   background-color: white; }
   button.basic:hover {
     background-color: palegreen; }
 
-.h1gsI_lr5fw0K26YvWwug {
-  width: 50%;
-  border: 0.1em solid darkblue;
-  border-radius: .5em .5em .5em 0em; }
-  .h1gsI_lr5fw0K26YvWwug div {
-    padding: .12em; }
+.h1gsI_lr5fw0K26YvWwug div {
+  padding: .12em; }
 button.basic {
   color: black;
   background-color: white; }

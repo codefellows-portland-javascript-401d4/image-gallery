@@ -33081,7 +33081,6 @@
 	    this.reset();
 	
 	    this.addAlbum = function () {
-	        console.log('adding new album');
 	        _this.add({
 	            title: _this.title,
 	            description: _this.description
@@ -33094,14 +33093,14 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section ng-class=\"$ctrl.styles.addNew\">\n    <div>\n        <p>ADD A NEW ALBUM:</p>\n        <p>\n            <label>Album Title:</label>\n            <input type=\"text\" ng-model=\"$ctrl.title\">\n\n            <label>Album Description:</label>\n            <input type=\"text\" ng-model=\"$ctrl.description\">\n        </p>\n    </div>\n    <button class=\"basic\" ng-click=\"$ctrl.addAlbum()\">Add Album</button>\n</section>\n";
+	module.exports = "\n<section ng-class=\"$ctrl.styles.addnew\">\n    <section>\n    <div>\n        <p>ADD A NEW ALBUM:</p>\n        <p>\n            <label>Album Title:</label>\n            <input type=\"text\" ng-model=\"$ctrl.title\">\n\n            <label>Album Description:</label>\n            <input type=\"text\" ng-model=\"$ctrl.description\">\n        </p>\n    </div>\n    <button class=\"basic\" ng-click=\"$ctrl.addAlbum()\">Add Album</button>\n    </section>\n</section>\n";
 
 /***/ },
 /* 16 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"add-new":"_1Js4X_l9FDszaz_S61HFnH"};
+	module.exports = {"addnew":"_2deI_nM0Zfc9x5v-lrUG0L"};
 
 /***/ },
 /* 17 */,
@@ -33166,7 +33165,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section ng-class=\"$ctrl.styles.albums\">\n    <div>\n        <albums-add></albums-add>\n    </div>\n    <hr>\n    <div>\n        <albums-view albums=\"$ctrl.albums\"></albums-view>\n    </div>\n</section>\n";
+	module.exports = "\n<section ng-class=\"$ctrl.styles.albums\">\n    <div>\n        <albums-add add=\"$ctrl.add\"></albums-add>\n    </div>\n    <hr>\n    <div>\n        <albums-view albums=\"$ctrl.albums\"></albums-view>\n    </div>\n</section>\n";
 
 /***/ },
 /* 20 */
@@ -33214,7 +33213,7 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"album in $ctrl.albums\">\n            <p><a ui-sref=\"album({id: album._id})\">Title: {{album.title}}</a></p>\n            <p>Description: {{album.description}}</p>\n            <button class=\"basic\" ng-click=\"$ctrl.trash(album)\">Remove Album</button>\n        </li>\n    </ul>\n    <hr>\n    <section>\n        <ui-view></ui-view>\n    </section>\n</div>\n";
+	module.exports = "\n<div class=\"{{$ctrl.styles.view}}\">\n    <ul>\n        <li ng-repeat=\"album in $ctrl.albums\">\n            <p><a ui-sref=\"album({id: album._id})\">Title: {{album.title}}</a></p>\n            <p>Description: {{album.description}}</p>\n            <button class=\"basic\" ng-click=\"$ctrl.trash(album)\">Remove Album</button>\n        </li>\n    </ul>\n    <hr>\n    <section>\n        <image-choice></image-choice>\n    </section>\n</div>\n";
 
 /***/ },
 /* 24 */
@@ -33334,7 +33333,7 @@
 	
 	    this.choices = [{ name: 'Text View', value: 'view' }, { name: 'Gallery', value: 'gallery' }, { name: 'Thumbnail', value: 'thumbnail' }];
 	
-	    this.myChoice = this.choices[0];
+	    this.myChoice = this.choices[2];
 	
 	    this.album = {};
 	
@@ -33343,7 +33342,7 @@
 	    // };
 	
 	    this.$onInit = function () {
-	        _this.getOne(_this.albumId);
+	        if (_this.albumId) _this.getOne(_this.albumId);
 	    };
 	
 	    this.getOne = function (albumId) {
@@ -33374,7 +33373,7 @@
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<section>\n    <div ng-class=\"$ctrl.styles.choices\">\n        <h3>Choose your image display</h3>\n        <label>Viewing Choices:</label>\n        <select ng-model=\"$ctrl.myChoice\" ng-options=\"choice.name for choice in $ctrl.choices\"></select>\n        <!--<span ng-repeat=\"choice in $ctrl.choices\">{{choice.name}}\n        <input type=\"radio\" ng-model=\"$ctrl.myChoice\" ng-change=\"$ctrl.updateView\"\n                name=\"choice\" ng-value=\"choice.value\" checked=\"$ctrl.myChoice.value === choice.value\" >\n        </span>-->\n    </div>\n    <hr>\n    <image-view ng-if=\"$ctrl.myChoice.value === 'view'\" images=\"$ctrl.album.images\" remove=\"$ctrl.remove\"></image-view>\n    <image-gallery ng-if=\"$ctrl.myChoice.value === 'gallery'\" images=\"$ctrl.album.images\"></image-gallery>\n    <image-thumbnail ng-if=\"$ctrl.myChoice.value === 'thumbnail'\" images=\"$ctrl.album.images\"></image-thumbnail>\n\n    <div ng-class=\"$ctrl.styles.choices\">\n        <p ng-class=\"$ctrl.styles.choices\" ng-if=\"$ctrl.album.images.length === 0\">No Images to display. Please add images.</p>\n    </div>\n\n    <hr>\n    <image-add add=\"$ctrl.add\"></image-add>\n</section>\n";
+	module.exports = "\n<section>\n    <div ng-class=\"$ctrl.styles.choices\">\n        <label>View Choices:</label>\n        <select ng-model=\"$ctrl.myChoice\" ng-options=\"choice.name for choice in $ctrl.choices\"></select>\n        <!--<span ng-repeat=\"choice in $ctrl.choices\">{{choice.name}}\n        <input type=\"radio\" ng-model=\"$ctrl.myChoice\" ng-change=\"$ctrl.updateView\"\n                name=\"choice\" ng-value=\"choice.value\" checked=\"$ctrl.myChoice.value === choice.value\" >\n        </span>-->\n    </div>\n    <hr>\n    <h3>Album: {{$ctrl.album.title}} - {{$ctrl.album.description}}</h3>\n    <image-view ng-if=\"$ctrl.myChoice.value === 'view'\" images=\"$ctrl.album.images\" remove=\"$ctrl.remove\"></image-view>\n    <image-gallery ng-if=\"$ctrl.myChoice.value === 'gallery'\" images=\"$ctrl.album.images\"></image-gallery>\n    <image-thumbnail ng-if=\"$ctrl.myChoice.value === 'thumbnail'\" images=\"$ctrl.album.images\"></image-thumbnail>\n\n    <div ng-class=\"$ctrl.styles.choices\">\n        <p ng-class=\"$ctrl.styles.choices\" ng-if=\"$ctrl.album.images.length === 0\">No Images to display. Please add images.</p>\n    </div>\n\n    <hr>\n    <image-add add=\"$ctrl.add\"></image-add>\n</section>\n";
 
 /***/ },
 /* 32 */

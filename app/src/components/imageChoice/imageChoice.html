@@ -1,8 +1,7 @@
 
 <section>
     <div ng-class="$ctrl.styles.choices">
-        <h3>Choose your image display</h3>
-        <label>Viewing Choices:</label>
+        <label>View Choices:</label>
         <select ng-model="$ctrl.myChoice" ng-options="choice.name for choice in $ctrl.choices"></select>
         <!--<span ng-repeat="choice in $ctrl.choices">{{choice.name}}
         <input type="radio" ng-model="$ctrl.myChoice" ng-change="$ctrl.updateView"
@@ -10,6 +9,7 @@
         </span>-->
     </div>
     <hr>
+    <h3 ng-if="$ctrl.album._id">Album: {{$ctrl.album.title}} - {{$ctrl.album.description}}</h3>
     <image-view ng-if="$ctrl.myChoice.value === 'view'" images="$ctrl.album.images" remove="$ctrl.remove"></image-view>
     <image-gallery ng-if="$ctrl.myChoice.value === 'gallery'" images="$ctrl.album.images"></image-gallery>
     <image-thumbnail ng-if="$ctrl.myChoice.value === 'thumbnail'" images="$ctrl.album.images"></image-thumbnail>
@@ -19,5 +19,5 @@
     </div>
 
     <hr>
-    <image-add add="$ctrl.add"></image-add>
+    <image-add add="$ctrl.add" ng-if="$ctrl.album._id"></image-add>
 </section>

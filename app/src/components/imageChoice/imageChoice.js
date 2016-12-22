@@ -23,7 +23,7 @@ function controller(imageService, albumService) {
         {name: 'Thumbnail', value: 'thumbnail'}
     ];
 
-    this.myChoice = this.choices[0];
+    this.myChoice = this.choices[2];
 
     this.album = {};
 
@@ -32,16 +32,25 @@ function controller(imageService, albumService) {
     // };
 
     this.$onInit = () => {
-        this.getOne(this.albumId);
+        if (this.albumId) {
+            this.getOne(this.albumId);
+        } else {
+            this.getAll();
+        }
     };
 
     this.getOne = albumId => {
-        console.log('getOne called with:', albumId);
-        // const album = {};
         this.album._id = albumId;
         albumService.getOne(this.album)
             .then(album => {
                 this.album = album;
+            });
+    };
+
+    this.getAll = () => {
+        imageService.get()
+            .then(images => {
+                this.album.images = images;
             });
     };
 

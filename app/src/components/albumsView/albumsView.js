@@ -13,4 +13,5 @@ export default {
 function controller () {
     this.styles = styles;
     this.albums = this.albums;
+    console.log('albumViews controller is here!');              
 };

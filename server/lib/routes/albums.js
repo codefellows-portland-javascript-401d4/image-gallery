@@ -13,7 +13,6 @@ router
                     next({code: 404, message: 'No albums found.'});
                 }
                 else {
-                    console.log('found these albums:', albums);
                     res.send(albums);
                 };
             })

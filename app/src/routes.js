@@ -22,19 +22,21 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
-        name: 'album',
-        url: '/albums/:id',
-        component: 'imageChoice',
+        name: 'albums.images',
+        url: '/:id/images',
         resolve: {
             albumId: ['$transition$', t => t.params().id]
+        },
+        views: {
+            myimages: 'imageChoice'
         }
     });
 
-    // $stateProvider.state({
-    //     name: 'images',
-    //     url: '/images',
-    //     component: 'imageChoice'
-    // });
+    $stateProvider.state({
+        name: 'images',
+        url: '/images',
+        component: 'imageChoice'
+    });
 
     $urlRouterProvider.otherwise('/');
 };
