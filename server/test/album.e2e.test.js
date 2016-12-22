@@ -52,7 +52,6 @@ describe('e2e testing the album', () => {
       .send(albumTested)
       .then(res => {
         const album = res.body;
-        console.log(album);
         expect(album._id).to.be.ok;
         albumTested.__v = 0;
         albumTested._id = album._id;
