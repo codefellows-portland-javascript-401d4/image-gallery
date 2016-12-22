@@ -62,25 +62,24 @@ body {
     margin: 0 auto;
     width: 80%; }
   ._3QoWNGrji8feIaFDENge38 .add-image {
-    box-sizing: border-box;
     text-align: center;
     color: #247ba0;
     background-color: #d3d3d3;
     border-radius: 15px;
-    width: 25%;
+    margin: 0 auto 4%;
     padding: 1% 0 0;
-    margin: 0 auto 4%; }
+    width: 25%;
+    box-sizing: border-box; }
     ._3QoWNGrji8feIaFDENge38 .add-image .add-button {
-      color: #247ba0;
       padding: 1%;
       text-align: center;
-      border: 1px solid #247ba0;
       background-color: #f4d06f;
-      transition: transform .5s;
       width: 75px;
       border-radius: 15px;
+      border: 1px solid #247ba0;
       margin-bottom: 5%;
-      margin-top: 2%; }
+      margin-top: 2%;
+      transition: transform .5s; }
     ._3QoWNGrji8feIaFDENge38 .add-image .add-button:hover {
       transform: scale(1.1); }
     ._3QoWNGrji8feIaFDENge38 .add-image input {
@@ -108,13 +107,12 @@ body {
     padding: 1%;
     text-align: center;
     background-color: #f4d06f;
-    border: 1px solid #247ba0;
-    color: #247ba0;
     width: 75px;
     border-radius: 15px;
+    border: 1px solid #247ba0;
     margin-bottom: 5%;
-    transition: transform .5s;
-    margin-top: 2%; }
+    margin-top: 2%;
+    transition: transform .5s; }
   .tOB100066YCkd8sj0ot9b .delete-button:hover,
   .tOB100066YCkd8sj0ot9b .add-button:hover {
     transform: scale(1.1); }
@@ -161,8 +159,8 @@ body {
     background-color: #d3d3d3;
     border-radius: 15px;
     margin: 0 auto 4%;
-    width: 40%;
-    padding-top: 1%; }
+    padding: 1% 0 0;
+    width: 40%; }
     .tOB100066YCkd8sj0ot9b .add-album input {
       display: block;
       width: 80%;
@@ -183,7 +181,7 @@ body {
     width: 50%;
     margin: 1% 0 1% 5%;
     display: inline-block; }
-  ._2Pv07dcn44y_VQIbaBxzQ2 div {
+  ._2Pv07dcn44y_VQIbaBxzQ2 nav {
     width: 40%;
     display: inline-block;
     text-align: right;
@@ -223,9 +221,9 @@ body {
     text-align: center;
     background-color: #f4d06f;
     width: 75px;
+    border-radius: 15px;
     outline: none;
     border: none;
-    border-radius: 15px;
     transition: transform .5s; }
   ._1P8rGqG9AJOMZc6gOYxStU button:hover {
     transform: scale(1.1); }

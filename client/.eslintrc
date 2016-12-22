@@ -1,6 +1,9 @@
 {
     "globals": {
         "angular": false,
-        "chai": false
+        "chai": false,
+        "protractor": false,
+        "jasmine": false
+
     }
 }
