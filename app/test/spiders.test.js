@@ -1,35 +1,71 @@
-// /* globals angular, chai */
-//
-// const {assert} = chai;
-//
-// describe('component', () => {
-//
-//   beforeEach(angular.mock.module('components'));
-//
-//   const fn = angular.mock.inject(function(_$componentCompiler_) { // eslint-disable-line no-unused-vars
-//     // $rootScope allows us to create new scopes
-//     // $scope = $rootScope.$new();
-//     // $controller is the generic controller factory
-//     $controller = _$controller_; // eslint-disable-line
-//   });
-//
-//   beforeEach(fn);
-//
-//   it('has a default player, at the start of the map', () => {
-//     const location = {};
-//     const player = {location};
-//
-//     const $scope = {};
-//
-//     $controller('game', { // eslint-disable-line
-//       $scope,
-//       playerService: {
-//         getNew() { return player; }
-//       }
-//     });
-//
-//     assert.equal($scope.player, player);
-//     assert.equal($scope.getLocation(), location);
-//   });
-//
-// });
+describe('spiders component', () => {
+  const {assert} = chai;
+
+  angular.mock.module.sharedInjector();
+  // we need to mock the components module,
+  // which is where spiders component lives
+  before(
+    angular.mock.module('components')
+  );
+
+  let $component = null;
+  before(angular.mock.inject($componentController => {
+    $component = $componentController;
+  }));
+
+  describe('create component', () => {
+
+    const spiders = [
+      {name: 'Igor', type: 'dapper'},
+      {name: 'Spike', type: 'punk'}
+    ];
+
+    const spider = {name: 'Goblin', type: 'greeny'};
+
+    const spiderService = {
+      get() {
+        return Promise.resolve(spiders);
+      },
+      add(spider) {
+        return Promise.resolve(spider);
+      }
+    };
+
+    let component = null;
+    before(() => {
+      component = $component('spiders', {spiderService});
+    });
+
+    it('loads spiders', done => {
+
+      assert.isOk(component.loading);
+
+      setTimeout(() => {
+        assert.equal(component.spiders, spiders);
+        assert.isNotOk(component.loading);
+        done();
+      });
+    });
+
+    it('add a spider', done => {
+
+      component.add(spider);
+
+      setTimeout(() => {
+        assert.equal(spiders.length, 3);
+        assert.equal(spiders[2], spider);
+        done();
+      });
+    });
+
+    it('removes spider', done => {
+      component.remove(spider);
+
+      setTimeout(() => {
+        assert.equal(spiders.length, 2);
+        assert.notInclude(spiders, spider);
+        done();
+      });
+    });
+  });
+});

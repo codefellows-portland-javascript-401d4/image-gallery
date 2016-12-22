@@ -1,9 +1,8 @@
-import template from './spider-app.html';
-import './spider-app.scss';
+import template from './app.html';
 
 export default {
   template,
-  controller
+  controllerAs: 'app'
 };
 
 controller.$inject = ['$state'];

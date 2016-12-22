@@ -14,7 +14,7 @@ function controller() {
 
   this.reset = () => {
     this.name = '';
-    this.type = '';
+    this.url = '';
   };
 
   this.reset();
@@ -22,9 +22,9 @@ function controller() {
   this.addNew = () => {
     this.add({
       name: this.name,
-      type: this.type
+      url: this.url
     });
-    // clear out controls to next spider can be added
+    // clear out controls so next spider can be added
     this.reset();
   };
 }

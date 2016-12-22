@@ -18,7 +18,7 @@ app.use(express.static('./build'));
 app.use(errorHandler);
 
 /* routes */
-const spiders = require('./routes/spiders');
+const spiders = require('./routes/spiders-route');
 const spidergangs = require('./routes/spidergangs');
 app.use(checkDb);
 app.use('/api/spidergangs', spidergangs);

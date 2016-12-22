@@ -1,0 +1,7 @@
+<!-- full image view for spider -->
+
+<div ng-class="$ctrl.styles['spider-image']">
+  <p>Name:  {{$ctrl.spider.name}}</p>
+  <img ng-src="{{$ctrl.spider.url}}"/>
+  <button ng-click="$ctrl.delete()">remove</button>
+</div>
