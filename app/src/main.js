@@ -9,6 +9,7 @@ import routes from './routes';
 const app = angular.module('myApp', [components, services, uiRouter, defaultRoute]);
 
 app.config(routes);
+app.run(['$state', function() {}]);
 
 const dev = 'http://localhost:3000/api';
 
