@@ -11,18 +11,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var WelcomePage = function () {
   function WelcomePage() {
     _classCallCheck(this, WelcomePage);
+
+    var btns = element.all(by.css('div button'));
+    this.aGallery = btns.get(0);
+    this.aAbout = btns.get(1);
+
+    this.uiView = element(by.css('main ui-view'));
   }
 
   _createClass(WelcomePage, [{
     key: 'get',
-
-    // constructor() {
-    //   const nav = element.all(by.css)
-    // }
-
-
     value: function get() {
       return browser.get('/');
+    }
+  }, {
+    key: 'goToAbout',
+    value: function goToAbout() {
+      this.aAbout.click();
+    }
+  }, {
+    key: 'goToGallery',
+    value: function goToGallery() {
+      this.aGallery.click();
     }
   }, {
     key: 'title',
@@ -39,12 +49,6 @@ var WelcomePage = function () {
     get: function get() {
       return this.uiView.all(by.css('*')).first().getTagName();
     }
-
-    // goToGallery() {
-    //   this.aGallery.click();
-    // }
-
-
   }]);
 
   return WelcomePage;

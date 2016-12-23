@@ -1,7 +1,11 @@
 export default class WelcomePage {
-  // constructor() {
-  //   const nav = element.all(by.css)
-  // }
+  constructor() {
+    const btns = element.all(by.css('div button'));
+    this.aGallery = btns.get(0);
+    this.aAbout = btns.get(1);
+
+    this.uiView = element(by.css('main ui-view'));
+  }
 
 
   get() {
@@ -20,9 +24,13 @@ export default class WelcomePage {
     return this.uiView.all(by.css('*')).first().getTagName();
   }
 
-  // goToGallery() {
-  //   this.aGallery.click();
-  // }
+  goToAbout() {
+    this.aAbout.click();
+  }
+
+  goToGallery() {
+    this.aGallery.click();
+  }
 
 
 }
