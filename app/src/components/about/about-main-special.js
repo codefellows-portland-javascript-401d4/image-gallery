@@ -1,3 +1,3 @@
 export default {
-  template: '<h3>This is the special main</h3>'
+  template: '<h3>Our next image gallery will be about Praying Mantises!!!</h3>'
 };

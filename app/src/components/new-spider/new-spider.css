@@ -1,9 +1,0 @@
-:local(.spider-class) {
-  color: blue;
-  font-family: 'Trebuchet MS', sans-serif;
-}
-
-:local(.spider-class) button {
-  outline: 1;
-  color: blue;
-}

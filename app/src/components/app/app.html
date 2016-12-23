@@ -1,12 +1,14 @@
 <header>
-  <h1 ng-click="$ctrl.gotoSpiders()">Spiders!</h1>
+<!--  <h1 ng-click="$ctrl.gotoSpiders()">Spiders!</h1> -->
+  <br/>
   <a ui-sref="welcome" ui-sref-active="foo">Home</a>
-  <a ui-sref="spiders" ui-sref-active="foo">Spiders</a>
-  <a ui-sref="about.plain" ui-sref-active="foo">About Plain</a>
-  <a ui-sref="about.special" ui-sref-active="foo">About Special</a>
+  <a ui-sref="spiders" ui-sref-active="foo">Just Spiders</a>
+  <a ui-sref="about.now" ui-sref-active="foo">About Spiders</a>
+  <a ui-sref="about.next" ui-sref-active="foo">About What's Next</a>
 </header>
-
+  <br/>
 <main>
-  <spiders></spiders>
-  <ui-view></ui-view>
+  <ui-view></ui-view> <!-- redirects to view states driven by routes.js -->
+  <br/>
+  <spiders></spiders> <!-- redirects to spiders.html -->
 </main>

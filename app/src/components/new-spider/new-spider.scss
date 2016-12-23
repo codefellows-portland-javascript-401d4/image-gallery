@@ -2,7 +2,7 @@ $height: 100px;
 @import 'corners';
 @import 'buttons';
 
-:local(.spider-class) {
+:local(.new-spider-class) {
 
   height: $height;
   $input-height: .35 * $height;
@@ -14,14 +14,14 @@ $height: 100px;
   button {
     height: $height - (2 * $input-height) - 10px;
     background-color: white;
-    color: blue;
+    color: green;
     font-weight: bold;
     border: 2px solid green;
     border-radius: 5px;
   }
 
   label {
-    color: blue;
+    color: black;
     font-family: 'Trebuchet MS', sans-serif;
   }
 

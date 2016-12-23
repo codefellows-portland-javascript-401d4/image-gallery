@@ -1,3 +1,5 @@
+// "Spiders" page ...
+
 import template from './spiders.html';
 import styles from './spiders.scss';
 

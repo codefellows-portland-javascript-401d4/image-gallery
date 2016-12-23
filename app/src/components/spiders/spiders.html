@@ -1,47 +1,49 @@
 <!-- parent template for bindings ... spider & remove & add -->
 
-<section>
+<section ng-class="$ctrl.styles['spiders-class']">
   <div class="loader" ng-if="$ctrl.loading">loading ...</div>
 
-  <button ng-click="$ctrl.detail()">Detail View</button>
-  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>
-  <button ng-click="$ctrl.image()">Image View</button>
+  <button ng-click="$ctrl.detail()">Detail View</button>  <!-- redirects to spiders.js -->
+  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>  <!-- redirects to spiders.js -->
+  <button ng-click="$ctrl.image()">Image View</button>  <!-- redirects to spiders.js -->
 
 <div ng-show="$ctrl.spiderDetail === true">
+  <br/>
   <ul>
     <li ng-repeat="spider in $ctrl.spiders">
       <spider-detail
         spider="spider"
         remove="$ctrl.remove">
       </spider-detail>
-      <br/>
     </li>
   </ul>
 </div>
 
 <div ng-show="$ctrl.spiderThumbnail === true">
+  <br/>
   <ul>
     <li ng-repeat="spider in $ctrl.spiders">
       <spider-thumbnail
         spider="spider"
         remove="$ctrl.remove">
       </spider-thumbnail>
-      <br/>
     </li>
   </ul>
 </div>
 
 <div ng-show="$ctrl.spiderImage === true">
+  <br/>
   <ul>
     <li ng-repeat="spider in $ctrl.spiders">
       <spider-image
         spider="spider"
         remove="$ctrl.remove">
       </spider-image>
-      <br/>
     </li>
   </ul>
 </div>
+</section>
 
+<section>
   <new-spider add="$ctrl.add"></new-spider>
 </section>
