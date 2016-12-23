@@ -1,11 +1,11 @@
 {
     "parserOptions": {
-		"ecmaVersion": 6,
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"modules": true,
-			"experimentalObjectRestSpread": true,
-			"impliedStrict": true
+		    "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "modules": true,
+          "experimentalObjectRestSpread": true,
+          "impliedStrict": true
 		}
 	},
     "env": {

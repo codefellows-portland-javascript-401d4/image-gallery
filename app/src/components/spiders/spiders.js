@@ -1,5 +1,7 @@
+// "Spiders" page ...
+
 import template from './spiders.html';
-import styles from './spiders.css';
+import styles from './spiders.scss';
 
 export default {
   template,
@@ -13,6 +15,31 @@ function controller(spiders) {
   this.styles = styles;
 
   this.loading = true;
+
+  // get all images
+  spiders.get()
+    .then (spiders => {
+      this.loading = false;
+      this.spiders = spiders;
+    });
+
+  this.detail = function() { // detail view
+    this.spiderDetail = true;
+    this.spiderThumbnail = false;
+    this.spiderImage = false;
+  };
+
+  this.thumbnail = function() { // thumbnail view
+    this.spiderDetail = false;
+    this.spiderThumbnail = true;
+    this.spiderImage = false;
+  };
+
+  this.image = function() { // image view
+    this.spiderDetail = false;
+    this.spiderThumbnail = false;
+    this.spiderImage = true;
+  };
 
   // call the GET to load all spiders
   spiders.get().then(spiders => {

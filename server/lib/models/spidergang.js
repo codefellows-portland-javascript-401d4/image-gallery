@@ -1,4 +1,4 @@
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -6,10 +6,10 @@ const schema = new Schema({
     type: String,
     required: true
   },
-  type: {
+  clique: {
     type: String,
-    default: 'jumping spider'
+    default: 'spidergang'
   }
 });
 
-module.exports = mongoose.model('Spider', schema);
+module.exports = mongoose.model('Spidergang', schema);
