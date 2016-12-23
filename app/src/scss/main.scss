@@ -1,13 +1,17 @@
 @import 'buttons';
+@import 'colors';
+@import 'corners';
+
 
 h2 {
-  color: lightgreen;
+  color: dodgerblue;
 }
 body { 
   background-color: bisque;
 }
 
-.thumbnail {
-  width: 100px;
-  height: 100px;
+label {
+  background-color: darkkhaki;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
+

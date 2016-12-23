@@ -1,16 +1,27 @@
 button.primary {
-  background: gold;
+  background: deepskyblue;
+  color: darkslategray; }
+
+button:hover {
+  background: darkgreen;
   color: deepskyblue; }
 
 h2 {
-  color: lightgreen; }
+  color: dodgerblue; }
 
 body {
   background-color: bisque; }
 
-.thumbnail {
-  width: 100px;
-  height: 100px; }
+label {
+  background-color: darkkhaki;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+button.primary {
+  background: deepskyblue;
+  color: darkslategray; }
+
+button:hover {
+  background: darkgreen;
+  color: deepskyblue; }
 ._3vHmVNAM5IygX5lm66HDqt {
   height: 200px;
   border: 2px solid #acc;

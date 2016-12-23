@@ -2,5 +2,10 @@
 
 button.primary {
   background: $button-primary;
-  color: deepskyblue;
+  color: darkslategray;
+}
+
+button:hover {
+  background: $green;
+  color: $blue;
 }
