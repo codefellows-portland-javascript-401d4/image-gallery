@@ -1,13 +1,16 @@
-:local(.thumb) {
-    display: inline-block;
-    margin: 10px;
-}
+@import '../../scss/partials/_buttons';
 
-:local(.thumb) img {
-    width: 100px;
-    height: 100px;
-    outline: 1px solid grey;
-    outline-offset: -10px;
-    border: 15px solid white;
-    margin: 10%;
+:local(.thumb) {
+
+    display: inline;
+
+    img {
+        width: 100px;
+        height: 100px;
+        outline: 1px solid grey;
+        outline-offset: -10px;
+        border: 15px solid white;
+        margin: 2%;
+        display: inline;
+    }
 }
