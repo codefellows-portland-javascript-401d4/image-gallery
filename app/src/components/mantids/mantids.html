@@ -1,0 +1,49 @@
+<!-- parent template for bindings ... mantis & remove & add -->
+
+<section ng-class="$ctrl.styles['mantids-class']">
+  <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+
+  <button ng-click="$ctrl.detail()">Detail View</button>  <!-- redirects to mantids.js -->
+  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>  <!-- redirects to mantids.js -->
+  <button ng-click="$ctrl.image()">Image View</button>  <!-- redirects to mantids.js -->
+
+<div ng-show="$ctrl.mantisDetail === true">
+  <br/>
+  <ul>
+    <li ng-repeat="mantis in $ctrl.mantids">
+      <mantis-detail
+        mantis="mantis"
+        remove="$ctrl.remove">
+      </mantis-detail>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.mantisThumbnail === true">
+  <br/>
+  <ul>
+    <li ng-repeat="mantis in $ctrl.mantids">
+      <mantis-thumbnail
+        mantis="mantis"
+        remove="$ctrl.remove">
+      </mantis-thumbnail>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.mantisImage === true">
+  <br/>
+  <ul>
+    <li ng-repeat="mantis in $ctrl.mantids">
+      <mantis-image
+        mantis="mantis"
+        remove="$ctrl.remove">
+      </mantis-image>
+    </li>
+  </ul>
+</div>
+</section>
+
+<section>
+  <new-mantis add="$ctrl.add"></new-mantis>
+</section>

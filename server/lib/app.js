@@ -19,9 +19,9 @@ app.use(errorHandler);
 
 /* routes */
 const spiders = require('./routes/spiders-route');
-const spidergangs = require('./routes/spidergangs');
+const mantids = require('./routes/mantids-route');
 app.use(checkDb);
-app.use('/api/spidergangs', spidergangs);
+app.use('/api/mantids', mantids);
 app.use('/api/spiders', spiders);
 
 module.exports = app;

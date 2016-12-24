@@ -1,0 +1,8 @@
+<!-- detail view for mantis on app page -->
+
+<div ng-class="$ctrl.styles['mantis-detail']">
+  <p>Name:  {{$ctrl.mantis.name}}</p>
+  <p>Type:  {{$ctrl.mantis.type}}</p>
+  <a href="{{$ctrl.mantis.url}}">mantis image link</a>
+  <button ng-class="ctrl.styles['button']" ng-click="$ctrl.delete()">remove</button>
+</div>

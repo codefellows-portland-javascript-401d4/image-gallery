@@ -8,7 +8,7 @@ const schema = new Schema({
   },
   type: {
     type: String,
-    default: 'spider'
+    default: 'mantis'
   },
   url: {
     type: String,
@@ -16,4 +16,4 @@ const schema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Spider', schema);
+module.exports = mongoose.model('Mantis', schema);
