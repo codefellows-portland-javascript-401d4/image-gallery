@@ -24,7 +24,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'album',
-    url: '/albums/:id?display',
+    url: '/albums/:id',
     params: {
       display: {
         dynamic: true
@@ -32,7 +32,9 @@ export default function routes($stateProvider, $urlRouterProvider) {
     },
     resolve: {
       id: ['$transition$', t => t.params().id],
-      display: ['$transition$', t => t.params().display || 'gallery']
+      images: ['galleryService', '$stateParams', function(g, $s) {
+        return g.getAlbum($s.id);
+      }]
     },
     component: 'album'
   });
@@ -45,10 +47,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
         dynamic: true
       }
     },
-    resolve: {
-      display: 'gallery'
-    },
-    component: 'image-gallery'
+    component: 'imageGallery'
   });
 
   $stateProvider.state({
@@ -59,10 +58,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
         dynamic: true
       }
     },
-    resolve: {
-      display: 'thumb'
-    },
-    component: 'image-thumb'
+    component: 'imageThumb'
   });
 
   $stateProvider.state({
@@ -73,10 +69,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
         dynamic: true
       }
     },
-    resolve: {
-      display: 'detail'
-    },
-    component: 'image-detail'
+    component: 'imageDetail'
   });
 
   $stateProvider.state({
