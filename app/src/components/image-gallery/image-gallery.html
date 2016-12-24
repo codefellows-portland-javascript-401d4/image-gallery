@@ -1,5 +1,8 @@
-<span ng-class="$ctrl.styles.gallery">
-    <h1>{{$parent.image.title}}</h1>
-    <p><img ng-src="{{$parent.image.url}}"></p>
-    <p>{{$parent.image.description}}</p>
-</span>
+<section>
+    <div ng-repeat="image in $ctrl.images"
+          ng-class="$ctrl.styles.gallery">
+        <h3>{{image.title}}</h3>
+        <p>{{image.url}}</p>
+        <p>{{image.description}}</p>
+    </div>
+</section>
