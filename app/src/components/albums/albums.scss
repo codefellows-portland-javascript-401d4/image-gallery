@@ -1,8 +1,10 @@
-:local(span) {
+@import '../../scss/partials/_colors';
+
+:local(.albums) {
   display: inline-block;
-  width: 100px;
+  min-width: 100px;
   min-height: 60px;
-  padding-top: 40px;
+  padding-top: 10px;
   outline: 1px solid grey;
   outline-offset: -10px;
   border: 15px solid white;
@@ -12,5 +14,6 @@
   a {
     font-family: 'Cabin', sans-serif;
     font-weight: 700;
+    color: $darkblue;
   }
 }
