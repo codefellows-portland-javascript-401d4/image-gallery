@@ -1,12 +1,10 @@
 import template from './album.html';
-import styles from './album.scss';
 
 export default {
   template,
   controller,
   bindings: {
-    images: '<',
-    display: '=',
+    images: '=',
     id: '<'
   }
 };
@@ -14,13 +12,13 @@ export default {
 controller.$inject = ['galleryService'];
 
 function controller(galleryService) {
-  this.styles = styles;
-  this.display = 'thumb';
 
-  this.$onInit = () => {
-    galleryService.getAlbum(this.id)
-      .then(images => {
-        this.images = images;
+  this.remove = function(imageId) {
+    galleryService.removeImage(imageId)
+      .then(removed => {
+        const index = this.images.indexOf(removed);
+        if (index > -1) this.images.splice(index, 1);
+        console.log('Deleted: ', removed);
       });
   };
 
