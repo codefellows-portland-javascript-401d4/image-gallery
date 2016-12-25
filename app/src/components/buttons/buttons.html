@@ -1,12 +1,9 @@
-<section ng-class="$ctrl.style.image">
-    <div>
-        <button class="main" ui-sref="album({display: 'gallery'})">Gallery View</button>
-        <button class="main" ng-click="$ctrl.display='thumb'">Thumbnail View</button>
-        <button class="main" ng-click="$ctrl.display='detail'">Detail View</button>
-    </div>
-    <!--Marty has a 'pirates="ctrl.pirates" as what happens if the if is true-->
+<section ng-class="$ctrl.styles.buttons">
 
-    <!--<image-thumb ng-if="$ctrl.display==='thumb'" ng-model="thumb"></image-thumb>-->
-    <!--<image-gallery ng-if="$ctrl.display==='gallery'" ng-model="gallery"></image-gallery>-->
+    <div>
+        <a ui-sref="album.gallery({display: gallery})"><button class="main">Gallery View</button></a>
+        <a ui-sref="album.thumbnail({display: thumbnail})"><button class="main">Thumbnail View</button></a>
+        <a ui-sref="album.detail({display: detail})"><button class="main">Detail View</button></a>
+    </div>
 
 </section>

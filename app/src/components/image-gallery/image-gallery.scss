@@ -1,15 +1,7 @@
 :local(.gallery) {
-    text-align: center;
-    color: white;
+    outline: 1px solid grey;
+    outline-offset: -10px;
+    border: 15px solid white;
     border-radius: 10px;
     margin: 5%;
-}
-
-:local(.gallery) img {
-    max-width: 100%;
-
-    h1 {
-        font-size: 42px;
-        padding: 5px;
-    }
 }

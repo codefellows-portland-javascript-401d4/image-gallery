@@ -1,9 +1,9 @@
-<section ng-class="$ctrl.style.detail">
-    <p>In the image-detail</p>
-    <span ng-repeat="image in $ctrl.images">
-        <h1>{{$ctrl.image.title}}</h1>
-        <p><a href="{{$ctrl.image.url}}"><img ng-src="{{$ctrl.image.url}}"></a></p>
-        <p>{{$ctrl.image.title}}</p>
-        <p>{{$ctrl.image.description}}</p>
-    </span>
+<section>
+    <div ng-repeat="image in $ctrl.images"
+          ng-class="$ctrl.styles.detail">
+        <h1>{{image.title}}</h1>
+        <p><a href="{{image.url}}"><img ng-src="{{image.url}}"></a></p>
+        <p>{{image.title}}</p>
+        <p>{{image.description}}</p>
+    </div>
 </section>
