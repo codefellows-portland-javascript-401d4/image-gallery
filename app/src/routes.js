@@ -34,7 +34,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
       id: ['$transition$', t => t.params().id],
       images: ['galleryService', '$stateParams', function(g, $s) {
         return g.getAlbum($s.id);
-      }]
+      }],
+      remove: ['galleryService', g => { return g; }]
     },
     component: 'album'
   });
@@ -93,7 +94,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'add',
-    url: '/add',
+    abstract: true,
     component: 'addImage',
     resolve: {
       albums: ['galleryService', albums => albums.getAlbums()]
