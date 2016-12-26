@@ -1,7 +1,6 @@
- <div ng-repeat="images in $ctrl.images">
+ <div ng-repeat="images in $ctrl.images" class="container bg" ng-class="links">
     <h1>{{images.name}}</h1>
     <p><a href="{{images.src}}">{{images.src}}</a></p>
     <p>{{images.description}}</p>
     <button ng-click="$ctrl.remove(images)">Delete</button>
-    <hr>
 </div>

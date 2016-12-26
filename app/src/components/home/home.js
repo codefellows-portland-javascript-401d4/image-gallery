@@ -1,11 +1,13 @@
-import template from './inputs-bar.html';
-import styles from './inputs-bar.scss';
+import template from './home.html';
+import styles from './home.scss';
 
 export default {
   template,
+  styles,
   controller
 };
 
 function controller() {
   this.styles = styles;
+  
 }

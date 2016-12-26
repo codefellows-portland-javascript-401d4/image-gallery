@@ -4,8 +4,9 @@ import styles from './thumbnail-app.scss';
 export default {
   template,
   controller,
-  scope: {
-    imgs: '<'
+  bindings: {
+    image: '<',
+    remove: '<'
   }
 };
 
@@ -13,7 +14,6 @@ controller.$inject = ['imageService'];
 
 function controller(images) {
   this.styles = styles;
-
   images.get().then(images => {
     this.images = images;
   });
@@ -22,7 +22,7 @@ function controller(images) {
     images.remove(image._id)
       .then(() => {
         const index = this.images.indexOf(image);
-        if(index > -1) this.images.splice(index, 1);
+        if (index > -1) this.images.splice(index,1);
       });
   };
 }

@@ -1,13 +1,19 @@
 import template from './title-link-desc.html';
+import styles from './title-link-desc.scss';
 
 export default {
   template,
-  controller
+  controller,
+  bindings: {
+    image: '='
+  }
 };
 
 controller.$inject = ['imageService'];
 
 function controller(images) {
+  this.styles = styles;
+
   images.get().then(images => {
     this.images = images;
   });

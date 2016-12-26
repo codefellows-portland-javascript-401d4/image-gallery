@@ -3,7 +3,10 @@ import styles from './title-img-desc.scss';
 
 export default {
   template,
-  controller
+  controller,
+  bindings: {
+    image: '<'
+  }
 };
 
 controller.$inject = ['imageService'];
