@@ -27,15 +27,21 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'spiders', // name of this defined app 'state' ... redirected to here from ui-sref "spiders" link in app.html
+    name: 'spiders', // name of this defined app 'state' ... redirected to here from ui-sref "spiders" link in image-gallery.html
     url: '/spiders', // url associated with this 'state'
     component: 'spiders'
   });
 
   $stateProvider.state({
-    name: 'mantids', // name of this defined app 'state' ... redirected to here from ui-sref "mantids" link in app.html
+    name: 'mantids', // name of this defined app 'state' ... redirected to here from ui-sref "mantids" link in image-gallery.html
     url: '/mantids', // url associated with this 'state'
     component: 'mantids'
+  });
+
+  $stateProvider.state({
+    name: 'new-album', // name of this defined app 'state' ... redirected to here from ui-sref "new-album" link in image-gallery.html
+    url: '/new-album', // url associated with this 'state'
+    component: 'newAlbum'
   });
 
   $stateProvider.state({

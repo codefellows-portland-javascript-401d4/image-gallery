@@ -1,0 +1,10 @@
+<!-- button to add new subject name & image url on app page -->
+
+<section ng-class="$ctrl.styles['new-subject-class']">
+  <div>
+    <p>Add a new image gallery album</p>
+    <label class='label'>new album name:</label>
+    <input ng-model="$ctrl.name">
+  </div>
+  <button ng-click="$ctrl.addNew()">add</button>
+</section>
