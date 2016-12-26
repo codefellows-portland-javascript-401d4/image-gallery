@@ -2,14 +2,13 @@
 
 <section ng-class="$ctrl.styles['new-spider-class']">
   <div>
-    <br/>
-    <label class='label'>image name:</label>
+    <p>Add a new spider &amp image to the Spider image album</p>
+    <label class='label'>spider image name:</label>
     <input ng-model="$ctrl.name">
-  </div>
-    <br/>
-  <div>
-    <label class='label'>image url:</label>
+    <br/><br/>
+    <label class='label'>spider image url:</label>
     <input ng-model="$ctrl.url">
   </div>
+  <br/>
   <button ng-click="$ctrl.addNew()">add</button>
 </section>

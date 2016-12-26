@@ -2,7 +2,7 @@
 
 export default {
   template: `
-  <h1>Welcome to the Spider Gallery!</h1>
+  <h1>Welcome to the Image Gallery!</h1>
   <h3>Are you?</h3>
   <a ui-sref="welcome.new">new</a>
   <a ui-sref="welcome.returning">returning</a>

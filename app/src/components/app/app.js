@@ -8,7 +8,7 @@ export default {
 
 controller.$inject = ['$state'];
 
-function controller($state) {
+function controller($state) { // eslint-disable-line
   this.styles = styles;
-  this.gotoSpiders = () => $state.go('spiders');
+  // this.gotoSpiders = () => $state.go('spiders');
 }

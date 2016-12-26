@@ -1,3 +1,3 @@
 export default {
-  template: '<h3>This image gallery is about Jumping Spiders</h3>'
+  template: '<h3>These image galleries are about Spiders & Mantids</h3>'
 };
