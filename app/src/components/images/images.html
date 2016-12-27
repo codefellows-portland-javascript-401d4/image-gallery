@@ -1,6 +1,7 @@
-
-
-<div ng-class="$ctrl.styles.details">
+<section ng-class="$ctrl.styles.details">
+  <header>
+    <h2>{{$ctrl.album.name}}</h2>
+  </header>
   <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
   <ul>
     <li ng-repeat="image in $ctrl.images">
@@ -9,7 +10,7 @@
       <image-full ng-if="$ctrl.view === 'Full Size'" image="image"></image-full>
     </li>
   </ul>
-</div>
+</section>
 
   <new-image add="$ctrl.add"></new-image>
 </section>
