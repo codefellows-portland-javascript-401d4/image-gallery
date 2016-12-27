@@ -11,7 +11,9 @@
     "env": {
         "node": true,
         "mocha": true,
-        "es6": true
+        "es6": true,
+        "jasmine": true,
+        "protractor": true
     },
     "globals": {
         "angular": false,
