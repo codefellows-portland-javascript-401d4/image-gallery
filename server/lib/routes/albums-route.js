@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser').json();
 const Album = require('../models/album-schema');
+const Image = require('../models/image-schema');
 
 router
   .get('/', (req, res, next) => {
@@ -25,6 +26,14 @@ router
       .select('name type url')
       .lean()
       .then(album => res.send(album))
+      .catch(next);
+  })
+
+  .get('/:id/images', (req, res, next) => {
+    Image.findById(req.params.id)
+      .select('name type url')
+      .lean()
+      .then(images => res.send(images))
       .catch(next);
   })
 

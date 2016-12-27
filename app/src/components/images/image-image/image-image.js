@@ -1,10 +1,10 @@
-import template from './subject-image.html';
-import styles from './subject-image.scss';
+import template from './image-image.html';
+import styles from './image-image.scss';
 
 export default {
   template,
   bindings: {
-    subject: '=',
+    image: '=',
     remove: '<'
   },
   controller
@@ -14,6 +14,6 @@ function controller() {
   this.styles = styles;
 
   this.delete = () => {
-    this.remove(this.subject);
+    this.remove(this.image);
   };
 }

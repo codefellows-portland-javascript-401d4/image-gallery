@@ -2,7 +2,7 @@ $height: 100px;
 @import 'corners';
 @import 'buttons';
 
-:local(.new-subject-class) {
+:local(.new-image-class) {
 
   height: $height;
   $input-height: .40 * $height;

@@ -1,0 +1,7 @@
+<!-- detail view for image on app page -->
+
+<div ng-class="$ctrl.styles['image-detail']">
+  <p>Name:  {{$ctrl.image.name}}</p>
+  <a href="{{$ctrl.image.url}}">image image link</a>
+  <button ng-class="ctrl.styles['button']" ng-click="$ctrl.delete()">remove</button>
+</div>

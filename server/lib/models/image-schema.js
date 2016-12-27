@@ -12,4 +12,4 @@ const schema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Subject', schema);
+module.exports = mongoose.model('Image', schema);

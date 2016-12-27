@@ -1,5 +1,5 @@
-import template from './new-album.html';
-import styles from './new-subject.scss';
+import template from './new-image.html';
+import styles from './new-image.scss';
 
 export default {
   template,
@@ -24,7 +24,7 @@ function controller() {
       name: this.name,
       url: this.url
     });
-    // clear out controls so next album can be added
+    // clear out controls so next image can be added
     this.reset();
   };
 }

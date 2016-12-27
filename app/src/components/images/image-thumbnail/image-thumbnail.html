@@ -1,0 +1,7 @@
+<!-- thumbnail view for image -->
+
+<div ng-class="$ctrl.styles['image-thumbnail']">
+  <p>Name:  {{$ctrl.image.name}}</p>
+  <img ng-src="{{$ctrl.image.url}}"/>
+  <button ng-click="$ctrl.delete()">remove</button>
+</div>

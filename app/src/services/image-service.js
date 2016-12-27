@@ -1,20 +1,20 @@
 // $http is Angular's built in AJAX library
-subjectService.$inject = ['$http', 'apiUrl'];
+imageService.$inject = ['$http', 'apiUrl'];
 
 // $http gets injected
-export default function subjectService($http, apiUrl) {
+export default function imageService($http, apiUrl) {
   return {
     get() {
-      return $http.get(`${apiUrl}/subjects`)
+      return $http.get(`${apiUrl}/images`)
         // our 'data' is on data property of response ... asynchronous callback
         .then(res => res.data);
     },
     remove(id) {
-      return $http.delete(`${apiUrl}/subjects/${id}`)
+      return $http.delete(`${apiUrl}/images/${id}`)
         .then(res => res.data);
     },
-    add(subject) {
-      return $http.post(`${apiUrl}/subjects`, subject)
+    add(image) {
+      return $http.post(`${apiUrl}/images`, image)
         .then(res => res.data);
     }
   };
