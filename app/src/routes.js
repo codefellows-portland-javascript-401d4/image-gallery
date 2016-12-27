@@ -39,9 +39,21 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
+    name: 'subjects', // name of this defined app 'state' ... redirected to here from ui-sref "subjects" link in image-gallery.html
+    url: '/subjects', // url associated with this 'state'
+    component: 'subjects'
+  });
+
+  $stateProvider.state({
     name: 'new-album', // name of this defined app 'state' ... redirected to here from ui-sref "new-album" link in image-gallery.html
     url: '/new-album', // url associated with this 'state'
     component: 'newAlbum'
+  });
+
+  $stateProvider.state({
+    name: 'new-subject', // name of this defined app 'state' ... redirected to here from ui-sref "new-subject" link in image-gallery.html
+    url: '/new-subject', // url associated with this 'state'
+    component: 'newSubject'
   });
 
   $stateProvider.state({
