@@ -6,7 +6,7 @@ export default function spiderService($http, apiUrl) {
   return {
     get() {
       return $http.get(`${apiUrl}/spiders`)
-        // our 'data' is on data property of response
+        // our 'data' is on data property of response ... asynchronous callback
         .then(res => res.data);
     },
     remove(id) {

@@ -1,0 +1,7 @@
+<!-- thumbnail view for mantis -->
+
+<div ng-class="$ctrl.styles['mantis-thumbnail']">
+  <p>Name:  {{$ctrl.mantis.name}}</p>
+  <img ng-src="{{$ctrl.mantis.url}}"/>
+  <button ng-click="$ctrl.delete()">remove</button>
+</div>

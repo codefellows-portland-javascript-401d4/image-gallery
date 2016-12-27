@@ -16,7 +16,7 @@ module.exports = function(config) {
     files: [
       './src/app.js',
       './node_modules/angular-mocks/angular-mocks.js',
-      './test/**/*.js' 
+      './test/**/*.js'
     ],
 
     webpack: webpackConfig,
@@ -68,7 +68,7 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     };
-    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
+    configuration.browsers = ['Chrome_travis_ci'];
     configuration.singleRun = true;
   }
 

@@ -1,0 +1,14 @@
+<!-- button to add new mantis name & image url on app page -->
+
+<section ng-class="$ctrl.styles['new-mantis-class']">
+  <div>
+    <p>Add a new mantis &amp image to the Mantis image album</p>
+    <label class='label'>mantis image name:</label>
+    <input ng-model="$ctrl.name">
+    <br/><br/>
+    <label class='label'>mantis image url:</label>
+    <input ng-model="$ctrl.url">
+  </div>
+  <br/>
+  <button ng-click="$ctrl.addNew()">add</button>
+</section>

@@ -1,0 +1,19 @@
+@import 'colors';
+@import 'buttons';
+
+:local(.mantis-detail) {
+
+  color: $blue;
+  font-family: cursive;
+  font-weight: bolder;
+
+  button.primary {
+    background: $button-primary;
+
+  }
+
+  button.hover {
+    background: $button-hover;
+  }
+
+}

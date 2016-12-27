@@ -1,5 +1,14 @@
-<section>
+<!-- parent template for bindings ... spider & remove & add -->
+
+<section ng-class="$ctrl.styles['spiders-class']">
   <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+  <h2>Jumping Spiders</h2>
+  <button ng-click="$ctrl.detail()">Detail View</button>  <!-- redirects to spiders.js -->
+  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>  <!-- redirects to spiders.js -->
+  <button ng-click="$ctrl.image()">Image View</button>  <!-- redirects to spiders.js -->
+
+<div ng-show="$ctrl.spiderDetail === true">
+  <br/>
   <ul>
     <li ng-repeat="spider in $ctrl.spiders">
       <spider-detail
@@ -8,6 +17,33 @@
       </spider-detail>
     </li>
   </ul>
+</div>
 
+<div ng-show="$ctrl.spiderThumbnail === true">
+  <br/>
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-thumbnail
+        spider="spider"
+        remove="$ctrl.remove">
+      </spider-thumbnail>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.spiderImage === true">
+  <br/>
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-image
+        spider="spider"
+        remove="$ctrl.remove">
+      </spider-image>
+    </li>
+  </ul>
+</div>
+</section>
+
+<section>
   <new-spider add="$ctrl.add"></new-spider>
 </section>

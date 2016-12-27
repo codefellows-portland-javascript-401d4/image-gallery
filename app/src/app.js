@@ -1,22 +1,18 @@
 import angular from 'angular';
-import './css/main.css';
+import './scss/main.scss';
 
 //pick up index.js from components & services folder
 import components from './components';
 import services from './services';
+import uiRouter from 'angular-ui-router';
+import routes from './routes';
 
 const app = angular.module('myApp', [
   components,
-  services
+  services,
+  uiRouter
 ]);
 
-const dev = 'http://localhost:3000/api';
-// const prod = '/api/';
+app.config(routes);
 
-// .value gives service 'object' directly to angular
-app.value('apiUrl', dev);
-
-// above is same as ...
-app.factory('api.Url', function() {
-  return dev;
-});
+app.value('apiUrl', 'http://localhost:3000/api');

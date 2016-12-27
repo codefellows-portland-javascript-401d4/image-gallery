@@ -1,0 +1,8 @@
+<!-- detail view for spider on app page -->
+
+<div ng-class="$ctrl.styles['spider-detail']">
+  <p>Name:  {{$ctrl.spider.name}}</p>
+  <p>Type:  {{$ctrl.spider.type}}</p>
+  <a href="{{$ctrl.spider.url}}">spider image link</a>
+  <button ng-class="ctrl.styles['button']" ng-click="$ctrl.delete()">remove</button>
+</div>

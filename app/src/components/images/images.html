@@ -1,0 +1,51 @@
+<!-- parent template for bindings ... image & remove & add -->
+
+<section ng-class="$ctrl.styles['images-class']">
+  <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+
+  <h2>New Image Album</h2>
+
+  <button ng-click="$ctrl.detail()">Detail View</button>  <!-- redirects to images.js -->
+  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>  <!-- redirects to images.js -->
+  <button ng-click="$ctrl.image()">Image View</button>  <!-- redirects to images.js -->
+
+<div ng-show="$ctrl.imageDetail === true">
+  <br/>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <image-detail
+        image="image"
+        remove="$ctrl.remove">
+      </image-detail>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.imageThumbnail === true">
+  <br/>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <image-thumbnail
+        image="image"
+        remove="$ctrl.remove">
+      </image-thumbnail>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.imageImage === true">
+  <br/>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <image-image
+        image="image"
+        remove="$ctrl.remove">
+      </image-image>
+    </li>
+  </ul>
+</div>
+</section>
+
+<section>
+  <new-image add="$ctrl.add"></new-image>
+</section>

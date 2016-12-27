@@ -28,6 +28,9 @@ describe('spiders component', () => {
       },
       add(spider) {
         return Promise.resolve(spider);
+      },
+      remove(spider) {
+        return Promise.resolve(spider);
       }
     };
 
@@ -54,6 +57,17 @@ describe('spiders component', () => {
       setTimeout(() => {
         assert.equal(spiders.length, 3);
         assert.equal(spiders[2], spider);
+        done();
+      });
+    });
+
+    it('removes spider', done => {
+
+      component.remove(spider);
+
+      setTimeout(() => {
+        assert.equal(spiders.length, 2);
+        assert.notInclude(spiders, spider);
         done();
       });
     });
