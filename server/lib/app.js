@@ -9,11 +9,11 @@ const checkDb = require('./check-connection')();
 const errorHandler = require('./error-handler')();
 
 app.use(morgan('dev'));
+app.use(cors);
 // Redirect http to https in production
 if(process.env.NODE_ENV === 'production') {
     app.use(redirectHttp);
 }
-app.use(cors);
 app.use(express.static('./public'));
 
 /* routes */
