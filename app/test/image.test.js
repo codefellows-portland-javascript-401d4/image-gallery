@@ -81,5 +81,21 @@ describe('Image gallery component', () => {
         done();
       });
     });
+    });
+
+    //Child component tests
+    describe('delete image in large view', () => {
+      let largeImage = null;
+      let deletedImage = null;
+
+      it('deletes image in large view', done => {
+        largeImage = $component('imageLarge', null, {
+          remove(image) { deletedImage = image; }
+        });
+
+        largeImage.remove(testingImage);
+        assert.deepEqual(deletedImage, testingImage);
+        done();
+      });    
   });
 });
