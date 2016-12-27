@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(28);
+	var _services = __webpack_require__(30);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33504,9 +33504,9 @@
 		"./image-app/image-app.js": 12,
 		"./image-detail/image-detail.js": 14,
 		"./image-large/image-large.js": 16,
-		"./image-new/image-new.js": 18,
-		"./image-thumbnail/image-thumbnail.js": 22,
-		"./images/images.js": 26
+		"./image-new/image-new.js": 20,
+		"./image-thumbnail/image-thumbnail.js": 24,
+		"./images/images.js": 28
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33596,6 +33596,10 @@
 	
 	var _imageLarge2 = _interopRequireDefault(_imageLarge);
 	
+	var _imageLarge3 = __webpack_require__(18);
+	
+	var _imageLarge4 = _interopRequireDefault(_imageLarge3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
@@ -33611,6 +33615,7 @@
 	function controller() {
 	  var _this = this;
 	
+	  this.styles = _imageLarge4.default;
 	  this.delete = function () {
 	    _this.remove(_this.image);
 	  };
@@ -33624,6 +33629,13 @@
 
 /***/ },
 /* 18 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 19 */,
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33632,11 +33644,11 @@
 	  value: true
 	});
 	
-	var _imageNew = __webpack_require__(19);
+	var _imageNew = __webpack_require__(21);
 	
 	var _imageNew2 = _interopRequireDefault(_imageNew);
 	
-	var _imageNew3 = __webpack_require__(20);
+	var _imageNew3 = __webpack_require__(22);
 	
 	var _imageNew4 = _interopRequireDefault(_imageNew3);
 	
@@ -33674,21 +33686,21 @@
 	}
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['add-class']\">\r\n  <div>\r\n    <h3>Add a new image:</h3><br>\r\n\r\n    <div>\r\n      <label>Image title:</label>\r\n      <input ng-model=\"$ctrl.title\" placeholder=\"title\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image URL:</label>\r\n      <input ng-model=\"$ctrl.url\" placeholder=\"URL\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image description:</label>\r\n      <input ng-model=\"$ctrl.description\" placeholder=\"description\">\r\n    </div>\r\n\r\n  </div>\r\n  <button ng-click=\"$ctrl.addNew()\">Add a new image</button>\r\n\r\n</section>\r\n";
+	module.exports = "<section ng-class=\"$ctrl.styles['add-class']\">\r\n  <div>\r\n    <h3>Add a new image:</h3><br>\r\n\r\n    <div>\r\n      <label>Image title:</label>\r\n      <input ng-model=\"$ctrl.title\" placeholder=\"title\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image URL:</label>\r\n      <input ng-model=\"$ctrl.url\" placeholder=\"URL\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image description:</label>\r\n      <input ng-model=\"$ctrl.description\" placeholder=\"description\">\r\n    </div>\r\n\r\n  </div>\r\n  <button class=\"primary\" ng-click=\"$ctrl.addNew()\">Add a new image</button>\r\n\r\n</section>\r\n";
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"image-class":"_2JK05K7DjgNWEQr1h4loHg"};
+	module.exports = {"image-class":"_3vHmVNAM5IygX5lm66HDqt"};
 
 /***/ },
-/* 21 */,
-/* 22 */
+/* 23 */,
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33697,11 +33709,11 @@
 	  value: true
 	});
 	
-	var _imageThumbnail = __webpack_require__(23);
+	var _imageThumbnail = __webpack_require__(25);
 	
 	var _imageThumbnail2 = _interopRequireDefault(_imageThumbnail);
 	
-	var _imageThumbnail3 = __webpack_require__(24);
+	var _imageThumbnail3 = __webpack_require__(26);
 	
 	var _imageThumbnail4 = _interopRequireDefault(_imageThumbnail3);
 	
@@ -33721,21 +33733,21 @@
 	}
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\r\n  <a href=\"{{ $ctrl.image.url }}\"><img ng-class=\"$ctrl.styles['thumbnail-class']\" ng-src=\"{{ $ctrl.image.url  }}\"/></a>\r\n</section>\r\n";
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"thumbnail-class":"_1BHKnzNIt2bj-5FrmUVGQe"};
+	module.exports = {"thumbnail-class":"_23I3RSECl4BH8LOT0pexoq"};
 
 /***/ },
-/* 25 */,
-/* 26 */
+/* 27 */,
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33744,7 +33756,7 @@
 	  value: true
 	});
 	
-	var _images = __webpack_require__(27);
+	var _images = __webpack_require__(29);
 	
 	var _images2 = _interopRequireDefault(_images);
 	
@@ -33790,13 +33802,13 @@
 	}
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\r\n  <select ng-model=\"$ctrl.view\" ng-options=\"view for view in $ctrl.views\"></select>\r\n    <image-new add=\"$ctrl.add\"></image-new>\r\n\r\n    <ul>\r\n      <li ng-class=\"$ctrl.styles['large-class']\" ng-repeat=\"image in $ctrl.images\">\r\n        <image-thumbnail ng-if=\"$ctrl.view === 'thumbnail'\" image=\"image\"></image-thumbnail>\r\n        <image-detail ng-if=\"$ctrl.view === 'detail'\" image=\"image\"></image-detail>\r\n        <image-large ng-if=\"$ctrl.view === 'large' || $ctrl.view === undefined\" image=\"image\" remove=\"$ctrl.remove\"></image-large>\r\n      </li>\r\n    </ul>\r\n</section>\r\n\r\n\r\n<hr>\r\n";
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33819,7 +33831,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(29);
+	var context = __webpack_require__(31);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33831,11 +33843,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 30
+		"./image-service.js": 32
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33848,11 +33860,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 29;
+	webpackContext.id = 31;
 
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports) {
 
 	'use strict';
