@@ -59,4 +59,28 @@ describe( 'image service', () => {
 
     });
 
+    it('delete an image', done => {
+        const deleteImage = {
+            title: 'another small bunny',
+            url: 'https://i.ytimg.com/vi/4FNG5x6gFUA/maxresdefault.jpg',
+            description: 'a tiny bunny',
+            id: '43'
+        };
+
+        const id = 43;
+
+        $httpBackend
+        .expectDELETE(`/api/images/${ id }`)
+        .respond(deleteImage);
+
+        imageService.remove(id)
+            .then(deleted => {
+                assert.deepEqual(deleted, deleteImage);
+                done();
+            })
+            .catch(done);
+
+        $httpBackend.flush();
+    });
+
 });
