@@ -1,7 +1,7 @@
 // "Subjects" page ...
 
-import template from './subjects.html';
-import styles from './subjects.scss';
+import template from './images.html';
+import styles from './images.scss';
 
 export default {
   template,
