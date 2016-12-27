@@ -1,6 +1,6 @@
 
-import template from './imageAdd.html';
-import styles from './imageAdd.scss';
+import template from './albumsAdd.html';
+import styles from './albumsAdd.scss';
 
 export default {
     template,
@@ -16,20 +16,16 @@ function controller() {
     // clears input fields
     this.reset = () => {
         this.title = '';
-        this.url = '';
         this.description = '';
-        this.albumId = '';
     };
 
     // clear the input fields for initial display.
     this.reset();
 
-    this.addImage = () => {
+    this.addAlbum = () => {
         this.add({
             title: this.title,
-            url: this.url,
-            description: this.description,
-            albumId: ''
+            description: this.description
         });
         this.reset();
     };

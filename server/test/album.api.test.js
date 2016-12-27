@@ -1,4 +1,5 @@
 
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server.js');
@@ -9,7 +10,7 @@ chai.use(chaiHttp);
 const connection = require('../lib/mongoose-config');
 const app = require('../lib/app');
 
-describe('Validating Image routes', () => {
+describe('Validating Album routes', () => {
 
     before( done => {
         const CONNECTED = 1;
@@ -17,7 +18,7 @@ describe('Validating Image routes', () => {
         else connection.on('open', dropCollection);
 
         function dropCollection(){
-            const name = 'images';
+            const name = 'albums';
             connection.db
                 .listCollections({ name })
                 .next( (err, collinfo) => {
@@ -27,18 +28,16 @@ describe('Validating Image routes', () => {
         };
     });
 
-    const testImage = {
-        title: 'Test Image',
-        description: 'test image description',
-        url: 'https://dgosxlrnzhofi.cloudfront.net/custom_page_images/623/page_images/campuses-and-locations.jpg?1461711109',
-        albumId: '58547f17fe53f22a22cc1696'
+    const testAlbum = {
+        title: 'Test Album',
+        description: 'test album description'
     };
 
     const request = chai.request(app);
 
     it('GET all before posting', done => {
         request
-            .get('/api/images')
+            .get('/api/albums')
             .then(res => done('status should not be 200'))
             .catch(res => {
                 assert.equal(res.status, 404);
@@ -46,15 +45,15 @@ describe('Validating Image routes', () => {
             });
     });
 
-    it('POST new image', done => {
+    it('POST new album', done => {
         request
-            .post('/api/images')
-            .send(testImage)
+            .post('/api/albums')
+            .send(testAlbum)
             .then(res => {
-                const image = res.body;
-                assert.ok(image._id);
-                testImage._id = image._id;
-                testImage.__v = 0;
+                const album = res.body;
+                assert.ok(album._id);
+                testAlbum._id = album._id;
+                testAlbum.__v = 0;
                 done();
             })
             .catch(done);
@@ -62,10 +61,9 @@ describe('Validating Image routes', () => {
 
     it ('GET all after POST', done => {
         request
-            .get('/api/images')
+            .get('/api/albums')
             .then(res => {
-                // console.log('get after post response body', res.body);
-                assert.deepEqual(res.body, [testImage]);
+                assert.deepEqual(res.body, [testAlbum]);
                 done();
             })
             .catch(done);
@@ -73,21 +71,21 @@ describe('Validating Image routes', () => {
 
     it('GET by id', done => {
         request
-            .get(`/api/images/${testImage._id}`)
+            .get(`/api/albums/${testAlbum._id}`)
             .then(res => {
-                // console.log('get with ID after post response body', res.body);
-                assert.deepEqual(res.body, testImage);
+                testAlbum.images = [];
+                assert.deepEqual(res.body, testAlbum);
                 done();
             })
             .catch(done);
     });
 
-    it('DELETE an image', done => {
+    it('DELETE an album', done => {
         request
-            .delete(`/api/images/${testImage._id}`)
+            .delete(`/api/albums/${testAlbum._id}`)
             .then(res => {
-                const deletedImage = res.body;
-                assert.ok(deletedImage._id);
+                const deletedAlbum = res.body;
+                assert.ok(deletedAlbum._id);
                 done();
             })
             .catch(done);
