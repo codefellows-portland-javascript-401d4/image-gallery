@@ -1,0 +1,17 @@
+<section ng-class="$ctrl.styles.album">
+    <header>
+        <h3>{{$ctrl.album.name}}</h3>
+    </header>
+
+    <section>
+        <a ng-click="$ctrl.setDisplay('detail')">detail</a>
+        <a ng-click="$ctrl.setDisplay('thumbnail')">thumbnail</a>
+        <hr>
+        <ui-view></ui-view>
+    </section>
+
+    <footer>
+        <h3>Add an image to "{{$ctrl.album.name}}" album</h3>
+        <add-new fields="title, url" add="$ctrl.add"></add-new>
+    </footer>
+</section>
