@@ -15,6 +15,12 @@ body {
 label {
   background-color: darkkhaki;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+a {
+  color: lightseagreen; }
+
+a.foo {
+  background: cornflowerblue;
+  color: firebrick; }
 button.primary {
   background: deepskyblue;
   color: darkslategray; }

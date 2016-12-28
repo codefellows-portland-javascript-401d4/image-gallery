@@ -46,7 +46,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: '/about.wild',
+    name: 'about.wild',
     url: '/wild',
     views: {
       header: {
