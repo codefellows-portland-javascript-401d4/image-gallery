@@ -39,13 +39,7 @@ module.exports = {
           'style-loader',
           'css-loader?sourceMap!sass-loader?sourceMap'
       )
-    }
-    // ,
-    // {
-    //   test: /\.css$/,
-    //   loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-    // }
-    ]
+    }]
   },
   sassLoader: {
     includePaths: ['./src/scss/partials']

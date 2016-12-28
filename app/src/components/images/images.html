@@ -4,6 +4,8 @@
     {{view}}
   </button>
 </div>
+<a ui-sref="welcome">Welcome</a>
+<a ui-sref="about">About</a>
 
 <image-add add="app.add"></image-add>
 
@@ -19,7 +21,7 @@
 </ul>
 
 <ul ng-if="app.view === 'thumb'">
-  <li ng-class="app.styles.unit" ng-repeat="image in app.images">
+  <li ng-class="app.styles.column4" ng-repeat="image in app.images">
     <image-thumb
       image="image"
       remove="app.remove"
