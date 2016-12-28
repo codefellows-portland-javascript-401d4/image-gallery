@@ -1,13 +1,47 @@
+<!-- parent template for bindings ... spider & remove & add -->
+
 <section>
   <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+
+  <button ng-click="$ctrl.detail()">Detail View</button>
+  <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>
+  <button ng-click="$ctrl.image()">Image View</button>
+
+<div ng-show="$ctrl.spiderDetail === true">
   <ul>
     <li ng-repeat="spider in $ctrl.spiders">
       <spider-detail
         spider="spider"
         remove="$ctrl.remove">
       </spider-detail>
+      <br/>
     </li>
   </ul>
+</div>
+
+<div ng-show="$ctrl.spiderThumbnail === true">
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-thumbnail
+        spider="spider"
+        remove="$ctrl.remove">
+      </spider-thumbnail>
+      <br/>
+    </li>
+  </ul>
+</div>
+
+<div ng-show="$ctrl.spiderImage === true">
+  <ul>
+    <li ng-repeat="spider in $ctrl.spiders">
+      <spider-image
+        spider="spider"
+        remove="$ctrl.remove">
+      </spider-image>
+      <br/>
+    </li>
+  </ul>
+</div>
 
   <new-spider add="$ctrl.add"></new-spider>
 </section>

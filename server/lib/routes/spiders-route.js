@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser').json();
-const Spider = require('../models/spider');
+const Spider = require('../models/spider-schema');
 
 router
   .get('/', (req, res, next) => {
@@ -9,7 +9,7 @@ router
     if(req.query.type) query.type = req.query.type;
 
     Spider.find(query)
-      .select('name type')
+      .select('name type url')
       .lean()
       .populate({
         path: 'arachnidId',
@@ -22,7 +22,7 @@ router
 
   .get('/:id', (req, res, next) => {
     Spider.findById(req.params.id)
-      .select('name type')
+      .select('name type url')
       .lean()
       .then(spider => res.send(spider))
       .catch(next);
