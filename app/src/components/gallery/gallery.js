@@ -16,7 +16,7 @@ function controller(imageService) {
   this.view = 'thumbnail';
 
   this.add = image => {
-    image._id = this.album._id;
+    image.albumId = this.album._id;
     imageService.add(image)
       .then(saved => this.album.images.push(saved))
       .catch(err => {
