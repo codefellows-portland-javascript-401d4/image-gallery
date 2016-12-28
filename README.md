@@ -6,4 +6,6 @@ Displays a text, thumbnail, and original version of an image of a little bunny<b
 *Toggle view functionality<br>
 *Images can be uploaded and removed<br>
   -Part 3 <br>
- *Added SCSS
+ *Added SCSS<br>
+  -Part 4 <br>
+ *Added UI-Router for routes<br>
