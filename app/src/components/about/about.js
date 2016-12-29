@@ -5,7 +5,7 @@ export default {
   <a ui-sref="about.english">English</a>
   <a ui-sref="about.russian">На Русском</a>
   <a ui-sref="welcome">Home</a>
-  <a ui-sref="images">See Images</a>
+  <a ui-sref="albums">See Images</a>
   <section>
     <ui-view name="header"><ui-view>
   </section>

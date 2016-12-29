@@ -21,8 +21,42 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'images',
-    url: '/images',
+    name: 'albums',
+    abstract: true,
+    default: '.overview',
+    url: '/albums',
+    resolve: {
+      albums: ['albumService', albumService => {
+        return albumService.get();
+      }],
+      addImage: ['imageService', imageService => {
+        return imageService.addImage;
+      }]
+    },
+    component: 'albums'
+  });
+
+  $stateProvider.state({
+    name: 'albums.overview',
+    url: '/overview',
+    component: 'albumOverview'
+  });
+
+  $stateProvider.state({
+    name: 'albums.detail',
+    url: '/detail',
+    component: 'albumDetail'
+  });
+
+  $stateProvider.state({
+    name: 'albums.images',
+    url: '/:id',
+    params: {albums: null},
+    resolve: {
+      album: ['albumService', '$transition$', (albumService, t) => {
+        return albumService.get(t.params().id);
+      }]
+    },
     component: 'images'
   });
 

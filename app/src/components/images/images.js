@@ -1,43 +1,58 @@
 import template from './images.html';
+import styles from './images.scss';
 
 export default {
   template,
+  bindings: {
+    album: '<',
+    albums: '<'
+  },
   controller,
   controllerAs: 'imagesCtrl'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller(imageService) {
+function controller(imageService, albumService) {
+  this.styles = styles;
 
-  imageService.getAll()
-    .then(images => {
-      this.imageArr = images;
-    });
-
-  // imageService.getOne()
-  //   .then(image => {
-
-  //   })
+  this.$onInit = () => {
+    this.images = this.album.images;
+  };
 
   this.removeImage = image => {
     imageService.remove(image._id)
       .then(() => {
-        const idx = this.imageArr.indexOf(image);
-        if(idx > -1) this.imageArr.splice(idx, 1);
+        const idx = this.images.indexOf(image);
+        if(idx > -1) this.images.splice(idx, 1);
       });
   };
 
   this.addImage = image => {
-    imageService.add(image)
+    imageService.addImage(image)
       .then(saved => {
-        this.imageArr.push(saved);
+        const albumId = saved.album;
+        if(albumId === this.album._id) {
+          console.log('images cont', this.images);
+          this.images.push(saved);
+          console.log('images cont', this.images);
+        } else {
+          const foundAlbum = this.albums.find(album => album._id === albumId);
+          if(foundAlbum) {
+            console.log('old albums image cont', this.albums);
+            foundAlbum.images.push(saved);
+            console.log('old albums image cont', this.albums);
+          } else {
+            albumService.get(albumId)
+              .then(saved => {
+                console.log('new albums image cont', this.albums);
+                this.albums.push(saved);
+                console.log('new albums image cont', this.albums);
+              });
+          }
+        }
       });
   };
 
-  this.imageChoice = this.imageArr;
-
-  this.choices = ['full', 'thumbnail', 'text'];
-
-  this.imageType = this.choices[2];
+  this.imageType = 'text';
 }

@@ -14,6 +14,7 @@ function controller() {
     this.title = '';
     this.description = '';
     this.url = '';
+    this.albumName = '';
   };
 
   this.reset();
@@ -22,7 +23,8 @@ function controller() {
     this.addImage({
       title: this.title,
       description: this.description,
-      url: this.url
+      url: this.url,
+      name: this.albumName
     });
 
     this.reset();

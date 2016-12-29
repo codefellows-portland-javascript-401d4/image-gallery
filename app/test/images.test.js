@@ -22,7 +22,8 @@ describe('components', () => {
       getAll() {
         return Promise.resolve(images);
       },
-      add(image) {
+      addImage(image) {
+        image.album = '123abc';
         return Promise.resolve(image);
       },
       remove(image) {
@@ -30,29 +31,51 @@ describe('components', () => {
       }
     };
 
+    const albums = [
+      {_id: 'id1', name: 'flies'},
+      {_id: 'id2', name: 'bananas'}
+    ];
+
+    const album = {
+      _id: '123abc',
+      name: 'planets',
+      images: images
+    };
+
+    const albumService = {
+      get(id) {
+        assert.isOk(id);
+        return Promise.resolve(album);
+      }
+    };
+
+    let component = null;
+
+    beforeEach(() => {
+      component = $component('images', {imageService, albumService}, {album, albums});
+      component.$onInit();
+    });
+
     it('loads images', done => {
-      const component = $component('images', {imageService});
       setTimeout(() => {
-        assert.equal(component.imageArr, images);
+        assert.equal(component.images, images);
         done();
       });
     });
 
     it('adds an image', done => {
-      const component = $component('images', {imageService});
       component.addImage(image);
       setTimeout(() => {
-        assert.equal(images.length, 3);
-        assert.equal(images[2], image);
+        assert.equal(component.images.length, 3);
+        assert.equal(component.images[2], image);
         done();
       });
     });
 
     it('removes an image', done => {
-      const component = $component('images', {imageService});
       component.removeImage(image);
       setTimeout(() => {
-        assert.equal(images.length, 2);
+        assert.equal(component.images.length, 2);
         done();
       });
     });
@@ -86,22 +109,25 @@ describe('components', () => {
       });
     });
 
-    function addImage(title, description, url) {
-      this.title = title;
-      this. description = description;
-      this.url = url;
+    let imageObj;
+
+    function addImage(obj) {
+      imageObj = obj;
     }
 
     it('calls add function', done => {
+      const title = 'person';
+      const description = 'a person';
+      const url = 'http://www.person.com';
       const component = $component('newImage', null, {addImage: addImage});
-      component.title = 'person';
-      component.description = 'a person';
-      component.url = 'http://www.person.com';
+      component.title = title;
+      component.description = description;
+      component.url = url;
       component.add();
       setTimeout(() => {
-        assert.equal(component.title, '');
-        assert.equal(component.description, '');
-        assert.equal(component.url, '');
+        assert.equal(title, imageObj.title);
+        assert.equal(description, imageObj.description);
+        assert.equal(url, imageObj.url);
         done();
       });
     });

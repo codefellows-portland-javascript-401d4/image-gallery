@@ -1,0 +1,8 @@
+<section>
+  <a ui-sref="welcome">Home</a>
+  <a ui-sref="about">About</a>
+  <a ui-sref="albums.overview">Overview</a>
+  <a ui-sref="albums.detail">Detail</a>
+</section>
+<new-image ng-if="albumsCtrl.albums.length === 0" add-image="albumsCtrl.add"></new-image>
+<ui-view></ui-view>

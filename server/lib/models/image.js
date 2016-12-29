@@ -13,6 +13,13 @@ const image = new Schema({
   url: {
     type: String,
     required: true
+  },
+  albumName: {
+    type: String
+  },
+  album: {
+    type: Schema.Types.ObjectId,
+    ref: 'Album'
   }
 });
 

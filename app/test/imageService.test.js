@@ -44,7 +44,7 @@ describe('image service', () => {
       .expectPOST('/api/images')
       .respond(image);
     
-    imageService.add(image)
+    imageService.addImage(image)
       .then(savedImage => {
         assert.deepEqual(savedImage, image);
         done();
