@@ -3,7 +3,9 @@
         "es6": true,
         "node": true,
         "browser": true,
-        "mocha": true
+        "mocha": true,
+        "protractor": true,
+        "jasmine": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
