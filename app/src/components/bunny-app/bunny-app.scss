@@ -9,10 +9,62 @@ h1 {
   border-radius: $defaultBorderRadius;
 }
 
+header {
+  padding: 20px;
+}
+
 .container {
   font-family: $primaryFont;
   width: 80%;
   margin: auto;
   text-align: center;
   font-size: $defaultFontSize;
+}
+
+.container a {
+  padding: 5px;
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+  text-decoration: underline;
+  color: #000;
+}
+
+.container a:hover {
+  font-weight: $primaryFontWeight;
+  background-color: #fff;
+  text-decoration: none;
+  transition: 1s;
+}
+
+.container a:visited {
+  color: inherit;
+}
+
+.component {
+  background-color: rgba(255,235,205,.9);
+  padding: $defaultPadding;
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+}
+
+.about {
+  padding: $defaultPadding;
+}
+
+.about section {
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+  background-color: aliceblue;
+}
+
+.about h3 {
+  padding-top: $defaultPadding;
+  padding-bottom: 10px;
+  margin: 5px;
+}
+
+.about p {
+  padding-top: 10px;
+  padding-bottom: $defaultPadding;
+  margin: 5px;
 }
