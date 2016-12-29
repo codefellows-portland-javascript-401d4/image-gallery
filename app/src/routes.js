@@ -28,6 +28,9 @@ export default function routes($stateProvider, $urlRouterProvider) {
     resolve: {
       albums: ['albumService', albumService => {
         return albumService.get();
+      }],
+      addImage: ['imageService', imageService => {
+        return imageService.addImage;
       }]
     },
     component: 'albums'

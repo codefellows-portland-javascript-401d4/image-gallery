@@ -2,19 +2,26 @@ import template from './albums.html';
 
 export default {
   template,
+  bindings: {
+    albums: '<',
+    addImage: '<'
+  },
   controller,
   controllerAs: 'albumsCtrl'
 };
 
 controller.$inject = ['albumService'];
 
-function controller() {
-  // this.removeAlbum = album => {
-  //   albumService.remove(album._id)
-  //     .then(() => {
-  //       console.log('album', album);
-  //       const idx = this.albums.indexOf(album);
-  //       if(idx > -1) this.albums.splice(idx, 1);
-  //     });
-  // };
+function controller(albumService) {
+
+  this.add = image => {
+    this.addImage(image)
+      .then(saved => {
+        const albumId = saved.album;
+        albumService.get(albumId)
+          .then(saved => {
+            this.albums.push(saved);
+          });
+      });
+  };
 }

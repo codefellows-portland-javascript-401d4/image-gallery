@@ -33,20 +33,24 @@ function controller(imageService, albumService) {
       .then(saved => {
         const albumId = saved.album;
         if(albumId === this.album._id) {
+          console.log('images cont', this.images);
           this.images.push(saved);
+          console.log('images cont', this.images);
         } else {
           const foundAlbum = this.albums.find(album => album._id === albumId);
           if(foundAlbum) {
+            console.log('old albums image cont', this.albums);
             foundAlbum.images.push(saved);
+            console.log('old albums image cont', this.albums);
           } else {
             albumService.get(albumId)
               .then(saved => {
+                console.log('new albums image cont', this.albums);
                 this.albums.push(saved);
+                console.log('new albums image cont', this.albums);
               });
           }
         }
-
-      
       });
   };
 
