@@ -1,10 +1,10 @@
-import template from './image-thumbnail.html';
-import styles from './image-thumbnail.css';
+import template from './image-full.html';
+import styles from './image-full.scss';
 
 export default {
     template,
     bindings: {
-        image: '='
+        images: '<'
     },
     controller() {
         this.styles = styles;

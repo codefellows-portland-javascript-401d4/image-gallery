@@ -1,0 +1,17 @@
+<section>
+    <div class="loader" ng-if="$ctrl.loading">...Loading</div>
+    <h2>Albums</h2>
+    <ul>
+        <li ng-repeat="album in $ctrl.albums">
+            <h3 ui-sref="album({
+                id: album._id})">
+            {{album.title}}
+            </h3>
+            <button ng-click="$ctrl.delete(album)">Delete</button>
+        </li>
+    </ul>
+
+    <add-new fields="title, thumbnail", add="$ctrl.add"></add-new>
+</section>
+
+

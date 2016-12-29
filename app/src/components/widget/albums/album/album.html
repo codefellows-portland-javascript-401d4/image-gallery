@@ -1,0 +1,11 @@
+<section>
+    <h2>{{$ctrl.album.title}}</h2>
+    <h3>Images</h3>
+
+    <images
+        images="$ctrl.album.images"
+        album="$ctrl.album._id">
+    </images>
+
+    <add-new fields="title, description, url" add="$ctrl.add"></add-new>
+</section>
