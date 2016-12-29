@@ -3,50 +3,77 @@ import styles from './images.scss';
 
 export default {
   template,
+  bindings: {
+    albumId: '<',
+    images: '<'
+  },
   controller,
   controllerAs: 'imagesCtrl'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller(images) {
+function controller(images, albums) {
 
-  this.styles = styles;
+  const self = this;
+  self.styles = styles;
+  self.viewTypes = [ 'Details', 'Thumbnail', 'Full' ];
+  self.viewType = 'Thumbnail';
 
-  this.loading = true;
+  self.loading = true;
 
-  images.get().then(images => {
-    this.loading = false;
-    this.images = images;
+  albums.get().then(rtndAlbums => {
+    self.loading = false;
+    self.albumList = rtndAlbums;
   });
 
-  this.add = image => {
-    this.loading = true;
-    images.add(image)
-      .then(savedImage => {
-        this.loading = false;
-        this.images.push(savedImage);
-      });
+  self.add = image => {
+    self.loading = true;
+
+    let albumLookup = {};
+    self.albumList.forEach((a) => {
+      albumLookup[a.name] = a._id;
+    });
+
+    if (albumLookup[image.album]) {
+      image.album = albumLookup[image.album];
+      images
+        .add(image)
+        .then(savedImage => {
+          self.loading = false;
+          self.images.push(savedImage);
+        });
+    }
+    else {
+      albums
+        .add({ name: image.album, description: 'Default description - edit later' })
+        .then((addedAlbum) => {
+          self.albumList.push(addedAlbum);
+          image.album = addedAlbum._id;
+          images.add(image)
+            .then(savedImage => {
+              self.loading = false;
+              self.images.push(savedImage);
+            });
+        });
+    }
   };
 
-  this.remove = image => {
-    this.loading = true;
+  self.remove = image => {
+    self.loading = true;
     images.remove(image._id)
       .then(() => {
-        this.loading = false;
-        const index = this.images.indexOf(image);
-        if (index > -1) this.images.splice(index, 1);
+        self.loading = false;
+        const index = self.images.indexOf(image);
+        if (index > -1) self.images.splice(index, 1);
       });
   };
-  
-  this.tabs = [ 'Details', 'Thumbnail', 'Full' ];
 
-  this.updateView = function() {
-    this.showDetail = (this.tabName === 'Details');
-    this.showThumbnail = (this.tabName === 'Thumbnail');
-    this.showFull = (this.tabName === 'Full');
+  self.updateView = function() {
+    self.showDetail = (self.viewType === 'Details');
+    self.showThumbnail = (self.viewType === 'Thumbnail');
+    self.showFull = (self.viewType === 'Full');
   };
 
-  this.tabName = 'Thumbnail';
-  this.updateView();
+  self.updateView();
 }

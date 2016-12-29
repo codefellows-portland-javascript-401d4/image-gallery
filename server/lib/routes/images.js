@@ -22,10 +22,14 @@ images
   })
 
   .post('/', bodyParser, (req, res, next) => {
-    console.log('POST request received. req.body = ', req.body);
     new Image(req.body).save()
       .then((savedImage) => { res.send(savedImage); })
       .catch(next);
+  })
+
+  .put('/:id', (req, res, next) => {
+    // TODO: Implement PUT /api/images/:id
+    return Promise.resolve(next);
   })
 
   .delete('/:id', (req, res, next) => {

@@ -1,7 +1,16 @@
   <header>
     <h1>Mark's Image Gallery</h1>
+    <nav>
+      <a ui-sref="welcome" ui-sref-active="hilite">Welcome</a>
+      <a ui-sref="albums" ui-sref-active="hilite">Albums</a>
+      <a ui-sref="about" ui-sref-active="hilite">About</a>
+    </nav>
   </header>
 
   <main>
-    <images></images>
+    <ui-view></ui-view>
   </main>
+
+  <footer>
+    &copy;2016 by Mark Greenwood 
+  </footer>

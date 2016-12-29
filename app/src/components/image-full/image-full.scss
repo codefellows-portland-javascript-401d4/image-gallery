@@ -3,7 +3,6 @@
 $max-width: 800px;
 
 .full-view {
-  //background: red;
   border: 1px solid;
   padding: 5px;
   margin: 5px;
@@ -11,4 +10,12 @@ $max-width: 800px;
   background: $bg-color-full;
   vertical-align: top;
   max-width: $max-width;
+
+  img {
+    max-width: 98%;
+  }
+
+  img, button {
+    display: block;
+  }
 }
