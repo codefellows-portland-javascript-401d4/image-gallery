@@ -1,38 +1,36 @@
 import template from './images.html';
 import styles from './images.scss';
 
-export default {
-  template,
-  controller,
-  controllerAs: 'app'
-};
-
 controller.$inject = ['imageService'];
 
-function controller(images) {
+export default {
+  template,
+  bindings: {
+    image: '=',
+    images: '=',
+    albums: '=',
+    album: '='
+  },
+  controller,
+  controllerAs: '$images'
+};
+
+function controller(imageService) {
   this.styles = styles;
-  
-  this.view = 'list';
 
   this.loading = true;
+  
+  this.view = 'list';
+  
+  this.myAlbum = '- pick one -';
 
-  images.get().then(images => {
-    this.loading = false;
-    this.images = images;
-  });
-
-  this.add = image => {
-    this.loading = true;
-    images.add(image)
-      .then(saved => {
-        this.loading = false;
-        this.images.push(saved);
-      });
+  this.toggleView = name => {
+    this.view = name;
   };
 
-  this.remove = image => {
+  this.removeImage = image => {
     this.loading = true;
-    images.remove(image._id)
+    imageService.remove(image._id)
       .then(() => {
         this.loading = false;
         const index = this.images.indexOf(image);
@@ -40,8 +38,5 @@ function controller(images) {
       });
   };
 
-  this.toggleView = name => {
-    this.view = name;
-  };
 
 }

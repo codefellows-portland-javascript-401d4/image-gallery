@@ -14,37 +14,35 @@ describe('in the images component', () => {
   }));
 
   
-  describe('create a component to test against', () => {
+  describe('create an image component to test against', () => {
 
     const images = [
       {
         name: 'first-image',
         description: 'the first image',
-        url: 'http://www.first-image.mock'
+        url: 'http://www.first-image.mock',
+        _id: 1111
       },
       {
         name: 'second-image',
         description: 'the second image',
-        url: 'http://www.second-image.mock'
+        url: 'http://www.second-image.mock',
+        _id: 2222
+      },
+      {
+        name: 'third-image',
+        description: 'the third image',
+        url: 'http://www.third-image.mock',
+        _id: 3333
       }
     ];
 
-    const thirdImage = {
-      name: 'third-image',
-      description: 'the third image',
-      url: 'http://www.third-image.mock'
-    };
-    const _id = 123;
-
+    //making mocks cuz unit-testing
+    //hard-coding an id cuz mock
+    //only giving the specific method to test cuz mock
     const imageService = {
-      get() {
-        return Promise.resolve(images);
-      },
-      add(image) {
-        image._id = _id;
-        return Promise.resolve(image);
-      },
       remove(imageId) {
+        const _id = 3333;
         assert.equal(imageId, _id);
         return Promise.resolve(true);
       }
@@ -53,6 +51,7 @@ describe('in the images component', () => {
     let component = null;
     before(() => {
       component = $component('images', { imageService });
+      component.images = images;
     });
 
     it('loads images', done => {
@@ -60,27 +59,18 @@ describe('in the images component', () => {
 
       setTimeout(() => {
         assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
-        done();
-      });
-    });
-
-    it('adds an image', done => {
-      component.add(thirdImage);
-
-      setTimeout(() => {
-        assert.equal(images.length, 3);
-        assert.equal(images[2], thirdImage);
         done();
       });
     });
 
     it('removes an image', done => {
-      component.remove(thirdImage);
+      let thirdImage = component.images[2];
+      component.removeImage(thirdImage);
 
       setTimeout(() => {
         assert.equal(images.length, 2);
         assert.notInclude(images, thirdImage);
+        assert.isNotOk(component.loading);
         done();
       });
     });

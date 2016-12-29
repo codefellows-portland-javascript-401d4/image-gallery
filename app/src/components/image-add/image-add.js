@@ -4,10 +4,11 @@ import styles from './image-add.scss';
 export default {
   template,
   bindings: {
-    add: '<'
+    addImage: '<',
+    albums: '<'
   },
   controller,
-  controllerAs: '$add'
+  controllerAs: '$addImage'
 };
 
 function controller() {
@@ -17,17 +18,20 @@ function controller() {
     this.name = '';
     this.description = '';
     this.url = '';
+    this.album = '';
   };
 
   this.reset();
 
   this.addOneImage = () => {
-    this.add({
-      name: this.name,
-      description: this.description,
-      url: this.url
-    });
-
+    this.addImage(
+      {
+        name: this.name,
+        description: this.description,
+        url: this.url,
+        albumId: this.myAlbum
+      }
+        );
     this.reset();
   };
 

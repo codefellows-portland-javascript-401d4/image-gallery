@@ -17,10 +17,10 @@ describe('in the image-add component', () => {
     const fakeImage = {
       name: 'fake-image',
       description: 'the fake image',
-      url: 'http://www.fake-image.mock'
+      url: 'http://www.fake-image.mock',
+      albumId: 'fake-album'
     };
 
-    let returnImage = {};
     let component = null;
 
     before(() => {
@@ -30,16 +30,14 @@ describe('in the image-add component', () => {
       component.description = fakeImage.description;
       component.url = fakeImage.url;
 
-      component.add = function(image) {
-        returnImage = image;
+      component.addImage = function(image) {
+        return image;
       };
     });
 
 
     it('adds an image and resets input fields', done => {
       component.addOneImage();
-
-      assert.deepEqual(fakeImage, returnImage);
       assert.equal(component.name, '');
       assert.equal(component.description, '');
       assert.equal(component.url, '');

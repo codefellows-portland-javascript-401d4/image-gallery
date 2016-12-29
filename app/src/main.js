@@ -9,10 +9,14 @@ import services from './services';
 import uiRouter from 'angular-ui-router';
 import routes from './routes';
 
+//for showing a default view of an abstract state
+import uiRouterDefault from 'angular-ui-router-default';
+
 const app = angular.module('myApp', [
   components,
   services,
-  uiRouter
+  uiRouter,
+  uiRouterDefault
 ]);
 
 app.config(routes);

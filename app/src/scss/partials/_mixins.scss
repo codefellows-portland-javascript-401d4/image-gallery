@@ -15,3 +15,12 @@
     clear: both;
   }
 }
+
+$gutter-width: 60px;
+$column-width: 20px;
+
+@mixin grid-unit($span) {
+  float: left;
+  margin-right: $gutter-width;
+  width: ($column-width * $span) + ($gutter-width * ($span - 1));
+}

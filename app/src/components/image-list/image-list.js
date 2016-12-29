@@ -1,9 +1,11 @@
 import template from './image-list.html';
+import styles from './image-list.scss';
 
 export default {
   template,
   bindings: {
     image: '=',
+    images: '<',
     remove: '<',
     toggleView: '<'
   },
@@ -12,4 +14,5 @@ export default {
 };
 
 function controller() {
+  this.styles = styles;
 }

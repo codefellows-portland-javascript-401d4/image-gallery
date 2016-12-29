@@ -9,7 +9,11 @@ router
     const query = {};
 
     Image.find(query)
-      .select('name description url')
+      .select('name description url albumId')
+      .populate({
+        path: 'albumId',
+        select: 'name'
+      })
       .lean()
       .then(images => res.send(images))
       .catch(next);

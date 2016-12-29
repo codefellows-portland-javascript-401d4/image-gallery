@@ -4,6 +4,7 @@ const errHandler = require('./err-handler');
 const morgan = require('morgan');
 
 const images = require('./routes/images');
+const albums = require('./routes/albums');
 
 // //serves the front end to the server - have to skip the lib directory
 // const path = require('path');
@@ -27,15 +28,16 @@ if(process.env.NODE_ENV === 'production') {
 
 //set CORS headers
 app.use((req, res, next) => {
-  console.log('setting CORS headers');
   const url = '*';
   res.header('Access-Control-Allow-Origin', url);
   res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  console.log('setting CORS headers');
   next();
 });
 
 app.use('/api/images', images);
+app.use('/api/albums', albums);
 
 app.use(errHandler);
 

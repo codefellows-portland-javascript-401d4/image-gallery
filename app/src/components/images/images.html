@@ -1,41 +1,36 @@
-<header>GALLERY</header>
+<header>Browse {{$images.album.name || 'All Pix'}}</header>
 <div ng-init="views = ['list', 'thumb', 'full']">
-  <button ng-repeat="view in views" name="view" ng-click="app.toggleView(view)">
+  <button ng-repeat="view in views" name="view" ng-click="$images.toggleView(view)">
     {{view}}
   </button>
 </div>
-<a ui-sref="welcome">Welcome</a>
-<a ui-sref="about">About</a>
 
-<image-add add="app.add"></image-add>
-
-<h1>{{app.view}}</h1>
-<ul ng-if="app.view === 'list'">
-  <li ng-repeat="image in app.images">
+<ul ng-if="$images.view === 'list'">
+  <li ng-repeat="image in $images.images">
     <image-list
       image="image"
-      remove="app.remove"
-      toggle-view="app.toggleView">
+      remove="$images.removeImage"
+      toggle-view="$images.toggleView">
     </image-list>    
   </li>
 </ul>
 
-<ul ng-if="app.view === 'thumb'">
-  <li ng-class="app.styles.column4" ng-repeat="image in app.images">
+<ul ng-if="$images.view === 'thumb'">
+  <li ng-class="$images.styles.column4" ng-repeat="image in $images.images">
     <image-thumb
       image="image"
-      remove="app.remove"
-      toggle-view="app.toggleView">
+      remove="$images.removeImage"
+      toggle-view="$images.toggleView">
     </image-thumb>    
   </li>
 </ul>
 
-<ul ng-if="app.view === 'full'">
-  <li ng-repeat="image in app.images">
+<ul ng-if="$images.view === 'full'">
+  <li ng-repeat="image in $images.images">
      <image-full
       image="image"
-      remove="app.remove"
-      toggle-view="app.toggleView">
+      remove="$images.removeImage"
+      toggle-view="$images.toggleView">
     </image-full>   
   </li>
 </ul>
