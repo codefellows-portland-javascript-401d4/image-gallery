@@ -1,19 +1,17 @@
 {
   "name": "image-gallery",
   "version": "1.0.0",
-  "description": "cute bunny gallery",
+  "description": "image gallery",
   "main": "index.js",
   "scripts": {
-    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test",
-    "start": "return 0"
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/txtincorporated/image-gallery.git"
   },
   "keywords": [
-    "cute",
-    "bunny",
+    "image",
     "gallery"
   ],
   "author": "Nathan P. Keene",

@@ -30,9 +30,24 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'bunnies',
-    url: '/bunnies',
-    component: 'bunnyApp'
+    name: 'images',
+    url: '/images',
+    component: 'images'
+
+  });
+
+  $stateProvider.state({
+    name: 'image-album',
+    url: '/images/:album',
+    resolve: {album: ['$stateParams', sp => sp.album]},
+    component: 'images'
+
+  });
+
+  $stateProvider.state({
+    name: 'albums',
+    url: '/albums',
+    component: 'albums'
 
   });
 
