@@ -3,26 +3,27 @@ import styles from './image-app.scss';
 
 export default {
     template,
+    bindings: {
+        images: '<',
+        albumName: '<'
+    },
     controller,
     controllerAs: 'app'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService', '$state'];
 
-function controller(imageService) {
+function controller(imageService, albumService, $state) {
     this.styles = styles;
-    this.loading = true;
-    this.image = '';
 
-    imageService
-        .get()
-        .then(images => {
-            this.images = images;
-            this.loading = false;
-        });
-
-    this.viewOptions = ['', 'detail','thumbnail','gallery'];
-    this.view = '';
+    this.setDisplay = name => {
+        const parts = $state.current.name.split('.');
+        parts[parts.length-1] = name;
+        const newState  = parts.join('.');
+        console.log(newState);
+        this.state = newState;
+        $state.go(newState);
+    };
 
     this.remove = image => {
         this.loading = true;
@@ -42,6 +43,16 @@ function controller(imageService) {
             .then(saved => {
                 this.loading = false;
                 this.images.push(saved);
+            });
+    };
+
+    if (!(this.albumName)) {
+        this.loading = true;
+        albumService
+            .getAll()
+            .then(albums => {
+                this.loading = false;
+                this.albums = albums;
             });
     };
 };

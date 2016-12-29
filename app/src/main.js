@@ -4,8 +4,14 @@ import components from './components';
 import services from './services';
 import uiRouter from 'angular-ui-router';
 import routes from './routes';
+import defaultRoute from 'angular-ui-router-default';
 
-const app = angular.module('myApp', [components, services, uiRouter]);
+const app = angular.module('myApp', [
+    components, 
+    services, 
+    uiRouter, 
+    defaultRoute
+]);
 
 app.config(routes);
 

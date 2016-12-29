@@ -38,6 +38,7 @@ body {
 section {
     width: $boxwidth;
     margin: 1em auto;
+    padding: 5px;
     background-color: $foregroundblue;
     @include rounded(4px);
 }
@@ -46,4 +47,9 @@ footer {
     width: $boxwidth;
     margin: 1em auto;
     background-color: $foregroundblue;
+}
+
+.loader {
+    position: absolute;
+    top: 0; left: 40%;
 }

@@ -1,12 +1,12 @@
 <header ng-class="$ctrl.styles.root">
     <h1>Fun Image Viewer!</h1>
-    <nav>
-        <a ui-sref="welcome" ui-sref-active="current">Intro</a>
-        <a ui-sref="images" ui-sref-active="current">Images</a>
-        <a ui-sref="about" ui-sref-active="current">About</a>
-    </nav>
+    <page-root-header>
+        <header-links>
+            <ui-view name="links"></ui-view>
+        </header-links>
+    </page-root-header>
 </header>
 <hr>
 <main>
-    <ui-view></ui-view>
+    <ui-view name="main"></ui-view>
 </main>

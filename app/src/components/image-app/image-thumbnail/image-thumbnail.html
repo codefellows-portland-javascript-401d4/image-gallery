@@ -1,0 +1,4 @@
+<div ng-class="$ctrl.styles.thumbnail" ng-repeat="image in $ctrl.images">
+    <img ng-src="{{image.url}}">
+    <button ng-click="$ctrl.parent.remove(image)">Delete</button>
+</div>

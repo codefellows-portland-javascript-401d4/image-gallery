@@ -4,7 +4,12 @@ import styles from './image-new.scss';
 export default {
     template,
     bindings: {
-        add: '<'
+        add: '<',
+        album: '<',
+        albums: '<'
+    },
+    require: {
+        parent: '^imageApp'
     },
     controller
 };
@@ -21,10 +26,14 @@ function controller() {
     this.reset();
 
     this.addNew = () => {
+
+        console.log(this.album);
+
         this.add({
             title : this.title,
             description: this.description,
-            url: this.url
+            url: this.url,
+            category: this.album || this.category
         });
         this.reset();
     }; 

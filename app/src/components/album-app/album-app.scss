@@ -1,27 +1,21 @@
 @import 'borders';
-@import 'corners';
 @import 'colors';
+@import 'corners';
 
-:local(.app) {
-    border: $simpleborder;
-    padding: 5px;
-}
-
-:local(.navigator) {
+:local(.list) {
     display: flex;
     flex-direction: row;
     justify-content: center;
     list-style-type: none;
     padding: 0;
-    text-align: center;
 
     li {
         @include rounded(4px);
         background-color: $frontcolor;
         border: $simpleborder;
         display: inline;
-        margin: 0.5em;
-        padding: 0.5em;
+        margin: 0 1em;
+        padding: 0.2em;
     }
 
     li:hover {
@@ -29,4 +23,8 @@
         border: 1px solid $teal;
         color: $teal;
     }
+}
+
+:local(.top) {
+    text-align: center;
 }

@@ -4,13 +4,16 @@ import styles from './image-detail.scss';
 export default {
     template,
     bindings: {
-        image: '=',
-        view: '@',
+        images: '=',
+        // view: '@',
+        remove: '<'
+    },
+    require: {
+        parent: '^imageApp'
     },
     controller
 };
 
 function controller() {
     this.styles = styles;
-    this.view = '';
 }
