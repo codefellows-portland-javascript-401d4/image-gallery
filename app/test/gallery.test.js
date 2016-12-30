@@ -5,11 +5,11 @@ describe('Gallery component', () => {
   const mockModule = angular.mock.module('components');
   before(mockModule);
  
-  const images = [{title: 'test', description: 'testing', url: 'test.com', albumId: '124ft'}];
+  // const images = [{title: 'test', description: 'testing', url: 'test.com', albumId: '124ft'}];
   
-  before(angular.mock.inject($componentController => {
+  // before(angular.mock.inject($componentController => {
     
-  // }))
+  // }));
 
   describe('Create component', () => {
 
@@ -24,6 +24,7 @@ describe('Gallery component', () => {
     // };
 
     it('does nothing for now', done => {
+      assert.isOk('sup');
       done();
     });
 
