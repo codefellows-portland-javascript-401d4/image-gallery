@@ -1,0 +1,15 @@
+<button class="viewButton" ng-click="$ctrl.detail()">View Albums</button>
+<button class="viewButton" ng-click="$ctrl.new()">Add an Album</button>
+
+<div class="component" ng-show="$ctrl.viewDetail === true">
+  <h2>Album details</h2>
+  <ul>
+    <li ng-repeat="album in $ctrl.albums">
+      <album-detail
+        album="album">
+      </album-detail>
+    </li>
+  </ul>
+</div>
+
+<new-album add="$ctrl.add" ng-show="$ctrl.viewNew === true"><new-album>

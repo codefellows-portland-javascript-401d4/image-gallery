@@ -19,23 +19,39 @@ function controller(images) {
     this.images = images;
   });
 
+  this.add = image => {
+    images.add(image)
+    .then(saved => {
+      this.images.push(saved);
+    });
+  };
+
+  this.new = function() {
+    this.viewNew = true;
+    this.viewDetail = false;
+    this.viewThumbnail = false;
+    this.viewFull = false;
+  };
+
   this.detail = function() {
     this.viewDetail = true;
     this.viewThumbnail = false;
     this.viewFull = false;
+    this.viewNew = false;
   };
 
   this.thumbnail = function() {
     this.viewThumbnail = true;
     this.viewDetail = false;
     this.viewFull = false;
+    this.viewNew = false;
   };
 
   this.full = function() {
     this.viewFull = true;
     this.viewDetail = false;
     this.viewThumbnail = false;
-
+    this.viewNew = false;
   };
 
 
