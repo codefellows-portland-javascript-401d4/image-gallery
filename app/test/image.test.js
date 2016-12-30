@@ -18,7 +18,7 @@ describe( 'images component', () => {
     ];
 
     const image = { title: 'Test Rabbit 3', url: 'Test URL 3', desc: 'Test Rabbit Desc 3' };
-    const _id = 333;
+    const _id = 123;
     
     const imageService = {
       get() {
@@ -34,11 +34,9 @@ describe( 'images component', () => {
       }
     };
 
-    console.log($component);
-
     let component = null;
     before(() => {
-      component = $component('app', { imageService });
+      component = $component('images', { imageService });
     });
 
     it( 'loads images', done => {
@@ -50,7 +48,6 @@ describe( 'images component', () => {
         done();
       });
     });
-
 
     it( 'add an image', done => {
 

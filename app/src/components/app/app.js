@@ -7,37 +7,35 @@ export default {
   controllerAs: 'app'   
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['albumService'];
 
-function controller(images) {
-
-  this.views = ['add new image', 'image view', 'remove image', 'text-only view', 'thumbnail view' ];
+function controller(albums) {
 
   this.styles = styles;
 
   this.loading = true;
 
-  images.get().then(images => {
+  albums.get().then(albums => {
     this.loading = false;
-    this.images = images;
+    this.albums = albums;
   });
 
-  this.remove = image => {
+  this.remove = album => {
     this.loading = true;
-    images.remove(image._id)
+    albums.remove(album._id)
             .then(() => {
               this.loading = false;
-              const index = this.images.indexOf(image);
-              if (index > -1) this.images.splice(index, 1);
+              const index = this.albums.indexOf(album);
+              if (index > -1) this.albums.splice(index, 1);
             });
   };
 
-  this.add = image => {
+  this.add = album => {
     this.loading = true;
-    images.add(image)
+    albums.add(album)
             .then(saved => {
               this.loading = false;
-              this.images.push(saved);
+              this.albums.push(saved);
             });
   };
 }
