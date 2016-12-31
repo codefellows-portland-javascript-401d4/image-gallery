@@ -4,8 +4,7 @@
   left: 40%;
 }
 
-:local(.albums-class) {
-
+:local(.images-class) {
   button {
     height: 25px;
     width: 125px;
@@ -16,5 +15,10 @@
     border: 2px solid red;
     border-radius: 5px;
   }
+}
 
+label {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
 }

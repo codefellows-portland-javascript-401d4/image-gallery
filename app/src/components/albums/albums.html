@@ -1,0 +1,20 @@
+
+  <section>
+  <br/>
+  <a ui-sref="spiders" ui-sref-active="foo">Spiders</a>
+  <a ui-sref="mantids" ui-sref-active="foo">Mantids</a>
+  </section>
+
+  <section ng-class="$ctrl.styles['albums-class']">
+    <div class="loader" ng-if="$ctrl.loading">loading ...</div>
+
+    <h2>New Image Albums</h2>
+
+    <div>
+      <ui-view name="listAlbum"></ui-view>
+    </div>
+  </section>
+
+  <section>
+    <ui-view name="newAlbum"></ui-view>
+  </section>

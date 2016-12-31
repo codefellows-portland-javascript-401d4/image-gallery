@@ -20,8 +20,10 @@ app.use(errorHandler);
 /* routes */
 const spiders = require('./routes/spiders-route');
 const mantids = require('./routes/mantids-route');
+const albums = require('./routes/albums-route');
 app.use(checkDb);
 app.use('/api/mantids', mantids);
 app.use('/api/spiders', spiders);
+app.use('/api/albums', albums);
 
 module.exports = app;

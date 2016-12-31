@@ -1,0 +1,11 @@
+
+<section ng-class="$ctrl.styles['new-album-class']">
+  <div>
+    <p>Add a new image gallery album</p>
+    <label class='label'>new album name:</label>
+    <input ng-model="$ctrl.name">
+    <button ng-click="$ctrl.addNew()">add</button>
+  </div>
+</section>
+
+<!-- need dynamic true for refresh binding ... check Marty's notes -->

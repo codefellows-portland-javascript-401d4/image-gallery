@@ -15,40 +15,66 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'image-gallery', // name of this defined app 'state' ... redirected to here from ui-sref "image-gallery" link in app.html
-    url: '/image-gallery', // url associated with this 'state'
-    component: 'imageGallery' // Note: camel-case
-  });
-
-  $stateProvider.state({
     name: 'welcome.returning',  // redirected to here from ui-sref link in welcome.js
     url: 'returning',
     template: '<p>Welcome back!</p>'
   });
 
   $stateProvider.state({
-    name: 'spiders', // name of this defined app 'state' ... redirected to here from ui-sref "spiders" link in image-gallery.html
+    name: 'spiders', // name of this defined app 'state' ... redirected to here from ui-sref "spiders" link in albums.html
     url: '/spiders', // url associated with this 'state'
     component: 'spiders'
   });
 
   $stateProvider.state({
-    name: 'mantids', // name of this defined app 'state' ... redirected to here from ui-sref "mantids" link in image-gallery.html
+    name: 'mantids', // name of this defined app 'state' ... redirected to here from ui-sref "mantids" link in albums.html
     url: '/mantids', // url associated with this 'state'
     component: 'mantids'
   });
 
   $stateProvider.state({
-    name: 'images', // name of this defined app 'state' ... redirected to here from ui-sref "images" link in image-gallery.html
-    url: '/images', // url associated with this 'state'
-    component: 'images'
+    name: 'albums', // name of this defined app 'state' ... redirected to here from ui-sref "albums" link in image-gallery.html
+    url: '/albums', // url associated with this 'state'
+    component: 'albums',
+    resolve: {
+      albums: ['albumService', albumService => albumService.get() ]
+    }
   });
 
   $stateProvider.state({
-    name: 'new-album', // name of this defined app 'state' ... redirected to here from ui-sref "new-album" link in image-gallery.html
-    url: '/new-album', // url associated with this 'state'
-    component: 'newAlbum'
+    name: 'albums.main',
+    url: '/main',
+    params: {
+      main: {dynamic: true}
+    },
+    views: {
+      listAlbum: {
+        component: 'listAlbum'
+      },
+      newAlbum: {
+        component: 'newAlbum'
+      }
+    }
   });
+
+  $stateProvider.state({
+    name: 'album',
+    //abstract: true,
+    default: '.detail',
+    url: '/album/:id?view',
+    params: {
+      view: {dynamic: true}
+    },
+    resolve: {
+      album: ['albumService', '$transition$', (albums, t) => {
+        return albums.get(t.params().id);
+      }],
+      images: ['album', album => album.images]
+    },
+    component: 'album',
+    views: {}
+  });
+
 
   $stateProvider.state({
     name: 'new-image', // name of this defined app 'state' ... redirected to here from ui-sref "new-image" link in image-gallery.html
@@ -96,3 +122,23 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 }
+
+// $stateProvider.state({
+//   name: 'images', // name of this defined app 'state' ... redirected to here from ui-sref "images" link in image-gallery.html
+//   url: '/images', // url associated with this 'state'
+//   component: 'images'
+// });
+
+// need to add resolve
+// $stateProvider.state({
+//   name: 'images', // name of this defined app 'state' ... redirected to here from ui-sref "images" link in image-gallery.html
+//   url: '/images', // url associated with this 'state'
+//   abstract: true,
+//   default: '.detail',
+//   resolve: {
+//     images: ['imageService', images => {
+//       return images.get();
+//     }]
+//   },
+//   component: 'images'
+// });

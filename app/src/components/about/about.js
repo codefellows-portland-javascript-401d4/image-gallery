@@ -1,3 +1,5 @@
+// url page ==> about/main + links to SPA views ...
+
 export default {
   template: `
   <h2>About this Image Gallery App</h2>
