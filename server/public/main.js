@@ -34161,12 +34161,20 @@
 	    _this.images = images;
 	  });
 	
-	  this.remove = function (id) {
+	  this.add = function (image) {
 	    var _this2 = this;
 	
+	    galleryService.add(image).then(function (saved) {
+	      _this2.images.push(saved);
+	    });
+	  };
+	
+	  this.remove = function (id) {
+	    var _this3 = this;
+	
 	    galleryService.remove(id).then(function (removed) {
-	      var index = _this2.images.indexOf(removed);
-	      if (index > -1) _this2.images.splice(index, 1);
+	      var index = _this3.images.indexOf(removed);
+	      if (index > -1) _this3.images.splice(index, 1);
 	    });
 	  };
 	}
