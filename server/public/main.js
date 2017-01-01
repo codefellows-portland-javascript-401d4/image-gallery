@@ -60,11 +60,11 @@
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(47);
+	var _angularUiRouter = __webpack_require__(48);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(48);
+	var _routes = __webpack_require__(49);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
@@ -33720,7 +33720,7 @@
 	};
 	
 	
-	controller.$inject = ['albumsService'];
+	controller.$inject = ['albumService'];
 	
 	function controller(albums) {
 	  var _this = this;
@@ -33730,17 +33730,27 @@
 	  // this.views = ['thumbnail', 'detail', 'large'];
 	  // this.view = this.views[2];
 	
-	  albums.get().then(function (albums) {
+	  albums.getAll().then(function (albums) {
 	    _this.loading = false;
 	    _this.albums = albums;
 	  });
 	
-	  this.add = function (albums) {
+	  this.add = function (album) {
 	    _this.loading = true;
 	    albums.add(albums).then(function (saved) {
 	      _this.loading = false;
 	      _this.albums.push(saved);
 	    });
+	  };
+	
+	  this.new = function () {
+	    _this.viewNew = true;
+	    _this.viewDetail = false;
+	  };
+	
+	  this.detail = function () {
+	    _this.viewDetail = true;
+	    _this.viewNew = false;
 	  };
 	
 	  // this.remove = image => {
@@ -33759,7 +33769,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<button class=\"viewButton\" ng-click=\"$ctrl.detail()\">View Albums</button>\r\n<button class=\"viewButton\" ng-click=\"$ctrl.new()\">Add a new Album</button>\r\n\r\n<div class=\"component detail\" ng-show=\"$ctrl.viewDetail === true\">\r\n  <h3>List of Albums</h3>\r\n    <a ng-repeat=\"album in $ctrl.albums\"\r\n      ui-sref=\"album.detail({\r\n        id: album._id,\r\n        name: album.name\r\n      })\">{{album.name}}\r\n    </a>\r\n    <ui-view>Select an album for details</ui-view>\r\n</div>\r\n\r\n<new-album add=\"$ctrl.add\" ng-show=\"$ctrl.viewNew === true\"></new-album>";
+	module.exports = "<button class=\"viewButton\" ng-click=\"$ctrl.detail()\">View Albums</button>\r\n<button class=\"viewButton\" ng-click=\"$ctrl.new()\">Add a new Album</button>\r\n\r\n<div class=\"component detail\" ng-show=\"$ctrl.viewDetail === true\">\r\n  <h3>List of Albums</h3>\r\n    <a ng-repeat=\"album in $ctrl.albums\"\r\n      ui-sref=\"album.detail({\r\n        id: album._id,\r\n        name: album.name\r\n      })\">{{album.name}}\r\n    </a>\r\n    <ui-view>Select an album for details</ui-view>\r\n</div>\r\n\r\n<album-new add=\"$ctrl.add\" ng-show=\"$ctrl.viewNew === true\"></album-new>";
 
 /***/ },
 /* 23 */
@@ -34122,7 +34132,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./image-service.js": 46
+		"./album-service.js": 46,
+		"./image-service.js": 47
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -34140,6 +34151,44 @@
 
 /***/ },
 /* 46 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = albumService;
+	albumService.$inject = ['$http', 'apiUrl'];
+	
+	function albumService($http, apiUrl) {
+	  return {
+	    getAll: function getAll() {
+	      return $http.get(apiUrl + '/albums').then(function (res) {
+	        return res.data;
+	      });
+	    },
+	    get: function get(id) {
+	      if (!id) return this.getAll();
+	      return $http.get(apiUrl + '/albums/' + id).then(function (res) {
+	        return res.data;
+	      });
+	    },
+	    add: function add(album) {
+	      return $http.post(apiUrl + '/albums', album).then(function (res) {
+	        return res.data;
+	      });
+	    },
+	    remove: function remove(id) {
+	      return $http.delete(apiUrl + '/albums/' + id).then(function (res) {
+	        return res.data;
+	      });
+	    }
+	  };
+	}
+
+/***/ },
+/* 47 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34171,7 +34220,7 @@
 	}
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -42520,7 +42569,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42558,6 +42607,12 @@
 	  });
 	
 	  $stateProvider.state({
+	    name: 'albums',
+	    url: '/albums',
+	    component: 'albums'
+	  });
+	
+	  $stateProvider.state({
 	    name: 'about',
 	    url: '/about',
 	    component: 'about'
@@ -42587,6 +42642,23 @@
 	        component: 'aboutMainWild'
 	      }
 	    }
+	  });
+	
+	  $stateProvider.state({
+	    name: 'albums.detail',
+	    url: '/:id?name',
+	    params: {
+	      view: { dynamic: true }
+	    },
+	    resolve: {
+	      id: ['$transition$', function (t) {
+	        return t.params().id;
+	      }],
+	      view: ['$transition$', function (t) {
+	        return t.params().view || 'detail';
+	      }]
+	    },
+	    component: 'albumDetail'
 	  });
 	
 	  $urlRouterProvider.otherwise('/');

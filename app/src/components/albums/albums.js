@@ -5,7 +5,7 @@ export default {
   controller
 };
 
-controller.$inject = ['albumsService'];
+controller.$inject = ['albumService'];
 
 function controller(albums) {
   this.loading = true;
@@ -18,7 +18,7 @@ function controller(albums) {
     this.albums = albums;
   });
 
-    this.add = albums => {
+    this.add = album => {
     this.loading = true;
     albums.add(albums)
       .then(saved => {

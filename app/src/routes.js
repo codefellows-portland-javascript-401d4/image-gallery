@@ -28,7 +28,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'albums',
-    url: '/ablums',
+    url: '/albums',
     component: 'albums'
   });
 
