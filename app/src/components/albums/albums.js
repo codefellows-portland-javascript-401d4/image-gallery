@@ -13,7 +13,7 @@ function controller(albums) {
   // this.views = ['thumbnail', 'detail', 'large'];
   // this.view = this.views[2];
 
-  albums.get().then(albums => {
+  albums.getAll().then(albums => {
     this.loading = false;
     this.albums = albums;
   });
@@ -25,6 +25,16 @@ function controller(albums) {
         this.loading = false;
         this.albums.push(saved);
       });
+  };
+
+  this.new = () => {
+    this.viewNew = true;
+    this.viewDetail = false;
+  };
+
+  this.detail = () => {
+    this.viewDetail = true;
+    this.viewNew = false;
   };
 
   // this.remove = image => {

@@ -27,6 +27,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
+    name: 'albums',
+    url: '/ablums',
+    component: 'albums'
+  });
+
+  $stateProvider.state({
     name: 'about',
     url: '/about',
     component: 'about'
@@ -56,6 +62,19 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'aboutMainWild'
       }
     }
+  });
+
+  $stateProvider.state({
+    name: 'albums.detail',
+    url: '/:id?name',
+    params: {
+      view: { dynamic: true }
+    },
+    resolve: {
+      id: ['$transition$', t => t.params().id],
+      view: ['$transition$', t => t.params().view || 'detail']
+    },
+    component: 'albumDetail'
   });
 
   $urlRouterProvider.otherwise('/');
