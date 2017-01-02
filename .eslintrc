@@ -1,9 +1,15 @@
 {
-   "settings": {
-     "ecmascript": 6
+  "parserOptions": {
+    "emcaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "experimentalObjectRestSpread": true,
+      "impliedStrict": true
+    }
   },
-  "ecmaFeatures": {
-    "modules": true
+  "settings": {
+     "ecmascript": 6
   },
   "env": {
     "es6": true,
@@ -21,13 +27,9 @@
     "angular": false,
     "chai": false
   },
-  "parserOptions": {
-    "emcaVersion": 6,
-    "sourceType": "module"
-  },
   "extends": "eslint:recommended",
   "rules": {
-    "no-console": 0,
+    "no-console": "off",
     "semi": 1,
     "strict": 0,
     "indent": [2, 2],
