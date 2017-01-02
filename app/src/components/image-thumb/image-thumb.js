@@ -1,14 +1,14 @@
 import template from './image-thumb.html';
-import style from './image-thumb.css';
+import styles from './image-thumb.scss';
 
 export default {
   bindings: {
-    image: '<'
+    images: '<'
   },
   controller,
   template
 };
 
 function controller() {
-  this.style = style;
+  this.styles = styles;
 }

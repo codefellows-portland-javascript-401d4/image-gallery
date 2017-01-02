@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('./public'));
 
-app.use('/api/gallery', gallery);
+app.use('/api', gallery);
 app.use(errorHandler);
 
 module.exports = app;

@@ -1,14 +1,14 @@
 import template from './image-gallery.html';
-import style from './image-gallery.css';
+import styles from './image-gallery.scss';
 
 export default {
   bindings: {
-    image: '='
+    images: '<'
   },
   controller,
   template
 };
 
 function controller() {
-  this.style = style;
+  this.styles = styles;
 }

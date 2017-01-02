@@ -21,16 +21,23 @@ describe('Gallery API and routes', () => {
   const trex = {
     title: 'Tea-Rex',
     url: 'http://img05.deviantart.net/610d/i/2013/018/f/b/tea_rex_by_demonicneko-d5rxzq9.png',
-    description: 'A very classy gent, this T-Rex prefers Assams.'
+    description: 'A very classy gent, this T-Rex prefers Assams.',
+    album: ''
   };
 
+  const dinos = {
+    title: 'Dinosaurs',
+    description: 'An album of awesome dinosaur pictures.'
+  };
+
+  var dino_id;
   var id;
   const baddino = { title: 'Bad Dino' };
   const newTitle = {title:'Different T-Rex'};
 
-  it('Gets an empty array before images have been added', done => {
+  it('Gets an empty array before albums have been added', done => {
     request
-      .get('/api/gallery/')
+      .get('/api/')
       .then(res => {
         assert.deepEqual(res.body, []);
         done();
@@ -38,9 +45,40 @@ describe('Gallery API and routes', () => {
       .catch(done);
   });
 
-  it('Adds an object to the db', done => {
+  it('Adds an album to the db', done => {
     request
-      .post('/api/gallery/')
+      .post('/api/albums/')
+      .send(dinos)
+      .then(res => {
+        let album = JSON.parse(res.text);
+        dino_id = album._id;
+        assert.equal(album.title, dinos.title);
+        assert.equal(album.url, dinos.url);
+        assert.equal(album.description, dinos.description);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Gets an album after it has been added', done => {
+    request
+      .get('/api/')
+      .then(res => {
+        let album = res.body[0];
+        assert.equal(album.title, dinos.title);
+        assert.equal(album.description, dinos.description);
+        assert.equal(album._id, dino_id);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Adds an image to the album', done => {
+
+    trex.album = dino_id;
+
+    request
+      .post('/api/')
       .send(trex)
       .then(res => {
         let img = JSON.parse(res.text);
@@ -48,14 +86,15 @@ describe('Gallery API and routes', () => {
         assert.equal(img.title, trex.title);
         assert.equal(img.url, trex.url);
         assert.equal(img.description, trex.description);
+        assert.equal(img.album, trex.album);
         done();
       })
       .catch(done);
   });
 
-  it('Fails to add an object missing information', done => {
+  it('Fails to add an image missing information', done => {
     request
-      .post('/api/gallery/')
+      .post('/api/')
       .send(baddino)
       .end(err => {
         assert.equal(err.status, 400);
@@ -64,9 +103,23 @@ describe('Gallery API and routes', () => {
       });
   });
 
+  it('Gets an album by id', done => {
+    request
+      .get('/api/albums/' + dino_id)
+      .then(res => {
+        let albums = JSON.parse(res.text);
+        assert.equal(albums[0].title, trex.title);
+        assert.equal(albums[0].url, trex.url);
+        assert.equal(albums[0].description, trex.description);
+        assert.equal(albums[0]._id, id);
+        done();
+      })
+      .catch(done);
+  });
+
   it('Gets an image by id', done => {
     request
-      .get('/api/gallery/' + id)
+      .get('/api/images/' + id)
       .then(res => {
         let img = JSON.parse(res.text);
         assert.equal(img.title, trex.title);
@@ -80,7 +133,7 @@ describe('Gallery API and routes', () => {
 
   it('Updates image fields, using the id', done => {
     request
-      .put('/api/gallery/' + id)
+      .put('/api/images/' + id)
       .send(newTitle)
       .then(res => {
         let img = JSON.parse(res.text);
@@ -95,7 +148,7 @@ describe('Gallery API and routes', () => {
 
   it('Deletes an image using the id', done => {
     request
-      .delete('/api/gallery/' + id)
+      .delete('/api/images/' + id)
       .then(res => {
         let img = JSON.parse(res.text);
         assert.equal(img.title, newTitle.title);

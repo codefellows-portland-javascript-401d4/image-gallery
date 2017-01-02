@@ -1,0 +1,42 @@
+@import 'partials/_colors.scss';
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $pale;
+}
+
+h1 {
+    font-family: 'Molle', cursive;
+    font-size: 60pt;
+    color: $tan;
+    padding: 30px;
+    margin: -10px;
+}
+
+.header {
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    background-color: $blue;
+}
+
+.leftnav {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    bottom: 0;
+    width: 22%;
+    background-color: $paleblue;
+    padding-left: 10px;
+}
+
+.body {
+    position: absolute;
+    left: 22%;
+    top: 25%;
+    right:0;
+    bottom:0;
+    margin: 10px 0 0 10px;
+    padding-left: 10px;
+}

@@ -1,15 +1,15 @@
 import template from './image-detail.html';
-import style from './image-detail.css';
+import styles from './image-detail.scss';
 
 export default {
   bindings: {
-    image: '=',
-    view: '@'
+    image: '<',
+    images: '<',
   },
   controller,
   template
 };
 
 function controller() {
-  this.style = style;
+  this.styles = styles;
 }

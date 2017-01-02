@@ -1,26 +1,34 @@
 const express = require('express');
 const bodyParser = require('body-parser').json();
-const Gallery = require('../models/gallery');
+const Image = require('../models/image');
+const Album = require('../models/album');
 
 const router = express.Router();
 
 router
   .get('/', (req, res, next) => {
-    Gallery.find()
+    Album.find()
+      .lean()
+      .then(albums => res.send(albums))
+      .catch(next);
+  })
+
+  .get('/albums/:albumId', (req, res, next) => {
+    Image.find({ album: req.params.albumId })
       .lean()
       .then(images => res.send(images))
       .catch(next);
   })
 
-  .get('/:id', (req, res, next) => {
-    Gallery.findById(req.params.id)
+  .get('/images/:id', (req, res, next) => {
+    Image.findById(req.params.id)
       .lean()
       .then(image => res.send(image))
       .catch(next);
   })
 
   .post('/', bodyParser, (req, res, next) => {
-    const image = new Gallery(req.body);
+    const image = new Image(req.body);
     image.save()
       .then(response => {
         if (response.name !== 'ValidationError') {
@@ -39,15 +47,35 @@ router
       });
   })
 
-  .put('/:id', bodyParser, (req, res, next) => {
-    Gallery.findByIdAndUpdate(req.params.id, req.body) // doesn't return the obj
-      .then(() => { return Gallery.findById(req.params.id); }) // re-fetch obj
+  .post('/albums', bodyParser, (req, res, next) => {
+    const album = new Album(req.body);
+    album.save()
+      .then(response => {
+        if (response.name !== 'ValidationError') {
+          res.send(response);
+        }
+      })
+      .catch(err => {
+        if (err.name === 'ValidationError') {
+          return next({
+            code: 400,
+            error: 'Album title is required'
+          });
+        } else {
+          next(err);
+        }
+      });
+  })
+
+  .put('/images/:id', bodyParser, (req, res, next) => {
+    Image.findByIdAndUpdate(req.params.id, req.body) // doesn't return the obj
+      .then(() => { return Image.findById(req.params.id); }) // re-fetch obj
       .then(saved => res.send(saved))
       .catch(next);
   })
 
-  .delete('/:id', (req, res, next) => {
-    Gallery.findByIdAndRemove(req.params.id)
+  .delete('/images/:id', (req, res, next) => {
+    Image.findByIdAndRemove(req.params.id)
       .then(deleted => res.send(deleted))
       .catch(next);
   });

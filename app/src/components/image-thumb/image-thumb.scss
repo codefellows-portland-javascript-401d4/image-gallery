@@ -1,0 +1,16 @@
+@import '../../scss/partials/_buttons';
+
+:local(.thumb) {
+
+    display: inline;
+
+    img {
+        width: 100px;
+        height: 100px;
+        outline: 1px solid grey;
+        outline-offset: -10px;
+        border: 15px solid white;
+        margin: 2%;
+        display: inline;
+    }
+}

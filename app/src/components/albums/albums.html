@@ -1,0 +1,9 @@
+<section>
+    <div>
+        <span ng-repeat="album in $ctrl.albums"
+              ui-sref="album({id: album._id})"
+              ng-class="$ctrl.styles.albums">
+            <a href="#"><h3>{{album.title}}</h3></a>
+        </span>
+    </div>
+</section>
