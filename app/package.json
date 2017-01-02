@@ -7,7 +7,9 @@
     "start": "webpack-dev-server --inline",
     "build": "webpack",
     "test": "karma start --single-run",
-    "test:watch": "karma start"
+    "test:watch": "karma start",
+    "update-webdriver": "webdriver-manager update",
+    "e2e": "protractor"
   },
   "repository": {
     "type": "git",
@@ -45,12 +47,14 @@
     "node-sass": "^4.0.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "webdriver": "^0.0.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "angular": "^1.6.0",
     "angular-ui-router": "^1.0.0-beta.3",
+    "angular-ui-router-default": "0.0.6",
     "body-parser": "^1.15.2",
     "camelcase": "^4.0.0"
   },
