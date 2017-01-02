@@ -4,7 +4,7 @@
 <div class="component detail" ng-show="$ctrl.viewDetail === true">
   <h3>List of Albums</h3>
     <a ng-repeat="album in $ctrl.albums"
-      ui-sref="album.detail({
+      ui-sref="albums.detail({
         id: album._id,
         name: album.name
       })">{{album.name}}

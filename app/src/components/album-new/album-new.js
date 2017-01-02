@@ -3,6 +3,7 @@ import template from './album-new.html';
 export default {
   template,
   bindings: {
+    // album: '=',
     add: '<'
   },
   controller

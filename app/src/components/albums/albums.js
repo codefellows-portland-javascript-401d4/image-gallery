@@ -20,7 +20,7 @@ function controller(albums) {
 
     this.add = album => {
     this.loading = true;
-    albums.add(albums)
+    albums.add(album)
       .then(saved => {
         this.loading = false;
         this.albums.push(saved);

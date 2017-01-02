@@ -33515,8 +33515,8 @@
 		"./about/about-main-wild.js": 14,
 		"./about/about-main.js": 15,
 		"./about/about.js": 16,
-		"./album-new/album-new.js": 17,
-		"./albums-detail/album-detail.js": 19,
+		"./album-detail/album-detail.js": 17,
+		"./album-new/album-new.js": 19,
 		"./albums/albums.js": 21,
 		"./image-app/image-app.js": 23,
 		"./image-detail/image-detail.js": 27,
@@ -33615,55 +33615,7 @@
 	  value: true
 	});
 	
-	var _albumNew = __webpack_require__(18);
-	
-	var _albumNew2 = _interopRequireDefault(_albumNew);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  template: _albumNew2.default,
-	  bindings: {
-	    add: '<'
-	  },
-	  controller: controller
-	};
-	
-	
-	function controller() {
-	  var _this = this;
-	
-	  this.reset = function () {
-	    _this.name = '';
-	  };
-	
-	  this.reset();
-	
-	  this.addNew = function () {
-	    _this.add({
-	      name: _this.name
-	    });
-	    _this.reset();
-	  };
-	}
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"component\">\r\n  <h3>Add a New Album</h3>\r\n  <form>\r\n    <label>album name: </label>\r\n    <input ng-model=\"$ctrl.name\">\r\n  </form>\r\n  <button class=\"viewButton\" ng-click=$ctrl.addNew()>Add Album</button>\r\n</div>";
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _albumDetail = __webpack_require__(20);
+	var _albumDetail = __webpack_require__(18);
 	
 	var _albumDetail2 = _interopRequireDefault(_albumDetail);
 	
@@ -33693,10 +33645,59 @@
 	}
 
 /***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	module.exports = "<section class=\"detail\">\r\n  <ul>{{$ctrl.album.name}}\r\n    <li class=\"album\" ng-repeat=\"image in $ctrl.album.images\">\r\n      <image-thumbnail image=\"image\"></image-thumbnail>\r\n    </li>\r\n  </ul>\r\n</section>";
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _albumNew = __webpack_require__(20);
+	
+	var _albumNew2 = _interopRequireDefault(_albumNew);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _albumNew2.default,
+	  bindings: {
+	    // album: '=',
+	    add: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	function controller() {
+	  var _this = this;
+	
+	  this.reset = function () {
+	    _this.name = '';
+	  };
+	
+	  this.reset();
+	
+	  this.addNew = function () {
+	    _this.add({
+	      name: _this.name
+	    });
+	    _this.reset();
+	  };
+	}
+
+/***/ },
 /* 20 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"detail\">\r\n  <ul>{{$ctrl.album.name}}\r\n    <li class=\"album\" ng-repeat=\"image in $ctrl.album.images\">\r\n      <bunny-thumbnail image=\"image\"></bunny-thumbnail>\r\n    </li>\r\n  </ul>\r\n</section>";
+	module.exports = "<div class=\"component\">\r\n  <h3>Add a New Album</h3>\r\n  <form>\r\n    <label>Album name: </label>\r\n    <input ng-model=\"$ctrl.name\">\r\n  </form>\r\n  <button class=\"viewButton\" ng-click=$ctrl.addNew()>Add Album</button>\r\n</div>";
 
 /***/ },
 /* 21 */
@@ -33737,7 +33738,7 @@
 	
 	  this.add = function (album) {
 	    _this.loading = true;
-	    albums.add(albums).then(function (saved) {
+	    albums.add(album).then(function (saved) {
 	      _this.loading = false;
 	      _this.albums.push(saved);
 	    });
@@ -33769,7 +33770,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "<button class=\"viewButton\" ng-click=\"$ctrl.detail()\">View Albums</button>\r\n<button class=\"viewButton\" ng-click=\"$ctrl.new()\">Add a new Album</button>\r\n\r\n<div class=\"component detail\" ng-show=\"$ctrl.viewDetail === true\">\r\n  <h3>List of Albums</h3>\r\n    <a ng-repeat=\"album in $ctrl.albums\"\r\n      ui-sref=\"album.detail({\r\n        id: album._id,\r\n        name: album.name\r\n      })\">{{album.name}}\r\n    </a>\r\n    <ui-view>Select an album for details</ui-view>\r\n</div>\r\n\r\n<album-new add=\"$ctrl.add\" ng-show=\"$ctrl.viewNew === true\"></album-new>";
+	module.exports = "<button class=\"viewButton\" ng-click=\"$ctrl.detail()\">View Albums</button>\r\n<button class=\"viewButton\" ng-click=\"$ctrl.new()\">Add a new Album</button>\r\n\r\n<div class=\"component detail\" ng-show=\"$ctrl.viewDetail === true\">\r\n  <h3>List of Albums</h3>\r\n    <a ng-repeat=\"album in $ctrl.albums\"\r\n      ui-sref=\"albums.detail({\r\n        id: album._id,\r\n        name: album.name\r\n      })\">{{album.name}}\r\n    </a>\r\n    <ui-view>Select an album for details</ui-view>\r\n</div>\r\n\r\n<album-new add=\"$ctrl.add\" ng-show=\"$ctrl.viewNew === true\"></album-new>";
 
 /***/ },
 /* 23 */
@@ -33929,14 +33930,15 @@
 	exports.default = {
 	  template: _imageNew2.default,
 	  bindings: {
-	    image: '=',
 	    add: '<'
 	  },
 	  controller: controller
 	};
 	
 	
-	function controller() {
+	controller.$inject = ['albumService'];
+	
+	function controller(albumService) {
 	  var _this = this;
 	
 	  this.styles = _imageNew4.default;
@@ -33945,23 +33947,31 @@
 	    _this.title = '';
 	    _this.url = '';
 	    _this.description = '';
+	    _this.album = '';
 	  };
+	
+	  this.reset();
 	
 	  this.addNew = function () {
 	    _this.add({
 	      title: _this.title,
 	      url: _this.url,
-	      description: _this.description
+	      description: _this.description,
+	      album: _this.album
 	    });
 	    _this.reset();
 	  };
+	
+	  albumService.get().then(function (albums) {
+	    _this.albums = albums;
+	  });
 	}
 
 /***/ },
 /* 34 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles['add-class']\">\r\n  <div>\r\n    <h3>Add a new image:</h3><br>\r\n\r\n    <div>\r\n      <label>Image title:</label>\r\n      <input ng-model=\"$ctrl.title\" placeholder=\"title\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image URL:</label>\r\n      <input ng-model=\"$ctrl.url\" placeholder=\"URL\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image description:</label>\r\n      <input ng-model=\"$ctrl.description\" placeholder=\"description\">\r\n    </div>\r\n\r\n  </div>\r\n  <button class=\"primary\" ng-click=\"$ctrl.addNew()\">Add a new image</button>\r\n\r\n</section>\r\n";
+	module.exports = "<section ng-class=\"$ctrl.styles['add-class']\">\r\n  <div>\r\n    <h3>Add a new image:</h3><br>\r\n\r\n    <div>\r\n      <label>Image title:</label>\r\n      <input ng-model=\"$ctrl.title\" placeholder=\"title\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image URL:</label>\r\n      <input ng-model=\"$ctrl.url\" placeholder=\"URL\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Image description:</label>\r\n      <input ng-model=\"$ctrl.description\" placeholder=\"description\">\r\n    </div>\r\n\r\n    <div>\r\n      <label>Album:</label>\r\n      <select ng-options=\"album._id as album.name for album in $ctrl.albums\" ng-model=\"$ctrl.album\"></select>\r\n    </div>\r\n\r\n  </div>\r\n  <button class=\"primary\" ng-click=\"$ctrl.addNew()\">Add a new image</button>\r\n\r\n</section>\r\n";
 
 /***/ },
 /* 35 */
