@@ -99,22 +99,22 @@ describe('Image gallery component', () => {
       });    
     });
 
-    describe('new image is added in child component', () => {
-      let newImage = null;
-      let uploadedImage = null;
+    // describe('new image is added in child component', () => {
+    //   let newImage = null;
+    //   let uploadedImage = null;
 
-      it('adding a new image', done => {
-        newImage = $component('imageNew', null, {
-          add(image) { uploadedImage = image; }
-        });
+    //   it('adding a new image', done => {
+    //     newImage = $component('imageNew', null, {
+    //       add(image) { uploadedImage = image; }
+    //     });
 
-        newImage.url = testingImage.url;
-        newImage.title = testingImage.title;
-        newImage.description = testingImage.description;
+    //     newImage.url = testingImage.url;
+    //     newImage.title = testingImage.title;
+    //     newImage.description = testingImage.description;
 
-        newImage.addNew(testingImage);
-        assert.deepEqual(uploadedImage, testingImage);
-        done();
-      });
-    });
+    //     newImage.addNew(testingImage);
+    //     assert.deepEqual(uploadedImage, testingImage);
+    //     done();
+    //   });
+    // });
 });

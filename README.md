@@ -9,3 +9,5 @@ Displays a text, thumbnail, and original version of an image of a little bunny<b
  *Added SCSS<br>
   -Part 4 <br>
  *Added UI-Router for routes<br>
+  -Part 5 <br>
+  *Albums can be created and images can be added to different albums
