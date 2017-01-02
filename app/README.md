@@ -1,9 +1,9 @@
-Image Gallery assignment #3 for Code Fellows 401
+Image Gallery assignment #5 for Code Fellows 401
 
 by Greg Katchmar
 
-1.0.0  2016-12-12
+1.0.0  2016-12-14
 
-An exercise adding SCSS.
+Albums added as a second resource to organize images.
 
 This project is licensed under the ISC License - see the LICENSE.md file for details

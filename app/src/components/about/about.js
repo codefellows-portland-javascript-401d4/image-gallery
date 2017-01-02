@@ -1,6 +1,6 @@
 export default {
   template: `
-    <h1>About the Image Gallery</h1>
+    <h2>About the Image Gallery</h2>
     <a ui-sref="about.short">Short Version</a>
     <a ui-sref="about.long">Long Version</a>
     <section>
@@ -8,7 +8,6 @@ export default {
     </section>
     <section>
         <ui-view name="main"></ui-view>
-    </section>
-    
+    </section>    
 `
 };

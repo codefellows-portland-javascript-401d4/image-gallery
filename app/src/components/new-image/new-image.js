@@ -3,10 +3,14 @@ import template from './new-image.html';
 export default {
   template,
   bindings: {
-    add: '<'
+    add: '<',
+    albumId: '<'
   },
-  controller
+  controller,
+  controllerAs: 'ima'
 };
+
+controller.$inject = ['imageService'];
 
 function controller() {
 
@@ -22,7 +26,8 @@ function controller() {
     this.add({
       title: this.title,
       url: this.url,
-      desc: this.desc
+      desc: this.desc,
+      album: this.albumId
     });
     this.reset();
   };

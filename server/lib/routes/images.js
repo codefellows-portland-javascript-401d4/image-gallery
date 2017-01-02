@@ -6,24 +6,23 @@ const Image = require('../models/image');
 router
     .get('/', (req, res, next) => {
       const query = {};
-        // if(req.query.rank) query.rank = req.query.rank;
+      if(req.query.name) query.name = req.query.name;  //e.g. "Rabbits"
 
       Image.find(query)
-            // .select('name rank')
-            // .lean()
-            // .populate({
-            //     path: 'crewId',
-            //     select: 'name'
-            // })
-            // .lean()
+            .select('title desc album')
+            .populate({
+              path: 'albumId',
+              select: 'album'
+            })
+            .lean()
             .then(images => res.send(images ))
             .catch(next);
     })
 
     .get('/:id', (req, res, next) => {
       Image.findById(req.params.id)
-            // .select('name rank')
-            // .lean()
+            .select('title desc')
+            .lean()
             .then(image => res.send(image ))
             .catch(next);
     })
