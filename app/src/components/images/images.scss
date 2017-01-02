@@ -30,3 +30,16 @@
   list-style-type: none;
   padding: 0;
 }
+
+label {
+  display: block;;
+}
+
+input {
+  display: inline;
+}
+
+.album-detail a:hover {
+  width: 40%;
+  margin: auto;
+}

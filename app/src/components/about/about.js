@@ -1,6 +1,6 @@
 export default {
   template: `
-  <div class="component">
+  <div class="component detail">
     <h2>About the Bunny Gallery!</h2>
     <div class="about">
       <a ui-sref="about.bio">Developer bio</a>

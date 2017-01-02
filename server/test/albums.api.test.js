@@ -6,7 +6,7 @@ chai.use(chaiHttp);
 const connection = require('../lib/setup_mongoose');
 const app = require('../lib/app');
 
-describe('image', () => {
+describe('album', () => {
 
   before(done => {
     const drop = () => connection.db.dropDatabase(done);
@@ -18,11 +18,11 @@ describe('image', () => {
 
   const request = chai.request(app);
 
-  const bunny = {__v: 0, url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Bunny_in_zoo_cropped.jpg', imageTitle: 'Fluffy the bunny', imageDescription: 'This is a close up photo of a little bunny.'};
+  const testAlbum = {__v: 0, name: 'My Album', images: []};
 
   it('/GET all', done => {
     request
-      .get('/api/images')
+      .get('/api/albums')
       .then(res => {
         assert.deepEqual(res.body, []);
         done();
@@ -32,23 +32,23 @@ describe('image', () => {
 
   it('/POST', done => {
     request
-      .post('/api/images')
-      .send(bunny)
+      .post('/api/albums')
+      .send(testAlbum)
       .then(res => {
-        const image = res.body;
-        assert.ok(image._id);
-        bunny._id = image._id;
+        const album = res.body;
+        assert.ok(album._id);
+        testAlbum._id = album._id;
         done();
       })
       .catch(done);
   });
-
+  
   it('/GET by id', done => {
     request
-      .get(`/api/images/${bunny._id}`)
+      .get(`/api/albums/${testAlbum._id}`)
       .then(res => {
-        const image = res.body;
-        assert.deepEqual(image, bunny);
+        const album = res.body;
+        assert.deepEqual(album, testAlbum);
         done();
       })
       .catch(done);

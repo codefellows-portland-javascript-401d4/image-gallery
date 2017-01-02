@@ -22,6 +22,7 @@ header {
 }
 
 .container a {
+  display: block;
   padding: 5px;
   margin: $defaultMargin;
   border-radius: $defaultBorderRadius;
@@ -67,4 +68,35 @@ header {
   padding-top: 10px;
   padding-bottom: $defaultPadding;
   margin: 5px;
+}
+
+img {
+  padding: 10px;
+  max-width: 90%;
+}
+
+.main-nav a {
+  display: inline;
+}
+
+.component.detail a {
+  width: 25%;
+  margin: 10px auto;
+}
+
+.detail section {
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+  background-color: aliceblue;
+}
+
+.detail ul {
+  padding: $defaultPadding;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.detail li {
+  list-style-type: none;
+  padding-top: 10px;
 }
