@@ -1,7 +1,7 @@
 {
-  "name": "basic-express-server",
+  "name": "image-gallery-app",
   "version": "1.0.0",
-  "description": "basic express server",
+  "description": "image gallery app",
   "main": "index.js",
   "directories": {
     "test": "test"
