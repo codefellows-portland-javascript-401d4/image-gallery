@@ -55,4 +55,28 @@ describe('Gallery Service', () => {
     $httpBackend.flush();
   });
 
+  it('removes an image', done => {
+
+    const removeImage = { title:"Image 4",
+      url:"www.picture.com",
+      description:"An even more different image",
+      _id: 1234
+    };
+    const headers = {"Accept":"application/json, text/plain, */*"};
+
+    $httpBackend
+      .expectDELETE('/api/gallery/1234', headers)
+      .respond(removeImage);
+
+    galleryService.remove(removeImage._id)
+      .then(deleted => {
+        assert.deepEqual(deleted, removeImage);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+
+  });
+
 });
