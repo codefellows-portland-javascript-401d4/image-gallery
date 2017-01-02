@@ -1,5 +1,5 @@
 import template from './image-gallery.html';
-import style from './image-gallery.css';
+import style from './image-gallery.scss';
 
 export default {
   bindings: {
