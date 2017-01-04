@@ -10,12 +10,15 @@ describe('images component', () => {
 // to use before, instead of beforeEach, this is required:
   angular.mock.module.sharedInjector();
 
+// telling angular mock that these are the files that i'm going be working with. 'components'
   before(
       angular.mock.module('components')
     );
 
   let $component = null;
 
+// allows $component to be used as a method to take our individual components
+// angular give me the method that will let me call an individual component and mock it for testing.
   before(angular.mock.inject($componentController => {
     $component = $componentController;
   }));
@@ -24,12 +27,14 @@ describe('images component', () => {
 
     const images = [
       {
+        _id: 1,
         title: 'mario mushroom',
         link: 'http://www.mariowiki.com/images/thumb/9/94/MushroomMarioKart8.png/200px-MushroomMarioKart8.png',
         description: 'red mushroom top with white spots'
       },
 
       {
+        _id: 2,
         title: 'tilted anchor',
         link: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTftqx7hb1tZedcrr3b4nxJXg9TGGKbDOL3-kIr-DLud6ne5MOFS68IfA',
         description: 'a blue anchor tilted towards the east'
@@ -44,6 +49,7 @@ describe('images component', () => {
 
     const _id = 123;
 
+//fake image service that hands back simple data that i defined above.
     const imageService = {
       get(){
         return Promise.resolve(images);
@@ -53,6 +59,7 @@ describe('images component', () => {
         image._id = _id;
         return Promise.resolve(image);
       },
+      
       remove(image_id){
         assert.isOk(image_id); //when imageService.remove (angular mocks for test) is called by my imageApp component, assert that i'm getting something.
         assert.equal(image_id, 123); //is imageService.remove getting the id for the test image.
@@ -90,7 +97,8 @@ describe('images component', () => {
       assert.isOk(component.loading);
 
       setTimeout(() => {
-        assert.equal(component.images, images);
+        assert.deepEqual(component.images, images);
+
         assert.isNotOk(component.loading);
         done();
       });

@@ -4,7 +4,7 @@ import styles from './image-app.scss';
 export default {
   template,
   bindings: {
-    albumId: '<'
+    albumId: '='
   },
   controller,
   controllerAs: 'app'
@@ -13,9 +13,9 @@ export default {
 controller.$inject = ['imageService', 'albumService'];
 
 function controller(images, albums){
+  this.loading = true;
   this.$onInit = () => { //executes function using the binding. can't use albumId without this line
     this.styles = styles;
-    this.loading = true;
     this.views = ['short', 'thumbnail', 'full', 'all' ];
     this.viewName = 'thumbnail';
 
@@ -43,8 +43,14 @@ function controller(images, albums){
     images.remove(image._id)
         .then(() => {
           this.loading = false;
-          const index = this.images.indexOf(image);
-          if (index > -1) this.images.splice(index, 1);
+          for(var i = 0; i < this.images.length; i++){
+            if(this.images[i]._id == image._id){
+              this.images.splice(i, 1);
+            }
+          }
+        })
+        .catch(err => {
+          console.log(err);
         });
   };
 
