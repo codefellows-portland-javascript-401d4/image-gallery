@@ -103,6 +103,11 @@
     - this will first run eslint - for more info look at .eslintrc
     - then karma uses mocha to run Angular unit tests
 
+    - To run the protractor test suite, when in app directory at cli type:
+      ```
+      $ npm run e2etest
+      ```
+    - then protractor uses jasmine to run e2e tests
 
 ### Code Shape
   - The code has been vetted using eslint & Travis-CI
