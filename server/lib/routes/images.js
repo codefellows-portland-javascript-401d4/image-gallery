@@ -26,7 +26,6 @@ router
         .select('_id')
         .then(id => {
           req.body.albumId = id[0]._id;
-          console.log('req.body: ', req.body);
 
           new Image(req.body).save()
             .then(image => res.send(image))

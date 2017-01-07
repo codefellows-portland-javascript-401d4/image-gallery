@@ -75,6 +75,7 @@ describe('test albums resource route', () => {
 
   });
 
+  // // If not turned off, will cause travis to hang when this file is followed by others in the test folder
   // after(done => {
   //   connection.close( done );
   // });
