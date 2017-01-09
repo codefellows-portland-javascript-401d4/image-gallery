@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'buttons';
 
-:local(.spider-detail) {
+:local(.spider-image) {
 
   color: $blue;
   font-family: cursive;
@@ -14,6 +14,11 @@
 
   button.hover {
     background: $button-hover;
+  }
+
+  img {
+    height: 400px;
+    width: 600px;
   }
 
 }

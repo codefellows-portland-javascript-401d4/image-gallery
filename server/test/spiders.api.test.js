@@ -21,7 +21,7 @@ describe('spider', () => {
   const igor = {
     name: 'Igor',
     type: 'dapper',
-    url:'blah'
+    url: 'blah'
   };
 
   it('/GET all', done => {
@@ -71,7 +71,7 @@ describe('spider', () => {
   it('add a non-dapper spider', done => {
     request
       .post('/api/spiders')
-      .send({name: 'Spike', type: 'punk',url:'foo'})
+      .send({name: 'Spike', type: 'punk', url: 'foo'})
       .then(res => {
         assert.ok(res.body._id);
         done();
