@@ -10,9 +10,17 @@
 
     <h2>New Image Albums</h2>
 
-    <div>
-      <ui-view name="listAlbum"></ui-view>
-    </div>
+        <div>
+				  <label>
+				    <ul>
+				      <li ng-repeat="album in $ctrl.albums">
+				        <a ui-sref="album({id: album._id})" ui-sref-active="foo">{{album.name}}</a>
+				        </label>
+				        <button ng-class="ctrl.styles['button']" ng-click="$ctrl.delete(album._id)">remove</button>
+				      </li>
+				    </ul>
+				</div>
+
   </section>
 
   <section>

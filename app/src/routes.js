@@ -48,9 +48,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
       main: {dynamic: true}
     },
     views: {
-      listAlbum: {
-        component: 'listAlbum'
-      },
       newAlbum: {
         component: 'newAlbum'
       }

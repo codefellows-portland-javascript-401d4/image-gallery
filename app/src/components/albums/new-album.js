@@ -3,13 +3,18 @@ import styles from './new-album.scss';
 
 export default {
   template,
+  bindings: {
+    add: '<'
+  },
   controller
 };
 
-controller.$inject=['albumService'];
+// controller.$inject=['albumService'];
 
-function controller(albumService) {
-  this.styles = styles;
+// function controller(albumService) {
+
+function controller() {
+  this.stles = styles;
 
   this.reset = () => {
     this.name = '';
@@ -18,7 +23,8 @@ function controller(albumService) {
   this.reset();
 
   this.addNew = () => {
-    albumService.add({
+    // albumService.add({
+    this.add({
       name: this.name
     });
     // clear out controls so next album can be added
