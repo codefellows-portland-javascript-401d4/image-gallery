@@ -9,12 +9,8 @@ export default {
   controller
 };
 
-// controller.$inject=['albumService'];
-
-// function controller(albumService) {
-
 function controller() {
-  this.stles = styles;
+  this.styles = styles;
 
   this.reset = () => {
     this.name = '';
@@ -23,7 +19,6 @@ function controller() {
   this.reset();
 
   this.addNew = () => {
-    // albumService.add({
     this.add({
       name: this.name
     });

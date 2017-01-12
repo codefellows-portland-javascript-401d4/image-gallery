@@ -32,52 +32,90 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'mantids'
   });
 
-  $stateProvider.state({
-    name: 'albums', // name of this defined app 'state' ... redirected to here from ui-sref "albums" link in image-gallery.html
-    url: '/albums', // url associated with this 'state'
-    component: 'albums',
-    resolve: {
-      albums: ['albumService', albumService => albumService.get() ]
-    }
+  $stateProvider.state({ // collective list of albums
+    name: 'albums',
+    url: '/albums',
+    component: 'albums'
   });
 
-  $stateProvider.state({
-    name: 'albums.main',
-    url: '/main',
-    params: {
-      main: {dynamic: true}
-    },
-    views: {
-      newAlbum: {
-        component: 'newAlbum'
-      }
-    }
-  });
-
-  $stateProvider.state({
+  $stateProvider.state({ // specific album image by id
     name: 'album',
-    //abstract: true,
-    default: '.detail',
-    url: '/album/:id?view',
-    params: {
-      view: {dynamic: true}
-    },
+    url: '/albums/:id',
+    abstract: true,
     resolve: {
       album: ['albumService', '$transition$', (albums, t) => {
         return albums.get(t.params().id);
       }],
       images: ['album', album => album.images]
     },
-    component: 'album',
-    views: {}
+    component: 'album'
+  });
+
+  $stateProvider.state({ // detail view of image
+    name: 'album.detail',
+    url: '/detail',
+    component: 'imageDetail'
+  });
+
+  $stateProvider.state({ // thumbnail view of image
+    name: 'album.thumbnail',
+    url: '/thumbnail',
+    component: 'imageThumbnail'
+  });
+
+  $stateProvider.state({ // fullsize view of image
+    name: 'album.fullsize',
+    url: '/fullsize',
+    component: 'imageFullSize'
   });
 
 
-  $stateProvider.state({
-    name: 'new-image', // name of this defined app 'state' ... redirected to here from ui-sref "new-image" link in image-gallery.html
-    url: '/new-image', // url associated with this 'state'
-    component: 'newImage'
-  });
+  // $stateProvider.state({
+  //   name: 'albums', // name of this defined app 'state' ... redirected to here from ui-sref "albums" link in image-gallery.html
+  //   url: '/albums', // url associated with this 'state'
+  //   component: 'albums',
+  //   resolve: {
+  //     albums: ['albumService', albumService => albumService.get() ]
+  //   }
+  // });
+
+  // $stateProvider.state({
+  //   name: 'albums.main',
+  //   url: '/main',
+  //   params: {
+  //     main: {dynamic: true}
+  //   },
+  //   views: {
+  //     newAlbum: {
+  //       component: 'newAlbum'
+  //     }
+  //   }
+  // });
+
+  // $stateProvider.state({
+  //   name: 'album',
+  //   //abstract: true,
+  //   default: '.detail',
+  //   url: '/album/:id?view',
+  //   params: {
+  //     view: {dynamic: true}
+  //   },
+  //   resolve: {
+  //     album: ['albumService', '$transition$', (albums, t) => {
+  //       return albums.get(t.params().id);
+  //     }],
+  //     images: ['album', album => album.images]
+  //   },
+  //   component: 'album',
+  //   views: {}
+  // });
+
+
+  // $stateProvider.state({
+  //   name: 'new-image', // name of this defined app 'state' ... redirected to here from ui-sref "new-image" link in image-gallery.html
+  //   url: '/new-image', // url associated with this 'state'
+  //   component: 'newImage'
+  // });
 
   $stateProvider.state({
     name: 'about',
