@@ -69,54 +69,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'imageFullSize'
   });
 
-
-  // $stateProvider.state({
-  //   name: 'albums', // name of this defined app 'state' ... redirected to here from ui-sref "albums" link in image-gallery.html
-  //   url: '/albums', // url associated with this 'state'
-  //   component: 'albums',
-  //   resolve: {
-  //     albums: ['albumService', albumService => albumService.get() ]
-  //   }
-  // });
-
-  // $stateProvider.state({
-  //   name: 'albums.main',
-  //   url: '/main',
-  //   params: {
-  //     main: {dynamic: true}
-  //   },
-  //   views: {
-  //     newAlbum: {
-  //       component: 'newAlbum'
-  //     }
-  //   }
-  // });
-
-  // $stateProvider.state({
-  //   name: 'album',
-  //   //abstract: true,
-  //   default: '.detail',
-  //   url: '/album/:id?view',
-  //   params: {
-  //     view: {dynamic: true}
-  //   },
-  //   resolve: {
-  //     album: ['albumService', '$transition$', (albums, t) => {
-  //       return albums.get(t.params().id);
-  //     }],
-  //     images: ['album', album => album.images]
-  //   },
-  //   component: 'album',
-  //   views: {}
-  // });
-
-
-  // $stateProvider.state({
-  //   name: 'new-image', // name of this defined app 'state' ... redirected to here from ui-sref "new-image" link in image-gallery.html
-  //   url: '/new-image', // url associated with this 'state'
-  //   component: 'newImage'
-  // });
-
   $stateProvider.state({
     name: 'about',
     url: '/about',
@@ -157,23 +109,3 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 }
-
-// $stateProvider.state({
-//   name: 'images', // name of this defined app 'state' ... redirected to here from ui-sref "images" link in image-gallery.html
-//   url: '/images', // url associated with this 'state'
-//   component: 'images'
-// });
-
-// need to add resolve
-// $stateProvider.state({
-//   name: 'images', // name of this defined app 'state' ... redirected to here from ui-sref "images" link in image-gallery.html
-//   url: '/images', // url associated with this 'state'
-//   abstract: true,
-//   default: '.detail',
-//   resolve: {
-//     images: ['imageService', images => {
-//       return images.get();
-//     }]
-//   },
-//   component: 'images'
-// });

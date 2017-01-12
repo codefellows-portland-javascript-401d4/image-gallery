@@ -7,45 +7,11 @@
 
   <button ng-click="$ctrl.detail()">Detail View</button>  <!-- redirects to images.js -->
   <button ng-click="$ctrl.thumbnail()">Thumbnail View</button>  <!-- redirects to images.js -->
-  <button ng-click="$ctrl.image()">Image View</button>  <!-- redirects to images.js -->
+  <button ng-click="$ctrl.fullsize()">Full Size View</button>  <!-- redirects to images.js -->
 
-<div ng-show="$ctrl.imageDetail === true">
-  <br/>
-  <ul>
-    <li ng-repeat="image in $ctrl.images">
-      <image-detail
-        image="image"
-        remove="$ctrl.remove">
-      </image-detail>
-    </li>
-  </ul>
-</div>
+  <div>
+    <ui-view></ui-view>  <!-- list all image views -->
+  </div>
 
-<div ng-show="$ctrl.imageThumbnail === true">
-  <br/>
-  <ul>
-    <li ng-repeat="image in $ctrl.images">
-      <image-thumbnail
-        image="image"
-        remove="$ctrl.remove">
-      </image-thumbnail>
-    </li>
-  </ul>
-</div>
-
-<div ng-show="$ctrl.imageImage === true">
-  <br/>
-  <ul>
-    <li ng-repeat="image in $ctrl.images">
-      <image-image
-        image="image"
-        remove="$ctrl.remove">
-      </image-image>
-    </li>
-  </ul>
-</div>
-</section>
-
-<section>
-  <new-image add="$ctrl.add"></new-image>
+  <new-image add="imagesMain.add"></new-image>  <!-- add new image to view -->
 </section>

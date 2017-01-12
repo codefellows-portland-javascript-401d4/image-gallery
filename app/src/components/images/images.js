@@ -5,49 +5,62 @@ import styles from './images.scss';
 
 export default {
   template,
-  controller
+  bindings: {
+    albumId: '<',
+    images: '<'
+  },
+  controller,
+  controllerAs: 'imagesMain'
 };
 
-controller.$inject = ['imageService'];
+controller.$inject = ['imageService', 'albumService'];
 
-function controller(images) {
+function controller(images, albums) {
 
   this.styles = styles;
+  this.viewSelect = ['Detail', 'Thumbnail', 'Fullsize'];
+  this.viewSelect = 'Thumbnail';
 
   this.loading = true;
 
-  // get all images
-  images.get()
-    .then (images => {
+  albums.get()
+    .then (returnAlbums => {
       this.loading = false;
-      this.images = images;
+      this.albumList = returnAlbums;
     });
 
-  this.detail = function() { // detail view
-    this.imageDetail = true;
-    this.imageThumbnail = false;
-    this.imageImage = false;
+  this.add = image => {
+    this.loading = true;
+
+    let albumLookup = {};
+    this.albumList.forEach((album) => {
+      albumLookup[album.name] = album._id;
+    });
+
+    if (albumLookup[image.album]) {
+      image.album = albumLookup[image.album];
+      images
+        .add(image)
+        .then(savedImage => {
+          this.loading = false;
+          this.images.push(savedImage);
+        });
+    }
+    else {
+      albums
+        .add({name: image.album})
+        .then(addAlbum => {
+          this.albumList.push(addAlbum);
+          image.album = addAlbum._id;
+          images.add(image)
+            .then(savedImage => {
+              this.loading = false;
+              this.images.push(savedImage);
+            });
+        });
+    }
   };
 
-  this.thumbnail = function() { // thumbnail view
-    this.imageDetail = false;
-    this.imageThumbnail = true;
-    this.imageImage = false;
-  };
-
-  this.image = function() { // image view
-    this.imageDetail = false;
-    this.imageThumbnail = false;
-    this.imageImage = true;
-  };
-
-  // call the GET to load all images
-  images.get().then(images => {
-    this.loading = false;
-    this.images = images;
-  });
-
-  // remove this image
   this.remove = image => {
     this.loading = true;
     images.remove(image._id)
@@ -59,14 +72,11 @@ function controller(images) {
       });
   };
 
-  // add a image
-  this.add = image => {
-    this.loading = true;
-    images.add(image)
-      .then(saved => {
-        this.loading = false;
-        // push to in-memory array
-        this.images.push(saved);
-      });
+  this.refreshView = function() {
+    this.showDetail = (this.viewSelect === 'Detail');
+    this.showThumbnail = (this.viewSelect === 'Thumbnail');
+    this.showFullsize = (this.viewSelect === 'Fullsize');
   };
+
+  this.refreshView();
 }

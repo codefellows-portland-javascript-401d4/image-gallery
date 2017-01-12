@@ -1,5 +1,5 @@
-import template from './image-image.html';
-import styles from './image-image.scss';
+import template from './image-fullsize.html';
+import styles from './image-fullsize.scss';
 
 export default {
   template,
