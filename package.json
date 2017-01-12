@@ -6,5 +6,6 @@
     "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
   },
   "author": "Tom Shultz",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }
