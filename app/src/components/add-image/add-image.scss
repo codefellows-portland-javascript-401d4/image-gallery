@@ -1,0 +1,14 @@
+@import 'colors';
+
+label {
+  font-family: helvetica, sans-serif;
+};
+
+input {
+  color: $pink;
+  background-color: $input;
+
+  &:focus {
+    background-color: white;
+  }
+}

@@ -1,0 +1,16 @@
+<section ng-class="$ctrl.styles.albums">
+  <add-album
+    ng-if="$ctrl.view === 'add'"
+    add="$ctrl.add"
+    view="$ctrl.view">
+  </add-album>
+  <article>
+    <div id="addDiv" ng-click="$ctrl.view = 'add'">
+      <h1>+</h1>
+      <h4>Add Album</h4>
+    </div>
+    <div ng-repeat="album in $ctrl.albums">
+      <a ui-sref="album({id: album._id})"><h4>{{album.name}}</h4></a>
+    </div>
+  </article>
+</section>22

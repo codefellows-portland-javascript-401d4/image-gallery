@@ -1,0 +1,28 @@
+:local(.header) {
+  @import 'colors';
+
+  header {
+    margin: 0;
+    background-color: $pink;
+    color: white;
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      margin: 0;
+      padding: .5em;
+      font-size: 2em;
+    }
+
+    nav {
+      padding: .5em;
+      font-family: 'Helvetica', sans-serif;
+
+      a {
+        text-decoration: none;
+        color: white;
+        margin: .5em;
+      }
+    }
+  }
+
+}
