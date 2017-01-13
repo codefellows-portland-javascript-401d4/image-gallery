@@ -1,0 +1,11 @@
+<section> 
+  <div>
+    <label>Viewing Choice</label>
+    <select ng-model="$ctrl.myChoice" ng-options="choice.name for choice in $ctrl.choices"></select>
+
+    <image-view ng-if="$ctrl.myChoice.value === 'view'" images="$ctrl.images"></image-view>
+    <image-gallery ng-if="$ctrl.myChoice.value === 'gallery'" images="$ctrl.images"></image-gallery>
+    <image-thumbnail ng-if="$ctrl.myChoice.value === 'thumbnail'" images="$ctrl.images"></image-thumbnail>
+  </div>
+
+</section>

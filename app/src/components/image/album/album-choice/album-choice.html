@@ -1,0 +1,13 @@
+<section> 
+  <button class="primary" ng-click="$ctrl.allImages()"><h2>All Images</h2></button>
+  <h3>Choose an album!</h3>
+  <span ng-repeat="album in $ctrl.albums">
+    <input 
+      ng-model="$ctrl.albumChoices"
+      ng-change="$ctrl.updateAlbum(album)"
+      ng-value="album"
+      type="radio">
+      <strong>{{album.name}}</strong>
+  </span>
+  <hr>
+</section>

@@ -1,0 +1,23 @@
+<section>
+  <div class="add-div">
+    <h3>Add image:</h3>
+    <label><h3>Name:</h3></label>
+    <input ng-model="$ctrl.title">
+  </div>
+  <div class="add-div">
+    <label><h3>URL:</h3></label>
+    <input ng-model="$ctrl.url">
+  </div>
+  <div class="add-div">
+    <label><h3>Description:</h3></label>
+    <input ng-model="$ctrl.description">
+  </div>
+  <div class="add-div">
+    <select 
+      ng-model="$ctrl.selected" 
+      ng-options="album._id as album.name for album in $ctrl.albums">
+    </select>
+  </div>
+  <button class="primary" ng-click="$ctrl.addImage()"><h2>Add</h2></button>
+
+</section>
