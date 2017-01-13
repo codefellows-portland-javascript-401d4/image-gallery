@@ -1,28 +1,37 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser').json();
-const Images = require('../models/images');
+const Album = require('../models/albums');
+const Image = require('../models/images');
 
 router
   .get('/', (req, res, next) => {
     const query = {};
-    Images.find(query)
-      .then(images => res.send(images))
+    Album.find(query)
+      .then(albums => res.send(albums))
       .catch(next);
   })
   .get('/:id', (req, res, next) => {
-    Images.findById(req.params.id)
-      .then(image => res.send(image))
+    Promise //eslint-disable-line
+      .all([
+        Album.findById(req.params.id).lean(),
+        Image.find({albumId: req.params.id})
+        .lean()
+      ])
+      .then(([album, images]) => {
+        album.images = images;
+        res.send(album);
+      })
       .catch(next);
   })
   .post('/', bodyParser, (req, res, next) => {
-    console.log('about to post');
-    new Images(req.body).save()
+    new Album(req.body).save()
       .then(saved => res.send(saved))
       .catch(next);
   })
+
   .delete('/:id', (req, res, next) => {
-    Images.findByIdAndRemove(req.params.id)
+    Album.findByIdAndRemove(req.params.id)
       .then(deleted => res.send(deleted))
       .catch(next);
   });

@@ -1,0 +1,12 @@
+<section ng-class="$ctrl.styles.albumsBody">
+  <h1>Albums</h1>
+  <div>
+    <div ng-repeat="album in $ctrl.albums">
+      <b>{{album.name}}</b>
+      <div album="album" remove="$ctrl.remove">
+        <button ng-click="$ctrl.view(this.album._id)">View</button>
+      </div>
+    </div>
+  </div>
+  <ui-view></ui-view>
+</section>
