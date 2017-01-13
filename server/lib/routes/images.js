@@ -16,7 +16,6 @@ router
       .catch(next);
   })
   .post('/', bodyParser, (req, res, next) => {
-    console.log('about to post');
     new Images(req.body).save()
       .then(saved => res.send(saved))
       .catch(next);

@@ -28,7 +28,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
       component: 'images',
       resolve: {
         album: ['albumService', '$transition$', (albums, t) => {
-          console.log('params', albums.get(t.params().id));
           return albums.getId(t.params().id);
         }],
         images: ['album', album => album.images]

@@ -12,6 +12,8 @@ controller.$inject = ['albumService', '$state'];
 function controller(albumService, $state) {
   this.styles = styles;
 
+  this.imagesBar = false;
+
   albumService.get()
     .then(albums => {
       this.albums = albums;
@@ -25,6 +27,8 @@ function controller(albumService, $state) {
   };
 
   this.view = albumId => {
-    $state.go('images', {id: albumId});
+    console.log(albumId);
+    $state.go('albums.images', {id: albumId});
+    this.imagesBar = true;
   };
 }

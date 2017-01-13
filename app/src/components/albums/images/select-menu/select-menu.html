@@ -4,8 +4,6 @@
         <option value="">Select an option</option>
       </select>
 </section>
-<section>
-  <thumbnail-app ng-if="view === 'Thumbnail'" image="image" remove="$ctrl.remove"></thumbnail-app>
-  <title-img-desc ng-if="view === 'Full Image'" image="image" remove="$ctrl.remove"></title-img-desc>
-  <title-link-desc ng-if="view === 'Link'" image="image" remove="$ctrl.remove"></title-link-desc>
-</section>
+<thumbnail-app ng-if="view === 'Thumbnail'" album="$ctrl.album" images="$ctrl.images"></thumbnail-app>
+<title-img-desc ng-if="view === 'Full Image'" album="$ctrl.album" images="$ctrl.images"></title-img-desc>
+<title-link-desc ng-if="view === 'Link'" album="$ctrl.album" images="$ctrl.images"></title-link-desc>

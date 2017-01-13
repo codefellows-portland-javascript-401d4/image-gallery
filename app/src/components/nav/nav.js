@@ -7,10 +7,6 @@ export default {
   controller
 };
 
-controller.$inject = ['$state'];
-
-function controller($state) {
+function controller() {
   this.styles = styles;
-
-  this.imageState = () => $state.go('images');
 }
