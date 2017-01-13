@@ -23,13 +23,13 @@ function controller(albumService, $state) {
       .catch();
   };
 
-  this.viewAlbum = (albumId) => {
+  this.viewAlbum = albumId => {
     $state.go('images', { id: albumId });
   };
 
 // remove function not yet working
   // this.remove = album => {
-  //   albums.+remove(album._id)
+  //   albums.remove(album._id)
   //     .then(() => {
   //       const index = this.albums.indexOf(album);
   //       if(index > -1) this.albums.splice(index, 1);
