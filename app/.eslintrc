@@ -8,6 +8,10 @@
 			"impliedStrict": true
 		}
 	},
+    "globals": {
+        "angular": false,
+        "chai": false
+    },
     "env": {
         "node": true,
         "mocha": true

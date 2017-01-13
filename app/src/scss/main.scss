@@ -1,0 +1,47 @@
+@import 'colors';
+
+body {
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size:0.8em;
+  background-color:$lightgreen;
+}
+
+h1 {
+  margin:0 auto;
+  font-family: 'Cabin Sketch', sans-serif;
+  font-size:2em;
+  font-weight:500;
+}
+
+inputs-bar {
+  background-color:#666;
+}
+
+button {
+  vertical-align:middle;
+}
+
+.half {
+  vertical-align:top;
+  float:left;
+  padding:1%;
+  margin-left:0.5%;
+  width:47.5%;
+}
+
+.container {
+  clear:both;
+  padding:1%;
+  color:white;
+  display:inline-block;
+  background-color:$drop;
+  width:100%;
+}
+
+.bg {
+  padding:1%;
+  display:inline-block;
+  vertical-align:top;
+  text-align:center;
+}
