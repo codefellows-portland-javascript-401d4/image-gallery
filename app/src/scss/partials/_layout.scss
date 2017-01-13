@@ -1,0 +1,41 @@
+@import 'colors';
+
+body {
+    margin: 0 5vw;
+}
+
+header {
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px dashed $primary-color;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
+
+images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.display div {
+    margin-bottom: 1.5em;
+}
+
+section {
+    flex: 1;
+    padding: 1em;
+    min-width: 300px;
+
+    h2 {
+        margin-top: 0;
+    }
+}
+
+.info {
+    max-width: 600px;
+}
+
+img {
+    max-width: 100%;
+}
