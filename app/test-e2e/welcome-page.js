@@ -5,7 +5,7 @@ var _welcomePage2 = _interopRequireDefault(_welcomePage);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('Welcome page', function () {
-  var welcome = new _welcomePage2.default();
+  var welcome = new _welcomePage2.default(); //eslint-disable-line
 
   it('Should have a title', function () {
     welcome.get();
