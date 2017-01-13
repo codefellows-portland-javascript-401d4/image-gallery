@@ -63,7 +63,7 @@ module.exports = function(config) {
                 flags: ['--no-sandbox']
             }
         };
-        options.browsers = ['Chrome_travis_ci', 'Firefox']; // Don't forget karma-firefox-launcher!
+        options.browsers = ['Chrome_travis_ci']; // Don't forget karma-firefox-launcher!
         options.singleRun = true;
     }
 
