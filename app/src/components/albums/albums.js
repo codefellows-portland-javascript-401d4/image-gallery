@@ -19,7 +19,7 @@ function controller(albumService, $state) {
     .catch();
 
   this.add = album => {
-    albumService.add(album)
+    albumService.post(album)
       .then(saved => this.albums.push(saved))
       .catch();
   };

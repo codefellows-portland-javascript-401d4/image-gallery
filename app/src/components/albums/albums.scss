@@ -1,3 +1,18 @@
-:local(.albumsBody) {
-  padding:2%;
+@import 'colors';
+
+:local(.albums) {
+  padding:1%;
+
+  h1 {
+    padding:1%;
+  }
+
 }
+
+  :local(.album) {
+    display:inline-block;
+    padding:2%;
+    margin:1%;
+    background-color:$lightgreen;
+    text-align:center;
+  }
