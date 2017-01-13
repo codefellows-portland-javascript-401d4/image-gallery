@@ -34032,7 +34032,7 @@
 	
 	  this.styles = _albums4.default;
 	
-	  // this.imagesBar = false;
+	  this.imagesBar = false;
 	
 	  albumService.get().then(function (albums) {
 	    _this.albums = albums;
@@ -34047,7 +34047,7 @@
 	  this.view = function (albumId) {
 	    console.log(albumId);
 	    $state.go('albums.images', { id: albumId });
-	    // this.imagesBar = this.imagesBar ? false: true;
+	    _this.imagesBar = true;
 	  };
 	}
 
@@ -34055,7 +34055,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles.albums\">\n  <h1>Albums</h1>\n  <add-album add=\"$ctrl.add\" ng-class=\"$ctrl.styles.addForm\"></add-album>\n  <br>\n  <div>\n    <div ng-repeat=\"album in $ctrl.albums\" ng-class=\"$ctrl.styles.album\">\n      <b>{{album.name}}</b>\n      <div album=\"album\" remove=\"$ctrl.remove\">\n        <button ng-click=\"$ctrl.view(this.album._id)\">View</button>\n      </div>\n    </div>\n  </div>\n</section>\n<ui-view></ui-view>";
+	module.exports = "<section ng-class=\"$ctrl.styles.albums\">\n  <h1>Albums</h1>\n  <add-album add=\"$ctrl.add\" ng-class=\"$ctrl.styles.addForm\"></add-album>\n  <br>\n  <div>\n    <div ng-repeat=\"album in $ctrl.albums\" ng-class=\"$ctrl.styles.album\">\n      <b>{{album.name}}</b>\n      <div album=\"album\" remove=\"$ctrl.remove\">\n        <button ng-click=\"$ctrl.view(this.album._id)\">View</button>\n      </div>\n    </div>\n  </div>\n</section>\n<ui-view ng-show=\"$ctrl.imagesBar\"></ui-view>";
 
 /***/ },
 /* 20 */
@@ -34123,7 +34123,10 @@
 	
 	exports.default = {
 	  template: _addImg2.default,
-	  controller: controller
+	  controller: controller,
+	  bindings: {
+	    album: '<'
+	  }
 	};
 	
 	
@@ -34140,15 +34143,12 @@
 	    _this.description = '';
 	  };
 	
-	  images.get().then(function (images) {
-	    _this.images = images;
-	  });
-	
 	  this.addNew = function () {
 	    images.add({
 	      name: _this.name,
 	      src: _this.src,
-	      description: _this.description
+	      description: _this.description,
+	      albumId: _this.album._id
 	    }).then(function (saved) {
 	      _this.images.push(saved);
 	    });
@@ -34220,7 +34220,11 @@
 	
 	exports.default = {
 	  template: _images2.default,
-	  controller: controller
+	  controller: controller,
+	  bindings: {
+	    album: '<',
+	    images: '='
+	  }
 	};
 	
 	
@@ -34230,7 +34234,7 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "<add-img></add-img>\n<select-menu></select-menu>";
+	module.exports = "<add-img album=\"$ctrl.album\"></add-img>\n<select-menu images=\"$ctrl.images\" album=\"$ctrl.album\"></select-menu>";
 
 /***/ },
 /* 28 */
@@ -34258,37 +34262,15 @@
 	};
 	
 	
-	controller.$inject = ['imageService'];
-	
-	function controller(images) {
-	  var _this = this;
-	
+	function controller() {
 	  this.views = ['Thumbnail', 'Full Image', 'Link'];
-	
-	  images.get().then(function (images) {
-	    _this.images = images;
-	  });
-	
-	  this.add = function (image) {
-	    image.albumId = _this.album._id;
-	    images.add(image).then(function (saved) {
-	      _this.album.images.push(saved);
-	    });
-	  };
-	
-	  this.remove = function (image) {
-	    images.remove(image._id).then(function () {
-	      var index = _this.album.images.indexOf(image);
-	      if (index > -1) _this.album.images.splice(index, 1);
-	    });
-	  };
 	}
 
 /***/ },
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"half\">\n      <p>How would you like your images to be displayed?</p>\n      <select ng-model=\"view\" ng-options=\"view for view in $ctrl.views\">\n        <option value=\"\">Select an option</option>\n      </select>\n</section>\n<thumbnail-app ng-if=\"view === 'Thumbnail'\" image=\"image\" remove=\"$ctrl.remove\"></thumbnail-app>\n<title-img-desc ng-if=\"view === 'Full Image'\" image=\"image\" remove=\"$ctrl.remove\"></title-img-desc>\n<title-link-desc ng-if=\"view === 'Link'\" image=\"image\" remove=\"$ctrl.remove\"></title-link-desc>\n";
+	module.exports = "<section class=\"half\">\n      <p>How would you like your images to be displayed?</p>\n      <select ng-model=\"view\" ng-options=\"view for view in $ctrl.views\">\n        <option value=\"\">Select an option</option>\n      </select>\n</section>\n<thumbnail-app ng-if=\"view === 'Thumbnail'\" album=\"$ctrl.album\" images=\"$ctrl.images\"></thumbnail-app>\n<title-img-desc ng-if=\"view === 'Full Image'\" album=\"$ctrl.album\" images=\"$ctrl.images\"></title-img-desc>\n<title-link-desc ng-if=\"view === 'Link'\" album=\"$ctrl.album\" images=\"$ctrl.images\"></title-link-desc>\n";
 
 /***/ },
 /* 30 */
@@ -34314,8 +34296,8 @@
 	  template: _thumbnailApp2.default,
 	  controller: controller,
 	  bindings: {
-	    image: '<',
-	    remove: '<'
+	    album: '<',
+	    images: '='
 	  }
 	};
 	
@@ -34326,14 +34308,11 @@
 	  var _this = this;
 	
 	  this.styles = _thumbnailApp4.default;
-	  images.get().then(function (images) {
-	    _this.images = images;
-	  });
 	
 	  this.remove = function (image) {
 	    images.remove(image._id).then(function () {
-	      var index = _this.images.indexOf(image);
-	      if (index > -1) _this.images.splice(index, 1);
+	      var index = _this.album.images.indexOf(image);
+	      if (index > -1) _this.album.images.splice(index, 1);
 	    });
 	  };
 	}
@@ -34342,7 +34321,7 @@
 /* 31 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"container\" class=\"bg\" ng-repeat=\"images in $ctrl.images\">\n    <img ng-src=\"{{images.src}}\" ng-class=\"$ctrl.styles.img\">\n    <br>\n    <button ng-click=\"$ctrl.remove(images)\">Delete</button>\n</div>";
+	module.exports = "<div class=\"container\" class=\"bg\" ng-repeat=\"images in $ctrl.album.images\">\n    <img ng-src=\"{{images.src}}\" ng-class=\"$ctrl.styles.img\">\n    <br>\n    <button ng-click=\"$ctrl.remove(images)\">Delete</button>\n</div>";
 
 /***/ },
 /* 32 */
@@ -34410,7 +34389,7 @@
 	  template: _titleImgDesc2.default,
 	  controller: controller,
 	  bindings: {
-	    image: '<'
+	    album: '<'
 	  }
 	};
 	
@@ -34421,14 +34400,11 @@
 	  var _this = this;
 	
 	  this.styles = _titleImgDesc4.default;
-	  images.get().then(function (images) {
-	    _this.images = images;
-	  });
 	
 	  this.remove = function (image) {
 	    images.remove(image._id).then(function () {
-	      var index = _this.images.indexOf(image);
-	      if (index > -1) _this.images.splice(index, 1);
+	      var index = _this.album.images.indexOf(image);
+	      if (index > -1) _this.album.images.splice(index, 1);
 	    });
 	  };
 	}
@@ -34437,7 +34413,7 @@
 /* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"container\">\n  <div ng-repeat=\"images in $ctrl.images\" class=\"bg\">\n    <h1>{{images.name}}</h1>\n    <img ng-src=\"{{images.src}}\">\n    <p>{{images.description}}</p>\n    <button ng-click=\"$ctrl.remove(images)\">Delete</button>\n  </div>\n</div>";
+	module.exports = "<div class=\"container\">\n  <div ng-repeat=\"images in $ctrl.album.images\" class=\"bg\">\n    <h1>{{images.name}}</h1>\n    <img ng-src=\"{{images.src}}\">\n    <p>{{images.description}}</p>\n    <button ng-click=\"$ctrl.remove(images)\">Delete</button>\n  </div>\n</div>";
 
 /***/ },
 /* 36 */
@@ -34503,7 +34479,8 @@
 	  template: _titleLinkDesc2.default,
 	  controller: controller,
 	  bindings: {
-	    image: '='
+	    album: '<',
+	    images: '='
 	  }
 	};
 	
@@ -34515,14 +34492,10 @@
 	
 	  this.styles = _titleLinkDesc4.default;
 	
-	  images.get().then(function (images) {
-	    _this.images = images;
-	  });
-	
 	  this.remove = function (image) {
 	    images.remove(image._id).then(function () {
-	      var index = _this.images.indexOf(image);
-	      if (index > -1) _this.images.splice(index, 1);
+	      var index = _this.album.images.indexOf(image);
+	      if (index > -1) _this.album.images.splice(index, 1);
 	    });
 	  };
 	}
@@ -34531,7 +34504,7 @@
 /* 39 */
 /***/ function(module, exports) {
 
-	module.exports = " <div ng-repeat=\"images in $ctrl.images\" class=\"container bg\" ng-class=\"links\">\n    <h1>{{images.name}}</h1>\n    <p><a href=\"{{images.src}}\">{{images.src}}</a></p>\n    <p>{{images.description}}</p>\n    <button ng-click=\"$ctrl.remove(images)\">Delete</button>\n</div>";
+	module.exports = " <div ng-repeat=\"images in $ctrl.album.images\" class=\"container bg\" ng-class=\"links\">\n    <h1>{{images.name}}</h1>\n    <p><a href=\"{{images.src}}\">{{images.src}}</a></p>\n    <p>{{images.description}}</p>\n    <button ng-click=\"$ctrl.remove(images)\">Delete</button>\n</div>";
 
 /***/ },
 /* 40 */
@@ -34679,14 +34652,8 @@
 	};
 	
 	
-	controller.$inject = ['$state'];
-	
-	function controller($state) {
+	function controller() {
 	  this.styles = _nav4.default;
-	
-	  this.imageState = function () {
-	    return $state.go('images');
-	  };
 	}
 
 /***/ },
@@ -43277,7 +43244,15 @@
 	  }).state({
 	    name: 'albums',
 	    url: '/albums',
-	    component: 'albums',
+	    component: 'albums'
+	  }).state({
+	    name: 'albums.add',
+	    url: '/add',
+	    component: 'addAlbum'
+	  }).state({
+	    name: 'albums.images',
+	    url: '/:id',
+	    component: 'images',
 	    resolve: {
 	      album: ['albumService', '$transition$', function (albums, t) {
 	        return albums.getId(t.params().id);
@@ -43286,14 +43261,6 @@
 	        return album.images;
 	      }]
 	    }
-	  }).state({
-	    name: 'albums.add',
-	    url: '/add',
-	    component: 'addAlbum'
-	  }).state({
-	    name: 'albums.images',
-	    url: '/:id',
-	    component: 'images'
 	  });
 	  $urlRouterProvider.otherwise('/');
 	}
