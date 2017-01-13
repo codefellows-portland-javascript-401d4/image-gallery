@@ -1,0 +1,9 @@
+<span>
+    <h3>Image Detail -</h3>
+    <ul>
+        <li>Title: {{$ctrl.image.title}}</li>
+        <li>Url: <a href="{{$ctrl.image.url}}">{{$ctrl.image.url | limitTo: 20}}...</a></li>
+        <li>Description: {{$ctrl.image.description}}</li>
+    </ul> 
+    <button ng-click="$ctrl.delete()">Remove</button>
+</span>

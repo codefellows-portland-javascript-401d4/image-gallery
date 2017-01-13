@@ -1,0 +1,17 @@
+<section>
+    Display Mode: <select ng-model="$ctrl.selected">
+        <option value="detail">Detail</option>
+        <option value="thumbnail">Thumbnail</option>
+        <option value="gallery">Gallery</option>
+    </select>
+    <ul>
+        <li ng-repeat="image in $ctrl.images">
+            <image-detail ng-if="$ctrl.selected === 'detail'" remove="$ctrl.remove" image="image"></image-detail>
+            <image-thumbnail ng-if="$ctrl.selected === 'thumbnail'" image="image"></image-thumbnail>
+            <image-gallery ng-if="$ctrl.selected === 'gallery'" image="image"></image-gallery>
+        </li>
+    </ul>
+</section>
+<section>
+    <image-new add="$ctrl.add">Add</image-new>
+</section>
