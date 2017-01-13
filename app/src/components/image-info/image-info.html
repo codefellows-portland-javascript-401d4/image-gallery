@@ -1,0 +1,6 @@
+<div class="image" ng-repeat="img in $ctrl.img">
+  <h1>{{img.title}}</h1>
+  <a href={{img.url}} target="_blank">Image</a>
+  <p>{{img.description}}</p>
+  <button ng-click="$ctrl.delete(img)">Remove</button>
+</div>

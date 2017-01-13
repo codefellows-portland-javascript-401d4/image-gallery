@@ -1,0 +1,39 @@
+<section ng-class="$ctrl.styles.gallery">
+    <button 
+        ng-click="$ctrl.view = 'add'"
+        ng-if="$ctrl.view !== 'add'">
+        Add Image
+    </button>
+    <button 
+        ui-sref="images"
+        ng-if="$ctrl.view !== 'add'">
+        Back
+    </button><br>
+    <select 
+        ng-if="$ctrl.view !== 'add'"
+        ng-model="$ctrl.view">
+        <option value="info">Info</option>
+        <option value="thumbnail">Thumbnail</option>
+        <option value="full">Full</option>
+    </select>
+    <section>
+        <add-image
+            ng-if="$ctrl.view === 'add'"
+            add="$ctrl.add"
+            view="$ctrl.view">
+        </add-image>
+        <image-info 
+            ng-if="$ctrl.view === 'info'"
+            img="$ctrl.album.images"
+            remove="$ctrl.remove">
+        </image-info>
+        <image-thumb
+            ng-if="$ctrl.view === 'thumbnail'"
+            img="$ctrl.album.images">
+        </image-thumb>
+        <image-full
+            ng-if="$ctrl.view === 'full'"
+            img="$ctrl.album.images">
+        </image-full>
+    </section>
+<section>
