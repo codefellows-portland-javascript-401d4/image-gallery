@@ -41,39 +41,13 @@ describe('images component', () => {
       }
     };
 
-
-    it('loads thumbnail images', done => {
-      const component = $component('thumbnailApp', {imageService});
-
-      setTimeout(() => {
-        assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
-        done();
-      });
-    });
-
-    it('loads title_link_desc images', done => {
-      const component = $component('titleLinkDesc', {imageService});
-
-      setTimeout(() => {
-        assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
-        done();
-      });
-    });
-
-    it('loads title_img_desc images', done => {
-      const component = $component('titleImgDesc', {imageService});
-
-      setTimeout(() => {
-        assert.equal(component.images, images);
-        assert.isNotOk(component.loading);
-        done();
-      });
-    });
-
     it('adds an image', done => {
       const component = $component('addImg', {imageService});
+      component.album = {
+        name: 'test',
+        _id: '123',
+        images: images
+      };
       component.addNew(image);
       setTimeout(() => {
         assert.equal(images.length, 2);
@@ -84,6 +58,9 @@ describe('images component', () => {
 
     it('deletes an image from thumbnailApp page', done => {
       const component = $component('thumbnailApp', {imageService});
+      component.album = {
+        images: images
+      };
       component.remove(image);
       setTimeout(() => {
         assert.equal(images.length, 2);
@@ -94,6 +71,9 @@ describe('images component', () => {
 
     it('deletes an image from title_img_desc page', done => {
       const component = $component('titleImgDesc', {imageService});
+      component.album = {
+        images: images
+      };
       component.remove(image);
       setTimeout(() => {
         assert.equal(images.length, 2);
@@ -104,6 +84,9 @@ describe('images component', () => {
 
     it('deletes an image from title_link_desc page', done => {
       const component = $component('titleLinkDesc', {imageService});
+      component.album = {
+        images: images
+      };
       component.remove(image);
       setTimeout(() => {
         assert.equal(images.length, 2);

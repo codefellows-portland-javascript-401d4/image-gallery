@@ -3,12 +3,12 @@
 :local(.nav) {
   padding: 1%;
   float:left;
-  width:100%;
+  width:98%;
   background-color:$teal;
   color: white;
   border-bottom:2px solid $drop;
   border-top: 2px solid $top;
-  margin-bottom:2%;
+  margin-bottom:1%;
   ul {
     list-style:none;
     margin:0;
@@ -16,6 +16,11 @@
 
     li {
       display:inline-block;
+
+      a {
+        text-decoration:none;
+        color:white;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
- <div ng-repeat="images in $ctrl.images" class="container bg" ng-class="links">
+ <div ng-repeat="images in $ctrl.album.images" class="container bg" ng-class="links">
     <h1>{{images.name}}</h1>
     <p><a href="{{images.src}}">{{images.src}}</a></p>
     <p>{{images.description}}</p>

@@ -5,8 +5,8 @@ export default {
   template,
   controller,
   bindings: {
-    image: '<',
-    remove: '<'
+    album: '<',
+    images: '='
   }
 };
 
@@ -14,15 +14,12 @@ controller.$inject = ['imageService'];
 
 function controller(images) {
   this.styles = styles;
-  images.get().then(images => {
-    this.images = images;
-  });
 
   this.remove = image => {
     images.remove(image._id)
       .then(() => {
-        const index = this.images.indexOf(image);
-        if (index > -1) this.images.splice(index,1);
+        const index = this.album.images.indexOf(image);
+        if (index > -1) this.album.images.splice(index,1);
       });
   };
 }

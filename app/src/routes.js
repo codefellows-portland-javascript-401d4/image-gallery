@@ -3,9 +3,9 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state({
-      name: 'images',
-      url: '/images',
-      component: 'app'
+      name: 'home',
+      url: '/',
+      component: 'home'
     })
     .state({
       name:'about',
@@ -13,9 +13,25 @@ export default function routes($stateProvider, $urlRouterProvider) {
       component: 'about'
     })
     .state({
-      name: 'home',
-      url: '/',
-      component: 'home'
+      name: 'albums',
+      url: '/albums',
+      component: 'albums'
+    })
+    .state({
+      name: 'albums.add',
+      url: '/add',
+      component: 'addAlbum'
+    })
+    .state({
+      name: 'albums.images',
+      url: '/:id',
+      component: 'images',
+      resolve: {
+        album: ['albumService', '$transition$', (albums, t) => {
+          return albums.getId(t.params().id);
+        }],
+        images: ['album', album => album.images]
+      }
     });
   $urlRouterProvider.otherwise('/');
 }

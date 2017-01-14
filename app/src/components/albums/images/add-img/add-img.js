@@ -3,7 +3,10 @@ import styles from './add-img.scss';
 
 export default {
   template,
-  controller
+  controller,
+  bindings: {
+    album: '<'
+  }
 };
 
 controller.$inject = ['imageService'];
@@ -18,15 +21,12 @@ function controller(images) {
     this.description = '';
   };
 
-  images.get().then(images => {
-    this.images = images;
-  });
-
   this.addNew = () => {
     images.add({
       name: this.name,
       src: this.src,
-      description: this.description
+      description: this.description,
+      albumId: this.album._id
     })
       .then(saved => {
         this.images.push(saved);
