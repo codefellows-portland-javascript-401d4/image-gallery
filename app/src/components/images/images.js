@@ -1,5 +1,4 @@
 import template from './images.html';
-import styles from './images.scss';
 
 export default {
   template,
@@ -9,11 +8,6 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(images) {
-  this.styles = styles;
-
-  this.views = ['preview', 'detail', 'full'];
-  this.view = this.views[2];
-
   images.get()
     .then(images => {
       this.images = images;
@@ -33,4 +27,6 @@ function controller(images) {
         if(index > -1) this.images.splice(index, 1);
       });
   };
+  
+  this.selected = 'full';
 }

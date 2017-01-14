@@ -15,3 +15,5 @@ app.value('apiUrl', dev);
 app.factory('apiUrl', function() {
   return dev;
 });
+
+export default app;

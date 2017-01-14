@@ -2,27 +2,15 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
-    name: 'landing',
-    url: '/',
-    component: ''
+    name: 'welcome',
+    url: '/about',
+    component: 'welcome'
   });
 
   $stateProvider.state({
-    name: '',
-    url: '/',
-    component: ''
-  });
-
-  $stateProvider.state({
-    name: '',
-    url: '/',
-    component: ''
-  });
-
-  $stateProvider.state({
-    name: '',
-    url: '/',
-    component: ''
+    name: 'images',
+    url: '/images',
+    component: 'images'
   });
 
   $urlRouterProvider.otherwise('/');

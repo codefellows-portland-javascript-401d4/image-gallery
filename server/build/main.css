@@ -1,0 +1,47 @@
+body {
+  background-color: #efdddd;
+  margin: 1em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  color: #ffffff; }
+
+h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 2.5em;
+  color: #574c7c; }
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #caa19e; }
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  color: #574c7c; }
+
+ul {
+  list-style: none; }
+main {
+  background-image: url("/img/gallery.jpg");
+  background-color: #F0FFFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  min-height: 1000px;
+  width: 100%;
+  text-align: center;
+  margin: 0; }
+._3Q7oEuLCMsOcMguQjs54RG {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; }
+._1ztvqinjwtn8tam8niJw1z {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; }
+
+/*# sourceMappingURL=main.css.map*/

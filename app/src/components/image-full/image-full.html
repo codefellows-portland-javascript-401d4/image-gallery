@@ -1,9 +1,11 @@
-<section>
-  <h2>{{ $ctrl.image.title }}</h2>
-    <img ng-class="$ctrl.styles['full-class']" ng-src="{{ $ctrl.image.url }}" alt="{{ $ctrl.image.title }}">
-    <p>{{ $ctrl.image.description }}</p>
-    <p><a href="{{ $ctrl.image.url }}">source</a></p>
-
+<section ng-class="$ctrl.styles.full">
+  <ul>
+    <li>{{ $ctrl.image.title }}</li>
+    <li><img nng-src="{{ $ctrl.image.url }}"/></li>
+    <li>{{ $ctrl.image.description }}</li>
+    <li><a href="{{ $ctrl.image.url }}">source</a></li>
+  </ul>
+  <div>
     <button ng-click="$ctrl.delete()">remove</button>
+  </div>
 </section>
-  

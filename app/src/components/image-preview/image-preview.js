@@ -4,7 +4,7 @@ import styles from './image-preview.scss';
 export default {
   template,
   bindings: {
-    image: '<'
+    image: '='
   },
   controller
 };

@@ -1,5 +1,7 @@
-<section ng-class="$ctrl.styles['details-class']">
-  <h2>{{ $ctrl.image.title }}</h2>
-    <p>{{ $ctrl.image.description }}</p>
-    <p><a href="{{ $ctrl.image.url }}">source</a></p>
+<section>
+  <ul>
+    <li>title: {{ $ctrl.image.title }}</li>
+    <li>description: {{ $ctrl.image.description }}<li>
+    <li><a href="{{ $ctrl.image.url }}">source</a></li>
+  </ul>
 </section>
