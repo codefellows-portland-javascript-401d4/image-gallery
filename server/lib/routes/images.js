@@ -5,11 +5,25 @@ const Image = require('../models/image');
 
 router
   .get('/', (req, res, next) => {
-    const query = {};
-
-    Image.find(query)
+    Image.find()
+      .lean()
+      .select('title description url')
       .then(images => res.send(images))
-      .catch(next);
+      .catch(err => {
+        console.log('error getting images: ', err);
+        next(err);
+      });
+  })
+
+  .get('/:id', (req, res, next) => {
+    Image.findById(req.params.id)
+    .lean()
+    .select('title description url')
+    .then(image => res.send(image))
+    .catch(err => {
+      console.log('error getting image by id: ', err);
+      next(err);
+    });
   })
 
   .post('/', bodyParser, (req, res, next) => {

@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const errorHandler = require('./error-handler');
 const images = require('./routes/images');
+const path = require('path');
+const buildPath = path.resolve(__dirname + '/../build');
 const morgan = require('morgan');
 
 app.use(morgan('dev'));

@@ -1,12 +1,11 @@
 const HtmlWebpackPlugin = require( 'html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const cssExtract = new ExtractTextPlugin('main.css');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/app.js',
   output: {
-    path: '../server/public',
+    path: '../server/build',
     filename: 'main.js'
   },
   devtool: 'source-map',

@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "lab-2-api-services",
+  "description": "image gallery",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -12,7 +12,7 @@
     "build": "webpack"
   },
   "author": "Caitlin Araldi",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "angular-mocks": "^1.6.0",
     "babel-core": "^6.20.0",
@@ -42,7 +42,9 @@
   },
   "dependencies": {
     "angular": "^1.6.0",
-    "camelcase": "^4.0.0"
+    "angular-ui-router": "^0.3.2",
+    "camelcase": "^4.0.0",
+    "path": "^0.12.7"
   },
   "babel": {
     "presets": [
