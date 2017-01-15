@@ -4,7 +4,7 @@ export default function albumService($http, apiUrl) {
   return {
     getAll() {
       return $http.get(`${apiUrl}/albums`)
-      .then(res => res.data);
+        .then(res => res.data);
     },
 
     get(albumId) {
