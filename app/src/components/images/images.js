@@ -33,12 +33,14 @@ function controller(images, albums) {
     this.loading = true;
 
     let albumLookup = {};
+
     this.albumList.forEach((album) => {
       albumLookup[album.name] = album._id;
     });
 
-    if (albumLookup[image.album]) {
-      image.album = albumLookup[image.album];
+    const found = this.albumList.find(album => album.name === image.album);
+
+    if (found) {
       images
         .add(image)
         .then(savedImage => {

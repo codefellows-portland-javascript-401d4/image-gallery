@@ -7,5 +7,7 @@
   },
   "author": "Tom Shultz",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+    "webdriver": "0.0.1"
+  }
 }
