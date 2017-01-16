@@ -1,0 +1,30 @@
+<section ng-class="$ctrl.styles.albums">
+  <h1>CHOOSE AN ALBUM VIEW</h2>
+  <div>
+    <ul>
+      <li ng-repeat="album in $ctrl.albums" ng-model="$ctrl.selected" value="album.name" ui-sref="albums.contents({
+        id: album._id, view: $ctrl.view
+      })">
+
+        <h3>{{ album.name }}</h3>
+        <div>
+          <img ng-src="{{ album.cover }}"/>
+        </div>
+
+        <button ng-click="$ctrl.deleteAlbum(album, $event)">DELETE</button>
+      </li>
+  </div>
+
+  <div>
+    <h2>+ ALBUM</h2>
+    <label>NAME:</label>
+    <input ng-model="$ctrl.name">
+
+    <label>COVER IMAGE URL:</label>
+    <input ng-model="$ctrl.cover">
+
+    <button ng-click="$ctrl.addAlbum()">ADD</button>
+  </div>
+
+  <ui-view></ui-view>
+</select>

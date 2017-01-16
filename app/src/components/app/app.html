@@ -1,4 +1,11 @@
-<section>
-  <view-select></view-select>
-  <image-new add="$ctrl.add"></image-new>
-</section>
+<header ng-class="$ctrl.styles.header">
+  <h1>gallery</h1>
+  <div>
+    <a ui-sref="albums">ALBUMS</a>
+    <a ui-sref="about">ABOUT<a>
+  </div>
+</header>
+
+<main>
+  <ui-view></ui-view>
+</main>

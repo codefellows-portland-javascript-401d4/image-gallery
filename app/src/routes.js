@@ -3,9 +3,9 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state({
-      name: 'welcome',
-      url: '/',
-      component: 'welcome'
+      name: 'albums',
+      url: '/albums',
+      component: 'albums'
     })
 
     .state({
@@ -30,7 +30,19 @@ export default function routes($stateProvider, $urlRouterProvider) {
         }],
         images: ['album', album => album.images]
       }
+    })
+
+    .state ({
+      name: 'images',
+      url: '/images',
+      component: images
+    })
+
+    .state ({
+      name: 'about',
+      url: '/about',
+      component: 'about'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/albums');
 }

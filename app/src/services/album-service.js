@@ -2,15 +2,15 @@ albumService.$inject = ['$http', apiUrl];
 
 export default function albumService($http, apiUrl) {
   return {
-    get() {
+    getAll() {
       return $http.get(`${ apiUrl }/albums`)
         .then(res => res.data);
     },
-    getId(id) {
+    getById(id) {
       return $http.get(`${ apiUrl }/albums/${ id }`)
         .then(res => res.data);
     },
-    post(album) {
+    add(album) {
       return $http.get(`${ apiUrl }/albums`, album)
         .then(res => res.data);
     },
