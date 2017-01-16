@@ -1,42 +1,38 @@
 routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function routes($stateProvider, $urlRouterProvider) {
-  $stateProvider
-    .state({
-      name: 'albums',
-      url: '/albums',
-      component: 'albums'
-    })
+  $stateProvider.state({
+    name: 'albums',
+    url: '/albums',
+    component: 'albums'
+  });
 
-    .state({
-      name: 'albums.add',
-      url: '/newalbum',
-      component: 'newAlbum'
-    })
+  $stateProvider.state({
+    name: 'albums.add',
+    url: '/newalbum',
+    component: 'newAlbum'
+  });
 
-    .state({
-      name: 'albums.images',
-      url: '/:id',
-      // component: 'images',
-      resolve: {
-        album: ['albumService', '$transition$', (albums, t) => {
-          return albums.getId(t.params().id);
-        }],
-        images: ['album', album => album.images]
-      }
-    })
+  $stateProvider.state({
+    name: 'albums.images',
+    url: '/:id?view',
+    params: {
+      view: { 
+        dynamic: false 
+      },
+    },
+    resolve: {
+      id: ['$transition$', t => t.params().id],
+      view: ['$transition$', t => t.params().view || 'full']
+    },
+    component: 'album-images'
+  });
 
-    // .state ({
-    //   name: 'images',
-    //   url: '/images',
-    //   component: images
-    // })
-
-    .state ({
-      name: 'about',
-      url: '/about',
-      component: 'about'
-    });
+  $stateProvider.state ({
+    name: 'about',
+    url: '/about',
+    component: 'about'
+  });
 
   $urlRouterProvider.otherwise('/albums');
 }
