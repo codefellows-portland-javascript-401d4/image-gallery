@@ -44,7 +44,7 @@ function controller(albums, images) {
         this.albums.images.push(saved);
       })
       .then(this.reset());
-    };
+  };
 
   this.removeImage = image => {
     images.remove(image._id)

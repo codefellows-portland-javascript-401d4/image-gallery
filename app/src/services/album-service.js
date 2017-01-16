@@ -1,4 +1,4 @@
-albumService.$inject = ['$http', apiUrl];
+albumService.$inject = ['$http', 'apiUrl'];
 
 export default function albumService($http, apiUrl) {
   return {
