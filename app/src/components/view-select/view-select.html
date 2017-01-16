@@ -1,0 +1,10 @@
+<section>
+  VIEW <select ng-model="view">
+    <option value="">choose</option>
+  </select>
+</section>
+<section>
+  <image-preview ng-if="view === 'preview'" image="image"></image-preview>
+  <image-detail ng-if="view === 'detail'" image="image"></image-detail>
+  <image-full ng-if="view === 'full'" remove="$ctrl.remove"></image-full>
+</section>

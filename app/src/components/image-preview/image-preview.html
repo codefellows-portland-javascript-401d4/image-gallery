@@ -1,7 +1,3 @@
-<section ng-class="$ctrl.styles.thumbnail">
-  <ul>
-    <li>
-      <img ng-src="{{ $ctrl.image.url }}" alt="{{ $ctrl.image.title }}"/>
-    </li>
-  </ul>
+<section ng-repeat="images in $ctrl.images">
+  <img ng-src="{{ images.url }}" ng-class="$ctrl.styles.thumbnail"/>
 </section>

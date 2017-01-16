@@ -1,4 +1,4 @@
-import template from './images.html';
+import template from './view-select.html';
 
 export default {
   template,
@@ -8,6 +8,8 @@ export default {
 controller.$inject = ['imageService'];
 
 function controller(images) {
+  this.views = ['preview', 'detail', 'full'];
+
   images.get()
     .then(images => {
       this.images = images;
@@ -27,6 +29,4 @@ function controller(images) {
         if(index > -1) this.images.splice(index, 1);
       });
   };
-  
-  this.selected = 'full';
 }
