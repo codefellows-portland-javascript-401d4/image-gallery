@@ -1,0 +1,9 @@
+<section>
+        <ul>
+        <li ng-repeat ='image in $ctrl.images'> 
+            <h3>Image Title: {{image.title}}<h3>
+             <p>Description: {{image.description}}</h3>
+             <p>URL: </p><a ng-href="{{image.url}}">{{image.url}}</a>
+        </li>
+    </ul>
+</section>
