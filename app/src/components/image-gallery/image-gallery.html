@@ -1,0 +1,11 @@
+<section>
+    <ul>
+        <li ng-repeat ='image in imageGallery.images'> 
+            <h3>Image Title: {{image.title}}<h3>
+            <img ng-src="{{image.url}}" alt={{image.title}}> 
+            <p>Description: {{image.description}}</h3>
+            <p>URL: </p><a href={{image.url}}>{{image.url}}</a>
+            <button ng-click="imageGallery.removeImage(image)">remove</button>
+        </li>
+    </ul>
+</section>
