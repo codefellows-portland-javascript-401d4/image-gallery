@@ -1,0 +1,26 @@
+@import 'hover';
+
+a {
+    color: steelblue;
+}
+
+a.blah {
+    background: steelblue;
+    color: white;
+}
+
+
+.header-link{
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  &:hover{
+    @include hover-shadow();
+
+  }
+}
+
+.foo {
+  text-decoration: underline;
+  color: black;
+}
