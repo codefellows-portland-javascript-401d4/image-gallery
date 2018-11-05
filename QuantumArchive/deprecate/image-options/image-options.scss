@@ -1,0 +1,19 @@
+:local(.option) {
+    margin: 1em auto;
+}
+
+:local(.boxing) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    
+    select {
+        min-width: 120px;
+        margin: 2px;
+    }
+
+    button {
+        min-width: 120px;
+        margin: 2px;
+    }
+}

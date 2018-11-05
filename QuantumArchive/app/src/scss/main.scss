@@ -1,0 +1,55 @@
+@import 'colors';
+@import 'corners';
+$boxwidth: 60%;
+
+h1, h2 {
+    text-align: center;
+}
+
+h4 {
+    margin: 2px;
+}
+
+p {
+    margin: 1em auto;
+    width: $boxwidth;
+    text-align: justify;
+    text-indent: 3em;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em auto;
+    width: $boxwidth;
+}
+
+nav select {
+    order: 1;
+    min-width: 160px;
+    margin: 2px;
+}
+
+body {
+    background-color: $backgroundblue;
+}
+
+section {
+    width: $boxwidth;
+    margin: 1em auto;
+    padding: 5px;
+    background-color: $foregroundblue;
+    @include rounded(4px);
+}
+
+footer {
+    width: $boxwidth;
+    margin: 1em auto;
+    background-color: $foregroundblue;
+}
+
+.loader {
+    position: absolute;
+    top: 0; left: 40%;
+}
