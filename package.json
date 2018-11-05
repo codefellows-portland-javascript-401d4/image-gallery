@@ -1,0 +1,19 @@
+{
+ "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "An angular image gallery backed by an Express webserver and router.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GloriaAnholt/image-gallery.git"
+  },
+  "author": "Gloria Anholt <gloriaanholt@gmail.com>",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/GloriaAnholt/image-gallery/issues"
+  },
+  "homepage": "https://github.com/GloriaAnholt/image-gallery#readme"
+}

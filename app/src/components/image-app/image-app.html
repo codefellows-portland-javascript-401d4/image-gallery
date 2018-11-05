@@ -1,0 +1,18 @@
+<section ng-class="$ctrl.style.image">
+    <div>
+        <button class="main" ng-click="$ctrl.view='gallery'">Gallery View</button>
+        <button class="main" ng-click="$ctrl.view='thumb'">Thumbnail View</button>
+        <button class="main" ng-click="$ctrl.view='detail'">Detail View</button>
+    </div>
+
+    <div>
+        <select ng-options="image.title for image in $ctrl.images" ng-model="$ctrl.image">
+            <option value="">view all</option>
+        </select>
+    </div>
+
+    <image-detail ng-if="$ctrl.view==='detail'" ng-repeat="image in $ctrl.images"></image-detail>
+    <image-thumb ng-if="$ctrl.view==='thumb'" ng-repeat="image in $ctrl.images"></image-thumb>
+    <image-gallery ng-if="$ctrl.view==='gallery'" ng-repeat="image in $ctrl.images"></image-gallery>
+
+</section>
