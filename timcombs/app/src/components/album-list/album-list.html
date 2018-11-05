@@ -1,0 +1,6 @@
+<span ng-class="$list.styles.listItem">
+  {{$list.album.name}} <br>
+  {{$list.album.description}}<br>
+  <button name="thumb" ng-click="$list.toggleView('thumb')">thumb</button>
+  <button ng-click="$list.remove($list.album)">remove</button>
+</span>

@@ -1,0 +1,19 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "express-ran, angular-fuelled image gallery",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martypdx/image-gallery.git"
+  },
+  "author": "Tim Combs <tim00combs@gmail.com>",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/timcombs/image-gallery/issues"
+  },
+  "homepage": "https://github.com/timcombs/image-gallery#readme"
+}

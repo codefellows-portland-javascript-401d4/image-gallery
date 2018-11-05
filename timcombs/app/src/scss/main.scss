@@ -1,0 +1,24 @@
+@import 'colors';
+@import 'buttons';
+@import 'fonts';
+
+html {
+  font-size: 16px;
+  font-family: $text-font;
+}
+
+body {
+  background-color: $ltblue;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
