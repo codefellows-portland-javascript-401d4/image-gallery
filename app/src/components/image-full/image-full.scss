@@ -1,0 +1,21 @@
+@import 'colors';
+
+$max-width: 800px;
+
+.full-view {
+  border: 1px solid;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  background: $bg-color-full;
+  vertical-align: top;
+  max-width: $max-width;
+
+  img {
+    max-width: 98%;
+  }
+
+  img, button {
+    display: block;
+  }
+}
