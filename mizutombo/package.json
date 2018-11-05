@@ -1,0 +1,10 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./server/server.js",
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "author": "Tom Shultz",
+  "license": "ISC"
+}
