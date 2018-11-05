@@ -16,5 +16,10 @@ Your app should have the following pages:
 
 # Rubric
 
+<<<<<<< HEAD
 * Route/State design and implementation *7pts*
 * Code Quality/Project Org *3pts*
+=======
+Route/State design and implementation *7pts*
+Code Quality/Project Org *3pts*
+>>>>>>> be92d195a2015a48a176c6623dd704d972ecb563

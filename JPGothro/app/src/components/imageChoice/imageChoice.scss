@@ -1,0 +1,12 @@
+@import 'colors';
+
+:local(.choices) {
+
+    span, select {
+        color: $dkgreen;
+    }
+
+    p {
+        color: $dkblue;
+    }
+}

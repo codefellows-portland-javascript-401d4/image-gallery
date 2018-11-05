@@ -14,7 +14,7 @@
 
 * Write angular services that encapsulate API calls and use those in your components.
 
-* Write a images component that uses the service expose data and actions
+* Write an images component that uses the service expose data and actions
   * Displays images
 
 * Add Toggle View Functionality
