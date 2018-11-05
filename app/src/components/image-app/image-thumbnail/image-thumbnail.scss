@@ -1,0 +1,22 @@
+@import 'colors';
+@import 'borders';
+@import 'corners';
+
+:local(.thumbnail) {
+    padding: 1em;
+    max-width: 90%;
+    max-height: 100px;
+    margin: 1em auto;
+    width: auto;
+    display: flex;
+
+    border: $simpleborder;
+    background-color: $frontcolor;
+    @include rounded(4px);
+    
+    img {
+        height: 100px;
+        width: 100px;
+        margin: 0 auto;
+    }
+}

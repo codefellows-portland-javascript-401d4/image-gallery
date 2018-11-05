@@ -1,0 +1,14 @@
+<div ng-class="app.styles.top">
+    <div>
+        <h4>Album Choice:</h4>
+        <ul ng-class="app.styles.list">
+            <li ng-repeat="album in app.albums"
+                ui-sref="album({
+                    name: album.name
+                })">{{album.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+<hr>
+<album-new add-album="app.addAlbum" loading="app.loading"></album-new>

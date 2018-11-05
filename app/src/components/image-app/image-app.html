@@ -1,0 +1,10 @@
+<ul ng-class="app.styles.navigator">
+    <li ng-click="app.setDisplay('detail')">Detail</li>
+    <li ng-click="app.setDisplay('thumbnail')">Thumbnail</li>
+    <li ng-click="app.setDisplay('gallery')">Gallery</li>
+</ul>
+<hr>
+<section>
+    <ui-view></ui-view>
+</section>
+<image-new add="app.add" album="app.albumName" albums="app.albums"></image-new>
