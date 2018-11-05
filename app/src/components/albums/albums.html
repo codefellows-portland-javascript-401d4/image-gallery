@@ -1,0 +1,29 @@
+<section ng-class="$ctrl.styles.albums">
+	<div class="loader" ng-if="$ctrl.loading">Loading...</div>
+		<h2>Image Albums</h2>
+	<div>
+		<span ng-repeat="view in ['text view', 'image view', 'thumbnail view']">
+			<input 
+				ng-model="$ctrl.view" 
+				ng-change="$ctrl.updateView()" 
+				name="view" 
+				ng-value="view" 
+				type="radio"> 
+				{{view}}
+		</span> 
+	</div>
+		<ui-view>
+			<new-album add="$ctrl.add"></new-album>
+				<h4>Select an album to view its images or add a new image:</h4>			
+    <ul>
+			<li ng-repeat="album in $ctrl.albums"
+					ui-sref="albums.detail({ 
+							id: album._id,
+							view: $ctrl.view
+					})">
+						<h4>{{album.name}} <img ng-src="{{album.cover}}" height="50" width="50"  align="middle"></h4>
+				</li>
+    </ul>
+	</ui-view>
+</section>
+
