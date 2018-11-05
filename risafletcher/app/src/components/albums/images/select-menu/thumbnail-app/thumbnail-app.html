@@ -1,0 +1,5 @@
+<div class="container" class="bg" ng-repeat="images in $ctrl.album.images">
+    <img ng-src="{{images.src}}" ng-class="$ctrl.styles.img">
+    <br>
+    <button ng-click="$ctrl.remove(images)">Delete</button>
+</div>

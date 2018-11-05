@@ -1,0 +1,9 @@
+<section class="half">
+      <p>How would you like your images to be displayed?</p>
+      <select ng-model="view" ng-options="view for view in $ctrl.views">
+        <option value="">Select an option</option>
+      </select>
+</section>
+<thumbnail-app ng-if="view === 'Thumbnail'" album="$ctrl.album" images="$ctrl.images"></thumbnail-app>
+<title-img-desc ng-if="view === 'Full Image'" album="$ctrl.album" images="$ctrl.images"></title-img-desc>
+<title-link-desc ng-if="view === 'Link'" album="$ctrl.album" images="$ctrl.images"></title-link-desc>
