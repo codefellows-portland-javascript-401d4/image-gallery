@@ -1,0 +1,26 @@
+button.primary {
+  background: teal;
+  color: white; }
+
+h1 {
+  color: lightgreen; }
+._2IeunUQZ5MxNCBku3hz4ZB {
+  height: 100px;
+  border: 2px solid darkblue;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+  ._2IeunUQZ5MxNCBku3hz4ZB div {
+    height: 35px; }
+  ._2IeunUQZ5MxNCBku3hz4ZB button {
+    height: 10px; }
+  ._2IeunUQZ5MxNCBku3hz4ZB label {
+    color: black;
+    font-family: 'Trebuchet MS', sans-serif; }
+.loader {
+  position: absolute;
+  top: 0;
+  left: 40%; }
+
+/*# sourceMappingURL=main.css.map*/

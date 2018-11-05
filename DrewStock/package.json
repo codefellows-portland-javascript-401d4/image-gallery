@@ -1,0 +1,20 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test",
+    "start": "cd app && npm start && cd ../server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrewStock/image-gallery.git"
+  },
+  "author": "Drew Stock <andrewdstock@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrewStock/image-gallery/issues"
+  },
+  "homepage": "https://github.com/DrewStock/image-gallery#readme"
+}

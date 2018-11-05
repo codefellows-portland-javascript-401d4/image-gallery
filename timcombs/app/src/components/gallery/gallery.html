@@ -1,0 +1,18 @@
+<div ng-class="$gallery.styles.container">
+  <header>Gallery</header>
+
+  <button ui-sref="gallery.albums">Albums</button>
+  <button ui-sref="gallery.images">Browse All Pix</button>
+
+  <button ui-sref="welcome">Welcome</button>
+  <button ui-sref="about">About</button>
+
+  <section ng-class="$gallery.styles.section"> 
+    <ui-view></ui-view>
+  </section>
+
+  <aside ng-class="$gallery.styles.sidebar">
+    <image-add add-image="$gallery.addImage" albums="$gallery.albums"></image-add>
+    <album-add add-album="$gallery.addAlbum"></album-add>
+  </aside>
+</div>

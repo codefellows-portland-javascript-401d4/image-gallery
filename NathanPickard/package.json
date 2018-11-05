@@ -1,0 +1,12 @@
+{
+  "name": "image-gallery-app",
+  "version": "1.0.0",
+  "description": "image gallery app",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  }
+}

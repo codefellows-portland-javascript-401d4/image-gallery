@@ -1,0 +1,28 @@
+{
+  "name": "serverimagegallery",
+  "version": "1.0.0",
+  "description": "![cf](http://i.imgur.com/7v5ASc8.png)  Intro to ExpressJS ===",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "MONGODB_URI=mongodb://localhost/images-test mocha",
+    "test:watch": "MONGODB_URI=mongodb://localhost/images-test nodemon --exec mocha"
+  },
+  "author": "Nathan Pickard",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
+  }
+}

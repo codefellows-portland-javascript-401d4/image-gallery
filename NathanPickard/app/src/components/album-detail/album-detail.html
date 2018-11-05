@@ -1,0 +1,7 @@
+<section class="detail">
+  <ul>{{$ctrl.album.name}}
+    <li class="album" ng-repeat="image in $ctrl.album.images">
+      <image-thumbnail image="image"></image-thumbnail>
+    </li>
+  </ul>
+</section>

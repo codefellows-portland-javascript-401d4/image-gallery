@@ -1,0 +1,14 @@
+:local(.albums) {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        cursor: pointer;
+        padding: 10px;
+        &:hover {
+            background: #aaa;
+        }
+    }
+}

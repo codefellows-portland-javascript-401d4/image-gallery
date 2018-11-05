@@ -1,0 +1,46 @@
+{
+  "parserOptions": {
+    "emcaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "experimentalObjectRestSpread": true,
+      "impliedStrict": true
+    }
+  },
+  "settings": {
+     "ecmascript": 6
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "describe": false,
+    "it": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "before": false,
+    "after": false,
+    "angular": false,
+    "chai": false
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-console": "off",
+    "semi": 1,
+    "strict": 0,
+    "indent": [2, 2],
+    "eqeqeq": 1,
+    "no-multi-spaces": [1, {
+      "exceptions": {
+        "VariableDeclarator": true,
+        "FunctionExpression": true
+      }
+    }],
+    "key-spacing": [0, {"align": "value"}],
+    "no-underscore-dangle": 0
+  }
+}

@@ -1,0 +1,8 @@
+@import 'colors';
+@import 'mixins';
+
+:local(.image) {
+  width: 35%;
+  border: 0.35rem outset $dkorange;
+  @include rounded-corners(5%);
+}

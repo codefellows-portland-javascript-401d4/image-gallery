@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Component Showing All Data</title>
+    <!--<link rel="stylesheet" type="text/css" href="src/main.css">-->
+</head>
+<body>
+    <h1 class="title">Image Gallery</h1>
+    <main>
+        <div class="loader" ng-if="app.loading">Loading...</div>
+        <section>
+            <select ng-model="selection">
+                <option value="all">All</option>
+                <option value="text">Text</option>
+                <option value="full">Full</option>
+                <option value="thumb">Thumb</option>
+            </select>
+
+            <image-all ng-if="selection === 'all'" all="app.images" class="full"></image-all>
+            <image-thumbnail ng-if="selection === 'thumb'" thumbnails="app.images" class="thumb"></image-thumbnail>
+            <image-text ng-if="selection === 'text'" text="app.images" ></image-text>
+            <image-full ng-if="selection === 'full'" full="app.images" class="full"></full-image>
+        </section>
+
+        <new-image add="app.add"></new-image>
+
+    </main>
+</body>
+</html>

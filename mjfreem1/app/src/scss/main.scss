@@ -1,0 +1,28 @@
+@import 'colors';
+@import 'borders';
+
+.img-div-container {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.img-div {
+  margin : 1% 2.5% 0 2.5%;
+  width: 200px;
+  height: 120px;
+ 
+  @include border(solid, 5px);
+  @include rounded(5px);
+}
+
+.img-div:nth-child(odd) {
+  background-color: $div-bckgrd-grn;
+}
+
+.img-div:nth-child(even) {
+  background-color: $div-bckgrd-ylw;
+}

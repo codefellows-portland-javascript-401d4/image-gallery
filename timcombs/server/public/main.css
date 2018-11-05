@@ -1,0 +1,185 @@
+button {
+  background: #FFC361;
+  color: #6DACFD;
+  -webkit-border-radius: 12%;
+  -moz-border-radius: 12%;
+  -ms-border-radius: 12%;
+  border-radius: 12%; }
+
+button:hover {
+  background: #FFE9C5;
+  color: #99C6FF; }
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans", "Candara", sans-serif; }
+
+body {
+  background-color: #CAE1FF; }
+
+ul {
+  padding: 0; }
+
+li {
+  list-style-type: none; }
+
+button {
+  cursor: pointer; }
+img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  width: 10rem; }
+._3sUvUy3w_uFwiUqMWfHUSG {
+  width: 90%;
+  background-color: #8675FD;
+  border: 0.35rem inset #D3CDFF;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  border-radius: 10%;
+  margin: 1% 0;
+  padding: 1%; }
+  ._3sUvUy3w_uFwiUqMWfHUSG button {
+    background: #6DACFD;
+    color: #FFE78F;
+    padding: 0.25rem;
+    -webkit-border-radius: 12%;
+    -moz-border-radius: 12%;
+    -ms-border-radius: 12%;
+    border-radius: 12%; }
+  ._3sUvUy3w_uFwiUqMWfHUSG button:hover {
+    background: #CAE1FF;
+    color: #FFC361; }
+._252G2udNBOCuvrk2K6tHim {
+  width: 30%;
+  margin-left: 3%;
+  margin-top: 3%;
+  display: inline-block; }
+
+._1ZRrrppZUvCiH2CDdGK9CI {
+  width: 22%;
+  margin-left: 2%;
+  margin-top: 3%;
+  display: inline-block; }
+._247dUBpeBIMwmGaxC9BrMZ {
+  font-size: 0.85rem; }
+  ._247dUBpeBIMwmGaxC9BrMZ button {
+    margin-bottom: 0.75rem; }
+._8Vvnh1rH5n4MNB16xD3Jz {
+  width: 35%;
+  border: 0.35rem outset #FFC361;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  border-radius: 5%; }
+header {
+  font-size: 3.5rem;
+  font-family: "Dosis", "Futura", sans-serif; }
+
+h1 {
+  font-size: 2rem;
+  font-family: "Dosis", "Futura", sans-serif;
+  margin-top: 3rem; }
+
+div, header {
+  padding: 1%; }
+._3XFe--44osb1OhXnSW97_y {
+  float: left;
+  margin-right: 60px;
+  width: 900px;
+  float: none;
+  margin: 0 auto;
+  outline: 1px dashed red; }
+  ._3XFe--44osb1OhXnSW97_y:before, ._3XFe--44osb1OhXnSW97_y:after {
+    content: "";
+    display: table; }
+  ._3XFe--44osb1OhXnSW97_y:after {
+    clear: both; }
+
+._23Q_njvvCGEwC7JWDi31uy {
+  float: left;
+  margin-right: 60px;
+  width: 580px;
+  background-color: #AA9EFF;
+  margin-top: 1%;
+  -webkit-border-radius: 3.5%;
+  -moz-border-radius: 3.5%;
+  -ms-border-radius: 3.5%;
+  border-radius: 3.5%;
+  outline: 1px dotted blue; }
+
+._1qYjTsiiguTeyoJQayIQTi {
+  float: left;
+  margin-right: 60px;
+  width: 260px;
+  float: right;
+  margin-right: 0;
+  outline: 1px solid green; }
+._3E3xI2uYscvYeLMX1hlyBD {
+  width: 90%;
+  background-color: #D3CDFF;
+  border: 0.35rem inset #8675FD;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  border-radius: 10%;
+  margin: 1% 0;
+  padding: 1%; }
+  ._3E3xI2uYscvYeLMX1hlyBD button {
+    background: #6DACFD;
+    color: #FFE78F;
+    padding: 0.25rem;
+    -webkit-border-radius: 12%;
+    -moz-border-radius: 12%;
+    -ms-border-radius: 12%;
+    border-radius: 12%; }
+  ._3E3xI2uYscvYeLMX1hlyBD button:hover {
+    background: #CAE1FF;
+    color: #FFC361; }
+._3kC-ySqJ7MloG91UrSIugJ {
+  font-size: 0.85rem; }
+  ._3kC-ySqJ7MloG91UrSIugJ button {
+    margin-bottom: 0.75rem; }
+._1fRcMng49Al4hQMkM7-tKf {
+  width: 35%;
+  border: 0.35rem outset #FFC361;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  border-radius: 5%; }
+.tccyZbQP0JHxVRxANI7u2 {
+  width: 30%;
+  margin-left: 3%;
+  margin-top: 3%;
+  display: inline-block; }
+
+._2WECVcILh1xtZCKB_1HHYv {
+  width: 22%;
+  margin-left: 2%;
+  margin-top: 3%;
+  display: inline-block; }
+
+header {
+  font-size: 3.5rem;
+  font-family: "Dosis", "Futura", sans-serif; }
+
+h1 {
+  font-size: 2rem;
+  font-family: "Dosis", "Futura", sans-serif;
+  margin-top: 3rem; }
+
+a.shut {
+  visibility: hidden; }
+
+a.open {
+  visibility: visible; }
+img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  width: 10rem; }
+
+/*# sourceMappingURL=main.css.map*/

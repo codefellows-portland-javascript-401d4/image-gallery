@@ -1,0 +1,49 @@
+button.primary {
+  background: deepskyblue;
+  color: darkslategray; }
+
+button:hover {
+  background: darkgreen;
+  color: deepskyblue; }
+
+h2 {
+  color: dodgerblue; }
+
+body {
+  background-color: bisque; }
+
+label {
+  background-color: darkkhaki;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+a {
+  color: lightseagreen; }
+
+a.foo {
+  background: cornflowerblue;
+  color: firebrick; }
+button.primary {
+  background: deepskyblue;
+  color: darkslategray; }
+
+button:hover {
+  background: darkgreen;
+  color: deepskyblue; }
+._3vHmVNAM5IygX5lm66HDqt {
+  height: 200px;
+  border: 2px solid #acc;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  border-radius: 7px; }
+  ._3vHmVNAM5IygX5lm66HDqt div {
+    height: 70px; }
+  ._3vHmVNAM5IygX5lm66HDqt button {
+    height: -35px; }
+  ._3vHmVNAM5IygX5lm66HDqt label {
+    color: firebrick;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+._23I3RSECl4BH8LOT0pexoq {
+  height: 100px;
+  width: 100px; }
+
+/*# sourceMappingURL=main.css.map*/

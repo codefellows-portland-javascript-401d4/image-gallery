@@ -1,0 +1,30 @@
+@import 'borders';
+@import 'colors';
+@import 'corners';
+
+:local(.list) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        @include rounded(4px);
+        background-color: $frontcolor;
+        border: $simpleborder;
+        display: inline;
+        margin: 0 1em;
+        padding: 0.2em;
+    }
+
+    li:hover {
+        background-color: $shellgray;
+        border: 1px solid $teal;
+        color: $teal;
+    }
+}
+
+:local(.top) {
+    text-align: center;
+}

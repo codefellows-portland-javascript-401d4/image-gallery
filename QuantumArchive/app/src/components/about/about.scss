@@ -1,0 +1,30 @@
+@import 'corners';
+@import 'colors';
+
+:local(.aboutpage) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+        @include rounded(4px);
+        text-decoration: none;
+        color: $hotlink;
+        min-width: 80px;
+        text-align: center;
+        background-color: $frontcolor;
+        border: 1px solid $hotlink;
+        padding: 0.1em 0.4em;
+        margin: 0 1em;
+    }
+
+    a.hot {
+        color: $frontcolor;
+        background-color: $hotlink;
+        border: 1px solid $frontcolor;
+    }
+}
+
+:local(.section) {
+    padding: 0;
+}

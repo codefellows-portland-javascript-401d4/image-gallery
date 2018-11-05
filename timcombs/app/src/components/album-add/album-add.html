@@ -1,0 +1,12 @@
+<section ng-class="$addAlbum.styles.addbox">
+  <span>Add an Album</span>
+  <div>
+    <label>name:</label>
+    <input ng-model="$addAlbum.name" required placeholder="enter name">
+  </div>
+  <div>
+    <label>description:</label>
+    <input ng-model="$addAlbum.description" placeholder="enter description">
+  </div>
+  <button ng-click="$addAlbum.addOneAlbum()" albums="$addAlbum.album">add album</button>
+</section>

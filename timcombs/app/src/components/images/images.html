@@ -1,0 +1,37 @@
+<header>Browse {{$images.album.name || 'All Pix'}}</header>
+<div ng-init="views = ['list', 'thumb', 'full']">
+  <button ng-repeat="view in views" name="view" ng-click="$images.toggleView(view)">
+    {{view}}
+  </button>
+</div>
+
+<ul ng-if="$images.view === 'list'">
+  <li ng-repeat="image in $images.images">
+    <image-list
+      image="image"
+      remove="$images.removeImage"
+      toggle-view="$images.toggleView">
+    </image-list>    
+  </li>
+</ul>
+
+<ul ng-if="$images.view === 'thumb'">
+  <li ng-class="$images.styles.column4" ng-repeat="image in $images.images">
+    <image-thumb
+      image="image"
+      remove="$images.removeImage"
+      toggle-view="$images.toggleView">
+    </image-thumb>    
+  </li>
+</ul>
+
+<ul ng-if="$images.view === 'full'">
+  <li ng-repeat="image in $images.images">
+     <image-full
+      image="image"
+      remove="$images.removeImage"
+      toggle-view="$images.toggleView">
+    </image-full>   
+  </li>
+</ul>
+

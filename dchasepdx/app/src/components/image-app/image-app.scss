@@ -1,0 +1,21 @@
+:local(.imgViewer) {
+  @import 'colors';
+  width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: $background;
+
+  select {
+    background-color: $drop;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    width: 150px;
+  }
+
+  text-align: left;
+
+
+}

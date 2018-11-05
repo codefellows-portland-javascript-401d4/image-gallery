@@ -1,0 +1,10 @@
+@import 'colors';
+
+:local(.delete) {
+  button {
+    border-radius: 0px;
+  }
+  button:hover {
+    background-color: $red;
+  }
+}

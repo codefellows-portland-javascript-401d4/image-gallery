@@ -1,0 +1,16 @@
+<h2>Albums</h2>
+
+<div id="view-selector">
+  <ul id="album-list">
+    <a ng-repeat="album in $ctrl.albumList"
+      ui-sref="album.thumbnails({ id: album._id })"        
+      ui-sref-active="tileActive"
+      class="albumtile">
+      {{ album.name }}
+    </a>
+  </ul>
+</div>
+
+<new-album add="$ctrl.add"></new-album>
+
+<ui-view>Choose an album to display images</ui-view>

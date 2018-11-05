@@ -1,0 +1,28 @@
+<section ng-class="$ctrl.styles['add-class']">
+  <div>
+    <h3>Add a new image:</h3><br>
+
+    <div>
+      <label>Image title:</label>
+      <input ng-model="$ctrl.title" placeholder="title">
+    </div>
+
+    <div>
+      <label>Image URL:</label>
+      <input ng-model="$ctrl.url" placeholder="URL">
+    </div>
+
+    <div>
+      <label>Image description:</label>
+      <input ng-model="$ctrl.description" placeholder="description">
+    </div>
+
+    <div>
+      <label>Album:</label>
+      <select ng-options="album._id as album.name for album in $ctrl.albums" ng-model="$ctrl.album"></select>
+    </div>
+
+  </div>
+  <button class="primary" ng-click="$ctrl.addNew()">Add a new image</button>
+
+</section>

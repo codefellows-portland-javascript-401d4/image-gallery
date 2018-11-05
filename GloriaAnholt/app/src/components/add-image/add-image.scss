@@ -1,0 +1,15 @@
+@import '../../scss/partials/_buttons';
+@import '../../scss/partials/_colors';
+
+:local(input) {
+  display: block;
+}
+
+:local(p) {
+  font-family: 'Cabin', sans-serif;
+}
+
+.add {
+  @include button($blue, white, $paleblue, 10px);
+}
+

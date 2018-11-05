@@ -1,0 +1,22 @@
+@import 'linkstyles';
+
+header {
+  display: block;
+}
+
+footer {
+  padding: 0.2em;
+  display: block;
+}
+
+nav a {
+  border: 2px outset lightgrey;
+  text-decoration: none;
+  padding: 0.2em;
+  background-color: lightgray;
+}
+
+nav a.hilite, a:hover {
+  background: steelblue;
+  color: white;
+}

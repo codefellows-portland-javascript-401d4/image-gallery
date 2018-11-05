@@ -1,0 +1,11 @@
+:local(.gallery) {
+  @import 'colors';
+  img {
+    width: 700px;
+    height: auto;
+  }
+
+  h1 {
+    color: $text;
+  }
+}

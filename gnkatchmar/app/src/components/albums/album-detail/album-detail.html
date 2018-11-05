@@ -1,0 +1,17 @@
+<section>
+		<h2>{{$ctrl.album.name}} Album:</h2>
+    <ul>
+			<li ng-repeat="image in $ctrl.album.images">
+				<text-only ng-if="$ctrl.view ==='text view'"
+					image="image">
+				</text-only>
+				<full-image ng-if="$ctrl.view==='image view'"
+					image="image">
+				</full-image>
+				<thumbnail ng-if="$ctrl.view==='thumbnail view'"
+					image="image">
+				</thumbnail>
+			</li>
+    </ul>
+		<new-image album-id="$ctrl.album._id" add="$ctrl.add"></new-image>
+</section>

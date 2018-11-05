@@ -1,0 +1,8 @@
+<section>
+  <h2>Albums</h2>
+  <div ng-repeat="album in overviewCtrl.albums">
+    <!--<img ng-src="{{album.images[0].url}}">-->
+    <h4><a ui-sref="albums.images({id: album._id})">{{album.name}}</a></h4>
+    <span>Number of images in album: {{album.images.length}}.</span>
+  </div>
+</section>

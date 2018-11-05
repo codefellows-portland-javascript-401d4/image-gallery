@@ -1,0 +1,41 @@
+@import 'borders';
+@import 'corners';
+
+:local(.new) {
+    border: $simpleborder;
+    padding: 5px;
+    @include rounded(4px);
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    input, select {
+        max-width: 140px;
+        margin: 2px;
+    }
+
+    select {
+        padding: 1px 0;
+    }
+
+    h4 {
+        margin: 0px;
+        text-align: center;
+    }
+
+    button {
+        min-width: 100px;
+        margin-left: calc(50% - 50px);
+    }
+
+    @media only screen and (min-width: 520px) {
+        form {
+            flex-direction: row;
+        }
+    }
+}

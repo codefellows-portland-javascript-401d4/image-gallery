@@ -1,0 +1,12 @@
+<div ng-class="$ctrl.styles.about-dev">
+  <h2>About the developer</h2>
+  <p>What more do you need to know about the developer other than he's an awesome software developer?</p>
+
+  <h3>Quiz Time!</h3>
+  <p>Is the developer of this app awesome?</p>
+  <button ng-click="$ctrl.answer = true">YES</button>
+  <button ng-click="$ctrl.answer = false">NO</button>
+
+  <p ng-if="$ctrl.answer">Correct!</p>
+  <p ng-if="$ctrl.answer === false">I think you need to review the material...you know, the single line above the quiz. Or is that too hard for you?</p>
+</div>
