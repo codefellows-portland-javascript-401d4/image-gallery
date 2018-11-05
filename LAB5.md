@@ -20,7 +20,10 @@ You can either:
 * Handle multiple albums *5pts*
 * Code Quality and Organization *2pts*
 
+<<<<<<< HEAD
 
 
 
   
+=======
+>>>>>>> be92d195a2015a48a176c6623dd704d972ecb563

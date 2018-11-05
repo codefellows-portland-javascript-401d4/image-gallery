@@ -1,0 +1,23 @@
+
+<section ng-class="$ctrl.styles.albums">
+    <div>
+        <albums-add add="$ctrl.add"></albums-add>
+    </div>
+    <hr>
+    <div>
+
+        <h3>Current Albums</h3>
+        <ul>
+            <li ng-repeat="album in $ctrl.albums">
+                <div class="justone">
+                <p><a ui-sref="albums.images({id: album._id})">{{album.title}}</a></p>
+                <button class="basic" ng-click="$ctrl.remove(album)">Remove Album</button>
+                </div>
+            </li>
+        </ul>
+        <hr>
+
+        <!--<albums-view albums="$ctrl.albums"></albums-view>-->
+        <ui-view name="myimages" ></ui-view>
+    </div>
+</section>
