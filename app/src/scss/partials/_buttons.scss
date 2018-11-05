@@ -1,0 +1,13 @@
+@import 'colors';
+@import 'mixins';
+
+button {
+  background: $dkorange;
+  color: $dkblue;
+  @include rounded-corners(12%);
+}
+
+button:hover {
+  background: $ltorange;
+  color: $mdblue;
+}

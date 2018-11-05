@@ -1,0 +1,20 @@
+<section ng-class="$addImage.styles.addbox">
+  <span>Add an Image</span>
+  <div>
+    <label>name:</label>
+    <input ng-model="$addImage.name" required placeholder="enter name">
+  </div>
+  <div>
+    <label>description:</label>
+    <input ng-model="$addImage.description" placeholder="enter description">
+  </div>
+  <div>
+    <label>url:</label>
+    <input ng-model="$addImage.url" required placeholder="enter image url">
+    <label>album:</label>
+    <select ng-model="$addImage.myAlbum" ng-options="album._id as album.name for album in $addImage.albums" ng-change="setAlbum(myAlbum)">
+      <option value="">- pick one -</option>
+    </select>
+  </div>
+  <button ng-click="$addImage.addOneImage()">add img</button>
+</section>

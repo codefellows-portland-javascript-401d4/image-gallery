@@ -1,0 +1,20 @@
+<ul ng-if="$albumCollection.view === 'list'">
+  <li ng-repeat="album in $albumCollection.albums">
+    <album-list
+      album="album"
+      remove="$albumCollection.removeAlbum"
+      toggle-view="$albumCollection.toggleView">
+    </album-list>   
+  </li>
+</ul>
+
+<ul ng-if="$albumCollection.view === 'thumb'">
+  <li ng-class="$albumCollection.styles.column4" ng-repeat="album in $albumCollection.albums">
+    <album-thumb
+      album="albums"
+      remove="$albumCollection.removeAlbum"
+      toggle-view="$albumCollection.toggleView">
+    </album-thumb> 
+  </li>  
+
+</ul>
