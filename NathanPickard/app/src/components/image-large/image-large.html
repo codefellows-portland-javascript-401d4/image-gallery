@@ -1,0 +1,8 @@
+<section>
+  <h2>{{ $ctrl.image.title }}</h2>
+  <img ng-class="$ctrl.styles['large-class']" ng-src="{{ $ctrl.image.url }}" alt="{{ $ctrl.image.title }}">
+  <p>{{ $ctrl.image.description }}</p>
+  <p><a href="{{ $ctrl.image.url }}">Source</a></p>
+
+  <button ng-click="$ctrl.delete()">Remove image</button>
+</section>
