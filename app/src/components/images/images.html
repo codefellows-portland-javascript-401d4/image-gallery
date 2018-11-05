@@ -1,0 +1,42 @@
+
+<button class="viewButton" ng-click="$ctrl.detail()">View Detail</button>
+<button class="viewButton" ng-click="$ctrl.thumbnail()">View Thumbnail</button>
+<button class="viewButton" ng-click="$ctrl.full()">View Full Size</button>
+<button class="viewButton" ng-click="$ctrl.new()">Add an Image</button>
+
+<div class="component" ng-show="$ctrl.viewNew === true">
+  <new-image add="$ctrl.add"><new-image>
+</div>
+
+<div class="component" ng-show="$ctrl.viewDetail === true">
+  <h2>Bunny details</h2>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <bunny-detail
+        image="image">
+      </bunny-detail>
+    </li>
+  </ul>
+</div>
+
+<div class ="component" ng-show="$ctrl.viewThumbnail === true">
+  <h2>Bunny thumbnails</h2>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <bunny-thumbnail
+        image="image">
+      </bunny-thumbnail>
+    </li>
+  <ul>
+</div>
+
+<div class ="component" ng-show="$ctrl.viewFull === true">
+  <h2>Full size images of bunnies</h2>
+  <ul>
+    <li ng-repeat="image in $ctrl.images">
+      <bunny-full-size
+          image="image">
+      </bunny-full-size>
+    </li>
+  </ul>
+</div>

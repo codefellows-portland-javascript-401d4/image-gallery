@@ -1,0 +1,45 @@
+@import 'font';
+@import 'layout';
+
+.viewButton {
+  width: 200px;
+  height: 50px;
+  margin: $defaultMargin;
+  background-color: #c5c4c4;
+  font-family: $primaryFont;
+  font-weight: $primaryFontWeight;
+  font-size: $defaultFontSize;
+  box-shadow: 1px 5px 10px #232121;
+  border: 0px;
+  border-radius: $defaultBorderRadius;
+}
+
+.viewButton:hover {
+  background-color: #fff;
+  transition: 1s;
+}
+
+.component {
+  background-color: rgba(255,235,205,.9);
+  padding: $defaultPadding;
+  margin: $defaultMargin;
+  border-radius: $defaultBorderRadius;
+}
+
+.component ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+label {
+  display: block;;
+}
+
+input {
+  display: inline;
+}
+
+.album-detail a:hover {
+  width: 40%;
+  margin: auto;
+}
