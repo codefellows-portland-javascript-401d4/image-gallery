@@ -1,0 +1,26 @@
+<section ng-class="imagesCtrl.styles.images">
+  <header>
+    <form>
+      <input type="radio" name="image-type" ng-model="imagesCtrl.imageType" value="text" selected="true"> Info<br>
+      <input type="radio" name="image-type" ng-model="imagesCtrl.imageType" value="thumb"> Thumbnail<br>
+      <input type="radio" name="image-type" ng-model="imagesCtrl.imageType" value="full"> Full Size<br>
+    </form>
+    <hr>
+  </header>
+
+<section>
+  <div ng-class="'img-div-container'">
+    <div ng-class="'img-div'" ng-repeat="image in imagesCtrl.images">
+      <image-text class="image-cont" ng-show="imagesCtrl.imageType === 'text'" image="image" remove-image="imagesCtrl.removeImage"></image-text>
+      <image-thumb class="image-cont" ng-show="imagesCtrl.imageType === 'thumb'" image="image" remove-image="imagesCtrl.removeImage"></image-thumb>
+       <image-full class="image-cont" ng-show="imagesCtrl.imageType === 'full'" image="image" remove-image="imagesCtrl.removeImage"></image-full>
+      
+      <!--<delete-image ng-class="delete" image="image" remove-image="imagesCtrl.removeImage"></delete-image>-->
+    </div>
+  </div>
+  </section>
+  <hr>
+  <footer>
+    <new-image add-image="imagesCtrl.addImage"></new-image>
+  </footer>
+</section>

@@ -1,0 +1,20 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjfreem1/image-gallery.git"
+  },
+  "author": "mjfreem1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjfreem1/image-gallery/issues"
+  },
+  "homepage": "https://github.com/mjfreem1/image-gallery#readme",
+  "devDependencies": {}
+}
