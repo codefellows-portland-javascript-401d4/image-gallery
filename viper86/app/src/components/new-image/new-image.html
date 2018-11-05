@@ -1,0 +1,8 @@
+<section ng-class="$ctrl.styles.upload">
+  <form>
+    <input ng-model="$ctrl.title" placeholder="--image title--">
+    <input ng-model="$ctrl.url" placeholder="--image url--">
+    <textarea ng-model="$ctrl.description" rows="3" placeholder="--image description--" maxlength="150"></textarea>
+    <button ng-click="$ctrl.addNew()">Upload Image</button>
+  </form>
+</section>
