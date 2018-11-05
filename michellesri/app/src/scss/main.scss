@@ -1,0 +1,27 @@
+
+.img-view {
+  max-width: 90%;
+}
+
+.full-view img {
+  max-width: 50%;
+  width: 100%
+}
+
+#view-wrapper {
+  padding: 2%;
+  margin: 2%;
+}
+
+body {
+  // font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Andale Mono", "Monaco", monospace;
+  color: white;
+  background-color: grey;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  font-family: "Andale Mono", "Monaco", monospace;
+}
