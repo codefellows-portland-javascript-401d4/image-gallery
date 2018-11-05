@@ -1,0 +1,21 @@
+<section>
+  <div>
+    <input type="checkbox" ng-model="delEnable">Enable delete?
+  </div>
+  <div id="view-selector">
+    <button ui-sref="album.details">Details</button>
+    <button ui-sref="album.full">Full</button>
+    <button ui-sref="album.thumbnails">Thumbnails</button>
+  </div>
+
+  <!--Loading indicator...-->
+  <div ng-class="imagesCtrl.styles['loader']" ng-if="imagesCtrl.loading">Loading...</div>
+
+  <!--List of images, could be one of three display modes-->
+  <div>
+    <ui-view></ui-view>
+  </div>
+
+  <!--Form to add a new image-->
+  <new-image add="imagesCtrl.add"></new-image>
+</section>

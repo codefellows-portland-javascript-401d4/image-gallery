@@ -1,0 +1,8 @@
+<div ng-repeat="image in $ctrl.images" class="detail-view">
+  <table>
+  <tr><td><b>Title:</b></td><td>{{ image.title }}</td></tr>
+  <tr><td><b>Link:</b></td><td>{{ image.link }}</td></tr>
+  <tr><td><b>Description:</b></td><td>{{ image.description }}</td></tr>
+  </table>
+  <button ng-class="$ctrl.imagesCtrl.styles['del-btn']" ng-click="$ctrl.imagesCtrl.remove(image)">Delete</button>  
+</div>

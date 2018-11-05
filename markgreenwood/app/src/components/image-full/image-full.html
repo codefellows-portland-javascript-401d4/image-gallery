@@ -1,0 +1,6 @@
+<div ng-repeat="image in $ctrl.images" class="full-view">
+  <p><b>Title:</b> {{ image.title }}</p>
+  <img ng-src="{{image.link}}">
+  <p><b>Description:</b> {{ image.description }}</p>
+  <button ng-class="$ctrl.imagesCtrl.styles['del-btn']" ng-click="$ctrl.imageCtrl.remove(image)">Delete</button>
+</div>
