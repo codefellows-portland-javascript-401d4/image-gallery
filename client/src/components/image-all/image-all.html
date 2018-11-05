@@ -1,0 +1,9 @@
+<section ng-class="$ctrl.styles.all">
+    <div ng-repeat="image in $ctrl.images">
+        <image-all-detail
+            image="image"
+            remove="$ctrl.remove">
+        </image-all-detail>
+    </div>
+    <new-image add="$ctrl.add"></new-image>
+</section>
