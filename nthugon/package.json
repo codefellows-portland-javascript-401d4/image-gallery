@@ -1,0 +1,19 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd client && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthugon/image-gallery.git"
+  },
+  "author": "@nthugon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthugon/image-gallery/issues"
+  },
+  "homepage": "https://github.com/nthugon/image-gallery#readme"
+}

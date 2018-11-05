@@ -1,0 +1,133 @@
+/*COLORS
+aqua #adfcf9
+grey-green #89a894
+grey #adb8ac
+army green #4b644a
+grey maroon #49393b
+maroon brown #341c1c*/
+
+body {
+    background-color: #adfcf9;
+    color: #341c1c;
+}
+
+h1 {
+    background-color: #89a894;
+    border-radius: 15px;
+    text-align: center;
+    width: 50%;
+    margin: 5% auto;
+    padding: 2%;
+}
+
+
+._26ORZlDbpI2_0yKxZYFibf button {
+    padding: 1%;
+    text-align: center;
+    background-color: #8b8182;
+    width: 20%;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    transition: transform .5s;
+}
+
+._26ORZlDbpI2_0yKxZYFibf button:hover {
+    transform: scale(1.1);
+}
+._2708hYWNCiQfIxzn0dglW9 {
+    text-align: center;
+    color: white;
+    background-color: #584545;
+    border-radius: 15px;
+    width: 80%;
+    margin: 5% auto;
+    padding: 5%;
+}
+
+._2708hYWNCiQfIxzn0dglW9 img {
+    width: 100px;
+    height: 100px;
+}
+
+._2708hYWNCiQfIxzn0dglW9 div {
+    color: #341c1c;
+    background-color: #adb8ac;;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5%;
+}
+
+._3S27sEoQlDcgENzXMPGJNI {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+._3S27sEoQlDcgENzXMPGJNI select {
+    display: block;
+    margin: 2% auto;
+    width: 175px;
+    border-radius: 15px;
+}
+._3yCTas6A8zUCisoe9Boch6 {
+    text-align: center;
+    color: white;
+    background-color: #adb8ac;
+    border-radius: 15px;
+    width: 50%;
+    margin: 5% auto;
+    padding: 5%;
+}
+._14OweBXFrqVUuBQ8dCXLk4 {
+    text-align: center;
+    color: white;
+    background-color: #584545;
+    border-radius: 15px;
+    width: 80%;
+    margin: 5% auto;
+    padding: 5%;
+}
+
+._14OweBXFrqVUuBQ8dCXLk4 img {
+    max-width: 100%;
+}
+._11T7qyV23K_HJKWVsGU9lU {
+    text-align: center;
+    color: white;
+    background-color: #8b8182;
+    border-radius: 15px;
+    width: 50%;
+    margin: 5% auto;
+    padding: 5%;
+}
+
+._11T7qyV23K_HJKWVsGU9lU img {
+    width: 100px;
+    height: 100px;
+}
+._2Txlm7psXtglAmGUmUahno {
+    color: #341c1c;
+    background-color: #adb8ac;;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5%;
+}
+
+._2Txlm7psXtglAmGUmUahno button {
+    padding: 1%;
+    margin-bottom: 5%;
+    text-align: center;
+    background-color: #8b8182;
+    width: 20%;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    transition: transform .5s;
+}
+
+._2Txlm7psXtglAmGUmUahno button:hover {
+    transform: scale(1.1);
+}
+
+/*# sourceMappingURL=main.css.map*/
