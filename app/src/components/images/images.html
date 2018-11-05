@@ -1,0 +1,15 @@
+<section>
+  <select ng-model="$ctrl.view" ng-options="view for view in $ctrl.views"></select>
+    <image-new add="$ctrl.add"></image-new>
+
+    <ul>
+      <li ng-class="$ctrl.styles['large-class']" ng-repeat="image in $ctrl.images">
+        <image-thumbnail ng-if="$ctrl.view === 'thumbnail'" image="image"></image-thumbnail>
+        <image-detail ng-if="$ctrl.view === 'detail'" image="image"></image-detail>
+        <image-large ng-if="$ctrl.view === 'large' || $ctrl.view === undefined" image="image" remove="$ctrl.remove"></image-large>
+      </li>
+    </ul>
+</section>
+
+
+<hr>
